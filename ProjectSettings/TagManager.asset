@@ -2,8 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Enemy
+  - Trap
+  - Door
+  - Cabinet
+  - Interactable
+  - Ladder
   layers:
   - Default
   - TransparentFX
@@ -11,9 +17,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Wall
+  - DoorBlock
+  - EnemyBody
   - 
   - 
   - 
@@ -41,3 +47,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BG
+    uniqueID: 4193716565
+    locked: 0
+  - name: Mid
+    uniqueID: 742716177
+    locked: 0
+  - name: Traps
+    uniqueID: 1009372663
+    locked: 0
+  - name: PlayerNPC
+    uniqueID: 1998724173
+    locked: 0
+  - name: FG
+    uniqueID: 4091233747
+    locked: 0
+  - name: UI
+    uniqueID: 2228906277
+    locked: 0
+  m_RenderingLayers:
+  - Default
