@@ -81,12 +81,12 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5083821896840769227, guid: 3605db20263dec4479d502777f98a348, type: 3}
+  m_Sprite: {fileID: -6154670555725212936, guid: 9a5157cdeeb3bd34c96eb91e3b007f0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -233,6 +233,6 @@ MonoBehaviour:
   passcode: 3071
   blockingCollider: {fileID: 8700891427551235332}
   doorRenderer: {fileID: 3533271692595122658}
-  closedSprite: {fileID: 5083821896840769227, guid: 3605db20263dec4479d502777f98a348, type: 3}
-  openSprite: {fileID: 4900855374138636814, guid: 24979b2dd723651489a7646c61d41fa2, type: 3}
+  closedSprite: {fileID: -6154670555725212936, guid: 9a5157cdeeb3bd34c96eb91e3b007f0c, type: 3}
+  openSprite: {fileID: -6852506607148623578, guid: c47d2a33941869746baff04e91ae454d, type: 3}
   promptKey: ui.passcode.title

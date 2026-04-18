@@ -4,6 +4,9 @@ using UnityEngine;
 
 public static class FixSpriteImporters
 {
+    [UnityEditor.MenuItem("Tools/Prism Zone/Fix Sprite Importers")]
+    public static void RunFromMenu() => Execute();
+
     public static void Execute()
     {
         string root = "Assets/Art/Sprites";

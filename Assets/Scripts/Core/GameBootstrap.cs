@@ -31,6 +31,9 @@ namespace PrismZone.Core
             _instance = this;
             DontDestroyOnLoad(gameObject);
 
+            // Wipe stale 'lang' pref so we never accidentally pick up Chinese before
+            // a CJK-capable TMP font is in place (FontEngine will OOM the editor).
+            I18nManager.ResetPrefs();
             I18nManager.Init();
 
             if (enableInputAsset && InputSystem.actions != null)

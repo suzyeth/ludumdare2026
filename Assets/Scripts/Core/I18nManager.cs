@@ -26,9 +26,20 @@ namespace PrismZone.Core
 
         public static void Init()
         {
-            var saved = PlayerPrefs.GetString(PrefKey, DefaultLang);
-            Load(saved);
+            // v0.4 TEMP: hard-lock to English until Zpix (or another CJK-capable TMP font) ships.
+            // Reason: TMP's default LiberationSans SDF has no CJK glyphs. If any UI label is
+            // fed Chinese text, the dynamic SDF atlas grows unbounded and the Editor can run
+            // FontEngine into 2 GB+ memory within seconds → editor hang.
+            // Remove this override once a proper Chinese font is wired.
+            Load("en");
             _initialised = true;
+        }
+
+        /// <summary>Clears any previously-cached 'lang' pref, in case an earlier run wrote 'zh'.</summary>
+        public static void ResetPrefs()
+        {
+            PlayerPrefs.DeleteKey(PrefKey);
+            PlayerPrefs.Save();
         }
 
         private static void EnsureInit()
