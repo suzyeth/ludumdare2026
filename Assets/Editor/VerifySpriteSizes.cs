@@ -6,9 +6,13 @@ using UnityEngine;
 /// <summary>
 /// Verifies every PNG in Assets/Art/Sprites/ matches GAME-SPEC pixel sizes at 32 PPU.
 /// Reports mismatches as warnings and confirms importer settings (Sprite, PPU 32, Point filter).
+/// Menu: Tools > Prism Zone > Asset Health Check
 /// </summary>
 public static class VerifySpriteSizes
 {
+    [MenuItem("Tools/Prism Zone/Asset Health Check")]
+    public static void RunFromMenu() => Execute();
+
     // Expected pixel sizes per spec. Filename prefix (case-insensitive) -> (w, h, purpose).
     static readonly (string match, int w, int h, string purpose)[] Rules = {
         ("char_player",   48, 24, "Player (1.5×0.75)"),

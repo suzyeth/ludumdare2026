@@ -148,11 +148,11 @@ public static class BuildScene
         rb.linearDamping = 6f;
 
         var col = EnsureComponent<BoxCollider2D>(go);
-        col.size = new Vector2(1.5f, 0.75f);
+        col.size = new Vector2(0.75f, 1.5f);  // vertical player (24x48 @ PPU 32)
 
         var sr = go.transform.Find("Sprite")?.GetComponent<SpriteRenderer>();
         if (sr == null) sr = CreateSpriteChild(go, "Sprite", SP("S_Player"), "PlayerNPC", 0,
-                                               scale: new Vector3(1.5f, 0.75f, 1f));
+                                               scale: Vector3.one);
 
         var ctl = EnsureComponent<PlayerController>(go);
         SerializedSet(ctl, "spriteRenderer", sr);
@@ -181,7 +181,7 @@ public static class BuildScene
         grb.gravityScale = 0f;
         grb.bodyType = RigidbodyType2D.Kinematic;
         var gcol = EnsureComponent<BoxCollider2D>(green);
-        gcol.size = Vector2.one;
+        gcol.size = new Vector2(0.75f, 1.5f);  // vertical GREEN (24x48)
         gcol.isTrigger = true;  // No physical push on Player; catch logic will use OnTriggerEnter
 
         // Waypoints (optional — if user deleted them, GREEN stays Idle until chase)
