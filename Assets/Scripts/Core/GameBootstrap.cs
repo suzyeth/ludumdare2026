@@ -14,14 +14,34 @@ namespace PrismZone.Core
     {
         [SerializeField] private bool enableInputAsset = true;
 
+        /// <summary>
+        /// Keep the whole _Bootstrap branch alive across scene loads so Inventory /
+        /// FilterManager / AlarmBroadcaster / audio singletons survive transitions.
+        /// Only one Bootstrap may exist — the first wins, later duplicates self-destruct.
+        /// </summary>
+        private static GameBootstrap _instance;
+
         private void Awake()
         {
+            if (_instance != null && _instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+
             I18nManager.Init();
 
             if (enableInputAsset && InputSystem.actions != null)
             {
                 InputSystem.actions.Enable();
             }
+        }
+
+        private void OnDestroy()
+        {
+            if (_instance == this) _instance = null;
         }
     }
 }

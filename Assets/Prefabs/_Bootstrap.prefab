@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3293908367429881930}
   - component: {fileID: 5077707442491451543}
   - component: {fileID: 11158649597361909}
+  - component: {fileID: 8921671569473738401}
   m_Layer: 0
   m_Name: _Bootstrap
   m_TagString: Untagged
@@ -88,3 +89,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.UI.Inventory
   startingItems:
   - item.glasses
+--- !u!114 &8921671569473738401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988662042033181910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8e4958ef0357c49b08dee5e1e59b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.PersistentRoot
+  persistId: 

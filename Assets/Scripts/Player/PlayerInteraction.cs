@@ -33,10 +33,29 @@ namespace PrismZone.Player
         {
             ScanNearest();
             var kb = Keyboard.current;
-            bool pressed = kb != null && kb.eKey.wasPressedThisFrame;
-            if (pressed && _current != null)
+            if (kb == null) return;
+
+            // E = interact with nearest
+            if (kb.eKey.wasPressedThisFrame && _current != null)
             {
                 _current.Interact(gameObject);
+            }
+
+            // F = open detail popup on first inventory item that has one
+            if (kb.fKey.wasPressedThisFrame) TryOpenFirstDetail();
+        }
+
+        private void TryOpenFirstDetail()
+        {
+            var panel = PrismZone.UI.ItemDetailPanel.Instance;
+            if (panel == null) return;
+            if (panel.IsOpen) { panel.Close(); return; }
+            var inv = PrismZone.UI.Inventory.Instance;
+            if (inv == null) return;
+            foreach (var id in inv.Slots)
+            {
+                var data = PrismZone.Core.ItemDatabase.Get(id);
+                if (data != null && data.HasDetailPopup) { panel.Show(data); break; }
             }
         }
 

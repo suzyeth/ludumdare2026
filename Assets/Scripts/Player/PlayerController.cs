@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using PrismZone.Core;
+using PrismZone.UI;
 
 namespace PrismZone.Player
 {
@@ -94,15 +95,8 @@ namespace PrismZone.Player
                 spriteRenderer.flipX = vx < 0f;
         }
 
-        private void LateUpdate()
-        {
-            // Pixel snap the transform so sub-pixel drift doesn't jitter the sprite.
-            if (pixelsPerUnit <= 0f) return;
-            var p = transform.position;
-            p.x = Mathf.Round(p.x * pixelsPerUnit) / pixelsPerUnit;
-            p.y = Mathf.Round(p.y * pixelsPerUnit) / pixelsPerUnit;
-            transform.position = p;
-        }
+        // LateUpdate pixel snap removed in v0.4 — Pixel Perfect Camera handles
+        // whole-pixel alignment. Manual snap fights PPC's upscale RT path.
 
         private void ReadInput()
         {
@@ -110,15 +104,24 @@ namespace PrismZone.Player
             _runHeld = _runAction != null && _runAction.IsPressed();
         }
 
+        private const string GlassesItemId = "item.glasses";
+
         private void HandleFilterHotkeys()
         {
             if (FilterManager.Instance == null) return;
             var kb = Keyboard.current;
             if (kb == null) return;
+
+            // Filter gate: glasses must be in inventory. 0 (remove) always allowed so
+            // a player who picks up glasses mid-level can still drop filters cleanly.
+            bool hasGlasses = Inventory.Instance != null && Inventory.Instance.Has(GlassesItemId);
+
+            if (kb.digit0Key.wasPressedThisFrame) FilterManager.Instance.SetFilter(FilterColor.None);
+            if (!hasGlasses) return;
+
             if (kb.digit1Key.wasPressedThisFrame) FilterManager.Instance.SetFilter(FilterColor.Red);
             if (kb.digit2Key.wasPressedThisFrame) FilterManager.Instance.SetFilter(FilterColor.Green);
             if (kb.digit3Key.wasPressedThisFrame) FilterManager.Instance.SetFilter(FilterColor.Blue);
-            if (kb.digit0Key.wasPressedThisFrame) FilterManager.Instance.SetFilter(FilterColor.None);
         }
 
         private void HandleRunningNoise()

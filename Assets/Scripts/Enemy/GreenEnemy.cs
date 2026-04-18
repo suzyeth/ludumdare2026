@@ -92,6 +92,12 @@ namespace PrismZone.Enemy
         private bool CanSeePlayer()
         {
             if (target == null) return false;
+            // Hiding in a cabinet = invisible to sight-based enemies (guards, GREEN).
+            // Sound-based RED still hears running noise via PlayerNoise pulse, which is
+            // suppressed elsewhere while hiding (Rigidbody velocity = 0).
+            var pc = target.GetComponent<PrismZone.Player.PlayerController>();
+            if (pc != null && pc.IsHidden) return false;
+
             Vector2 to = (Vector2)target.position - (Vector2)transform.position;
             float dist = to.magnitude;
             if (dist > visionRange) return false;
@@ -186,6 +192,15 @@ namespace PrismZone.Enemy
             transform.position = Vector2.MoveTowards(transform.position, goal, speed * Time.deltaTime);
             Vector2 delta = (Vector2)(transform.position - before);
             if (delta.sqrMagnitude > 0.0001f) _facing = delta.normalized;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (Current != State.Chase) return; // only kill during active pursuit
+            if (!other.CompareTag("Player")) return;
+            var pc = other.GetComponent<PrismZone.Player.PlayerController>();
+            if (pc != null && pc.IsHidden) return;
+            PrismZone.Core.GameOverController.TriggerGameOver("caught by GREEN");
         }
 
         private void OnDrawGizmosSelected()

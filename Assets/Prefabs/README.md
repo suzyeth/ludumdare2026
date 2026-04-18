@@ -24,9 +24,9 @@ Notes:
 ---
 
 ## `GREEN_Watcher.prefab`
-The single tracking enemy. Walks between waypoints, chases when player enters vision radius.
+The tracking enemy. Walks between waypoints, chases when player enters vision radius.
 
-**Waypoints**: drag `WP_1` and `WP_2` (also in this folder) into the scene as children under `GREEN/Waypoints`. GREEN auto-finds them on Awake. If you don't add waypoints, GREEN stands still until chasing.
+**Self-contained**: the prefab includes a `Waypoints` child with `WP_1` and `WP_2` already. In the scene, select the waypoints and drag them to wherever the patrol line should go. If you don't need patrol, delete the waypoints — GREEN will stand still until chase triggers.
 
 | Inspector knob | Default | Notes |
 |---|---|---|
@@ -42,6 +42,39 @@ The single tracking enemy. Walks between waypoints, chases when player enters vi
 Notes:
 - GREEN's BoxCollider is `IsTrigger = true` so it passes through walls visually *but* BFS path respects walls. Do NOT turn off trigger unless you also rewrite collision logic.
 - Wall Tilemap reference breaks when duplicated into a new scene — **re-drag the scene's Tilemap_Walls into it after duplicating**.
+
+---
+
+## `RED_Shrike.prefab` *(not in default scene)*
+Flying blind ghost. Invisible until it chases. Hears player running (Shift) within 8u radius and dashes straight-line through walls.
+
+| Inspector knob | Default | Notes |
+|---|---|---|
+| `Red Enemy › Chase Speed` | 5 | u/s, straight line |
+| `Red Enemy › Return Speed` | 2 | u/s, walks home after giving up |
+| `Red Enemy › Hearing Radius` | 8 | Activation range via player noise pulses |
+| `Red Enemy › Stillness Recall Time` | 10 | seconds player must stand still to escape |
+| `Red Enemy › Reveal Filter` | Blue | Visible under blue filter |
+| `Red Enemy › Hidden Alpha` | 0.35 | Test-friendly ghost visibility |
+
+Notes:
+- Will phase through walls — that's the design. No Tilemap ref needed.
+- Only reacts when player RUNS (Shift). Walking is silent.
+
+---
+
+## `BLUE_Weaver.prefab` *(not in default scene)*
+Static trap. Player stepping in fires `AlarmBroadcaster` for 10 s, pulling all RED/GREEN in the scene toward the alarm point.
+
+| Inspector knob | Default | Notes |
+|---|---|---|
+| `Blue Trap › Alarm Duration` | 10 | seconds the alarm is broadcast |
+| `Blue Trap › Retrigger Cooldown` | 3 | seconds between re-activations |
+| `Blue Trap › Reveal Filter` | Green | Visible under green filter |
+
+Notes:
+- Has a CircleCollider2D trigger radius 0.5. Player tagged `Player` triggers it.
+- Works best in narrow corridors where you can't just walk around it.
 
 ---
 
@@ -83,6 +116,23 @@ A small world item that either adds to inventory and/or shows a centered clue po
 | `Pickup › One Shot Clue` | true | Only show once, then disappear |
 
 To add a new clue: edit `Assets/Resources/i18n/en.json` and `zh.json`, add a new `"clue.myroom.thing": "Text"` entry, then set the Pickup's `Clue Text Key`.
+
+---
+
+## `HUD_Canvas.prefab`
+The complete in-game UI layer. One instance per scene. Render mode: **ScreenSpaceOverlay** (drop and go).
+
+Contents:
+- `FilterHUD` — bottom-left filter indicator (4 dots + text)
+- `InventoryHUD` — bottom-right 4 slot inventory
+- `InteractPrompt` — bottom-center "E to …" prompt (auto-shows when near interactables)
+- `CluePopup` — center modal for clue text (opens via `CluePopup.Instance.Show(key)`)
+- `PasscodePanel` — center 4-digit keypad for `PasscodeDoor` (auto-opens on door E, close via X/Esc)
+
+**Do not duplicate per level — drag the prefab in.** If you need a custom HUD for a specific level, right-click HUD_Canvas in Project → Create → Prefab Variant.
+
+## `EventSystem.prefab`
+Input System UI input module. One instance per scene. Always drop alongside HUD_Canvas.
 
 ---
 
