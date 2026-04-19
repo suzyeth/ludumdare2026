@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using PrismZone.UI;
 
 namespace PrismZone.Core
@@ -58,6 +59,10 @@ namespace PrismZone.Core
             _bgmA.spatialBlend = _bgmB.spatialBlend = 0f;
 
             HookEvents();
+
+            // Start the BGM that matches whichever scene we booted into (the
+            // Awake call runs after the scene's GameObjects are alive).
+            PlayBgmForScene(SceneManager.GetActiveScene().name);
         }
 
         private void OnDestroy()
@@ -129,6 +134,7 @@ namespace PrismZone.Core
             VictoryController.OnVictory += HandleVictory;
             PrismZone.Interact.PasscodeDoor.OnRequestPasscode += HandlePasscodePrompt;
             GameSettings.OnChanged += HandleSettingsChanged;
+            SceneManager.sceneLoaded += HandleSceneLoaded;
         }
 
         private void UnhookEvents()
@@ -138,6 +144,24 @@ namespace PrismZone.Core
             VictoryController.OnVictory -= HandleVictory;
             PrismZone.Interact.PasscodeDoor.OnRequestPasscode -= HandlePasscodePrompt;
             GameSettings.OnChanged -= HandleSettingsChanged;
+            SceneManager.sceneLoaded -= HandleSceneLoaded;
+        }
+
+        private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if (mode == LoadSceneMode.Additive) return;
+            PlayBgmForScene(scene.name);
+        }
+
+        /// <summary>
+        /// Maps scene name to its background track. Main menu gets the softer
+        /// startmenu cue; every gameplay scene shares the ambient gameplay track.
+        /// Unknown scenes fall back to gameplay ambient so we never go silent.
+        /// </summary>
+        private void PlayBgmForScene(string sceneName)
+        {
+            SoundId id = sceneName == "Scene_MainMenu" ? SoundId.BgmMenu : SoundId.BgmAmbient;
+            Play(id);
         }
 
         // BGM already-playing source must retune when sliders move; one-shot SFX

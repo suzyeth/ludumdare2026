@@ -170,16 +170,16 @@ MonoBehaviour:
     loop: 0
     isMusic: 0
   - id: 100
-    clip: {fileID: 0}
-    volume: 1
+    clip: {fileID: 8300000, guid: 0f90734ea28618d4eae6a2736c6b49ab, type: 3}
+    volume: 0.6
     pitch: 1
-    loop: 0
+    loop: 1
     isMusic: 1
   - id: 101
-    clip: {fileID: 0}
-    volume: 1
+    clip: {fileID: 8300000, guid: 8e0d97a6e1776c54aa9ef0b32bc1fe04, type: 3}
+    volume: 0.5
     pitch: 1
-    loop: 0
+    loop: 1
     isMusic: 1
   - id: 102
     clip: {fileID: 0}
