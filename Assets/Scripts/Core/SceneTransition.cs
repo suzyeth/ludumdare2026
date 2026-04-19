@@ -47,6 +47,12 @@ namespace PrismZone.Core
             var pc = other.GetComponent<PlayerController>();
             if (pc != null && pc.IsHidden) return;
 
+            if (string.IsNullOrEmpty(targetScene))
+            {
+                Debug.LogWarning($"[SceneTransition] '{name}' has no Target Scene — fill it in Inspector. Skipping load.", this);
+                return;
+            }
+
             _triggered = true;
             SetPendingSpawn(targetSpawnId);
             Debug.Log($"[SceneTransition] → {targetScene} spawn='{targetSpawnId}'");
