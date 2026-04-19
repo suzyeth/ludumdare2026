@@ -14,6 +14,10 @@ namespace PrismZone.UI
     /// the F10 debug overlay shows pickup state. <c>baseId</c> is the item id
     /// stripped of the leading "item." prefix.
     /// </summary>
+    // Early execution order: HUD subscribers (InventoryHUD, debug overlays) wire
+    // to OnChanged in OnEnable. If Inventory.Awake runs later, the subscription
+    // sees a null Instance and is silently dropped, so pickups show no icon.
+    [DefaultExecutionOrder(-100)]
     public class Inventory : MonoBehaviour
     {
         // Logical capacity of the bag. Not to be confused with the *visible* slot

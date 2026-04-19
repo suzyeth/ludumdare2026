@@ -35,14 +35,25 @@ namespace PrismZone.UI
 
         private void OnEnable()
         {
-            if (Inventory.Instance != null)
-            {
-                Inventory.Instance.OnChanged -= Refresh; // idempotent
-                Inventory.Instance.OnChanged += Refresh;
-            }
+            TrySubscribe();
             WireSlotButtons();
             WirePageButtons();
             Refresh();
+        }
+
+        // Start runs after every Awake, so if Inventory.Instance wasn't ready at
+        // OnEnable (undefined Awake order across nested prefabs), retry here.
+        private void Start()
+        {
+            TrySubscribe();
+            Refresh();
+        }
+
+        private void TrySubscribe()
+        {
+            if (Inventory.Instance == null) return;
+            Inventory.Instance.OnChanged -= Refresh; // idempotent
+            Inventory.Instance.OnChanged += Refresh;
         }
 
         private void WirePageButtons()
@@ -134,6 +145,7 @@ namespace PrismZone.UI
                     if (target == null) target = emptyIcon;
                     v.icon.sprite = target;
                     v.icon.enabled = true;
+                    v.icon.preserveAspect = true; // keep icon proportions when slot isn't square
                     // Force full white on filled slots — the prefab shipped the icon Image
                     // at a dark grey tint (0.15,0.15,0.15,0.7) to read as "empty", which
                     // would multiply over real sprites and make them look black.
