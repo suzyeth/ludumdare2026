@@ -20,8 +20,8 @@ namespace PrismZone.UI
         [Header("Visuals")]
         [SerializeField] private TMP_Text label;
         [SerializeField] private Image background;
-        [Tooltip("Extra world-space offset above the target's collider top.")]
-        [SerializeField] private Vector2 worldOffset = new Vector2(0f, 0.25f);
+        [Tooltip("Extra world-space offset above the target's collider top. Negative Y pushes bubble down INTO the object. Tune in Inspector at runtime — changes apply immediately.")]
+        [SerializeField] private Vector2 worldOffset = new Vector2(0f, 0.3f);
 
         private PlayerInteraction _source;
         private CanvasGroup _group;
