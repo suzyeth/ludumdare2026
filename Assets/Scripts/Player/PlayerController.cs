@@ -92,9 +92,8 @@ namespace PrismZone.Player
                 ? _moveInput.y * climbSpeed
                 : _moveInput.y * speed;
             _rb.linearVelocity = new Vector2(vx, vy);
-
-            if (spriteRenderer != null && Mathf.Abs(vx) > 0.01f)
-                spriteRenderer.flipX = vx < 0f;
+            // flipX is now owned by CharacterAnimDriver (which knows whether
+            // the current clip is the side-view frame that needs mirroring).
         }
 
         // LateUpdate pixel snap removed in v0.4 — Pixel Perfect Camera handles
