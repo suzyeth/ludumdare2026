@@ -27,6 +27,12 @@ namespace PrismZone.Enemy
         [SerializeField] private Tilemap walkableTilemap;
         [SerializeField] private Tilemap wallTilemap;
 
+        [Header("Collision")]
+        [Tooltip("Size of the enemy's body when checking 'can I step into this spot'. Keep slightly smaller than the visual sprite so the enemy doesn't snag corners.")]
+        [SerializeField] private Vector2 bodySize = new Vector2(0.7f, 0.5f);
+        [Tooltip("Layers that block movement. Leave empty to block against ALL non-trigger colliders.")]
+        [SerializeField] private LayerMask blockerMask = ~0;
+
         private TilemapPathfinder _pathfinder;
         private List<Vector3Int> _path = new List<Vector3Int>();
         private int _pathIndex;
@@ -35,6 +41,7 @@ namespace PrismZone.Enemy
         private float _lostSightAt = -1f;
         private Vector2 _facing = Vector2.right;
         private bool _alarmSubscribed;
+        private Rigidbody2D _rb;
 
         protected override void Awake()
         {
@@ -45,7 +52,13 @@ namespace PrismZone.Enemy
                 if (p != null) target = p.transform;
             }
             if (wallTilemap != null) _pathfinder = new TilemapPathfinder(wallTilemap);
+            _rb = GetComponent<Rigidbody2D>();
+            // Collect our own colliders so the OverlapBox check can ignore them.
+            _ownColliders = GetComponentsInChildren<Collider2D>(true);
         }
+
+        private Collider2D[] _ownColliders;
+        private static readonly Collider2D[] _overlapBuf = new Collider2D[4];
 
         protected override void OnEnable()
         {
@@ -188,10 +201,45 @@ namespace PrismZone.Enemy
 
         private void StepTowards(Vector3 goal, float speed)
         {
-            Vector3 before = transform.position;
-            transform.position = Vector2.MoveTowards(transform.position, goal, speed * Time.deltaTime);
-            Vector2 delta = (Vector2)(transform.position - before);
-            if (delta.sqrMagnitude > 0.0001f) _facing = delta.normalized;
+            // Lightweight obstacle-aware move. Avoids the overhead of Rigidbody2D.MovePosition
+            // + useFullKinematicContacts (which stutters visibly) by doing a single
+            // Physics2D.OverlapBox probe at the destination. If the probe hits a non-trigger
+            // collider that is not our own, we try one-axis slides so the enemy grazes walls
+            // instead of freezing solid.
+            Vector2 before = transform.position;
+            Vector2 step = Vector2.MoveTowards(before, goal, speed * Time.deltaTime) - before;
+            if (step.sqrMagnitude < 0.000001f) return;
+
+            Vector2 applied;
+            if (CanMoveTo(before + step))             applied = step;
+            else if (CanMoveTo(before + new Vector2(step.x, 0f))) applied = new Vector2(step.x, 0f); // wall-slide X
+            else if (CanMoveTo(before + new Vector2(0f, step.y))) applied = new Vector2(0f, step.y); // wall-slide Y
+            else return; // fully blocked — stay put
+
+            transform.position = before + applied;
+            if (applied.sqrMagnitude > 0.0001f) _facing = applied.normalized;
+        }
+
+        private bool CanMoveTo(Vector2 pos)
+        {
+            int hits = Physics2D.OverlapBoxNonAlloc(pos, bodySize, 0f, _overlapBuf, blockerMask);
+            for (int i = 0; i < hits; i++)
+            {
+                var c = _overlapBuf[i];
+                if (c == null) continue;
+                if (c.isTrigger) continue;                     // triggers never block
+                if (IsOwnCollider(c)) continue;                 // don't block against ourselves
+                return false;
+            }
+            return true;
+        }
+
+        private bool IsOwnCollider(Collider2D c)
+        {
+            if (_ownColliders == null) return false;
+            for (int i = 0; i < _ownColliders.Length; i++)
+                if (_ownColliders[i] == c) return true;
+            return false;
         }
 
         private void OnTriggerEnter2D(Collider2D other)

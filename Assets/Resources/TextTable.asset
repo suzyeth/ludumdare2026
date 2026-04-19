@@ -1201,29 +1201,6 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: ui.menu.resume
-    category: 2
-    avgType: 0
-    zh: "\u7EE7\u7EED\u6E38\u620F"
-    en: Resume
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
   - id: ui.menu.main_menu
     category: 2
     avgType: 0
@@ -1431,29 +1408,6 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: ui.prompt.pickup
-    category: 2
-    avgType: 0
-    zh: "\u6309 E \u62FE\u53D6"
-    en: Press E to pick up
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
   - id: ui.prompt.inspect
     category: 2
     avgType: 0
@@ -1482,29 +1436,6 @@ MonoBehaviour:
     avgType: 0
     zh: "\u6309 F \u9605\u8BFB"
     en: Press F to read
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.prompt.hide
-    category: 2
-    avgType: 0
-    zh: "\u6309 E \u8EB2\u5165\u6A71\u67DC"
-    en: Press E to hide
     zh_red: 
     en_red: 
     zh_green: 
@@ -1574,29 +1505,6 @@ MonoBehaviour:
     avgType: 0
     zh: "\u6309 E \u63A8\u95E8"
     en: Press E to push
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.prompt.recorder.stop
-    category: 2
-    avgType: 0
-    zh: "\u6309 F \u505C\u6B62\u5F55\u97F3"
-    en: Press F to stop
     zh_red: 
     en_red: 
     zh_green: 
@@ -1758,29 +1666,6 @@ MonoBehaviour:
     avgType: 0
     zh: "[Q] \u5207\u6362\u6EE4\u955C"
     en: '[Q] Cycle Lens'
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.settings.volume
-    category: 2
-    avgType: 0
-    zh: "\u4E3B\u97F3\u91CF"
-    en: Volume
     zh_red: 
     en_red: 
     zh_green: 

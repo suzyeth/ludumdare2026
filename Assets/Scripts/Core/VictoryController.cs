@@ -28,14 +28,21 @@ namespace PrismZone.Core
 
         public static void Restart()
         {
-            ResetState();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            // Restart = back to main menu. Same rationale as GameOverController.Restart.
+            GotoMainMenu();
         }
 
         public static void GotoMainMenu(string menuScene = "Scene_MainMenu")
         {
             ResetState();
+            TeardownPersistent();
             SceneManager.LoadSceneAsync(menuScene);
+        }
+
+        private static void TeardownPersistent()
+        {
+            var bundle = GameObject.Find("_Persistent");
+            if (bundle != null) UnityEngine.Object.Destroy(bundle);
         }
 
         /// <summary>Clear transient state without reloading. Safe from MainMenu.Awake.</summary>

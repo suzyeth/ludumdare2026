@@ -29,9 +29,24 @@ namespace PrismZone.Core
 
         public static void Restart()
         {
-            // Full restart: reset state + reload active scene.
+            // Restart = back to main menu so the player can choose to retry or quit.
+            // Destroys the persistent bundle first; menu renders standalone.
+            GotoMainMenu();
+        }
+
+        public static void GotoMainMenu(string menuScene = "Scene_MainMenu")
+        {
             ResetState();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            TeardownPersistent();
+            SceneManager.LoadSceneAsync(menuScene);
+        }
+
+        private static void TeardownPersistent()
+        {
+            // DontDestroyOnLoad keeps _Persistent alive across LoadScene. Kill it so
+            // MainMenu starts clean (no leftover HUD, Player, Camera, AudioListener).
+            var bundle = GameObject.Find("_Persistent");
+            if (bundle != null) UnityEngine.Object.Destroy(bundle);
         }
 
         /// <summary>

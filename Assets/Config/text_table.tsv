@@ -50,7 +50,6 @@ ui.menu.settings	ui		设置	Settings					Any	true	false	0		Manual
 ui.menu.exit	ui		退出	Exit					Any	true	false	0		Manual					
 ui.menu.restart	ui		重新开始	Restart					Any	true	false	0		Manual					
 ui.menu.back	ui		返回	Back					Any	true	false	0		Manual					
-ui.menu.resume	ui		继续游戏	Resume					Any	true	false	0		Manual					
 ui.menu.main_menu	ui		返回主菜单	Main Menu					Any	true	false	0		Manual					
 ui.gameover.title	ui		GAME OVER	GAME OVER					Any	true	false	0		Manual					
 ui.gameover.sub	ui		你被保安抓到了……	The guard caught you...					Any	true	false	0		Manual					
@@ -60,14 +59,11 @@ ui.pause.title	ui		游戏暂停	Paused					Any	true	false	0		Manual
 ui.avg.skip	ui		[ESC] 跳过	[ESC] Skip					Any	true	false	0		Manual					
 ui.avg.continue	ui		[E] 继续	[E] Continue					Any	true	false	0		Manual					
 ui.avg.page	ui		{0} / {1}	{0} / {1}					Any	true	false	0		Manual					
-ui.prompt.pickup	ui		按 E 拾取	Press E to pick up					Any	true	false	0		Manual					
 ui.prompt.inspect	ui		按 E 查看	Press E to inspect					Any	true	false	0		Manual					
 ui.prompt.inspect_f	ui		按 F 阅读	Press F to read					Any	true	false	0		Manual					
-ui.prompt.hide	ui		按 E 躲入橱柜	Press E to hide					Any	true	false	0		Manual					
 ui.prompt.exit_cabinet	ui		按 E 离开	Press E to come out					Any	true	false	0		Manual					
 ui.prompt.open_door	ui		按 E 开门	Press E to open					Any	true	false	0		Manual					
 ui.prompt.push_door	ui		按 E 推门	Press E to push					Any	true	false	0		Manual					
-ui.prompt.recorder.stop	ui		按 F 停止录音	Press F to stop					Any	true	false	0		Manual					
 ui.prompt.recorder.play	ui		按 F 播放	Press F to play					Any	true	false	0		Manual					
 ui.door.locked	ui		门被锁住了 — 需要钥匙	The door is locked - you need a key.					Any	true	false	0		Manual					
 ui.door.need_passcode	ui		门锁着 — 输入密码	Locked - enter passcode.					Any	true	false	0		Manual					
@@ -75,7 +71,6 @@ ui.filter.equipped.red	ui		红镜已装备	Red lens equipped.					Any	true	false
 ui.filter.equipped.green	ui		绿镜已装备	Green lens equipped.					Any	true	false	0		Manual					
 ui.filter.removed	ui		镜片已摘下	Lens removed.					Any	true	false	0		Manual					
 ui.hotkey.q	ui		[Q] 切换滤镜	[Q] Cycle Lens					Any	true	false	0		Manual					
-ui.settings.volume	ui		主音量	Volume					Any	true	false	0		Manual					
 ui.settings.sfx	ui		音效	SFX					Any	true	false	0		Manual					
 ui.settings.music	ui		音乐	Music					Any	true	false	0		Manual					
 ui.settings.language	ui		语言	Language					Any	true	false	0		Manual					
