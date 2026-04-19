@@ -17526,7 +17526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4501835530120168245, guid: a8aa768cdc89c7e44b2bb17176d86f3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.45
+      value: 2.37
       objectReference: {fileID: 0}
     - target: {fileID: 4501835530120168245, guid: a8aa768cdc89c7e44b2bb17176d86f3d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17584,6 +17584,14 @@ PrefabInstance:
     - target: {fileID: 2485625887851249849, guid: 875503e870c60444286032cbd72cb4d5, type: 3}
       propertyPath: m_Name
       value: SceneTransitionTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479030279330230531, guid: 875503e870c60444286032cbd72cb4d5, type: 3}
+      propertyPath: targetScene
+      value: Scn_4Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479030279330230531, guid: 875503e870c60444286032cbd72cb4d5, type: 3}
+      propertyPath: targetSpawnId
+      value: spawn.from_3f
       objectReference: {fileID: 0}
     - target: {fileID: 8442711629287428864, guid: 875503e870c60444286032cbd72cb4d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17717,7 +17725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4501835530120168245, guid: a8aa768cdc89c7e44b2bb17176d86f3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.86
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 4501835530120168245, guid: a8aa768cdc89c7e44b2bb17176d86f3d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18047,8 +18055,12 @@ PrefabInstance:
       value: SceneTransitionTrigger (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7479030279330230531, guid: 875503e870c60444286032cbd72cb4d5, type: 3}
+      propertyPath: targetScene
+      value: Scn_1&2Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479030279330230531, guid: 875503e870c60444286032cbd72cb4d5, type: 3}
       propertyPath: targetSpawnId
-      value: spawn.from_lower
+      value: spawn.from_3f
       objectReference: {fileID: 0}
     - target: {fileID: 8442711629287428864, guid: 875503e870c60444286032cbd72cb4d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18056,7 +18068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8442711629287428864, guid: 875503e870c60444286032cbd72cb4d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.86
+      value: -3.21
       objectReference: {fileID: 0}
     - target: {fileID: 8442711629287428864, guid: 875503e870c60444286032cbd72cb4d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19099,9 +19111,9 @@ SceneRoots:
   - {fileID: 329478357}
   - {fileID: 848487602}
   - {fileID: 1059604550}
-  - {fileID: 1600829621}
   - {fileID: 850038325}
   - {fileID: 1326043577}
+  - {fileID: 1600829621}
   - {fileID: 1257938679}
   - {fileID: 269840593}
   - {fileID: 1194078132}

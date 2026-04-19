@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using PrismZone.Player;
 
 namespace PrismZone.Core
@@ -17,17 +18,28 @@ namespace PrismZone.Core
         public string SpawnId => spawnId;
         public bool IsDefault => isDefault;
 
+        // Per-scene-load flag: the first SpawnPoint that claims the Player flips this,
+        // so later Start() calls (including the default) skip and don't re-teleport.
+        private static int _claimedFrameForScene = -1;
+        private static int _claimedScene = -1;
+
+        private void OnEnable()
+        {
+            // Reset on fresh scene load so the next scene starts clean.
+            int cur = SceneManager.GetActiveScene().buildIndex;
+            if (_claimedScene != cur) { _claimedScene = cur; _claimedFrameForScene = -1; }
+        }
+
         private void Start()
         {
-            // Peek (don't consume yet) so multiple SpawnPoints in the same scene can
-            // check against the pending id. Only the match actually consumes + teleports,
-            // preventing a race where the first Start() call eats the pending slot.
+            if (_claimedFrameForScene >= 0) return; // another spawn already took the player
+
             var wanted = SceneTransition.PeekPendingSpawn();
             bool matches = !string.IsNullOrEmpty(wanted) ? wanted == spawnId : isDefault;
             if (!matches) return;
 
-            // We matched — consume so no other spawn point tries to claim.
             SceneTransition.ConsumePendingSpawn();
+            _claimedFrameForScene = Time.frameCount;
 
             var player = GameObject.FindGameObjectWithTag("Player");
             if (player == null)

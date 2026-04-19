@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 543762300859079005, guid: 73708179d0976aca6eda8f5d0f68aaa5, type: 3}
       propertyPath: itemId
-      value: 
+      value: item.mock_note_02
       objectReference: {fileID: 0}
     - target: {fileID: 543762300859079005, guid: 73708179d0976aca6eda8f5d0f68aaa5, type: 3}
       propertyPath: oneShotClue
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 543762300859079005, guid: 73708179d0976aca6eda8f5d0f68aaa5, type: 3}
       propertyPath: dialogueNodeId
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 543762300859079005, guid: 73708179d0976aca6eda8f5d0f68aaa5, type: 3}
       propertyPath: destroyOnPickup
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3344340957366181521, guid: 73708179d0976aca6eda8f5d0f68aaa5, type: 3}
       propertyPath: m_Name

@@ -43,7 +43,7 @@ Material:
     - _FilterMode: 0
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _FilterMode: 0
+    - _FilterMode: 1
     - _VignetteEnd: 1.2
     - _VignetteIntensity: 0.95
     - _VignetteStart: 0.95
