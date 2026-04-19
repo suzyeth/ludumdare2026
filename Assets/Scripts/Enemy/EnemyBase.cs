@@ -73,6 +73,10 @@ namespace PrismZone.Enemy
         protected void ApplyVisibility()
         {
             if (spriteRenderer == null) return;
+            // No reveal filter assigned = enemy is always fully visible.
+            // v1.2 main guard does not play the color-filter reveal game; only the
+            // RED/GREEN/BLUE reserves (post-jam) use the filter-gated reveal.
+            if (revealFilter == FilterColor.None) return;
             bool revealed = FilterManager.Instance != null && FilterManager.Instance.Current == revealFilter;
             bool chaseVisible = ForceVisibleDuringChase && Current == State.Chase;
             float a = revealed ? revealedAlpha : chaseVisible ? chaseAlpha : hiddenAlpha;
