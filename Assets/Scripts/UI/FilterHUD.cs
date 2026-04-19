@@ -60,13 +60,15 @@ namespace PrismZone.UI
             // Ring mode (preferred if ring Images + sprites are wired)
             if (redRing != null)   redRing.sprite   = (c == FilterColor.Red)   ? (redOn   ?? redOff)   : redOff;
             if (greenRing != null) greenRing.sprite = (c == FilterColor.Green) ? (greenOn ?? greenOff) : greenOff;
-            if (blueRing != null)  blueRing.sprite  = (c == FilterColor.Blue)  ? (blueOn  ?? blueOff)  : blueOff;
+            // v1.2: only red + green lenses. Hide the blue ring if it's still wired
+            // into legacy prefabs. Kept as a field for serialized compatibility.
+            if (blueRing != null && blueRing.gameObject.activeSelf) blueRing.gameObject.SetActive(false);
 
             // Legacy dot mode (runs in parallel if still wired)
             SetAlpha(noneDot,  c == FilterColor.None);
             SetAlpha(redDot,   c == FilterColor.Red);
             SetAlpha(greenDot, c == FilterColor.Green);
-            SetAlpha(blueDot,  c == FilterColor.Blue);
+            if (blueDot != null && blueDot.gameObject.activeSelf) blueDot.gameObject.SetActive(false);
 
             if (label != null)
             {
@@ -74,7 +76,6 @@ namespace PrismZone.UI
                 {
                     FilterColor.Red   => "ui.filter.red",
                     FilterColor.Green => "ui.filter.green",
-                    FilterColor.Blue  => "ui.filter.blue",
                     _                 => "ui.filter.none"
                 };
                 label.text = I18nManager.Get(key);

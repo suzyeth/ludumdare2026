@@ -27,6 +27,10 @@ namespace PrismZone.UI
 
         private void OnEnable()
         {
+            // Idempotent: remove first in case OnEnable fires more than once on a
+            // persistent HUD (subscription leak protection).
+            GameOverController.OnGameOver -= Show;
+            GameOverController.OnReset -= HandleReset;
             GameOverController.OnGameOver += Show;
             GameOverController.OnReset += HandleReset;
         }

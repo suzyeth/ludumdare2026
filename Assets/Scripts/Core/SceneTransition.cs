@@ -18,13 +18,19 @@ namespace PrismZone.Core
         [SerializeField] private float cooldownAfterEnter = 1.0f;
 
         private static string _pendingSpawnId;
-        /// <summary>Read by PlayerSpawnPoint on scene load. Cleared after use.</summary>
+        /// <summary>Read and clear. Only the matching spawn point should call this.</summary>
         public static string ConsumePendingSpawn()
         {
             var s = _pendingSpawnId;
             _pendingSpawnId = null;
             return s;
         }
+
+        /// <summary>Read without clearing. Used by multiple spawn points to test a match.</summary>
+        public static string PeekPendingSpawn() => _pendingSpawnId;
+
+        /// <summary>Set from any trigger before LoadScene.</summary>
+        public static void SetPendingSpawn(string id) => _pendingSpawnId = id;
 
         private bool _triggered;
 
@@ -42,7 +48,7 @@ namespace PrismZone.Core
             if (pc != null && pc.IsHidden) return;
 
             _triggered = true;
-            _pendingSpawnId = targetSpawnId;
+            SetPendingSpawn(targetSpawnId);
             Debug.Log($"[SceneTransition] → {targetScene} spawn='{targetSpawnId}'");
             SceneManager.LoadSceneAsync(targetScene);
         }

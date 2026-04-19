@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.ItemData
   id: item.glasses
   nameKey: item.glasses
-  worldIcon: {fileID: -5018855737347852537, guid: b947168b079334e48854252356e3e14c, type: 3}
-  bigIcon: {fileID: -5018855737347852537, guid: b947168b079334e48854252356e3e14c, type: 3}
+  worldIcon: {fileID: 21300000, guid: b947168b079334e48854252356e3e14c, type: 3}
+  bigIcon: {fileID: 21300000, guid: b947168b079334e48854252356e3e14c, type: 3}
   pageKeys: []
   hasDetailPopup: 0

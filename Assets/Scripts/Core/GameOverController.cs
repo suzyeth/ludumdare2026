@@ -29,12 +29,21 @@ namespace PrismZone.Core
 
         public static void Restart()
         {
-            // Reset runtime state BEFORE the scene reload so persistent UI
-            // (GameOverPanel on HUD_Canvas) hides in the same frame.
+            // Full restart: reset state + reload active scene.
+            ResetState();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        /// <summary>
+        /// Reset transient state (timeScale / flags / UI) WITHOUT reloading the scene.
+        /// Use from freshly-loaded scenes (MainMenu.Awake etc.) so you don't recurse
+        /// through LoadScene → Awake → LoadScene …
+        /// </summary>
+        public static void ResetState()
+        {
             Time.timeScale = 1f;
             IsGameOver = false;
             OnReset?.Invoke();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

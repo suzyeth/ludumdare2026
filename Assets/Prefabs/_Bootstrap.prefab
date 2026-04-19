@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5077707442491451543}
   - component: {fileID: 11158649597361909}
   - component: {fileID: 8921671569473738401}
+  - component: {fileID: 7644045638872409466}
   m_Layer: 0
   m_Name: _Bootstrap
   m_TagString: Untagged
@@ -102,3 +103,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.PersistentRoot
   persistId: 
+--- !u!114 &7644045638872409466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988662042033181910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a926e865c9cd1d42a78670f486d9af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.AudioManager
+  catalog: {fileID: 11400000, guid: 3340f870415879c4c99e90628308134f, type: 2}
+  bgmFade: 0.75

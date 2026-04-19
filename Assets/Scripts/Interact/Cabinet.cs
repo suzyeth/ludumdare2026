@@ -15,6 +15,8 @@ namespace PrismZone.Interact
         [SerializeField] private SpriteRenderer doorRenderer;
         [SerializeField] private Sprite closedSprite;
         [SerializeField] private Sprite openSprite;
+        [Tooltip("Shown while the player is hidden inside. Falls back to openSprite if null.")]
+        [SerializeField] private Sprite hiddenSprite;
 
         private PlayerController _occupant;
         private Vector3 _savedPosition;
@@ -39,6 +41,7 @@ namespace PrismZone.Interact
                 if (hideAnchor != null) ctl.transform.position = hideAnchor.position;
                 ctl.IsHidden = true;
                 SwapSprite(true);
+                PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.Hide);
             }
             else if (_occupant == ctl)
             {
@@ -46,13 +49,16 @@ namespace PrismZone.Interact
                 ctl.transform.position = _savedPosition;
                 _occupant = null;
                 SwapSprite(false);
+                PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.HideLeave);
             }
         }
 
-        private void SwapSprite(bool open)
+        private void SwapSprite(bool occupied)
         {
             if (doorRenderer == null) return;
-            var s = open ? openSprite : closedSprite;
+            Sprite s = occupied
+                ? (hiddenSprite != null ? hiddenSprite : openSprite)
+                : closedSprite;
             if (s != null) doorRenderer.sprite = s;
         }
     }

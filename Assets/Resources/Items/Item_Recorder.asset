@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.ItemData
   id: item.recorder
   nameKey: item.recorder
-  worldIcon: {fileID: -9181675200073881676, guid: 21e58feef6d982a4a971ce6b3a6dbddb, type: 3}
-  bigIcon: {fileID: -9181675200073881676, guid: 21e58feef6d982a4a971ce6b3a6dbddb, type: 3}
+  worldIcon: {fileID: 21300000, guid: c0cfe6ffabdd8ad42a0ab781351779e5, type: 3}
+  bigIcon: {fileID: 21300000, guid: 68af7cbdb71670b45893cdb6720599ae, type: 3}
   pageKeys:
   - item.recorder.page.1
   hasDetailPopup: 1

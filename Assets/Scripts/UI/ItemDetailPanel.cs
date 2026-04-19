@@ -23,6 +23,10 @@ namespace PrismZone.UI
         private CanvasGroup _group;
         private ItemData _current;
         private int _page;
+        // Guard: F opens this panel via PlayerInteraction and also closes it via
+        // our own Update. Both run on the same frame of the F press, so without
+        // this frame-stamp the panel opens and immediately re-closes.
+        private int _openedFrame = -1;
 
         public bool IsOpen => _group != null && _group.alpha > 0.5f;
 
@@ -40,9 +44,10 @@ namespace PrismZone.UI
         private void Update()
         {
             if (!IsOpen) return;
+            if (Time.frameCount == _openedFrame) return; // swallow same-frame F press that opened us
             var kb = Keyboard.current;
             if (kb == null) return;
-            if (kb.fKey.wasPressedThisFrame || kb.escapeKey.wasPressedThisFrame) { Close(); return; }
+            if (kb.escapeKey.wasPressedThisFrame) { Close(); return; }
             if (kb.leftArrowKey.wasPressedThisFrame || kb.aKey.wasPressedThisFrame) FlipPage(-1);
             if (kb.rightArrowKey.wasPressedThisFrame || kb.dKey.wasPressedThisFrame) FlipPage(+1);
         }
@@ -54,6 +59,7 @@ namespace PrismZone.UI
             _page = 0;
             Refresh();
             SetVisible(true);
+            _openedFrame = Time.frameCount;
         }
 
         public void Close() { SetVisible(false); _current = null; }
@@ -73,7 +79,10 @@ namespace PrismZone.UI
             if (nameLabel != null) nameLabel.text = I18nManager.Get(_current.NameKey);
             if (bodyLabel != null)
             {
-                string bodyKey = (_current.PageCount > 0) ? _current.PageKeys[_page] : "";
+                // Defensive: PageKeys can be null (SO field never wired) or length < _page+1.
+                string bodyKey = "";
+                var keys = _current.PageKeys;
+                if (keys != null && _page >= 0 && _page < keys.Length) bodyKey = keys[_page];
                 bodyLabel.text = I18nManager.Get(bodyKey);
             }
             if (pageCountLabel != null)

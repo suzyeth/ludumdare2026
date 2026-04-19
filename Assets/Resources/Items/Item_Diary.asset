@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.ItemData
   id: item.diary
   nameKey: item.diary
-  worldIcon: {fileID: 2536724268307235062, guid: 668086d5cc4426945aaeac29f6c3c250, type: 3}
-  bigIcon: {fileID: 2536724268307235062, guid: 668086d5cc4426945aaeac29f6c3c250, type: 3}
+  worldIcon: {fileID: 21300000, guid: bb45ee4439edb3342a93d38954b714c2, type: 3}
+  bigIcon: {fileID: 21300000, guid: efd3cb1033ebf2d44b0e257072307a44, type: 3}
   pageKeys:
   - item.diary.page.1
   - item.diary.page.2

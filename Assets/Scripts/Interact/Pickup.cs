@@ -16,11 +16,24 @@ namespace PrismZone.Interact
     [RequireComponent(typeof(Collider2D))]
     public class Pickup : MonoBehaviour, IInteractable
     {
+        [Header("Item / Legacy Clue")]
         [SerializeField] private string itemId;
         [SerializeField] private string clueTextKey;
         [SerializeField] private string promptKey = "ui.pickup.prompt";
         [SerializeField] private bool destroyOnPickup = true;
         [SerializeField] private bool oneShotClue = true;
+
+        [Header("v1.2 AVG Dispatch (optional)")]
+        [Tooltip("If true, fire a DialogueManager popup on pickup instead of (or in addition to) CluePopup.")]
+        [SerializeField] private bool useDialogueManager = false;
+        [SerializeField] private DialogueType dialogueType = DialogueType.NAR;
+        [Tooltip("i18n keys passed to DialogueManager.ShowKeys (multi-page READ supported).")]
+        [SerializeField] private string[] dialogueKeys;
+        [SerializeField] private string nodeTag;
+        [Tooltip("READ only — i18n key for popup title bar.")]
+        [SerializeField] private string dialogueTitleKey;
+        [Tooltip("READ only — header sprite (128×128).")]
+        [SerializeField] private Sprite dialogueHeaderSprite;
 
         private bool _consumed;
 
@@ -45,12 +58,28 @@ namespace PrismZone.Interact
                 if (!tookSomething) return; // inventory full — bail without consuming
             }
 
-            if (!string.IsNullOrEmpty(clueTextKey) && CluePopup.Instance != null)
+            // v1.2 AVG dispatch path takes precedence over the legacy CluePopup when wired.
+            bool firedDialogue = false;
+            if (useDialogueManager && DialogueManager.Instance != null && dialogueKeys != null && dialogueKeys.Length > 0)
+            {
+                var type = dialogueType == DialogueType.TIP ? DialogueType.NAR : dialogueType;
+                Vector3? pos = type == DialogueType.ENV ? (Vector3?)transform.position : null;
+                DialogueManager.Instance.ShowKeys(type, dialogueKeys, null, pos, nodeTag, dialogueTitleKey, dialogueHeaderSprite);
+                firedDialogue = true;
+            }
+            else if (!string.IsNullOrEmpty(clueTextKey) && CluePopup.Instance != null)
             {
                 CluePopup.Instance.Show(clueTextKey);
             }
 
-            if (oneShotClue || tookSomething)
+            // Consume only when:
+            //   - we actually put an item into Inventory, OR
+            //   - the designer marked the clue as one-shot (read once only).
+            // Otherwise (inspect-only reusable), keep interactable for re-read.
+            bool shouldConsume = tookSomething
+                || (oneShotClue && !string.IsNullOrEmpty(clueTextKey))
+                || (oneShotClue && firedDialogue);
+            if (shouldConsume)
             {
                 _consumed = true;
                 if (destroyOnPickup) Destroy(gameObject);

@@ -19,9 +19,15 @@ namespace PrismZone.Core
 
         private void Start()
         {
-            var wanted = SceneTransition.ConsumePendingSpawn();
+            // Peek (don't consume yet) so multiple SpawnPoints in the same scene can
+            // check against the pending id. Only the match actually consumes + teleports,
+            // preventing a race where the first Start() call eats the pending slot.
+            var wanted = SceneTransition.PeekPendingSpawn();
             bool matches = !string.IsNullOrEmpty(wanted) ? wanted == spawnId : isDefault;
             if (!matches) return;
+
+            // We matched — consume so no other spawn point tries to claim.
+            SceneTransition.ConsumePendingSpawn();
 
             var player = GameObject.FindGameObjectWithTag("Player");
             if (player == null)

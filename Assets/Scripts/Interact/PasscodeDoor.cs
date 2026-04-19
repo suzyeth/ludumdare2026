@@ -35,7 +35,11 @@ namespace PrismZone.Interact
 
         public bool TrySubmit(string attempt)
         {
-            if (attempt != passcode) return false;
+            if (attempt != passcode)
+            {
+                PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.DoorLocked);
+                return false;
+            }
             Open();
             return true;
         }
@@ -45,6 +49,7 @@ namespace PrismZone.Interact
             IsOpen = true;
             if (blockingCollider != null) blockingCollider.enabled = false;
             if (doorRenderer != null && openSprite != null) doorRenderer.sprite = openSprite;
+            PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.DoorUnlock);
         }
     }
 }

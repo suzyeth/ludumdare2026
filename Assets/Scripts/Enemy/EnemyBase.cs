@@ -11,7 +11,27 @@ namespace PrismZone.Enemy
     /// </summary>
     public abstract class EnemyBase : MonoBehaviour
     {
-        public enum State { Idle, Patrol, Chase, Return }
+        // v1.2 spec §4.3 enemy state machine:
+        //   Idle / Patrol — default ambient
+        //   Alert         — heard noise / saw player in vision cone (no chase yet)
+        //   Chase         — locked onto player; AVG popups force-close (DialogueManager listens)
+        //   Locating      — broadcast period: rapid room-locate; AVG frozen, player stunned
+        //   Return        — lost LOS; returning to patrol
+        //   Stopped       — absorbing terminal; recorder turned off (T-19) → never chases again
+        public enum State { Idle, Patrol, Alert, Chase, Locating, Return, Stopped }
+
+        /// <summary>
+        /// Fires whenever any enemy in the scene transitions between states.
+        /// DialogueManager subscribes to this so AVG popups force-close when
+        /// anyone enters Chase (spec §4.3). Cleared automatically on scene unload.
+        /// </summary>
+        public static event System.Action<EnemyBase, State, State> OnAnyStateChanged;
+
+        /// <summary>
+        /// Live registry so orchestration code (BroadcastController, Recorder) can
+        /// fan a state change to every active enemy without scene-scanning every frame.
+        /// </summary>
+        public static readonly System.Collections.Generic.HashSet<EnemyBase> All = new();
 
         [Header("Base")]
         [SerializeField] protected FilterColor revealFilter = FilterColor.None;
@@ -31,8 +51,16 @@ namespace PrismZone.Enemy
             _homePosition = transform.position;
         }
 
-        protected virtual void OnEnable() { FilterManager.OnFilterChanged += HandleFilterChanged; }
-        protected virtual void OnDisable() { FilterManager.OnFilterChanged -= HandleFilterChanged; }
+        protected virtual void OnEnable()
+        {
+            FilterManager.OnFilterChanged += HandleFilterChanged;
+            All.Add(this);
+        }
+        protected virtual void OnDisable()
+        {
+            FilterManager.OnFilterChanged -= HandleFilterChanged;
+            All.Remove(this);
+        }
 
         protected virtual void Update() { Tick(); ApplyVisibility(); }
 
@@ -53,12 +81,26 @@ namespace PrismZone.Enemy
             spriteRenderer.color = c;
         }
 
+        /// <summary>
+        /// Public entry for orchestration code (BroadcastController pushes all enemies
+        /// into Locating; Recorder pushes them into Stopped). Subclasses still drive
+        /// their own AI through the protected SetState.
+        /// </summary>
+        public void RequestState(State next) => SetState(next);
+
         protected void SetState(State next)
         {
             if (Current == next) return;
+            // Stopped is absorbing: once the recorder is off, the enemy never
+            // re-enters chase/patrol. Callers that miss this get silently ignored.
+            if (Current == State.Stopped) return;
             var prev = Current;
             Current = next;
+            // Entering Chase always stings the player; subclasses can elaborate.
+            if (next == State.Chase && prev != State.Chase)
+                AudioManager.Instance?.Play(SoundId.GuardSpot);
             OnStateChanged(prev, next);
+            OnAnyStateChanged?.Invoke(this, prev, next);
         }
 
         protected virtual void OnStateChanged(State prev, State next) { }

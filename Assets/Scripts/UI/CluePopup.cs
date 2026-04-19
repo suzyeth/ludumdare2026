@@ -46,11 +46,14 @@ namespace PrismZone.UI
         {
             if (body != null) body.text = I18nManager.Get(i18nKey);
             if (_group != null) { _group.alpha = 1f; }
+            AudioManager.Instance?.Play(SoundId.PopupOpen);
         }
 
         public void Close()
         {
+            bool wasOpen = IsOpen;
             if (_group != null) { _group.alpha = 0f; }
+            if (wasOpen) AudioManager.Instance?.Play(SoundId.PopupClose);
         }
     }
 }

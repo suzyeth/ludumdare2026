@@ -1,0 +1,2727 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59bcb22a03d947149a5263bf7947bddc, type: 3}
+  m_Name: TextTable
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.TextTable
+  entries:
+  - id: T-01
+    category: 0
+    avgType: 1
+    zh: "\u4ECA\u5929\u8F6E\u5230\u6211\u503C\u65E5\u3002\u50A8\u85CF\u5BA4\u3002"
+    en: Today it's my turn. Storage room.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 1
+    sfx: AvgOpen
+    notes: "\u5F00\u573A \xB7 \u8FDB\u5165 3F \u50A8\u85CF\u5BA4"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-02
+    category: 0
+    avgType: 2
+    zh: "3\u67084\u65E5 \u4ECA\u5929\u53C8\u88AB\u53EB\u5230\u8D70\u5ECA\u3002\u5979\u4EEC\u7AD9\u6210\u4E00\u6392,\u624B\u673A\u5BF9\u7740\u6211,\u4E00\u76F4\u7B11\u3002\\n3\u670811\u65E5
+      \u6709\u4EBA\u5728\u5395\u6240\u95E8\u4E0A\u8D34\u4E86\u6211\u7684\u7167\u7247\u3002\u6211\u4E0D\u6562\u53BB\u3002\\n3\u670819\u65E5
+      \u5979\u4EEC\u8BF4\u6709\u4EBA\u559C\u6B22\u6211,\u8BF4\u5F97\u5F88\u5927\u58F0,\u7136\u540E\u7B11\u3002|4\u6708\xD7\u65E5
+      \u90FD\u602A\u6211\u3002\u90FD\u602A\u6211\u3002\u90FD\u602A\u6211\u3002\\n\u5982\u679C\u90A3\u5929\u6211\u6CA1\u53BB\u2026\u2026\u5982\u679C\u6211\u806A\u660E\u4E00\u70B9\u2026\u2026"
+    en: Mar 4 - They called me to the hall again.|Apr X - All my fault.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 2
+    sfx: AvgOpen
+    notes: "\u65E5\u8BB0\u672C \xB7 2 \u9875\u7528 | \u5206\u9694"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-03
+    category: 0
+    avgType: 3
+    zh: "\u3010\u542C\u5230\u8FD9\u4E2A\u58F0\u97F3\u2014\u2014\u627E\u5730\u65B9\u8EB2!\u3011"
+    en: '[Hear that sound - find cover!]'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 3
+    followUpId: 
+    triggerMode: 4
+    sfx: BroadcastPrelude
+    notes: "3 \u79D2\u81EA\u52A8\u5173"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-04
+    category: 0
+    avgType: 5
+    zh: "\"\u5E7F\u64AD\u54CD\u4E4B\u524D\u4F1A\u6709\u58F0\u97F3\u3002\u542C\u5230\u4E86\u5C31\u8EB2\u8FDB\u67DC\u5B50\u91CC\u3002\u522B\u8BA9\u5B83\u770B\u89C1\u4F60\u79FB\u52A8\u3002\""
+    en: '"Before the broadcast, a sound plays. Hide in the cabinet when you hear
+      it. Don''t let it see you move."'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 3
+    sfx: AvgOpen
+    notes: "\u65E7\u684C\u4FBF\u6761,\u53EF\u91CD\u8BFB"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-05
+    category: 0
+    avgType: 1
+    zh: "\u50A8\u7269\u67DC\u94A5\u5319\u3002\u6263\u5B50\u4E0A\u5199\u7740\u7F16\u53F7\u2014\u2014\u4E8C\u697C\u90A3\u6392\u67DC\u5B50\u7684\u3002"
+    en: 'A locker key. The tag says: 2F locker row.'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 2
+    sfx: PickupKey
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-06
+    category: 0
+    avgType: 1
+    zh: "\u67DC\u5B50\u91CC\u6709\u4E00\u4EF6\u53E0\u597D\u7684\u65E7\u6821\u670D\u2014\u2014\u53E3\u888B\u91CC\u88C5\u7740\u4E00\u526F\u773C\u955C\u3002\u8FD8\u6709\u4E00\u5C01\u4FE1,\u4FE1\u5C01\u5DF2\u7ECF\u62C6\u8FC7\u4E86\u3002"
+    en: An old school uniform folded neatly. A pair of glasses in the pocket. And
+      an opened letter.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 4
+    sfx: 
+    notes: "\u5F00\u67DC\u6210\u529F\u89E6\u53D1"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-07
+    category: 0
+    avgType: 3
+    zh: "\u3010\u7EA2\u8272\u955C\u7247 / \u7EFF\u8272\u955C\u7247 \u6309 Q \u5207\u6362\u3011\u6234\u4E0A\u540E\u8BE5\u989C\u8272\u7684\u906E\u5C42\u6D88\u5931,\u9690\u85CF\u5185\u5BB9\u663E\u73B0\u3002\u4F46\u540C\u8272\u7684\u73AF\u5883\u8B66\u793A\u4E5F\u4F1A\u8DDF\u7740\u6D88\u5931\u2014\u2014\u6CE8\u610F\u3002"
+    en: '[Red / Green lens - press Q to cycle] Wearing removes that color''s veil.
+      Watch: same-color warnings vanish too.'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 5
+    followUpId: 
+    triggerMode: 4
+    sfx: 
+    notes: "5 \u79D2\u81EA\u52A8\u5173,\u9996\u6B21\u88C5\u5907\u773C\u955C"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-08
+    category: 0
+    avgType: 2
+    zh: "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\\n\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\\n\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\\n                                                 
+      \u2588\u2588\u2588\u2588\u2588\u2588\u2588"
+    en: "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\\n\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\\n\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588"
+    zh_red: 
+    en_red: 
+    zh_green: "\u6211\u4E00\u76F4\u6CE8\u610F\u5230\u4F60\u4E86,\u4F60\u90A3\u4E48\u52AA\u529B\u5374\u6CA1\u6709\u4EBA\u770B\u89C1\u4F60\u3002\u6211\u60F3\u89C1\u4F60\u4E00\u6B21\u2014\u2014\u653E\u5B66\u540E\u6765402,\u6211\u4F1A\u7B49\u4F60\u3002\u6211\u559C\u6B22\u4F60,\u4E5F\u5FC3\u75BC\u4F60\u3002                                        
+      \u2014\u2014[\u6821\u8349\u59D3\u540D]"
+    en_green: "I've always noticed you, how hard you try when no one sees it. Come
+      to 402 after school - I'll wait for you. I love you, and I ache for you.  
+      \u2014 [Popular boy]"
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 3
+    sfx: AvgOpen
+    notes: "\u60C5\u4E66 \xB7 \u7EFF\u955C\u663E\u5B8C\u6574\u7248"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-09
+    category: 0
+    avgType: 1
+    zh: "\u95E8\u5728\u8FD9\u91CC\u2014\u2014\u4E0A\u9501\u4E86\u3002\u6302\u9501,\u6709\u4EBA\u7279\u610F\u9501\u4E0A\u7684\u3002\u94A5\u5319\u5E94\u8BE5\u8FD8\u5728\u697C\u91CC\u67D0\u5904\u3002"
+    en: The door is here - locked. Padlock. Someone locked it on purpose. The key
+      must still be in the building.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 2
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 1
+    sfx: 
+    notes: "\u7EFF\u955C\u624D\u89E6\u53D1"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-10
+    category: 0
+    avgType: 3
+    zh: "\u3010\u7EA2\u8272\u906E\u5C42\u4E0B\u85CF\u7740\u4EC0\u4E48\u2014\u2014\u4ED4\u7EC6\u627E\u627E\u3002\u3011"
+    en: '[Something hides under the red veil - look carefully.]'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 1
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 4
+    followUpId: 
+    triggerMode: 4
+    sfx: 
+    notes: "\u9996\u6B21\u7EA2\u955C\u5728 3F \u6559\u5BA4"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-11a
+    category: 0
+    avgType: 2
+    zh: "\"\u5979\u771F\u7684\u4EE5\u4E3A\u6821\u8349\u559C\u6B22\u5979\u54C8\u54C8\u54C8\u4ECA\u5929\u653E\u5B66\u4E00\u8D77\u53BB402\u7B49\u7740\u770B!!\""
+    en: '"She actually thinks the popular boy likes her lol - let''s all go to 402
+      after school and watch!"'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 1
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 3
+    sfx: AvgOpen
+    notes: "\u7EB8\u6761\u2460"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-11b
+    category: 0
+    avgType: 2
+    zh: "\"\u6821\u8349\u8BF4\u4E86\u5C31\u662F\u73A9\u73A9,\u5979\u600E\u4E48\u90A3\u4E48\u597D\u9A97\u8FD9\u79CD\u4EBA\u6D3B\u8BE5\""
+    en: '"He said it''s just a prank - how is she so gullible, she deserves it."'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 1
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 3
+    sfx: AvgOpen
+    notes: "\u7EB8\u6761\u2461"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-11c
+    category: 0
+    avgType: 2
+    zh: "\"\u6709\u4EBA\u559C\u6B22\u5979?\u5979\u4E5F\u914D\u9A97\u5979\u4E0A\u53BB,\u9501\u95E8,\u770B\u5979\u600E\u4E48\u529E\u54C8\u54C8\u54C8\""
+    en: '"Someone likes her? Yeah right. Lure her up, lock the door, watch her squirm
+      lol"'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 1
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 3
+    sfx: AvgOpen
+    notes: "\u7EB8\u6761\u2462"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-11d
+    category: 0
+    avgType: 2
+    zh: "\"\u5BF9\u4E86\u5907\u7528\u94A5\u5319301\u8BB2\u53F0\u62BD\u5C49\u6709\u4E2A\u6697\u683C,\u8001\u5E08\u4E0D\u77E5\u9053\u2014\u2014\u8BB0\u5F97\u7528\u5B8C\u653E\u56DE\u53BB,\u522B\u7559\u628A\u67C4\""
+    en: '"Spare key in 301 - there''s a hidden slot in the podium drawer. Teachers
+      don''t know. Put it back after use, leave no trace."'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 1
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 3
+    sfx: AvgOpen
+    notes: "\u7EB8\u6761\u2463 \xB7 \u542B 301 \u7EBF\u7D22"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-12
+    category: 0
+    avgType: 5
+    zh: "\u62BD\u5C49\u4FA7\u677F\u540E\u9762\u6709\u4E00\u4E2A\u5C0F\u9694\u5C42\u2014\u2014\u91CC\u9762\u6709\u4E00\u628A\u94A5\u5319\u3002"
+    en: A hidden compartment behind the drawer side - there's a key inside.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 1
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 3
+    sfx: AvgOpen
+    notes: "301 \u6697\u683C"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-13
+    category: 0
+    avgType: 1
+    zh: "\u8FD9\u5C31\u662F\u56DB\u697C\u7684\u94A5\u5319\u3002\u5B83\u5728\u8FD9\u91CC,\u8BF4\u660E\u6709\u4EBA\u77E5\u9053\u5B83\u5728\u8FD9\u91CC\u3002"
+    en: This is the 4F key. If it's here, someone knew it was here.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 2
+    sfx: PickupKey
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-13b
+    category: 0
+    avgType: 3
+    zh: "\u3010\u7EA2\u955C\u4E0B\u697C\u68AF\u95E8\u53EF\u89C1\u2014\u2014\u624B\u91CC\u6709\u94A5\u5319,\u80FD\u5F00\u3002\u3011"
+    en: '[With red lens, the stairs door is visible. Key in hand - you can open it.]'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 1
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 4
+    followUpId: 
+    triggerMode: 1
+    sfx: 
+    notes: "\u9700\u6301\u94A5\u5319 + \u7EA2\u955C + \u5230\u697C\u68AF\u53E3"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-14
+    category: 0
+    avgType: 1
+    zh: "\u8FD9\u91CC\u2014\u2014402\u3002\u95E8\u6CA1\u9501\u3002"
+    en: Here - 402. Unlocked.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 1
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 1
+    sfx: 
+    notes: "\u7EA2\u955C\u4E0B 402 \u95E8\u53EF\u89C1"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-15
+    category: 0
+    avgType: 2
+    zh: "[\u9738\u51CC\u8005\u59D3\u540D1] [\u9738\u51CC\u8005\u59D3\u540D2] [\u9738\u51CC\u8005\u59D3\u540D3]
+      [\u6821\u8349\u59D3\u540D]\u5230\u6B64\u4E00\u6E38"
+    en: '[Bully 1] [Bully 2] [Bully 3] [Popular boy] was here.'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 1
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 3
+    sfx: AvgOpen,BlackboardHeartbeat
+    notes: "\u8840\u9ED1\u677F \xB7 \u7EA2\u955C\u5B8C\u6574"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-16
+    category: 0
+    avgType: 4
+    zh: "\u597D\u5BB3\u6015\u2026\u2026\u7238\u7238\u2026\u2026\u4F60\u5728\u54EA\u513F\u2026\u2026"
+    en: So scared... Dad... where are you...
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 0
+    cantSkip: 1
+    autoHideSec: 0
+    followUpId: T-17
+    triggerMode: 4
+    sfx: FlashEcho
+    notes: "\u95EA\u56DE\u524D \xB7 \u4E0D\u53EF\u8DF3\u8FC7"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-17
+    category: 0
+    avgType: 4
+    zh: "\uFF08\u5760\u843D\u526A\u5F71\u52A8\u753B\u64AD\u653E\u4E2D)"
+    en: (Falling silhouette plays)
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 0
+    cantSkip: 1
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 4
+    sfx: FlashEcho
+    notes: "\u95EA\u56DE \xB7 \u89C6\u89C9\u4E3B\u5BFC"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-18
+    category: 0
+    avgType: 5
+    zh: "\u5F55\u97F3\u7B14\u2014\u2014\u7EA2\u706F\u4EAE\u7740,\u5FAA\u73AF\u64AD\u653E\u3002\u8FD9\u5C31\u662F\u5E7F\u64AD\u7684\u6765\u6E90\u3002(\u6309
+      F \u505C\u6B62)"
+    en: A voice recorder - red light on, looping. This is the broadcast source. (F
+      to stop)
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 3
+    sfx: AvgOpen
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-19
+    category: 0
+    avgType: 1
+    zh: "\u5E7F\u64AD\u505C\u4E86\u3002\u8D70\u5ECA\u91CC\u7684\u811A\u6B65\u58F0\u4E5F\u505C\u4E86\u3002\u2026\u2026\u53EA\u5269\u7A97\u5916\u7684\u98CE\u3002"
+    en: The broadcast stopped. Footsteps in the hall stopped too. ...Only wind outside.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 4
+    sfx: RecorderClickOff
+    notes: "\u6309 F \u5173\u5F55\u97F3\u7B14\u540E"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-20
+    category: 0
+    avgType: 3
+    zh: "\u3010\u6234\u4E0A\u7EFF\u955C,\u518D\u6309\u4E00\u6B21 F \u8BD5\u8BD5\u3002\u3011"
+    en: '[Put on green lens. Try F again.]'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 2
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 4
+    followUpId: 
+    triggerMode: 4
+    sfx: 
+    notes: "\u5F55\u97F3\u7B14\u505C\u6B62 + \u5207\u7EFF\u955C"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-21
+    category: 0
+    avgType: 2
+    zh: "\"\u8BF7[\u5973\u751F\u59D3\u540D]\u540C\u5B66\u524D\u5F80\u56DB\u697C402\u6559\u5BA4,\"\uFF08\u5F55\u97F3\u5728\u8FD9\u91CC\u4E2D\u65AD,\u53EA\u6709\u9759\u7535\u566A\u58F0\u3002)"
+    en: '"Student [Girl name], please come to 4F Room 402," (Recording cuts to static.)'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 2
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 3
+    sfx: RecorderClickOn,BroadcastVoice
+    notes: "\u7B2C\u4E8C\u6BB5\u5F55\u97F3"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-22
+    category: 0
+    avgType: 1
+    zh: "\u4ED6\u662F\u5979\u7684\u7236\u4EB2\u3002\u4ED6\u5728\u8FD9\u680B\u697C\u91CC\u8F6C\u4E86\u4E09\u5E74,\u4E00\u76F4\u4E0D\u77E5\u9053\u90A3\u5929\u5979\u4E3A\u4EC0\u4E48\u4F1A\u4ECE\u56DB\u697C\u4E00\u8DC3\u800C\u4E0B\u3002\u73B0\u5728\u77E5\u9053\u4E86\u3002"
+    en: He is her father. Three years in this building, never knowing why she fell
+      from the 4th floor that day. Now he knows.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 4
+    sfx: 
+    notes: "T-21 \u7ED3\u675F\u540E \xB7 \u4FDD\u5B89 \u2192 Stopped"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-23
+    category: 0
+    avgType: 3
+    zh: "\u3010\u6234\u4E0A\u7EFF\u955C,\u5730\u9762\u4F1A\u544A\u8BC9\u4F60\u53BB\u54EA\u3002\u3011"
+    en: '[Green lens. The floor will tell you where to go.]'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 0
+    cantSkip: 0
+    autoHideSec: 4
+    followUpId: 
+    triggerMode: 1
+    sfx: 
+    notes: "1F \u672A\u6234\u7EFF\u955C\u65F6"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: T-24
+    category: 0
+    avgType: 1
+    zh: "\uFF08\u5979\u63A8\u5F00\u4E86\u4FA7\u95E8\u3002\u8D70\u51FA\u53BB\u3002\u5916\u9762\u662F\u771F\u5B9E\u7684\u4E16\u754C\u2014\u2014\u8F66\u6C34\u9A6C\u9F99\u3002)"
+    en: (She pushes open the side door and walks out. The real world - cars flowing.)
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 0
+    cantSkip: 1
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 3
+    sfx: DoorPush,OutsideTraffic
+    notes: "\u7ED3\u5C40 \xB7 \u4E0D\u53EF\u8DF3\u8FC7"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.glasses.name
+    category: 1
+    avgType: 0
+    zh: "\u4E09\u539F\u8272\u773C\u955C"
+    en: Prism Glasses
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: "\u9053\u5177\u540D"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.glasses.desc
+    category: 1
+    avgType: 0
+    zh: "\u65E7\u6821\u670D\u53E3\u888B\u91CC\u7684\u773C\u955C\u3002\u955C\u7247\u53EF\u4EE5\u5728\u7EA2
+      / \u7EFF\u4E24\u79CD\u989C\u8272\u4E4B\u95F4\u5207\u6362\u3002\u6234\u4E0A\u67D0\u8272\u4F1A\u8BA9\u90A3\u79CD\u989C\u8272\u7684\u906E\u5C42\u6D88\u5931\u3002"
+    en: An old pair of glasses from a uniform pocket. Lens cycles between red and
+      green. Wearing removes that color's veil.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: "\u9053\u5177\u8BE6\u60C5"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.key.storage.name
+    category: 1
+    avgType: 0
+    zh: "\u50A8\u7269\u67DC\u94A5\u5319"
+    en: Locker Key
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.key.storage.desc
+    category: 1
+    avgType: 0
+    zh: "\u6263\u5B50\u4E0A\u5199\u7740\u4E8C\u697C\u50A8\u7269\u67DC\u7F16\u53F7\u3002"
+    en: 'The tag reads: 2F locker row.'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.key.stairs_4f.name
+    category: 1
+    avgType: 0
+    zh: "\u56DB\u697C\u94A5\u5319"
+    en: 4F Stairs Key
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.key.stairs_4f.desc
+    category: 1
+    avgType: 0
+    zh: "\u85CF\u5728 301 \u8BB2\u53F0\u6697\u683C\u91CC\u7684\u5907\u7528\u94A5\u5319\u3002"
+    en: A spare key hidden in the 301 podium drawer.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.diary.name
+    category: 1
+    avgType: 0
+    zh: "\u65E5\u8BB0\u672C"
+    en: Diary
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.diary.desc
+    category: 1
+    avgType: 0
+    zh: "\u4E24\u9875\u65E5\u8BB0\u3002\u7B14\u8FF9\u8D8A\u5199\u8D8A\u6F66\u8349\u3002"
+    en: Two pages. The handwriting grows rougher each entry.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.recorder.name
+    category: 1
+    avgType: 0
+    zh: "\u5F55\u97F3\u7B14"
+    en: Voice Recorder
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.recorder.desc
+    category: 1
+    avgType: 0
+    zh: "\u8BB2\u53F0\u4E0A\u7684\u5F55\u97F3\u7B14\u3002\u7EA2\u706F\u95EA\u70C1,\u4F3C\u4E4E\u5728\u5FAA\u73AF\u64AD\u653E\u4EC0\u4E48\u3002"
+    en: A voice recorder on the podium. Red light blinking. Seems to loop something.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.love_letter.name
+    category: 1
+    avgType: 0
+    zh: "\u60C5\u4E66"
+    en: Love Letter
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.love_letter.desc
+    category: 1
+    avgType: 0
+    zh: "\u4E00\u5C01\u88AB\u4ED4\u7EC6\u6298\u53E0\u7684\u4FE1,\u4FE1\u5C01\u5DF2\u7ECF\u62C6\u8FC7\u3002\u5927\u90E8\u5206\u5B57\u8FF9\u88AB\u67D0\u79CD\u989C\u8272\u76D6\u4F4F,\u53EA\u6709\u6234\u5BF9\u6EE4\u955C\u624D\u80FD\u770B\u6E05\u3002"
+    en: A carefully folded letter in an already-opened envelope. Most of the text
+      is covered in color - only the right lens reveals it.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.old_note.name
+    category: 1
+    avgType: 0
+    zh: "\u65E7\u684C\u4FBF\u6761"
+    en: Old Desk Note
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.mock_note_01.name
+    category: 1
+    avgType: 0
+    zh: "\u7EB8\u6761 1"
+    en: Note 1
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.mock_note_02.name
+    category: 1
+    avgType: 0
+    zh: "\u7EB8\u6761 2"
+    en: Note 2
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.mock_note_03.name
+    category: 1
+    avgType: 0
+    zh: "\u7EB8\u6761 3"
+    en: Note 3
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.mock_note_04.name
+    category: 1
+    avgType: 0
+    zh: "\u7EB8\u6761 4"
+    en: Note 4
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.menu.start
+    category: 2
+    avgType: 0
+    zh: "\u5F00\u59CB\u6E38\u620F"
+    en: Start Game
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.menu.continue
+    category: 2
+    avgType: 0
+    zh: "\u7EE7\u7EED\u6E38\u620F"
+    en: Continue
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.menu.settings
+    category: 2
+    avgType: 0
+    zh: "\u8BBE\u7F6E"
+    en: Settings
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.menu.exit
+    category: 2
+    avgType: 0
+    zh: "\u9000\u51FA"
+    en: Exit
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.menu.restart
+    category: 2
+    avgType: 0
+    zh: "\u91CD\u65B0\u5F00\u59CB"
+    en: Restart
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.menu.back
+    category: 2
+    avgType: 0
+    zh: "\u8FD4\u56DE"
+    en: Back
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.menu.resume
+    category: 2
+    avgType: 0
+    zh: "\u7EE7\u7EED\u6E38\u620F"
+    en: Resume
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.menu.main_menu
+    category: 2
+    avgType: 0
+    zh: "\u8FD4\u56DE\u4E3B\u83DC\u5355"
+    en: Main Menu
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.gameover.title
+    category: 2
+    avgType: 0
+    zh: GAME OVER
+    en: GAME OVER
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.gameover.sub
+    category: 2
+    avgType: 0
+    zh: "\u4F60\u88AB\u4FDD\u5B89\u6293\u5230\u4E86\u2026\u2026"
+    en: The guard caught you...
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.victory.title
+    category: 2
+    avgType: 0
+    zh: "\u9003\u8131\u6210\u529F!"
+    en: Escaped!
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.victory.sub
+    category: 2
+    avgType: 0
+    zh: "\u4F60\u770B\u7A7F\u4E86\u68F1\u955C\u7981\u533A\u7684\u79D8\u5BC6\u3002"
+    en: You saw through the Prism Zone.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.pause.title
+    category: 2
+    avgType: 0
+    zh: "\u6E38\u620F\u6682\u505C"
+    en: Paused
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.avg.skip
+    category: 2
+    avgType: 0
+    zh: "[ESC] \u8DF3\u8FC7"
+    en: '[ESC] Skip'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.avg.continue
+    category: 2
+    avgType: 0
+    zh: "[E] \u7EE7\u7EED"
+    en: '[E] Continue'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.avg.page
+    category: 2
+    avgType: 0
+    zh: '{0} / {1}'
+    en: '{0} / {1}'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.prompt.pickup
+    category: 2
+    avgType: 0
+    zh: "\u6309 E \u62FE\u53D6"
+    en: Press E to pick up
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.prompt.inspect
+    category: 2
+    avgType: 0
+    zh: "\u6309 E \u67E5\u770B"
+    en: Press E to inspect
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.prompt.inspect_f
+    category: 2
+    avgType: 0
+    zh: "\u6309 F \u9605\u8BFB"
+    en: Press F to read
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.prompt.hide
+    category: 2
+    avgType: 0
+    zh: "\u6309 E \u8EB2\u5165\u6A71\u67DC"
+    en: Press E to hide
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.prompt.exit_cabinet
+    category: 2
+    avgType: 0
+    zh: "\u6309 E \u79BB\u5F00"
+    en: Press E to come out
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.prompt.open_door
+    category: 2
+    avgType: 0
+    zh: "\u6309 E \u5F00\u95E8"
+    en: Press E to open
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.prompt.push_door
+    category: 2
+    avgType: 0
+    zh: "\u6309 E \u63A8\u95E8"
+    en: Press E to push
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.prompt.recorder.stop
+    category: 2
+    avgType: 0
+    zh: "\u6309 F \u505C\u6B62\u5F55\u97F3"
+    en: Press F to stop
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.prompt.recorder.play
+    category: 2
+    avgType: 0
+    zh: "\u6309 F \u64AD\u653E"
+    en: Press F to play
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.door.locked
+    category: 2
+    avgType: 0
+    zh: "\u95E8\u88AB\u9501\u4F4F\u4E86 \u2014 \u9700\u8981\u94A5\u5319"
+    en: The door is locked - you need a key.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.door.need_passcode
+    category: 2
+    avgType: 0
+    zh: "\u95E8\u9501\u7740 \u2014 \u8F93\u5165\u5BC6\u7801"
+    en: Locked - enter passcode.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.filter.equipped.red
+    category: 2
+    avgType: 0
+    zh: "\u7EA2\u955C\u5DF2\u88C5\u5907"
+    en: Red lens equipped.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.filter.equipped.green
+    category: 2
+    avgType: 0
+    zh: "\u7EFF\u955C\u5DF2\u88C5\u5907"
+    en: Green lens equipped.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.filter.removed
+    category: 2
+    avgType: 0
+    zh: "\u955C\u7247\u5DF2\u6458\u4E0B"
+    en: Lens removed.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.hotkey.q
+    category: 2
+    avgType: 0
+    zh: "[Q] \u5207\u6362\u6EE4\u955C"
+    en: '[Q] Cycle Lens'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.volume
+    category: 2
+    avgType: 0
+    zh: "\u4E3B\u97F3\u91CF"
+    en: Volume
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.sfx
+    category: 2
+    avgType: 0
+    zh: "\u97F3\u6548"
+    en: SFX
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.music
+    category: 2
+    avgType: 0
+    zh: "\u97F3\u4E50"
+    en: Music
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.language
+    category: 2
+    avgType: 0
+    zh: "\u8BED\u8A00"
+    en: Language
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.reset
+    category: 2
+    avgType: 0
+    zh: "\u6062\u590D\u9ED8\u8BA4"
+    en: Reset
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: system.broadcast.prelude.hint
+    category: 4
+    avgType: 0
+    zh: "\u5E7F\u64AD\u5373\u5C06\u5F00\u59CB"
+    en: Broadcast starting
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: "(\u672A\u4F7F\u7528,\u4FDD\u7559)"
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.menu.title
+    category: 2
+    avgType: 0
+    zh: "\u68F1\u955C\u7981\u533A"
+    en: PRISM ZONE
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 'legacy: main menu title'
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.filter.none
+    category: 2
+    avgType: 0
+    zh: "\u65E0\u6EE4\u955C"
+    en: No Filter
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.filter.red
+    category: 2
+    avgType: 0
+    zh: "\u7EA2\u955C"
+    en: Red
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.filter.green
+    category: 2
+    avgType: 0
+    zh: "\u7EFF\u955C"
+    en: Green
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.cabinet.prompt
+    category: 2
+    avgType: 0
+    zh: "E \u8FDB\u5165\u6A71\u67DC"
+    en: E to hide
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.cabinet.exit
+    category: 2
+    avgType: 0
+    zh: "E \u79BB\u5F00"
+    en: E to leave
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.pickup.prompt
+    category: 2
+    avgType: 0
+    zh: "E \u62FE\u53D6"
+    en: E to pick up
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.interact.prompt
+    category: 2
+    avgType: 0
+    zh: "E \u4EA4\u4E92"
+    en: E to interact
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.clue.dismiss
+    category: 2
+    avgType: 0
+    zh: "E \u5173\u95ED"
+    en: E to close
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.passcode.title
+    category: 2
+    avgType: 0
+    zh: "\u8F93\u5165 4 \u4F4D\u5BC6\u7801"
+    en: Enter 4-digit code
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.passcode.wrong
+    category: 2
+    avgType: 0
+    zh: "\u5BC6\u7801\u9519\u8BEF"
+    en: Wrong code
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.passcode.ok
+    category: 2
+    avgType: 0
+    zh: "\u89E3\u9501"
+    en: Unlock
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.door.open
+    category: 2
+    avgType: 0
+    zh: "\u95E8\u5F00\u7740\u3002"
+    en: The door is open.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.recorder.stop
+    category: 2
+    avgType: 0
+    zh: "F \u505C\u6B62\u5F55\u97F3\u7B14"
+    en: F to stop recorder
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.recorder.play
+    category: 2
+    avgType: 0
+    zh: "F \u64AD\u653E\u7B2C\u4E8C\u6BB5"
+    en: F to play second segment
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.pause.music_on
+    category: 2
+    avgType: 0
+    zh: "\u97F3\u4E50: \u5F00"
+    en: 'Music: On'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.pause.music_off
+    category: 2
+    avgType: 0
+    zh: "\u97F3\u4E50: \u5173"
+    en: 'Music: Off'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.pause.quit_to_menu
+    category: 2
+    avgType: 0
+    zh: "\u8FD4\u56DE\u4E3B\u83DC\u5355"
+    en: Return to Main Menu
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.title
+    category: 2
+    avgType: 0
+    zh: "\u8BBE\u7F6E"
+    en: Settings
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.master
+    category: 2
+    avgType: 0
+    zh: "\u4E3B\u97F3\u91CF"
+    en: Master Volume
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.lang.en
+    category: 2
+    avgType: 0
+    zh: English
+    en: English
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.lang.zh
+    category: 2
+    avgType: 0
+    zh: "\u4E2D\u6587"
+    en: "\u4E2D\u6587"
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.close
+    category: 2
+    avgType: 0
+    zh: "\u5173\u95ED"
+    en: Close
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.victory.restart
+    category: 2
+    avgType: 0
+    zh: "\u518D\u73A9\u4E00\u6B21"
+    en: Play Again
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.victory.menu
+    category: 2
+    avgType: 0
+    zh: "\u4E3B\u83DC\u5355"
+    en: Main Menu
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.victory.reason.escaped
+    category: 2
+    avgType: 0
+    zh: "\u4F60\u51FA\u6765\u4E86\u3002\u4E09\u68F1\u955C\u770B\u89C1\u4E86\u4E00\u5207\u3002"
+    en: You made it out. The prism saw everything.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.gameover.restart
+    category: 2
+    avgType: 0
+    zh: "\u91CD\u65B0\u5F00\u59CB"
+    en: Restart
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.gameover.menu
+    category: 2
+    avgType: 0
+    zh: "\u4E3B\u83DC\u5355"
+    en: Main Menu
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.gameover.reason.caught
+    category: 2
+    avgType: 0
+    zh: "\u4F60\u88AB\u6293\u4F4F\u4E86\u3002"
+    en: You were caught.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.gameover.reason.caught by GREEN
+    category: 2
+    avgType: 0
+    zh: "\u51DD\u89C6\u8005\u6293\u4F4F\u4E86\u4F60\u3002"
+    en: The Watcher caught you.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.popup.close_hint
+    category: 2
+    avgType: 0
+    zh: "[F / Esc] \u5173\u95ED"
+    en: '[F / Esc] Close'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.popup.next_hint
+    category: 2
+    avgType: 0
+    zh: "[Space] \u7EE7\u7EED"
+    en: '[Space] Continue'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.popup.page_hint
+    category: 2
+    avgType: 0
+    zh: "[\u2190 \u2192] \u7FFB\u9875"
+    en: "[\u2190 \u2192] Page"
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.inventory.empty
+    category: 2
+    avgType: 0
+    zh: "\u7A7A"
+    en: Empty
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: clue.room1.code
+    category: 3
+    avgType: 0
+    zh: "\u5899\u4E0A\u5199\u7740:3\xB7?\xB77\xB71"
+    en: 'Scrawled on the wall: 3.?.7.1'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: brute clue for passcode 3071
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
