@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bae9289e302b596458f4efa60faab5e5
+guid: 617bb09ee01f1ab46bfcb59b08809964
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2818444170269284612
-    second: tonguan_0
+      213: 7482818293930740804
+    second: Character02_front_idle_15_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tonguan_0
+      name: Character02_front_idle_15_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 5120
-        height: 2560
+        x: 6
+        y: 2
+        width: 57
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 409db244a002d1720800000000000000
-      internalID: 2818444170269284612
+      spriteID: 44c4988b79f48d760800000000000000
+      internalID: 7482818293930740804
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tonguan_0: 2818444170269284612
+      Character02_front_idle_15_0: 7482818293930740804
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

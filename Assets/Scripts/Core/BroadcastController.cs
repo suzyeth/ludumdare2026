@@ -85,12 +85,12 @@ namespace PrismZone.Core
 
         private IEnumerator CycleLoop()
         {
-            yield return new WaitForSeconds(firstDelay);
+            yield return WaitPausedByAvg(firstDelay);
             while (!_disarmed)
             {
                 yield return RunOne();
                 if (_disarmed) yield break;
-                yield return new WaitForSeconds(interval);
+                yield return WaitPausedByAvg(interval);
             }
         }
 
@@ -103,7 +103,7 @@ namespace PrismZone.Core
                 _firstPreludePlayed = true;
                 DialogueManager.Instance?.ShowById(firstPreludeNodeId);
             }
-            yield return new WaitForSeconds(preludeDuration);
+            yield return WaitPausedByAvg(preludeDuration);
 
             // --- Broadcast ---
             IsBroadcasting = true;
@@ -119,9 +119,27 @@ namespace PrismZone.Core
                 e.RequestState(EnemyBase.State.Locating);
             }
 
-            yield return new WaitForSeconds(broadcastDuration);
+            yield return WaitPausedByAvg(broadcastDuration);
 
             EndBroadcastImmediate();
+        }
+
+        /// <summary>
+        /// Real-time wait that freezes while an AVG popup is on screen. Prevents
+        /// the broadcast cycle from running down (or firing a new broadcast)
+        /// while the player is reading a clue / note. Time.timeScale-agnostic:
+        /// uses unscaledDeltaTime so pausing the game also pauses the timer.
+        /// </summary>
+        private IEnumerator WaitPausedByAvg(float seconds)
+        {
+            float t = 0f;
+            while (t < seconds)
+            {
+                var dm = DialogueManager.Instance;
+                bool avgOpen = dm != null && dm.IsShowing;
+                if (!avgOpen) t += Time.unscaledDeltaTime;
+                yield return null;
+            }
         }
 
         private void EndBroadcastImmediate()

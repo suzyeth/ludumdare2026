@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 16a212461b4180144bcea8c7766668ba
+guid: cc1781e9879604445b3861890ff86cfa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2564103516566653322
-    second: tishikuang_02_0
+      213: -6267588591352736968
+    second: Character02_front_idle_13_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 12, y: 12, z: 12, w: 12}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tishikuang_02_0
+      name: Character02_front_idle_13_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 32
+        x: 6
+        y: 2
+        width: 57
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 676f6b7df697a6cd0800000000000000
-      internalID: -2564103516566653322
+      spriteID: 833112e126d0509a0800000000000000
+      internalID: -6267588591352736968
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tishikuang_02_0: -2564103516566653322
+      Character02_front_idle_13_0: -6267588591352736968
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
