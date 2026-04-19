@@ -18,16 +18,16 @@ namespace PrismZone.Core
     public static class I18nManager
     {
         private const string PrefKey = "lang";
-        private const string DefaultLang = "en";
+        private const string DefaultLang = "zh";
 
         public static string CurrentLang { get; private set; } = DefaultLang;
         public static event Action OnLanguageChanged;
 
         public static void Init()
         {
-            // v0.4 TEMP: hard-lock to English until Zpix (or another CJK-capable
-            // TMP font) ships. Remove once font is wired.
-            CurrentLang = "en";
+            // v0.5: default to zh (tsv now contains full Chinese copy).
+            // TMP font must include CJK glyphs — see Assets/Fonts/README for font asset.
+            CurrentLang = PlayerPrefs.GetString(PrefKey, DefaultLang);
         }
 
         public static void ResetPrefs()
