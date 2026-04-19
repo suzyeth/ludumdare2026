@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8707a5a24c993c34699e41a162eda8a0
+guid: b39246d266065154ca6e611ed8b0a6a7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6595806473385654948
-    second: tishikuang_0
+      213: -8014094379722492325
+    second: hud_filter_none_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 12, y: 12, z: 12, w: 12}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tishikuang_0
+      name: hud_filter_none_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 267
-        height: 67
+        y: 3
+        width: 64
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5540a265fcf674a0800000000000000
-      internalID: -6595806473385654948
+      spriteID: b56bf244f9738c090800000000000000
+      internalID: -8014094379722492325
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tishikuang_0: -6595806473385654948
+      hud_filter_none_0: -8014094379722492325
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

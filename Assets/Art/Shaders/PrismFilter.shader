@@ -1,14 +1,21 @@
 Shader "PrismZone/PrismFilter"
 {
     // Fullscreen shader for URP FullScreenPassRendererFeature.
-    // _FilterMode: 0 = passthrough, 1 = red-strip (hide what red ink conceals),
-    //              2 = green-strip, 3 = blue-strip.
-    // Applied on the base 640x360 colour pass BEFORE the Pixel Perfect upscale,
-    // so the strip is pixel-exact and doesn't bloom under RT scaling.
+    //
+    //   _FilterMode: 0 = passthrough, 1 = red lens, 2 = green lens.
+    //   Blue dropped in v1.2 — only red / green remain in the player rotation.
+    //
+    // Only effect: edge vignette tint (red / green glow on screen perimeter).
+    // Centre keeps the original image unaltered — colour-based reveal gameplay is
+    // handled at the GameObject level by GlassesVisibility, not by a channel strip.
+    //
+    // Applied on the 640x360 colour pass BEFORE Pixel Perfect upscale.
     Properties
     {
-        _FilterMode("Filter Mode (0=none,1=R,2=G,3=B)", Float) = 0
-        _Boost("Channel Boost", Float) = 1.15
+        _FilterMode("Filter Mode (0=none,1=R,2=G)", Float) = 0
+        _VignetteStart("Vignette Start (0=centre)", Range(0,1.4)) = 0.78
+        _VignetteEnd("Vignette End (>=Start)", Range(0,1.5)) = 1.1
+        _VignetteIntensity("Vignette Intensity", Range(0,1)) = 0.9
     }
     SubShader
     {
@@ -26,7 +33,9 @@ Shader "PrismZone/PrismFilter"
             #include "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"
 
             float _FilterMode;
-            float _Boost;
+            float _VignetteStart;
+            float _VignetteEnd;
+            float _VignetteIntensity;
 
             half4 Frag(Varyings input) : SV_Target
             {
@@ -34,23 +43,23 @@ Shader "PrismZone/PrismFilter"
                 half4 col = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_LinearClamp, uv);
 
                 int mode = (int)_FilterMode;
-                // Strip the target channel -> content drawn in that channel becomes
-                // invisible and content hidden beneath it is revealed.
-                if (mode == 1)
+
+                // Pick lens colour; mode 0 = no tint.
+                half3 lensColour = half3(0, 0, 0);
+                bool tint = false;
+                if      (mode == 1) { lensColour = half3(1.0, 0.12, 0.12); tint = true; }
+                else if (mode == 2) { lensColour = half3(0.12, 0.95, 0.25); tint = true; }
+
+                if (tint)
                 {
-                    col.r = 0;
-                    col.gb *= _Boost;
+                    float2 d2 = (uv - 0.5) * 2.0;   // 1 ≈ corner
+                    float dist = length(d2);
+                    float v = saturate((dist - _VignetteStart) / max(0.0001, (_VignetteEnd - _VignetteStart)));
+                    v = v * v * (3.0 - 2.0 * v);    // smoothstep
+                    v *= _VignetteIntensity;
+                    col.rgb = lerp(col.rgb, max(col.rgb, lensColour), v);
                 }
-                else if (mode == 2)
-                {
-                    col.g = 0;
-                    col.rb *= _Boost;
-                }
-                else if (mode == 3)
-                {
-                    col.b = 0;
-                    col.rg *= _Boost;
-                }
+
                 return col;
             }
             ENDHLSL

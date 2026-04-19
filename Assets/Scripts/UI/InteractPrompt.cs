@@ -7,31 +7,41 @@ using PrismZone.Player;
 namespace PrismZone.UI
 {
     /// <summary>
-    /// Reads the Player's PlayerInteraction.CurrentTarget each frame and shows its
-    /// PromptKey (via I18nManager) in a TMP label. Toggles visibility via CanvasGroup
-    /// alpha so this component's own GameObject stays active (otherwise Update stops).
+    /// Floating prompt bubble. Reads <see cref="PlayerInteraction.CurrentTarget"/>,
+    /// displays its PromptKey (via i18n), and follows the target's world position
+    /// (offset upward) — no longer a fixed bottom-of-screen bar.
+    ///
+    /// Width auto-fits to the TMP_Text content via ContentSizeFitter on this GO.
+    /// A little ▽ tail child points at the target below the bubble.
     /// </summary>
+    [RequireComponent(typeof(CanvasGroup))]
     public class InteractPrompt : MonoBehaviour
     {
+        [Header("Visuals")]
         [SerializeField] private TMP_Text label;
         [SerializeField] private Image background;
+        [Tooltip("Extra world-space offset above the target's collider top.")]
+        [SerializeField] private Vector2 worldOffset = new Vector2(0f, 0.25f);
 
         private PlayerInteraction _source;
         private CanvasGroup _group;
+        private Canvas _canvas;
+        private RectTransform _rt;
 
         private void Awake()
         {
             _group = GetComponent<CanvasGroup>();
-            if (_group == null) _group = gameObject.AddComponent<CanvasGroup>();
             _group.alpha = 0f;
             _group.blocksRaycasts = false;
             _group.interactable = false;
+            _canvas = GetComponentInParent<Canvas>();
+            _rt = (RectTransform)transform;
 
             var p = GameObject.FindGameObjectWithTag("Player");
             if (p != null) _source = p.GetComponent<PlayerInteraction>();
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (_source == null)
             {
@@ -43,11 +53,36 @@ namespace PrismZone.UI
             var target = _source.CurrentTarget;
             bool show = target != null;
             _group.alpha = show ? 1f : 0f;
+            if (!show) return;
 
-            if (show && label != null)
+            // Text first so ContentSizeFitter recomputes the bubble before we reposition.
+            if (label != null)
             {
                 string key = string.IsNullOrEmpty(target.PromptKey) ? "ui.interact.prompt" : target.PromptKey;
                 label.text = I18nManager.Get(key);
+            }
+
+            // World → screen → canvas space. Works for both ScreenSpaceOverlay and Camera canvases.
+            var cam = Camera.main;
+            var targetMb = target as MonoBehaviour;
+            if (cam == null || targetMb == null || _canvas == null) return;
+
+            // Anchor to the collider's top, not the transform origin — cabinets / tall
+            // props have their pivot at the base, so transform.position sits inside them.
+            var col = targetMb.GetComponent<Collider2D>();
+            float topY = col != null ? col.bounds.max.y : targetMb.transform.position.y;
+            Vector3 worldPos = new Vector3(targetMb.transform.position.x, topY, 0f) + (Vector3)worldOffset;
+            Vector2 screen = cam.WorldToScreenPoint(worldPos);
+
+            if (_canvas.renderMode == RenderMode.ScreenSpaceOverlay)
+            {
+                _rt.position = new Vector3(screen.x, screen.y, 0f);
+            }
+            else
+            {
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    (RectTransform)_canvas.transform, screen, _canvas.worldCamera, out var local);
+                _rt.localPosition = local;
             }
         }
     }
