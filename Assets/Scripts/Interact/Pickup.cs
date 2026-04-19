@@ -1,17 +1,20 @@
 using UnityEngine;
+using PrismZone.Core;
 using PrismZone.Player;
 using PrismZone.UI;
 
 namespace PrismZone.Interact
 {
     /// <summary>
-    /// Floor item. On E:
-    ///  - Adds itemId to Inventory (if set)
-    ///  - Shows CluePopup with clueTextKey (if set)
-    ///  - Destroys itself if destroyOnPickup
+    /// Floor item / world interactable. On E:
+    ///  - Adds <see cref="itemId"/> to Inventory (if set)
+    ///  - Fires <see cref="dialogueNodeId"/> via DialogueManager (if set) — type / pages /
+    ///    SFX / follow-up / filter-conditional text all come from <c>text_table.tsv</c>
+    ///  - Otherwise falls back to legacy <see cref="clueTextKey"/> → CluePopup
+    ///  - Destroys itself if <see cref="destroyOnPickup"/>
     ///
-    /// Items with only clueTextKey and no itemId are "inspect-only" clues — think
-    /// a graffiti wall or a scrap of paper the player reads but doesn't take.
+    /// Read-only interactables (wall notes, graffiti) leave itemId empty and set
+    /// <see cref="oneShotClue"/> = false so the node stays re-readable.
     /// </summary>
     [RequireComponent(typeof(Collider2D))]
     public class Pickup : MonoBehaviour, IInteractable
@@ -23,17 +26,10 @@ namespace PrismZone.Interact
         [SerializeField] private bool destroyOnPickup = true;
         [SerializeField] private bool oneShotClue = true;
 
-        [Header("v1.2 AVG Dispatch (optional)")]
-        [Tooltip("If true, fire a DialogueManager popup on pickup instead of (or in addition to) CluePopup.")]
-        [SerializeField] private bool useDialogueManager = false;
-        [SerializeField] private DialogueType dialogueType = DialogueType.NAR;
-        [Tooltip("i18n keys passed to DialogueManager.ShowKeys (multi-page READ supported).")]
-        [SerializeField] private string[] dialogueKeys;
-        [SerializeField] private string nodeTag;
-        [Tooltip("READ only — i18n key for popup title bar.")]
-        [SerializeField] private string dialogueTitleKey;
-        [Tooltip("READ only — header sprite (128×128).")]
-        [SerializeField] private Sprite dialogueHeaderSprite;
+        [Header("v1.2 AVG Dispatch")]
+        [Tooltip("TSV node id (e.g. T-02). When set, DialogueManager.ShowById is called — everything else (type, pages, sfx, follow-up) comes from text_table.tsv.")]
+        [NodeIdDropdown]
+        [SerializeField] private string dialogueNodeId;
 
         private bool _consumed;
 
@@ -58,13 +54,10 @@ namespace PrismZone.Interact
                 if (!tookSomething) return; // inventory full — bail without consuming
             }
 
-            // v1.2 AVG dispatch path takes precedence over the legacy CluePopup when wired.
             bool firedDialogue = false;
-            if (useDialogueManager && DialogueManager.Instance != null && dialogueKeys != null && dialogueKeys.Length > 0)
+            if (!string.IsNullOrEmpty(dialogueNodeId) && DialogueManager.Instance != null)
             {
-                var type = dialogueType == DialogueType.TIP ? DialogueType.NAR : dialogueType;
-                Vector3? pos = type == DialogueType.ENV ? (Vector3?)transform.position : null;
-                DialogueManager.Instance.ShowKeys(type, dialogueKeys, null, pos, nodeTag, dialogueTitleKey, dialogueHeaderSprite);
+                DialogueManager.Instance.ShowById(dialogueNodeId);
                 firedDialogue = true;
             }
             else if (!string.IsNullOrEmpty(clueTextKey) && CluePopup.Instance != null)
@@ -72,10 +65,8 @@ namespace PrismZone.Interact
                 CluePopup.Instance.Show(clueTextKey);
             }
 
-            // Consume only when:
-            //   - we actually put an item into Inventory, OR
-            //   - the designer marked the clue as one-shot (read once only).
-            // Otherwise (inspect-only reusable), keep interactable for re-read.
+            // Consume only when we added an item, or the designer marked the clue/dialogue
+            // as one-shot. Read-only re-readable nodes (notes, graffiti) stay interactable.
             bool shouldConsume = tookSomething
                 || (oneShotClue && !string.IsNullOrEmpty(clueTextKey))
                 || (oneShotClue && firedDialogue);

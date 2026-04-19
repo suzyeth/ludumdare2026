@@ -173,14 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163af8e54187845428af22a2aa749c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Interact.Pickup
-  itemId: item.key.b
+  itemId: item.key.stairs_4f
   clueTextKey: 
   promptKey: ui.pickup.prompt
   destroyOnPickup: 1
   oneShotClue: 1
-  useDialogueManager: 0
-  dialogueType: 0
-  dialogueKeys: []
-  nodeTag: 
-  dialogueTitleKey: 
-  dialogueHeaderSprite: {fileID: 0}
+  dialogueNodeId: T-13

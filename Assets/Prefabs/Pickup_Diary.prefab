@@ -178,9 +178,4 @@ MonoBehaviour:
   promptKey: ui.pickup.prompt
   destroyOnPickup: 1
   oneShotClue: 1
-  useDialogueManager: 0
-  dialogueType: 0
-  dialogueKeys: []
-  nodeTag: 
-  dialogueTitleKey: 
-  dialogueHeaderSprite: {fileID: 0}
+  dialogueNodeId: T-02
