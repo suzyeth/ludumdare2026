@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Item_MockNote_03
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.ItemData
   id: item.mock_note_03
-  nameKey: item.mock_note
+  nameKey: item.mock_note_03
   worldIcon: {fileID: 21300000, guid: 1622089d889572444846bd321951bd80, type: 3}
   bigIcon: {fileID: 21300000, guid: 47363138430ee6b4ba3053e4cc17c51e, type: 3}
   pageKeys:
-  - item.note.page.1
+  - item.mock_note_03.page.1
   hasDetailPopup: 1
   showInInventory: 1

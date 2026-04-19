@@ -50,11 +50,11 @@ MonoBehaviour:
     repeatable: 0
     cantSkip: 1
     autoHideSec: 0
-    followUpId: item.old_note.desc
+    followUpId: item.old_note.page.1
     triggerMode: 2
     sfx: 
-    notes: "\u6361\u8D77\u7834\u65E7\u7EB8\u6761(Pickup_Note) \xB7 \u94FE\u5230 old_note
-      READ"
+    notes: "\u6361\u8D77\u7834\u65E7\u7EB8\u6761(Pickup_OldNote) \xB7 \u94FE\u5230
+      old_note READ"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -74,7 +74,7 @@ MonoBehaviour:
     repeatable: 0
     cantSkip: 1
     autoHideSec: 0
-    followUpId: item.diary.desc
+    followUpId: item.diary.page.1
     triggerMode: 2
     sfx: 
     notes: "\u6361\u8D77\u65E5\u8BB0(Pickup_Diary) \xB7 \u94FE\u5230 diary READ"
@@ -121,7 +121,7 @@ MonoBehaviour:
     repeatable: 0
     cantSkip: 1
     autoHideSec: 0
-    followUpId: item.glasses.desc
+    followUpId: item.glasses.page.1
     triggerMode: 0
     sfx: 
     notes: "Cabinet_Locked \u5F00\u9501 UnityEvent \u2192 Fire() \xB7 \u94FE\u5230
@@ -484,7 +484,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.glasses.name
+  - id: item.glasses
     category: 1
     avgType: 0
     zh: "\u989C\u8272\u77EB\u6B63\u773C\u955C"
@@ -507,7 +507,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.glasses.desc
+  - id: item.glasses.page.1
     category: 1
     avgType: 2
     zh: "\u4E00\u526F\u77EB\u6B63\u989C\u8272\u7684\u773C\u775B,\u6234\u4E0A\u773C\u955C\u4F3C\u4E4E\u53EF\u4EE5\u770B\u5230\u4E00\u4E9B\u4E0D\u4E00\u6837\u7684\u4E1C\u897F\u2026\u2026\\n\u6309Q\u952E\u5207\u6362\u955C\u7247\u989C\u8272"
@@ -530,7 +530,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.key.storage.name
+  - id: item.key.storage
     category: 1
     avgType: 0
     zh: "\u50A8\u85CF\u67DC\u94A5\u5319"
@@ -553,7 +553,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.key.storage.desc
+  - id: item.key.storage.page.1
     category: 1
     avgType: 2
     zh: "\u53EF\u80FD\u662F\u5979\u7684\u94A5\u5319\u2026\u2026\u5979\u7684\u50A8\u85CF\u67DC\u4F1A\u5728\u54EA\u91CC\u5462?"
@@ -576,7 +576,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.key.stairs_4f.name
+  - id: item.key.stairs_4f
     category: 1
     avgType: 0
     zh: "\u56DB\u697C\u94A5\u5319"
@@ -599,7 +599,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.key.stairs_4f.desc
+  - id: item.key.stairs_4f.page.1
     category: 1
     avgType: 2
     zh: "\u9501\u4F4F\u4E86\u56DB\u697C\u7684\u697C\u68AF\u53E3,\u4E5F\u9501\u4F4F\u4E86\u79D8\u5BC6"
@@ -622,7 +622,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.diary.name
+  - id: item.diary
     category: 1
     avgType: 0
     zh: "\u4E00\u672C\u65E5\u8BB0"
@@ -645,19 +645,85 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.diary.desc
+  - id: item.diary.page.1
     category: 1
     avgType: 2
     zh: "\u77E5\u5F69\\n2\u67081\u65E5 \u6674 \u4ECA\u5929\u5929\u6C14\u597D\u68D2\u5440,\u52A0\u6CB9\u77E5\u5F69!\u4F60\u4E00\u5B9A\u53EF\u4EE5\u575A\u6301\u4E0B\u53BB\u7684!\\n2\u67085\u65E5
       \u96E8 \u4ED6\u4EEC\u53C8\u53EB\u6211\u653E\u5B66\u53BB\u50A8\u85CF\u5BA4\u2026\u2026\u6211\u771F\u7684\u4E0D\u60F3\u53BB\u2026\u2026\u597D\u5BB3\u6015\u2026\u2026\\n2\u67085\u65E5
-      \u96E8 \u4ED6\u4EEC\u53C8\u62A2\u8D70\u4E86\u6211\u7684\u50A8\u7269\u67DC\u94A5\u5319\u2026\u2026\u4E0B\u6B21\u8981\u85CF\u597D\u4E00\u70B9\u2026\u2026\u6CA1\u6765\u5F97\u53CA\u6362\u8863\u670D\u88AB\u4F53\u80B2\u8001\u5E08\u7F5A\u8DD1\u4E86\u2026\u2026|2\u670812\u65E5
-      \u96E8 \u4E0D\u559C\u6B22\u4E0B\u96E8,\u6BCF\u6B21\u4E0B\u96E8\u4ED6\u4EEC\u4E0D\u51FA\u53BB\u73A9\u5C31\u4F1A\u6765\u627E\u6211\u7684\u9EBB\u70E6\u3002\u50A8\u7269\u67DC\u88AB\u6CFC\u4E86\u6CB9\u6F06\u2026\u2026\u597D\u8FC7\u5206\u2026\u2026\u4F24\u53E3\u597D\u75BC\u2026\u2026\\n3\u670813\u65E5
+      \u96E8 \u4ED6\u4EEC\u53C8\u62A2\u8D70\u4E86\u6211\u7684\u50A8\u7269\u67DC\u94A5\u5319\u2026\u2026\u4E0B\u6B21\u8981\u85CF\u597D\u4E00\u70B9\u2026\u2026\u6CA1\u6765\u5F97\u53CA\u6362\u8863\u670D\u88AB\u4F53\u80B2\u8001\u5E08\u7F5A\u8DD1\u4E86\u2026\u2026"
+    en: 
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.diary.page.2
+    category: 1
+    avgType: 2
+    zh: "2\u670812\u65E5 \u96E8 \u4E0D\u559C\u6B22\u4E0B\u96E8,\u6BCF\u6B21\u4E0B\u96E8\u4ED6\u4EEC\u4E0D\u51FA\u53BB\u73A9\u5C31\u4F1A\u6765\u627E\u6211\u7684\u9EBB\u70E6\u3002\u50A8\u7269\u67DC\u88AB\u6CFC\u4E86\u6CB9\u6F06\u2026\u2026\u597D\u8FC7\u5206\u2026\u2026\u4F24\u53E3\u597D\u75BC\u2026\u2026\\n3\u670813\u65E5
       \u9634 \u4E3A\u4EC0\u4E48\u2026\u2026\u4E3A\u4EC0\u4E48\u662F\u6211?\u4E3A\u4EC0\u4E48\u6B3A\u8D1F\u6211\u2026\u2026\u6211\u505A\u9519\u4E86\u4EC0\u4E48?\\n3\u670823\u65E5
-      \u9634 \u518D\u575A\u6301\u4E00\u4E0B\u5427\u2026\u2026\u7238\u7238\u82B1\u4E86\u90A3\u4E48\u591A\u94B1\u5C31\u4E3A\u4E86\u8BA9\u6211\u5728\u8FD9\u91CC\u2026\u2026\u53EF\u662F\u597D\u75DB\u82E6\u2026\u2026|5\u67082\u65E5
-      \u597D\u96BE\u8FC7\u2026\u2026\u6211\u8981\u575A\u6301\u4E0D\u4E0B\u53BB\u4E86\u2026\u2026\u597D\u8FC7\u5206\u2026\u2026\u597D\u75DB\u82E6\u2026\u2026\\n5\u67088\u65E5
+      \u9634 \u518D\u575A\u6301\u4E00\u4E0B\u5427\u2026\u2026\u7238\u7238\u82B1\u4E86\u90A3\u4E48\u591A\u94B1\u5C31\u4E3A\u4E86\u8BA9\u6211\u5728\u8FD9\u91CC\u2026\u2026\u53EF\u662F\u597D\u75DB\u82E6\u2026\u2026"
+    en: 
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.diary.page.3
+    category: 1
+    avgType: 2
+    zh: "5\u67082\u65E5 \u597D\u96BE\u8FC7\u2026\u2026\u6211\u8981\u575A\u6301\u4E0D\u4E0B\u53BB\u4E86\u2026\u2026\u597D\u8FC7\u5206\u2026\u2026\u597D\u75DB\u82E6\u2026\u2026\\n5\u67088\u65E5
       \u6674 \u597D\u50CF\u9003\u8D70\u2026\u2026\u53EF\u662F\u7238\u7238\u600E\u4E48\u529E\u2026\u2026\\n6\u67081\u65E5
-      \u96E8 \u597D\u60F3\u2026\u2026\u6740\u6389\u4ED6\u4EEC\u2026\u2026\u6211\u4E0D\u6562\u2026\u2026\u4E0D\u8981\u2026\u2026\u4E0D\u8981\u2026\u2026\u6211\u5FEB\u8981\u575A\u6301\u4E0D\u4E0B\u53BB\u4E86\u2026\u2026?|6\u67088\u65E5
-      \u96E8 \u597D\u60F3\u56DE\u5BB6\u2026\u2026\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B!!!\\n6\u67089\u65E5
+      \u96E8 \u597D\u60F3\u2026\u2026\u6740\u6389\u4ED6\u4EEC\u2026\u2026\u6211\u4E0D\u6562\u2026\u2026\u4E0D\u8981\u2026\u2026\u4E0D\u8981\u2026\u2026\u6211\u5FEB\u8981\u575A\u6301\u4E0D\u4E0B\u53BB\u4E86\u2026\u2026?"
+    en: 
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.diary.page.4
+    category: 1
+    avgType: 2
+    zh: "6\u67088\u65E5 \u96E8 \u597D\u60F3\u56DE\u5BB6\u2026\u2026\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B!!!\\n6\u67089\u65E5
       \u6B7B\u6B7B\u6B7B\u6B7B\u6B7B!!!!\\n6\u670812\u65E5 \u90FD\u522B\u60F3\u9003\u51FA\u8FD9\u91CC!\u4F60\u4E5F\u662F!"
     en: 
     zh_red: 
@@ -678,7 +744,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.recorder.name
+  - id: item.recorder
     category: 1
     avgType: 0
     zh: "\u5F55\u97F3\u7B14"
@@ -701,7 +767,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.recorder.desc
+  - id: item.recorder.page.1
     category: 1
     avgType: 2
     zh: "\u4E00\u6839\u4EAE\u7740\u706F\u7684\u5F55\u97F3\u7B14,\u597D\u50CF\u4E00\u76F4\u5728\u64AD\u653E\u2026\u2026"
@@ -724,7 +790,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.love_letter.name
+  - id: item.love_letter
     category: 1
     avgType: 0
     zh: "\u62C6\u5C01\u7684\u60C5\u4E66"
@@ -747,7 +813,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.love_letter.desc
+  - id: item.love_letter.page.1
     category: 1
     avgType: 2
     zh: "\"\u6211\u4E00\u76F4\u6709\u6CE8\u610F\u5230\u4F60\u54E6,\u77E5\u5F69\u3002\\n\u62B1\u6B49,\u6211\u6CA1\u529E\u6CD5\u6BCF\u6B21\u90FD\u53CA\u65F6\u4FDD\u62A4\u4F60,\u6240\u4EE5\u2026\u2026\\n\u6211\u60F3\u4E86\u4E00\u4E2A\u529E\u6CD5,\\n\u6211\u60F3\u548C\u4F60\u5728\u4E00\u8D77\u3002\\n\u8BF7\u4E00\u5B9A\u8981\u76F8\u4FE1\u6211,\u653E\u5B66\u540E\u6765402\u6559\u5BA4,\u6211\u4F1A\u5728\u90A3\u91CC\u7B49\u4F60\u3002\\n\u2014\u2014\u6613\u68EE"
@@ -760,7 +826,7 @@ MonoBehaviour:
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
-    followUpId: T-07
+    followUpId: 
     triggerMode: 0
     sfx: 
     notes: 
@@ -770,7 +836,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.old_note.name
+  - id: item.old_note
     category: 1
     avgType: 0
     zh: "\u7834\u65E7\u7684\u7EB8\u6761"
@@ -793,7 +859,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.old_note.desc
+  - id: item.old_note.page.1
     category: 1
     avgType: 2
     zh: "\"\u5E7F\u64AD\u88AB\u8BC5\u5492\u4E86!\u5E7F\u64AD\u54CD\u7684\u65F6\u5019\u5FC5\u987B\u8EB2\u8D77\u6765!!\u662F\u5979!\u5979\u56DE\u6765\u627E\u6211\u4EEC\u4E86!!\""
@@ -816,7 +882,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.mock_note_01.name
+  - id: item.mock_note_01
     category: 1
     avgType: 0
     zh: "\u5C0F\u7EB8\u67611"
@@ -839,7 +905,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.mock_note_01.desc
+  - id: item.mock_note_01.page.1
     category: 1
     avgType: 2
     zh: "\"\u4E0D\u4F1A\u5427\u5979\u771F\u4FE1\u4E86?\\n\u4ECA\u5929\u653E\u5B66\u6709\u597D\u620F\u770B\u54AF!\""
@@ -862,7 +928,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.mock_note_02.name
+  - id: item.mock_note_02
     category: 1
     avgType: 0
     zh: "\u5C0F\u7EB8\u67612"
@@ -885,7 +951,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.mock_note_02.desc
+  - id: item.mock_note_02.page.1
     category: 1
     avgType: 2
     zh: "\"\u5979\u90A3\u4E2A\u591A\u4E8B\u7684\u7238\u7238\u4E0D\u77E5\u9053\u94A5\u5319\u88AB\u62FF\u8D70\u4E86\u5427,\u53EF\u522B\u8BA9\u4ED6\u53D1\u73B0\u4E86\u3002\\n
@@ -909,7 +975,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.mock_note_03.name
+  - id: item.mock_note_03
     category: 1
     avgType: 0
     zh: "\u5C0F\u7EB8\u67613"
@@ -932,7 +998,7 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.mock_note_03.desc
+  - id: item.mock_note_03.page.1
     category: 1
     avgType: 2
     zh: "\"\u6211\u529E\u4E8B\u4F60\u653E\u5FC3,\u8FD9\u79CD\u65E9\u8BE5\u53BB\u7279\u6B8A\u5B66\u6821\u7684\u4EBA\u5C31\u522B\u6765\u8FD9\u91CC\u8BFB\u4E66\u4E86\u3002\\n\u771F\u662F\u602A\u80CE,\u8FDE\u7EA2\u8272\u7EFF\u8272\u90FD\u5206\u4E0D\u6E05\u3002\""

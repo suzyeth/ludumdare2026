@@ -33,15 +33,28 @@ namespace PrismZone.Core
         public static class Inventory
         {
             public const string Has_Diary = "inventory.has.diary";
+            public const string Has_Diary_Page_1 = "inventory.has.diary.page.1";
+            public const string Has_Diary_Page_2 = "inventory.has.diary.page.2";
+            public const string Has_Diary_Page_3 = "inventory.has.diary.page.3";
+            public const string Has_Diary_Page_4 = "inventory.has.diary.page.4";
             public const string Has_Glasses = "inventory.has.glasses";
+            public const string Has_Glasses_Page_1 = "inventory.has.glasses.page.1";
             public const string Has_Key_Stairs_4f = "inventory.has.key.stairs_4f";
+            public const string Has_Key_Stairs_4f_Page_1 = "inventory.has.key.stairs_4f.page.1";
             public const string Has_Key_Storage = "inventory.has.key.storage";
+            public const string Has_Key_Storage_Page_1 = "inventory.has.key.storage.page.1";
             public const string Has_Love_letter = "inventory.has.love_letter";
+            public const string Has_Love_letter_Page_1 = "inventory.has.love_letter.page.1";
             public const string Has_Mock_note_01 = "inventory.has.mock_note_01";
+            public const string Has_Mock_note_01_Page_1 = "inventory.has.mock_note_01.page.1";
             public const string Has_Mock_note_02 = "inventory.has.mock_note_02";
+            public const string Has_Mock_note_02_Page_1 = "inventory.has.mock_note_02.page.1";
             public const string Has_Mock_note_03 = "inventory.has.mock_note_03";
+            public const string Has_Mock_note_03_Page_1 = "inventory.has.mock_note_03.page.1";
             public const string Has_Old_note = "inventory.has.old_note";
+            public const string Has_Old_note_Page_1 = "inventory.has.old_note.page.1";
             public const string Has_Recorder = "inventory.has.recorder";
+            public const string Has_Recorder_Page_1 = "inventory.has.recorder.page.1";
         }
     }
 }

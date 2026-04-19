@@ -1,9 +1,9 @@
 id	category	avg_type	zh	en	zh_red	en_red	zh_green	en_green	filter_req	repeatable	cant_skip	auto_hide_sec	follow_up_id	trigger_mode	sfx	notes	require_flags	forbid_flags	set_flags_on_fire
 T-01	dialogue	NAR	又叫我打扫卫生……每次都是我……凭什么啊……\n算了,早点弄完回家吧,太晚妈妈该担心了						None	false	true	0		OnEnter		开局进入游戏弹出 · 开场独白 · 不可跳过			
-T-02	dialogue	NAR	这是什么?小纸条破破烂烂的,好像有字?						None	false	true	0	item.old_note.desc	OnPickup		捡起破旧纸条(Pickup_Note) · 链到 old_note READ			
-T-03	dialogue	NAR	扫扫扫……\n欸,这是什么?\n一本……日记?\n好奇怪,这里怎么会有一本日记?打开看看……						None	false	true	0	item.diary.desc	OnPickup		捡起日记(Pickup_Diary) · 链到 diary READ			
+T-02	dialogue	NAR	这是什么?小纸条破破烂烂的,好像有字?						None	false	true	0	item.old_note.page.1	OnPickup		捡起破旧纸条(Pickup_OldNote) · 链到 old_note READ			
+T-03	dialogue	NAR	扫扫扫……\n欸,这是什么?\n一本……日记?\n好奇怪,这里怎么会有一本日记?打开看看……						None	false	true	0	item.diary.page.1	OnPickup		捡起日记(Pickup_Diary) · 链到 diary READ			
 T-04	dialogue	NAR	好可怕……欸钥匙?好像是从日记本里掉出来的……\n是……2楼储物柜的钥匙。\n没办法了……去2楼看看吧。						None	false	true	0		OnState		阅读日记READ后弹出	dialogue.item.diary.desc.triggered		
-T-05	dialogue	NAR	咳咳…… 好多灰。这是什么东西?一个3D眼镜?\n不对,这是红色和绿色的镜片?好奇怪\n带上看看吧。						None	false	true	0	item.glasses.desc	OnExternal		Cabinet_Locked 开锁 UnityEvent → Fire() · 链到 glasses READ			
+T-05	dialogue	NAR	咳咳…… 好多灰。这是什么东西?一个3D眼镜?\n不对,这是红色和绿色的镜片?好奇怪\n带上看看吧。						None	false	true	0	item.glasses.page.1	OnExternal		Cabinet_Locked 开锁 UnityEvent → Fire() · 链到 glasses READ			
 T-06	dialogue	NAR	不一样的东西……\n不会是……那个校园怪谈吧……跳楼的女生……\n戴上眼镜到处走走好了,总要想办法出去。						Any	false	true	0		OnState		阅读眼镜READ后弹出	dialogue.item.glasses.desc.triggered		
 T-07	dialogue	NAR	原来是情书啊,搞这么神秘。易森不是前几届那个风云校草么,居然会给别人写情书……可是和诅咒有什么关系?\n去4楼看看吧?好像四楼封起来蛮久了,也许会有什么线索。						Green	false	true	0		OnPickup		捡起情书(Pickup_LoveLetter) · 戴绿镜时才触发			
 T-08	dialogue	NAR	居然上锁了。\n怎么看也不像是原来的门锁,一点都不匹配,看样子快要生锈了。\n钥匙应该还藏在这层楼的某处。						Red	false	true	0		OnInteract		4F 楼梯门按E时触发 · 戴红镜 · 未持 stairs_4f 钥匙			
@@ -19,26 +19,29 @@ T-18	dialogue	NAR	录音笔……原来广播的声音来自这里……\n是那
 T-19	dialogue	NAR	……该结束这一切了。\n笑声和哭泣声都停止了。\n走廊里静得可怕。\n然后我该做什么……?						Any	false	true	0		OnState		Recorder.cs 停广播后 · Recorder.nodeStop=T-19 已挂			
 T-20	dialogue	NAR	追杀我的那个怪人!!!!\n他看起来……在哭?\n是保安叔叔!!他是知彩的爸爸!\n为了寻找知彩跳楼自杀的真相,才一直游荡在这幢教学楼里……\n他看起来……也要消失了……						Any	false	true	0		OnState		保安进入 Stopped 状态后触发	enemy.guard.stopped		
 T-21	dialogue	NAR	居然已经天黑了啊。\n经历过刚才那些,走夜路都不怎么可怕了。 \n(看手表)\n……不好!要被妈妈骂了, 快走吧!						Any	false	true	0		OnInteract		按E 1楼大门 · onDialogueFinished → VictoryPanel.Show escaped			
-item.glasses.name	item		颜色矫正眼镜						Any	true	false	0		Manual					
-item.glasses.desc	item	READ	一副矫正颜色的眼睛,戴上眼镜似乎可以看到一些不一样的东西……\n按Q键切换镜片颜色						Any	true	false	0		Manual					
-item.key.storage.name	item		储藏柜钥匙						Any	true	false	0		Manual					
-item.key.storage.desc	item	READ	可能是她的钥匙……她的储藏柜会在哪里呢?						Any	true	false	0		Manual					
-item.key.stairs_4f.name	item		四楼钥匙						Red	true	false	0		Manual					
-item.key.stairs_4f.desc	item	READ	锁住了四楼的楼梯口,也锁住了秘密						Red	true	false	0		Manual					
-item.diary.name	item		一本日记						Any	true	false	0		Manual					
-item.diary.desc	item	READ	知彩\n2月1日 晴 今天天气好棒呀,加油知彩!你一定可以坚持下去的!\n2月5日 雨 他们又叫我放学去储藏室……我真的不想去……好害怕……\n2月5日 雨 他们又抢走了我的储物柜钥匙……下次要藏好一点……没来得及换衣服被体育老师罚跑了……|2月12日 雨 不喜欢下雨,每次下雨他们不出去玩就会来找我的麻烦。储物柜被泼了油漆……好过分……伤口好疼……\n3月13日 阴 为什么……为什么是我?为什么欺负我……我做错了什么?\n3月23日 阴 再坚持一下吧……爸爸花了那么多钱就为了让我在这里……可是好痛苦……|5月2日 好难过……我要坚持不下去了……好过分……好痛苦……\n5月8日 晴 好像逃走……可是爸爸怎么办……\n6月1日 雨 好想……杀掉他们……我不敢……不要……不要……我快要坚持不下去了……?|6月8日 雨 好想回家……都去死都去死都去死都去死!!!\n6月9日 死死死死死!!!!\n6月12日 都别想逃出这里!你也是!						Any	true	false	0		Manual					
-item.recorder.name	item		录音笔						Red	true	false	0		Manual					
-item.recorder.desc	item	READ	一根亮着灯的录音笔,好像一直在播放……						Red	true	false	0		Manual					
-item.love_letter.name	item		拆封的情书						Green	true	false	0		Manual					
-item.love_letter.desc	item	READ	"我一直有注意到你哦,知彩。\n抱歉,我没办法每次都及时保护你,所以……\n我想了一个办法,\n我想和你在一起。\n请一定要相信我,放学后来402教室,我会在那里等你。\n——易森						Green	true	false	0	T-07	Manual	
-item.old_note.name	item		破旧的纸条						Any	true	false	0		Manual					
-item.old_note.desc	item	READ	"广播被诅咒了!广播响的时候必须躲起来!!是她!她回来找我们了!!"						Any	true	false	0		Manual					
-item.mock_note_01.name	item		小纸条1						Red	true	false	0		Manual					
-item.mock_note_01.desc	item	READ	"不会吧她真信了?\n今天放学有好戏看咯!"						Red	true	false	0		Manual					
-item.mock_note_02.name	item		小纸条2						Red	true	false	0		Manual					
-item.mock_note_02.desc	item	READ	"她那个多事的爸爸不知道钥匙被拿走了吧,可别让他发现了。\n 这有什么,一个保安大叔而已,一起捉弄又怎么样哈哈哈!不过知彩未免也太好骗了。"						Red	true	false	0		Manual					
-item.mock_note_03.name	item		小纸条3						Red	true	false	0		Manual					
-item.mock_note_03.desc	item	READ	"我办事你放心,这种早该去特殊学校的人就别来这里读书了。\n真是怪胎,连红色绿色都分不清。"						Red	true	false	0		Manual					
+item.glasses	item		颜色矫正眼镜						Any	true	false	0		Manual					
+item.glasses.page.1	item	READ	一副矫正颜色的眼睛,戴上眼镜似乎可以看到一些不一样的东西……\n按Q键切换镜片颜色						Any	true	false	0		Manual					
+item.key.storage	item		储藏柜钥匙						Any	true	false	0		Manual					
+item.key.storage.page.1	item	READ	可能是她的钥匙……她的储藏柜会在哪里呢?						Any	true	false	0		Manual					
+item.key.stairs_4f	item		四楼钥匙						Red	true	false	0		Manual					
+item.key.stairs_4f.page.1	item	READ	锁住了四楼的楼梯口,也锁住了秘密						Red	true	false	0		Manual					
+item.diary	item		一本日记						Any	true	false	0		Manual					
+item.diary.page.1	item	READ	知彩\n2月1日 晴 今天天气好棒呀,加油知彩!你一定可以坚持下去的!\n2月5日 雨 他们又叫我放学去储藏室……我真的不想去……好害怕……\n2月5日 雨 他们又抢走了我的储物柜钥匙……下次要藏好一点……没来得及换衣服被体育老师罚跑了……						Any	true	false	0		Manual					
+item.diary.page.2	item	READ	2月12日 雨 不喜欢下雨,每次下雨他们不出去玩就会来找我的麻烦。储物柜被泼了油漆……好过分……伤口好疼……\n3月13日 阴 为什么……为什么是我?为什么欺负我……我做错了什么?\n3月23日 阴 再坚持一下吧……爸爸花了那么多钱就为了让我在这里……可是好痛苦……						Any	true	false	0		Manual					
+item.diary.page.3	item	READ	5月2日 好难过……我要坚持不下去了……好过分……好痛苦……\n5月8日 晴 好像逃走……可是爸爸怎么办……\n6月1日 雨 好想……杀掉他们……我不敢……不要……不要……我快要坚持不下去了……?						Any	true	false	0		Manual					
+item.diary.page.4	item	READ	6月8日 雨 好想回家……都去死都去死都去死都去死!!!\n6月9日 死死死死死!!!!\n6月12日 都别想逃出这里!你也是!						Any	true	false	0		Manual					
+item.recorder	item		录音笔						Red	true	false	0		Manual					
+item.recorder.page.1	item	READ	一根亮着灯的录音笔,好像一直在播放……						Red	true	false	0		Manual					
+item.love_letter	item		拆封的情书						Green	true	false	0		Manual					
+item.love_letter.page.1	item	READ	"我一直有注意到你哦,知彩。\n抱歉,我没办法每次都及时保护你,所以……\n我想了一个办法,\n我想和你在一起。\n请一定要相信我,放学后来402教室,我会在那里等你。\n——易森						Green	true	false	0		Manual					
+item.old_note	item		破旧的纸条						Any	true	false	0		Manual					
+item.old_note.page.1	item	READ	"广播被诅咒了!广播响的时候必须躲起来!!是她!她回来找我们了!!"						Any	true	false	0		Manual					
+item.mock_note_01	item		小纸条1						Red	true	false	0		Manual					
+item.mock_note_01.page.1	item	READ	"不会吧她真信了?\n今天放学有好戏看咯!"						Red	true	false	0		Manual					
+item.mock_note_02	item		小纸条2						Red	true	false	0		Manual					
+item.mock_note_02.page.1	item	READ	"她那个多事的爸爸不知道钥匙被拿走了吧,可别让他发现了。\n 这有什么,一个保安大叔而已,一起捉弄又怎么样哈哈哈!不过知彩未免也太好骗了。"						Red	true	false	0		Manual					
+item.mock_note_03	item		小纸条3						Red	true	false	0		Manual					
+item.mock_note_03.page.1	item	READ	"我办事你放心,这种早该去特殊学校的人就别来这里读书了。\n真是怪胎,连红色绿色都分不清。"						Red	true	false	0		Manual					
 ui.menu.start	ui		开始游戏	Start Game					Any	true	false	0		Manual					
 ui.menu.continue	ui		继续游戏	Continue					Any	true	false	0		Manual					
 ui.menu.settings	ui		设置	Settings					Any	true	false	0		Manual					
