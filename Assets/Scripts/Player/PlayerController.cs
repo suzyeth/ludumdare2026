@@ -33,7 +33,17 @@ namespace PrismZone.Player
         private int _ladderZones;
         private float _nextNoiseTime;
 
-        public bool IsHidden { get; set; }
+        private bool _isHidden;
+        public bool IsHidden
+        {
+            get => _isHidden;
+            set
+            {
+                if (_isHidden == value) return;
+                _isHidden = value;
+                if (spriteRenderer != null) spriteRenderer.enabled = !value;
+            }
+        }
         public bool IsRunning => _runHeld && _moveInput.sqrMagnitude > 0.01f;
         public Vector2 Velocity => _rb != null ? _rb.linearVelocity : Vector2.zero;
 
