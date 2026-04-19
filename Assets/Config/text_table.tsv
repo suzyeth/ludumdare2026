@@ -1,7 +1,7 @@
 id	category	avg_type	zh	en	zh_red	en_red	zh_green	en_green	filter_req	repeatable	cant_skip	auto_hide_sec	follow_up_id	trigger_mode	sfx	notes	require_flags	forbid_flags	set_flags_on_fire
-T-01	dialogue	NAR	今天轮到我值日。储藏室。	Today it's my turn. Storage room.					Any	false	false	0		OnEnter	AvgOpen	开场 · 进入 3F 储藏室			
-T-02	dialogue	READ	3月4日 今天又被叫到走廊。她们站成一排,手机对着我,一直笑。\n3月11日 有人在厕所门上贴了我的照片。我不敢去。\n3月19日 她们说有人喜欢我,说得很大声,然后笑。|4月×日 都怪我。都怪我。都怪我。\n如果那天我没去……如果我聪明一点……	Mar 4 - They called me to the hall again.|Apr X - All my fault.					Any	true	false	0		OnPickup	AvgOpen	日记本 · 2 页用 | 分隔			
-T-03	dialogue	TIP	【听到这个声音——找地方躲!】	[Hear that sound - find cover!]					Any	false	false	3.0		OnState	BroadcastPrelude	3 秒自动关			
+T-01	dialogue	NAR	又叫我打扫卫生……每次都是我……凭什么啊……\n算了，早点弄完回家吧，太晚妈妈该担心了	Today it's my turn. Storage room.					Any	false	false	0		OnEnter	AvgOpen	开场 · 进入 3F 储藏室			
+T-02	dialogue	READ	扫扫扫……\n欸，这是什么？\n一本……日记？\n好奇怪，这里怎么会有一本日记？打开看看……\n2月1日 晴 今天天气好棒呀，加油小徐！你一定可以坚持下去的！\n2月5日 雨 他们又叫我放学去储藏室……我真的不想去……好害怕……\n2月5日 雨 他们又抢走了我的储物柜钥匙……下次要藏好一点……没来得及换衣服被体育老师罚跑了……\n2月12日 雨 不喜欢下雨，每次下雨他们不出去玩就会来找我的麻烦。储物柜被泼了油漆……好过分……伤口好疼……\n 3月13日 阴 为什么……为什么是我？为什么欺负我……我做错了什么？\n3月23日 阴 再坚持一下吧……爸爸花了那么多钱就为了让我在这里……可是好痛苦……\n 5月2日 好难过……我要坚持不下去了……好过分……好痛苦…… 5月8日 晴 好像逃走……可是爸爸怎么办…… 6月1日 雨 好想……杀掉他们……我不敢……不要……不要……我快要坚持不下去了……	Mar 4 - They called me to the hall again.|Apr X - All my fault.					Any	true	false	0		OnPickup	AvgOpen	日记本 · 2 页用 | 分隔			
+T-03	dialogue	TIP	这又是什么？\n广播被诅咒了！广播响的时候必须躲起来！！是她！她回来找我们了！！	[Hear that sound - find cover!]					Any	false	false	3.0		OnState	BroadcastPrelude	3 秒自动关			
 T-04	dialogue	ENV	"广播响之前会有声音。听到了就躲进柜子里。别让它看见你移动。"	"Before the broadcast, a sound plays. Hide in the cabinet when you hear it. Don't let it see you move."					Any	true	false	0		OnInteract	AvgOpen	旧桌便条,可重读			
 T-05	dialogue	NAR	储物柜钥匙。扣子上写着编号——二楼那排柜子的。	A locker key. The tag says: 2F locker row.					Any	false	false	0		OnPickup	PickupKey				
 T-06	dialogue	NAR	柜子里有一件叠好的旧校服——口袋里装着一副眼镜。还有一封信,信封已经拆过了。	An old school uniform folded neatly. A pair of glasses in the pocket. And an opened letter.					Any	false	false	0		OnState		开柜成功触发			

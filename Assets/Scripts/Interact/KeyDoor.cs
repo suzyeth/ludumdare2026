@@ -31,16 +31,21 @@ namespace PrismZone.Interact
         public void Interact(GameObject who)
         {
             if (IsOpen) return;
-            var inv = Inventory.Instance;
-            if (inv == null || !inv.Has(requiredKeyId))
+
+            // Empty requiredKeyId = plain door, opens on E with no key gate.
+            if (!string.IsNullOrEmpty(requiredKeyId))
             {
-                PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.DoorLocked);
-                if (CluePopup.Instance != null)
-                    CluePopup.Instance.Show(promptKeyLocked);
-                return;
+                var inv = Inventory.Instance;
+                if (inv == null || !inv.Has(requiredKeyId))
+                {
+                    PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.DoorLocked);
+                    if (CluePopup.Instance != null)
+                        CluePopup.Instance.Show(promptKeyLocked);
+                    return;
+                }
+                if (consumeKey) inv.Remove(requiredKeyId);
             }
 
-            if (consumeKey) inv.Remove(requiredKeyId);
             Open();
         }
 
