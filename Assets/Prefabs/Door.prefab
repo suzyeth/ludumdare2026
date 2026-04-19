@@ -204,5 +204,5 @@ MonoBehaviour:
   doorRenderer: {fileID: 7125838113783541579}
   closedSprite: {fileID: 21300000, guid: 080f29871b0f8b247aa5e101ebf51b73, type: 3}
   openSprite: {fileID: 21300000, guid: 33dcd130e0cd9ad439b7eca2f268f9cf, type: 3}
-  promptKeyLocked: ui.door.locked
+  promptKeyLocked: ui.interact.prompt
   promptKeyOpen: ui.door.open
