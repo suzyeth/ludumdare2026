@@ -47,6 +47,23 @@ namespace PrismZone.Core
             OnFilterChanged?.Invoke(prev, next);
         }
 
+        /// <summary>
+        /// v1.2 spec: Q cycles None → Red → Green → None. Blue is retained in the
+        /// <see cref="FilterColor"/> enum for legacy prefabs (BLUE_Weaver NPC) but
+        /// is no longer part of the player-facing lens rotation.
+        /// </summary>
+        public void CycleLens()
+        {
+            FilterColor next = Current switch
+            {
+                FilterColor.None  => FilterColor.Red,
+                FilterColor.Red   => FilterColor.Green,
+                FilterColor.Green => FilterColor.None,
+                _                 => FilterColor.None, // Blue or unknown → reset
+            };
+            SetFilter(next);
+        }
+
         private void PushToShader()
         {
             if (fullScreenMaterial == null) return;

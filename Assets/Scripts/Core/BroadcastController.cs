@@ -1,0 +1,140 @@
+using System.Collections;
+using UnityEngine;
+using PrismZone.Enemy;
+using PrismZone.UI;
+
+namespace PrismZone.Core
+{
+    /// <summary>
+    /// Drives the school broadcast cycle (v1.2 spec §4.1, §4.3).
+    ///
+    /// Cycle:  idle (interval) → prelude (SFX) → broadcast (loop SFX + AVG freeze
+    /// + every enemy in <see cref="EnemyBase.State.Locating"/>) → idle.
+    ///
+    /// Special hooks:
+    ///   - First prelude also fires T-03 ("listen for this — find a place to hide").
+    ///   - <see cref="DisarmPermanent"/> shuts the cycle off forever (called by Recorder
+    ///     after T-19 "stops the broadcast").
+    ///   - <see cref="IsBroadcasting"/> is a static flag the player controller can read
+    ///     to freeze movement during a broadcast (player stunned per spec).
+    /// </summary>
+    [DefaultExecutionOrder(-50)]
+    public class BroadcastController : MonoBehaviour
+    {
+        public static BroadcastController Instance { get; private set; }
+        public static bool IsBroadcasting { get; private set; }
+
+        [Header("Timing (seconds)")]
+        [Tooltip("Time before the first broadcast after scene start.")]
+        [SerializeField] private float firstDelay = 25f;
+        [Tooltip("Idle gap between broadcasts.")]
+        [SerializeField] private float interval = 60f;
+        [SerializeField] private float preludeDuration = 3f;
+        [SerializeField] private float broadcastDuration = 10f;
+
+        [Header("Tutorial Beat")]
+        [SerializeField] private string firstPreludeNodeId = "T-03";
+
+        [Header("Audio (optional)")]
+        [SerializeField] private AudioSource broadcastSource;
+        [SerializeField] private SoundId preludeSfx = SoundId.BroadcastPrelude;
+        [SerializeField] private SoundId loopSfx = SoundId.BroadcastLoop;
+
+        private bool _firstPreludePlayed;
+        private bool _disarmed;
+        private Coroutine _cycle;
+
+        private void Awake()
+        {
+            if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+            Instance = this;
+            if (transform.parent == null) DontDestroyOnLoad(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            if (Instance == this) Instance = null;
+            IsBroadcasting = false;
+        }
+
+        private void OnEnable()
+        {
+            if (_cycle == null) _cycle = StartCoroutine(CycleLoop());
+        }
+
+        private void OnDisable()
+        {
+            if (_cycle != null) { StopCoroutine(_cycle); _cycle = null; }
+            IsBroadcasting = false;
+        }
+
+        /// <summary>Recorder calls this on T-19 stop. Once disarmed: never broadcasts again.</summary>
+        public void DisarmPermanent()
+        {
+            _disarmed = true;
+            if (_cycle != null) { StopCoroutine(_cycle); _cycle = null; }
+            EndBroadcastImmediate();
+        }
+
+        /// <summary>Designer can wire a button or scripted event to fire one immediately.</summary>
+        public void TriggerNow()
+        {
+            if (_disarmed || IsBroadcasting) return;
+            StartCoroutine(RunOne());
+        }
+
+        private IEnumerator CycleLoop()
+        {
+            yield return new WaitForSeconds(firstDelay);
+            while (!_disarmed)
+            {
+                yield return RunOne();
+                if (_disarmed) yield break;
+                yield return new WaitForSeconds(interval);
+            }
+        }
+
+        private IEnumerator RunOne()
+        {
+            // --- Prelude ---
+            AudioManager.Instance?.Play(preludeSfx);
+            if (!_firstPreludePlayed)
+            {
+                _firstPreludePlayed = true;
+                DialogueManager.Instance?.ShowById(firstPreludeNodeId);
+            }
+            yield return new WaitForSeconds(preludeDuration);
+
+            // --- Broadcast ---
+            IsBroadcasting = true;
+            DialogueManager.Instance?.SetFrozen(true);
+
+            if (broadcastSource != null && !broadcastSource.isPlaying) broadcastSource.Play();
+            else AudioManager.Instance?.Play(loopSfx);
+
+            // Push every active enemy into Locating. Skip ones already Stopped.
+            foreach (var e in EnemyBase.All)
+            {
+                if (e == null || e.Current == EnemyBase.State.Stopped) continue;
+                e.RequestState(EnemyBase.State.Locating);
+            }
+
+            yield return new WaitForSeconds(broadcastDuration);
+
+            EndBroadcastImmediate();
+        }
+
+        private void EndBroadcastImmediate()
+        {
+            if (broadcastSource != null && broadcastSource.isPlaying) broadcastSource.Stop();
+            DialogueManager.Instance?.SetFrozen(false);
+            IsBroadcasting = false;
+
+            foreach (var e in EnemyBase.All)
+            {
+                if (e == null || e.Current == EnemyBase.State.Stopped) continue;
+                if (e.Current == EnemyBase.State.Locating) e.RequestState(EnemyBase.State.Patrol);
+            }
+        }
+    }
+}

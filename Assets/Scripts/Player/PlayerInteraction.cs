@@ -35,28 +35,30 @@ namespace PrismZone.Player
             var kb = Keyboard.current;
             if (kb == null) return;
 
-            // E = interact with nearest
-            if (kb.eKey.wasPressedThisFrame && _current != null)
+            // E = interact. Suppressed when any modal is open — those modals consume E
+            // themselves (CluePopup dismiss, ItemDetailPanel close, PasscodePanel input).
+            // Without this guard, the same E press both dismisses the clue AND retriggers
+            // the interactable next to the player in the same frame.
+            if (kb.eKey.wasPressedThisFrame && _current != null && !IsAnyModalOpen())
             {
                 _current.Interact(gameObject);
             }
-
-            // F = open detail popup on first inventory item that has one
-            if (kb.fKey.wasPressedThisFrame) TryOpenFirstDetail();
+            // Item detail is now opened by clicking a HUD slot (InventoryHUD.OnSlotClicked).
+            // F was removed because it was ambiguous with multiple detail items in bag.
         }
 
-        private void TryOpenFirstDetail()
+        private static bool IsAnyModalOpen()
         {
-            var panel = PrismZone.UI.ItemDetailPanel.Instance;
-            if (panel == null) return;
-            if (panel.IsOpen) { panel.Close(); return; }
-            var inv = PrismZone.UI.Inventory.Instance;
-            if (inv == null) return;
-            foreach (var id in inv.Slots)
-            {
-                var data = PrismZone.Core.ItemDatabase.Get(id);
-                if (data != null && data.HasDetailPopup) { panel.Show(data); break; }
-            }
+            if (PrismZone.UI.CluePopup.Instance != null && PrismZone.UI.CluePopup.Instance.IsOpen) return true;
+            if (PrismZone.UI.ItemDetailPanel.Instance != null && PrismZone.UI.ItemDetailPanel.Instance.IsOpen) return true;
+            if (PrismZone.UI.PauseMenu.Instance != null && PrismZone.UI.PauseMenu.Instance.IsOpen) return true;
+            if (PrismZone.UI.SettingsPanel.Instance != null && PrismZone.UI.SettingsPanel.Instance.IsOpen) return true;
+            // v1.2: AVG popups consume E / Space themselves; without this guard the same
+            // E press would dismiss the popup AND retrigger the interactable behind it.
+            if (PrismZone.UI.DialogueManager.Instance != null && PrismZone.UI.DialogueManager.Instance.IsShowing) return true;
+            if (PrismZone.Core.GameOverController.IsGameOver) return true;
+            if (PrismZone.Core.VictoryController.IsVictory) return true;
+            return false;
         }
 
         private void ScanNearest()

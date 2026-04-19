@@ -18,6 +18,8 @@ namespace PrismZone.Core
         [SerializeField] private Sprite bigIcon;         // 96-128 px detail view
         [SerializeField] private string[] pageKeys;      // i18n keys for detail pages
         [SerializeField] private bool hasDetailPopup = true;
+        [Tooltip("Keys / notes want to be tracked by Inventory (flags, gates) but stay out of the 4-slot HUD. Uncheck to hide from the right-bottom bar.")]
+        [SerializeField] private bool showInInventory = true;
 
         public string Id => id;
         public string NameKey => nameKey;
@@ -25,6 +27,7 @@ namespace PrismZone.Core
         public Sprite BigIcon => bigIcon;
         public string[] PageKeys => pageKeys;
         public bool HasDetailPopup => hasDetailPopup;
+        public bool ShowInInventory => showInInventory;
         public int PageCount => pageKeys?.Length ?? 0;
     }
 }

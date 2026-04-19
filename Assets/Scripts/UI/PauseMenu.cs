@@ -21,11 +21,19 @@ namespace PrismZone.UI
 
         [SerializeField] private TMP_Text titleLabel;
         [SerializeField] private Button resumeButton;
+        [SerializeField] private Button settingsButton;
         [SerializeField] private Button mainMenuButton;
         [SerializeField] private Button quitButton;
+        [SerializeField] private Button musicToggleButton;
+        [SerializeField] private TMP_Text musicToggleLabel;
         [SerializeField] private string mainMenuScene = "Scene_MainMenu";
 
+        // Remember the user's music level before muting so toggling On restores it
+        // instead of restoring the default.
+        private const string PK_MusicLastNonZero = "pz.music.lastNonZero";
+
         private CanvasGroup _group;
+        private PasscodePanel _cachedPasscode;
 
         public bool IsOpen => _group != null && _group.alpha > 0.5f;
 
@@ -37,9 +45,56 @@ namespace PrismZone.UI
             if (_group == null) _group = gameObject.AddComponent<CanvasGroup>();
             SetVisible(false);
 
-            if (resumeButton   != null) resumeButton.onClick.AddListener(Resume);
-            if (mainMenuButton != null) mainMenuButton.onClick.AddListener(GotoMainMenu);
-            if (quitButton     != null) quitButton.onClick.AddListener(Quit);
+            if (resumeButton       != null) resumeButton.onClick.AddListener(Resume);
+            if (settingsButton     != null) settingsButton.onClick.AddListener(OpenSettings);
+            if (mainMenuButton     != null) mainMenuButton.onClick.AddListener(GotoMainMenu);
+            if (quitButton         != null) quitButton.onClick.AddListener(QuitToMenu);
+            if (musicToggleButton  != null) musicToggleButton.onClick.AddListener(ToggleMusic);
+            RefreshMusicLabel();
+        }
+
+        public void ToggleMusic()
+        {
+            float cur = GameSettings.MusicVolume;
+            if (cur > 0f)
+            {
+                PlayerPrefs.SetFloat(PK_MusicLastNonZero, cur);
+                GameSettings.MusicVolume = 0f;
+            }
+            else
+            {
+                float restore = PlayerPrefs.GetFloat(PK_MusicLastNonZero, GameSettings.DefaultMusic);
+                if (restore <= 0f) restore = GameSettings.DefaultMusic;
+                GameSettings.MusicVolume = restore;
+            }
+            RefreshMusicLabel();
+        }
+
+        private void RefreshMusicLabel()
+        {
+            if (musicToggleLabel == null) return;
+            musicToggleLabel.text = I18nManager.Get(GameSettings.MusicVolume > 0f
+                ? "ui.pause.music_on" : "ui.pause.music_off");
+        }
+
+        public void OpenSettings()
+        {
+            if (SettingsPanel.Instance == null) return;
+            // PauseMenu is a sibling of SettingsPanel, so hiding its CanvasGroup
+            // is safe (does not hide Settings). Time.timeScale stays 0 throughout.
+            SetVisible(false);
+            SettingsPanel.Instance.OnClosed -= OnSettingsClosed;
+            SettingsPanel.Instance.OnClosed += OnSettingsClosed;
+            SettingsPanel.Instance.Open();
+        }
+
+        private void OnSettingsClosed()
+        {
+            if (SettingsPanel.Instance != null)
+                SettingsPanel.Instance.OnClosed -= OnSettingsClosed;
+            // Only reopen the pause backdrop if we're still in a paused state
+            // (user didn't click Main Menu / Quit from within Settings).
+            if (Time.timeScale == 0f) SetVisible(true);
         }
 
         private void OnDestroy() { if (Instance == this) Instance = null; }
@@ -58,12 +113,18 @@ namespace PrismZone.UI
             if (GameOverController.IsGameOver) return;
 
             // 1) close transient modals before opening pause
+            // Settings panel takes priority: it can be opened from Pause or MainMenu,
+            // so its Esc must close it first without toggling Pause below it.
+            if (SettingsPanel.Instance != null && SettingsPanel.Instance.IsOpen)
+            { SettingsPanel.Instance.Close(); return; }
             if (CluePopup.Instance != null && CluePopup.Instance.IsOpen)
             { CluePopup.Instance.Close(); return; }
             if (ItemDetailPanel.Instance != null && ItemDetailPanel.Instance.IsOpen)
             { ItemDetailPanel.Instance.Close(); return; }
-            var passcode = FindFirstObjectByType<PasscodePanel>();
-            if (passcode != null && passcode.IsOpen) { passcode.Close(); return; }
+            if (_cachedPasscode == null)
+                _cachedPasscode = FindFirstObjectByType<PasscodePanel>();
+            if (_cachedPasscode != null && _cachedPasscode.IsOpen)
+            { _cachedPasscode.Close(); return; }
 
             // 2) toggle pause
             if (IsOpen) Resume();
@@ -94,10 +155,17 @@ namespace PrismZone.UI
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_WEBGL
+            // WebGL has no real Application.Quit — fall back to dropping the player
+            // back at the main menu so the button still does something visible.
+            GotoMainMenu();
 #else
             Application.Quit();
 #endif
         }
+
+        /// <summary>Alias used by inspector wiring on Quit-to-Menu button (drops timescale + loads menu).</summary>
+        public void QuitToMenu() => GotoMainMenu();
 
         private void SetVisible(bool on)
         {

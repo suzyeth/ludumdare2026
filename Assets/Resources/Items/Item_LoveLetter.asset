@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.ItemData
   id: item.love_letter
   nameKey: item.love_letter
-  worldIcon: {fileID: -1411144611601449784, guid: ac6293ec32440bf428155d70916cca31, type: 3}
-  bigIcon: {fileID: -1411144611601449784, guid: ac6293ec32440bf428155d70916cca31, type: 3}
+  worldIcon: {fileID: 21300000, guid: 55a91bb256de5ef43b72c86e697cc3fc, type: 3}
+  bigIcon: {fileID: 21300000, guid: c6128a13d59f6b54098cc2c2efa89528, type: 3}
   pageKeys:
   - item.love_letter.page.1
   hasDetailPopup: 1

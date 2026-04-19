@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ff37ec3e082bb4bbeaf8914a9e0435, type: 3}
+  m_Name: Item_KeyB
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.ItemData
+  id: item.key.stairs_4f
+  nameKey: item.key.stairs_4f
+  worldIcon: {fileID: 21300000, guid: 1bc639989a86b3a4faa351c555e72217, type: 3}
+  bigIcon: {fileID: 21300000, guid: 1bc639989a86b3a4faa351c555e72217, type: 3}
+  pageKeys: []
+  hasDetailPopup: 0
+  showInInventory: 1

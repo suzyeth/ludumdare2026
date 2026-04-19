@@ -34,6 +34,7 @@ namespace PrismZone.Interact
             var inv = Inventory.Instance;
             if (inv == null || !inv.Has(requiredKeyId))
             {
+                PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.DoorLocked);
                 if (CluePopup.Instance != null)
                     CluePopup.Instance.Show(promptKeyLocked);
                 return;
@@ -48,6 +49,7 @@ namespace PrismZone.Interact
             IsOpen = true;
             if (blockingCollider != null) blockingCollider.enabled = false;
             if (doorRenderer != null && openSprite != null) doorRenderer.sprite = openSprite;
+            PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.DoorUnlock);
         }
     }
 }

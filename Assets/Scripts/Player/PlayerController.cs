@@ -33,7 +33,17 @@ namespace PrismZone.Player
         private int _ladderZones;
         private float _nextNoiseTime;
 
-        public bool IsHidden { get; set; }
+        private bool _isHidden;
+        public bool IsHidden
+        {
+            get => _isHidden;
+            set
+            {
+                if (_isHidden == value) return;
+                _isHidden = value;
+                if (spriteRenderer != null) spriteRenderer.enabled = !value;
+            }
+        }
         public bool IsRunning => _runHeld && _moveInput.sqrMagnitude > 0.01f;
         public Vector2 Velocity => _rb != null ? _rb.linearVelocity : Vector2.zero;
 
@@ -79,7 +89,9 @@ namespace PrismZone.Player
 
         private void FixedUpdate()
         {
-            if (IsHidden) { _rb.linearVelocity = Vector2.zero; return; }
+            // v1.2 spec §4.3: during a broadcast the player is stunned (cannot move).
+            // BroadcastController flips this static while a broadcast is mid-cycle.
+            if (IsHidden || BroadcastController.IsBroadcasting) { _rb.linearVelocity = Vector2.zero; return; }
 
             // Free 2D movement by default. Ladder zones can still cap vertical speed
             // to climbSpeed, but otherwise W/S move full-speed so the MVP single-floor
@@ -90,9 +102,8 @@ namespace PrismZone.Player
                 ? _moveInput.y * climbSpeed
                 : _moveInput.y * speed;
             _rb.linearVelocity = new Vector2(vx, vy);
-
-            if (spriteRenderer != null && Mathf.Abs(vx) > 0.01f)
-                spriteRenderer.flipX = vx < 0f;
+            // flipX is now owned by CharacterAnimDriver (which knows whether
+            // the current clip is the side-view frame that needs mirroring).
         }
 
         // LateUpdate pixel snap removed in v0.4 — Pixel Perfect Camera handles
@@ -112,16 +123,18 @@ namespace PrismZone.Player
             var kb = Keyboard.current;
             if (kb == null) return;
 
-            // Filter gate: glasses must be in inventory. 0 (remove) always allowed so
-            // a player who picks up glasses mid-level can still drop filters cleanly.
+            // v1.2 spec: Q cycles through None → Red → Green → None.
+            // Glasses must be in inventory to engage a color; without glasses
+            // Q still allows returning to None so any stuck state is resettable.
+            if (!kb.qKey.wasPressedThisFrame) return;
+
             bool hasGlasses = Inventory.Instance != null && Inventory.Instance.Has(GlassesItemId);
-
-            if (kb.digit0Key.wasPressedThisFrame) FilterManager.Instance.SetFilter(FilterColor.None);
-            if (!hasGlasses) return;
-
-            if (kb.digit1Key.wasPressedThisFrame) FilterManager.Instance.SetFilter(FilterColor.Red);
-            if (kb.digit2Key.wasPressedThisFrame) FilterManager.Instance.SetFilter(FilterColor.Green);
-            if (kb.digit3Key.wasPressedThisFrame) FilterManager.Instance.SetFilter(FilterColor.Blue);
+            if (!hasGlasses)
+            {
+                FilterManager.Instance.SetFilter(FilterColor.None);
+                return;
+            }
+            FilterManager.Instance.CycleLens();
         }
 
         private void HandleRunningNoise()
