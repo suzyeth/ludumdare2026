@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 7025318250071313719}
   - component: {fileID: 7817741047755048024}
   - component: {fileID: 543762300859079005}
+  - component: {fileID: 2681182306174633848}
   m_Layer: 0
   m_Name: Pickup_Note
   m_TagString: Interactable
@@ -179,3 +180,19 @@ MonoBehaviour:
   destroyOnPickup: 1
   oneShotClue: 1
   dialogueNodeId: 
+--- !u!114 &2681182306174633848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3344340957366181521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0859d59ca1140d241bf181acde37f2a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Interact.GlassesVisibility
+  visibleWhen: 01000000
+  mode: 2
+  sprites: []
+  colliders: []

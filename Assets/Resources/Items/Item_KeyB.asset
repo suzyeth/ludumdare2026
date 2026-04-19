@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ff37ec3e082bb4bbeaf8914a9e0435, type: 3}
   m_Name: Item_KeyB
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.ItemData
-  id: item.key.b
-  nameKey: item.key.b
+  id: item.key.stairs_4f
+  nameKey: item.key.stairs_4f
   worldIcon: {fileID: 21300000, guid: 1bc639989a86b3a4faa351c555e72217, type: 3}
   bigIcon: {fileID: 21300000, guid: 1bc639989a86b3a4faa351c555e72217, type: 3}
   pageKeys: []
   hasDetailPopup: 0
+  showInInventory: 1

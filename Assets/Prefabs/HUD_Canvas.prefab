@@ -414,7 +414,7 @@ RectTransform:
   m_GameObject: {fileID: 359498141935144657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5877399392286011966}
@@ -515,6 +515,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.PersistentRoot
   persistId: 
+--- !u!114 &8000000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359498141935144657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e48dfe02051ab47bc8af926f3e42b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.UI.DialogueManager
+  popups: []
 --- !u!1 &365144274571156959
 GameObject:
   m_ObjectHideFlags: 0
@@ -4718,6 +4731,9 @@ MonoBehaviour:
   - icon: {fileID: 5137979290728426067}
     label: {fileID: 7878147454489989328}
   emptyIcon: {fileID: 0}
+  prevPageButton: {fileID: 0}
+  nextPageButton: {fileID: 0}
+  pageIndicator: {fileID: 0}
 --- !u!1 &2778422845378563065
 GameObject:
   m_ObjectHideFlags: 0
@@ -13740,16 +13756,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3269017996994819486, guid: f7a72cfe644a32c4ab9678e8f636505d, type: 3}
   m_PrefabInstance: {fileID: 5029770219607666739}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8000000000000000001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359498141935144657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93e48dfe02051ab47bc8af926f3e42b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.UI.DialogueManager
-  popups: []
