@@ -24,7 +24,11 @@ namespace PrismZone.Interact
 
         public bool IsOpen { get; private set; }
 
-        public string PromptKey => IsOpen ? promptKeyOpen : promptKeyLocked;
+        // Plain doors (empty requiredKeyId) must NOT show the "locked" prompt — show
+        // the generic interact hint so the UI matches behaviour (press E, it opens).
+        public string PromptKey => IsOpen
+            ? promptKeyOpen
+            : (string.IsNullOrEmpty(requiredKeyId) ? "ui.interact.prompt" : promptKeyLocked);
 
         public bool CanInteract(GameObject who) => !IsOpen;
 

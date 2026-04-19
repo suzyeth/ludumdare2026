@@ -16,7 +16,7 @@ MonoBehaviour:
   - id: T-01
     category: 0
     avgType: 1
-    zh: "\u53C8\u53EB\u6211\u6253\u626B\u536B\u751F\u2026\u2026\u6BCF\u6B21\u90FD\u662F\u6211\u2026\u2026\u51ED\u4EC0\u4E48\u554A\u2026\u2026\\n\u7B97\u4E86\uFF0C\u65E9\u70B9\u5F04\u5B8C\u56DE\u5BB6\u5427\uFF0C\u592A\u665A\u5988\u5988\u8BE5\u62C5\u5FC3\u4E86"
+    zh: 1111111111
     en: Today it's my turn. Storage room.
     zh_red: 
     en_red: 
@@ -39,16 +39,7 @@ MonoBehaviour:
   - id: T-02
     category: 0
     avgType: 2
-    zh: "\u626B\u626B\u626B\u2026\u2026\\n\u6B38\uFF0C\u8FD9\u662F\u4EC0\u4E48\uFF1F\\n\u4E00\u672C\u2026\u2026\u65E5\u8BB0\uFF1F\\n\u597D\u5947\u602A\uFF0C\u8FD9\u91CC\u600E\u4E48\u4F1A\u6709\u4E00\u672C\u65E5\u8BB0\uFF1F\u6253\u5F00\u770B\u770B\u2026\u2026\\n2\u67081\u65E5
-      \u6674 \u4ECA\u5929\u5929\u6C14\u597D\u68D2\u5440\uFF0C\u52A0\u6CB9\u5C0F\u5F90\uFF01\u4F60\u4E00\u5B9A\u53EF\u4EE5\u575A\u6301\u4E0B\u53BB\u7684\uFF01\\n2\u67085\u65E5
-      \u96E8 \u4ED6\u4EEC\u53C8\u53EB\u6211\u653E\u5B66\u53BB\u50A8\u85CF\u5BA4\u2026\u2026\u6211\u771F\u7684\u4E0D\u60F3\u53BB\u2026\u2026\u597D\u5BB3\u6015\u2026\u2026\\n2\u67085\u65E5
-      \u96E8 \u4ED6\u4EEC\u53C8\u62A2\u8D70\u4E86\u6211\u7684\u50A8\u7269\u67DC\u94A5\u5319\u2026\u2026\u4E0B\u6B21\u8981\u85CF\u597D\u4E00\u70B9\u2026\u2026\u6CA1\u6765\u5F97\u53CA\u6362\u8863\u670D\u88AB\u4F53\u80B2\u8001\u5E08\u7F5A\u8DD1\u4E86\u2026\u2026\\n2\u670812\u65E5
-      \u96E8 \u4E0D\u559C\u6B22\u4E0B\u96E8\uFF0C\u6BCF\u6B21\u4E0B\u96E8\u4ED6\u4EEC\u4E0D\u51FA\u53BB\u73A9\u5C31\u4F1A\u6765\u627E\u6211\u7684\u9EBB\u70E6\u3002\u50A8\u7269\u67DC\u88AB\u6CFC\u4E86\u6CB9\u6F06\u2026\u2026\u597D\u8FC7\u5206\u2026\u2026\u4F24\u53E3\u597D\u75BC\u2026\u2026\\n
-      3\u670813\u65E5 \u9634 \u4E3A\u4EC0\u4E48\u2026\u2026\u4E3A\u4EC0\u4E48\u662F\u6211\uFF1F\u4E3A\u4EC0\u4E48\u6B3A\u8D1F\u6211\u2026\u2026\u6211\u505A\u9519\u4E86\u4EC0\u4E48\uFF1F\\n3\u670823\u65E5
-      \u9634 \u518D\u575A\u6301\u4E00\u4E0B\u5427\u2026\u2026\u7238\u7238\u82B1\u4E86\u90A3\u4E48\u591A\u94B1\u5C31\u4E3A\u4E86\u8BA9\u6211\u5728\u8FD9\u91CC\u2026\u2026\u53EF\u662F\u597D\u75DB\u82E6\u2026\u2026\\n
-      5\u67082\u65E5 \u597D\u96BE\u8FC7\u2026\u2026\u6211\u8981\u575A\u6301\u4E0D\u4E0B\u53BB\u4E86\u2026\u2026\u597D\u8FC7\u5206\u2026\u2026\u597D\u75DB\u82E6\u2026\u2026
-      5\u67088\u65E5 \u6674 \u597D\u50CF\u9003\u8D70\u2026\u2026\u53EF\u662F\u7238\u7238\u600E\u4E48\u529E\u2026\u2026
-      6\u67081\u65E5 \u96E8 \u597D\u60F3\u2026\u2026\u6740\u6389\u4ED6\u4EEC\u2026\u2026\u6211\u4E0D\u6562\u2026\u2026\u4E0D\u8981\u2026\u2026\u4E0D\u8981\u2026\u2026\u6211\u5FEB\u8981\u575A\u6301\u4E0D\u4E0B\u53BB\u4E86\u2026\u2026"
+    zh: 2222222222
     en: Mar 4 - They called me to the hall again.|Apr X - All my fault.
     zh_red: 
     en_red: 
@@ -71,7 +62,7 @@ MonoBehaviour:
   - id: T-03
     category: 0
     avgType: 3
-    zh: "\u8FD9\u53C8\u662F\u4EC0\u4E48\uFF1F\\n\u5E7F\u64AD\u88AB\u8BC5\u5492\u4E86\uFF01\u5E7F\u64AD\u54CD\u7684\u65F6\u5019\u5FC5\u987B\u8EB2\u8D77\u6765\uFF01\uFF01\u662F\u5979\uFF01\u5979\u56DE\u6765\u627E\u6211\u4EEC\u4E86\uFF01\uFF01"
+    zh: 3333333333
     en: '[Hear that sound - find cover!]'
     zh_red: 
     en_red: 
@@ -94,7 +85,7 @@ MonoBehaviour:
   - id: T-04
     category: 0
     avgType: 5
-    zh: "\"\u5E7F\u64AD\u54CD\u4E4B\u524D\u4F1A\u6709\u58F0\u97F3\u3002\u542C\u5230\u4E86\u5C31\u8EB2\u8FDB\u67DC\u5B50\u91CC\u3002\u522B\u8BA9\u5B83\u770B\u89C1\u4F60\u79FB\u52A8\u3002\""
+    zh: 4444444444
     en: '"Before the broadcast, a sound plays. Hide in the cabinet when you hear
       it. Don''t let it see you move."'
     zh_red: 
@@ -118,7 +109,7 @@ MonoBehaviour:
   - id: T-05
     category: 0
     avgType: 1
-    zh: "\u50A8\u7269\u67DC\u94A5\u5319\u3002\u6263\u5B50\u4E0A\u5199\u7740\u7F16\u53F7\u2014\u2014\u4E8C\u697C\u90A3\u6392\u67DC\u5B50\u7684\u3002"
+    zh: 5555555555
     en: 'A locker key. The tag says: 2F locker row.'
     zh_red: 
     en_red: 
@@ -141,7 +132,7 @@ MonoBehaviour:
   - id: T-06
     category: 0
     avgType: 1
-    zh: "\u67DC\u5B50\u91CC\u6709\u4E00\u4EF6\u53E0\u597D\u7684\u65E7\u6821\u670D\u2014\u2014\u53E3\u888B\u91CC\u88C5\u7740\u4E00\u526F\u773C\u955C\u3002\u8FD8\u6709\u4E00\u5C01\u4FE1,\u4FE1\u5C01\u5DF2\u7ECF\u62C6\u8FC7\u4E86\u3002"
+    zh: 6666666666
     en: An old school uniform folded neatly. A pair of glasses in the pocket. And
       an opened letter.
     zh_red: 
@@ -165,7 +156,7 @@ MonoBehaviour:
   - id: T-07
     category: 0
     avgType: 3
-    zh: "\u3010\u7EA2\u8272\u955C\u7247 / \u7EFF\u8272\u955C\u7247 \u6309 Q \u5207\u6362\u3011\u6234\u4E0A\u540E\u8BE5\u989C\u8272\u7684\u906E\u5C42\u6D88\u5931,\u9690\u85CF\u5185\u5BB9\u663E\u73B0\u3002\u4F46\u540C\u8272\u7684\u73AF\u5883\u8B66\u793A\u4E5F\u4F1A\u8DDF\u7740\u6D88\u5931\u2014\u2014\u6CE8\u610F\u3002"
+    zh: 7777777777
     en: '[Red / Green lens - press Q to cycle] Wearing removes that color''s veil.
       Watch: same-color warnings vanish too.'
     zh_red: 
@@ -189,8 +180,7 @@ MonoBehaviour:
   - id: T-08
     category: 0
     avgType: 2
-    zh: "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\\n\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\\n\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\\n                                                 
-      \u2588\u2588\u2588\u2588\u2588\u2588\u2588"
+    zh: 8888888888
     en: "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\\n\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\\n\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588"
     zh_red: 
     en_red: 
@@ -216,7 +206,7 @@ MonoBehaviour:
   - id: T-09
     category: 0
     avgType: 1
-    zh: "\u95E8\u5728\u8FD9\u91CC\u2014\u2014\u4E0A\u9501\u4E86\u3002\u6302\u9501,\u6709\u4EBA\u7279\u610F\u9501\u4E0A\u7684\u3002\u94A5\u5319\u5E94\u8BE5\u8FD8\u5728\u697C\u91CC\u67D0\u5904\u3002"
+    zh: 9999999999
     en: The door is here - locked. Padlock. Someone locked it on purpose. The key
       must still be in the building.
     zh_red: 
@@ -240,7 +230,7 @@ MonoBehaviour:
   - id: T-10
     category: 0
     avgType: 3
-    zh: "\u3010\u7EA2\u8272\u906E\u5C42\u4E0B\u85CF\u7740\u4EC0\u4E48\u2014\u2014\u4ED4\u7EC6\u627E\u627E\u3002\u3011"
+    zh: 10-10-10-10-10
     en: '[Something hides under the red veil - look carefully.]'
     zh_red: 
     en_red: 
@@ -263,7 +253,7 @@ MonoBehaviour:
   - id: T-11a
     category: 0
     avgType: 2
-    zh: "\"\u5979\u771F\u7684\u4EE5\u4E3A\u6821\u8349\u559C\u6B22\u5979\u54C8\u54C8\u54C8\u4ECA\u5929\u653E\u5B66\u4E00\u8D77\u53BB402\u7B49\u7740\u770B!!\""
+    zh: 11a-11a-11a-11a-11a
     en: '"She actually thinks the popular boy likes her lol - let''s all go to 402
       after school and watch!"'
     zh_red: 
@@ -287,7 +277,7 @@ MonoBehaviour:
   - id: T-11b
     category: 0
     avgType: 2
-    zh: "\"\u6821\u8349\u8BF4\u4E86\u5C31\u662F\u73A9\u73A9,\u5979\u600E\u4E48\u90A3\u4E48\u597D\u9A97\u8FD9\u79CD\u4EBA\u6D3B\u8BE5\""
+    zh: 11b-11b-11b-11b-11b
     en: '"He said it''s just a prank - how is she so gullible, she deserves it."'
     zh_red: 
     en_red: 
@@ -310,7 +300,7 @@ MonoBehaviour:
   - id: T-11c
     category: 0
     avgType: 2
-    zh: "\"\u6709\u4EBA\u559C\u6B22\u5979?\u5979\u4E5F\u914D\u9A97\u5979\u4E0A\u53BB,\u9501\u95E8,\u770B\u5979\u600E\u4E48\u529E\u54C8\u54C8\u54C8\""
+    zh: 11c-11c-11c-11c-11c
     en: '"Someone likes her? Yeah right. Lure her up, lock the door, watch her squirm
       lol"'
     zh_red: 
@@ -334,7 +324,7 @@ MonoBehaviour:
   - id: T-11d
     category: 0
     avgType: 2
-    zh: "\"\u5BF9\u4E86\u5907\u7528\u94A5\u5319301\u8BB2\u53F0\u62BD\u5C49\u6709\u4E2A\u6697\u683C,\u8001\u5E08\u4E0D\u77E5\u9053\u2014\u2014\u8BB0\u5F97\u7528\u5B8C\u653E\u56DE\u53BB,\u522B\u7559\u628A\u67C4\""
+    zh: 11d-11d-11d-11d-11d
     en: '"Spare key in 301 - there''s a hidden slot in the podium drawer. Teachers
       don''t know. Put it back after use, leave no trace."'
     zh_red: 
@@ -358,7 +348,7 @@ MonoBehaviour:
   - id: T-12
     category: 0
     avgType: 5
-    zh: "\u62BD\u5C49\u4FA7\u677F\u540E\u9762\u6709\u4E00\u4E2A\u5C0F\u9694\u5C42\u2014\u2014\u91CC\u9762\u6709\u4E00\u628A\u94A5\u5319\u3002"
+    zh: 12-12-12-12-12
     en: A hidden compartment behind the drawer side - there's a key inside.
     zh_red: 
     en_red: 
@@ -381,7 +371,7 @@ MonoBehaviour:
   - id: T-13
     category: 0
     avgType: 1
-    zh: "\u8FD9\u5C31\u662F\u56DB\u697C\u7684\u94A5\u5319\u3002\u5B83\u5728\u8FD9\u91CC,\u8BF4\u660E\u6709\u4EBA\u77E5\u9053\u5B83\u5728\u8FD9\u91CC\u3002"
+    zh: 13-13-13-13-13
     en: This is the 4F key. If it's here, someone knew it was here.
     zh_red: 
     en_red: 
@@ -404,7 +394,7 @@ MonoBehaviour:
   - id: T-13b
     category: 0
     avgType: 3
-    zh: "\u3010\u7EA2\u955C\u4E0B\u697C\u68AF\u95E8\u53EF\u89C1\u2014\u2014\u624B\u91CC\u6709\u94A5\u5319,\u80FD\u5F00\u3002\u3011"
+    zh: 13b-13b-13b-13b-13b
     en: '[With red lens, the stairs door is visible. Key in hand - you can open it.]'
     zh_red: 
     en_red: 
@@ -427,7 +417,7 @@ MonoBehaviour:
   - id: T-14
     category: 0
     avgType: 1
-    zh: "\u8FD9\u91CC\u2014\u2014402\u3002\u95E8\u6CA1\u9501\u3002"
+    zh: 14-14-14-14-14
     en: Here - 402. Unlocked.
     zh_red: 
     en_red: 
@@ -450,8 +440,7 @@ MonoBehaviour:
   - id: T-15
     category: 0
     avgType: 2
-    zh: "[\u9738\u51CC\u8005\u59D3\u540D1] [\u9738\u51CC\u8005\u59D3\u540D2] [\u9738\u51CC\u8005\u59D3\u540D3]
-      [\u6821\u8349\u59D3\u540D]\u5230\u6B64\u4E00\u6E38"
+    zh: 15-15-15-15-15
     en: '[Bully 1] [Bully 2] [Bully 3] [Popular boy] was here.'
     zh_red: 
     en_red: 
@@ -474,7 +463,7 @@ MonoBehaviour:
   - id: T-16
     category: 0
     avgType: 4
-    zh: "\u597D\u5BB3\u6015\u2026\u2026\u7238\u7238\u2026\u2026\u4F60\u5728\u54EA\u513F\u2026\u2026"
+    zh: 16-16-16-16-16
     en: So scared... Dad... where are you...
     zh_red: 
     en_red: 
@@ -497,7 +486,7 @@ MonoBehaviour:
   - id: T-17
     category: 0
     avgType: 4
-    zh: "\uFF08\u5760\u843D\u526A\u5F71\u52A8\u753B\u64AD\u653E\u4E2D)"
+    zh: 17-17-17-17-17
     en: (Falling silhouette plays)
     zh_red: 
     en_red: 
@@ -520,8 +509,7 @@ MonoBehaviour:
   - id: T-18
     category: 0
     avgType: 5
-    zh: "\u5F55\u97F3\u7B14\u2014\u2014\u7EA2\u706F\u4EAE\u7740,\u5FAA\u73AF\u64AD\u653E\u3002\u8FD9\u5C31\u662F\u5E7F\u64AD\u7684\u6765\u6E90\u3002(\u6309
-      F \u505C\u6B62)"
+    zh: 18-18-18-18-18
     en: A voice recorder - red light on, looping. This is the broadcast source. (F
       to stop)
     zh_red: 
@@ -545,7 +533,7 @@ MonoBehaviour:
   - id: T-19
     category: 0
     avgType: 1
-    zh: "\u5E7F\u64AD\u505C\u4E86\u3002\u8D70\u5ECA\u91CC\u7684\u811A\u6B65\u58F0\u4E5F\u505C\u4E86\u3002\u2026\u2026\u53EA\u5269\u7A97\u5916\u7684\u98CE\u3002"
+    zh: 19-19-19-19-19
     en: The broadcast stopped. Footsteps in the hall stopped too. ...Only wind outside.
     zh_red: 
     en_red: 
@@ -568,7 +556,7 @@ MonoBehaviour:
   - id: T-20
     category: 0
     avgType: 3
-    zh: "\u3010\u6234\u4E0A\u7EFF\u955C,\u518D\u6309\u4E00\u6B21 F \u8BD5\u8BD5\u3002\u3011"
+    zh: 20-20-20-20-20
     en: '[Put on green lens. Try F again.]'
     zh_red: 
     en_red: 
@@ -591,7 +579,7 @@ MonoBehaviour:
   - id: T-21
     category: 0
     avgType: 2
-    zh: "\"\u8BF7[\u5973\u751F\u59D3\u540D]\u540C\u5B66\u524D\u5F80\u56DB\u697C402\u6559\u5BA4,\"\uFF08\u5F55\u97F3\u5728\u8FD9\u91CC\u4E2D\u65AD,\u53EA\u6709\u9759\u7535\u566A\u58F0\u3002)"
+    zh: 21-21-21-21-21
     en: '"Student [Girl name], please come to 4F Room 402," (Recording cuts to static.)'
     zh_red: 
     en_red: 
@@ -614,7 +602,7 @@ MonoBehaviour:
   - id: T-22
     category: 0
     avgType: 1
-    zh: "\u4ED6\u662F\u5979\u7684\u7236\u4EB2\u3002\u4ED6\u5728\u8FD9\u680B\u697C\u91CC\u8F6C\u4E86\u4E09\u5E74,\u4E00\u76F4\u4E0D\u77E5\u9053\u90A3\u5929\u5979\u4E3A\u4EC0\u4E48\u4F1A\u4ECE\u56DB\u697C\u4E00\u8DC3\u800C\u4E0B\u3002\u73B0\u5728\u77E5\u9053\u4E86\u3002"
+    zh: 22-22-22-22-22
     en: He is her father. Three years in this building, never knowing why she fell
       from the 4th floor that day. Now he knows.
     zh_red: 
@@ -638,7 +626,7 @@ MonoBehaviour:
   - id: T-23
     category: 0
     avgType: 3
-    zh: "\u3010\u6234\u4E0A\u7EFF\u955C,\u5730\u9762\u4F1A\u544A\u8BC9\u4F60\u53BB\u54EA\u3002\u3011"
+    zh: 23-23-23-23-23
     en: '[Green lens. The floor will tell you where to go.]'
     zh_red: 
     en_red: 
@@ -661,7 +649,7 @@ MonoBehaviour:
   - id: T-24
     category: 0
     avgType: 1
-    zh: "\uFF08\u5979\u63A8\u5F00\u4E86\u4FA7\u95E8\u3002\u8D70\u51FA\u53BB\u3002\u5916\u9762\u662F\u771F\u5B9E\u7684\u4E16\u754C\u2014\u2014\u8F66\u6C34\u9A6C\u9F99\u3002)"
+    zh: 24-24-24-24-24
     en: (She pushes open the side door and walks out. The real world - cars flowing.)
     zh_red: 
     en_red: 

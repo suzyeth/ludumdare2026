@@ -57,7 +57,16 @@ namespace PrismZone.Interact
             bool firedDialogue = false;
             if (!string.IsNullOrEmpty(dialogueNodeId) && DialogueManager.Instance != null)
             {
-                DialogueManager.Instance.ShowById(dialogueNodeId);
+                // Source the READ popup's left-slot sprite from ItemData.BigIcon when
+                // we picked up an item — keeps the "diary page / letter / note" art
+                // wired without re-introducing a per-prefab Sprite field.
+                Sprite header = null;
+                if (!string.IsNullOrEmpty(itemId))
+                {
+                    var data = ItemDatabase.Get(itemId);
+                    if (data != null) header = data.BigIcon;
+                }
+                DialogueManager.Instance.ShowById(dialogueNodeId, null, null, null, header);
                 firedDialogue = true;
             }
             else if (!string.IsNullOrEmpty(clueTextKey) && CluePopup.Instance != null)

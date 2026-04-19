@@ -34,6 +34,8 @@ namespace PrismZone.Player
         private float _nextNoiseTime;
 
         private bool _isHidden;
+        private SpriteRenderer[] _hiddenVisuals;
+
         public bool IsHidden
         {
             get => _isHidden;
@@ -41,7 +43,22 @@ namespace PrismZone.Player
             {
                 if (_isHidden == value) return;
                 _isHidden = value;
-                if (spriteRenderer != null) spriteRenderer.enabled = !value;
+                ApplyHiddenVisual();
+            }
+        }
+
+        /// <summary>
+        /// Toggles every child SpriteRenderer (body + shadow + glasses overlay etc.)
+        /// so "hidden" actually hides the whole Player visual group. Also called from
+        /// Awake to catch the edge case where IsHidden was set before the renderers
+        /// were cached.
+        /// </summary>
+        private void ApplyHiddenVisual()
+        {
+            if (_hiddenVisuals == null) return;
+            foreach (var sr in _hiddenVisuals)
+            {
+                if (sr != null) sr.enabled = !_isHidden;
             }
         }
         public bool IsRunning => _runHeld && _moveInput.sqrMagnitude > 0.01f;
@@ -56,6 +73,8 @@ namespace PrismZone.Player
             _rb.gravityScale = 0f;
             _rb.freezeRotation = true;
             if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _hiddenVisuals = GetComponentsInChildren<SpriteRenderer>(true);
+            ApplyHiddenVisual();
         }
 
         private void OnEnable()
