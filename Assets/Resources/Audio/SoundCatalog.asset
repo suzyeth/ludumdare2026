@@ -26,7 +26,7 @@ MonoBehaviour:
     loop: 0
     isMusic: 0
   - id: 20
-    clip: {fileID: 8300000, guid: 95bd02e4f2e51f64ba158b1f04c2bf4c, type: 3}
+    clip: {fileID: 8300000, guid: 98a291ba886fdc849b847b6b0fea9633, type: 3}
     volume: 0.7
     pitch: 1
     loop: 0
