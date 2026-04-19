@@ -97,7 +97,7 @@ MonoBehaviour:
     repeatable: 0
     cantSkip: 1
     autoHideSec: 0
-    followUpId: 
+    followUpId: item.key.storage.page.1
     triggerMode: 4
     sfx: 
     notes: "\u9605\u8BFB\u65E5\u8BB0READ\u540E\u5F39\u51FA"

@@ -119,6 +119,16 @@ namespace PrismZone.Core
         private static string PickColumn(TextEntry e, string lang, FilterColor filter)
         {
             bool zh = lang == "zh";
+            string primary = PickForLang(e, zh, filter);
+            if (!string.IsNullOrEmpty(primary)) return primary;
+            // Lang fallback: show whatever the other locale has so designer-authored
+            // zh-only rows render when I18n is locked to en (and vice versa).
+            // Better to show text with some missing-glyph □ than an empty bubble.
+            return PickForLang(e, !zh, filter);
+        }
+
+        private static string PickForLang(TextEntry e, bool zh, FilterColor filter)
+        {
             string baseCol = zh ? e.zh : e.en;
             switch (filter)
             {
