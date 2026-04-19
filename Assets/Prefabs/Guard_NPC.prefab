@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3494738127068725576}
   - component: {fileID: 6313429463125671990}
   - component: {fileID: 6480544252591435943}
+  - component: {fileID: 434726047637827137}
   m_Layer: 0
   m_Name: Guard_NPC
   m_TagString: Enemy
@@ -143,6 +144,10 @@ MonoBehaviour:
     m_Bits: 64
   walkableTilemap: {fileID: 0}
   wallTilemap: {fileID: 0}
+  bodySize: {x: 0.7, y: 0.5}
+  blockerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!61 &6480544252591435943
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -189,6 +194,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8, y: 0.6}
   m_EdgeRadius: 0
+--- !u!114 &434726047637827137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232805590140825346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb1f8321f6593c64eb467479ae86926c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.FootstepTicker
+  soundId: 53
+  baseInterval: 0.55
+  walkReferenceSpeed: 3
+  moveThreshold: 0.05
+  body: {fileID: 0}
 --- !u!1 &3312991440142785853
 GameObject:
   m_ObjectHideFlags: 0

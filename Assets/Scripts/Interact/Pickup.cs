@@ -52,6 +52,7 @@ namespace PrismZone.Interact
             {
                 tookSomething = Inventory.Instance.TryAdd(itemId);
                 if (!tookSomething) return; // inventory full — bail without consuming
+                PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.Pickup);
             }
 
             bool firedDialogue = false;

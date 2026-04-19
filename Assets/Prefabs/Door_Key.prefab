@@ -238,3 +238,4 @@ MonoBehaviour:
   openSprite: {fileID: 21300000, guid: 4a889917c1c1f0b4d9387a725a50ce93, type: 3}
   promptKeyLocked: ui.door.locked
   promptKeyOpen: ui.door.open
+  openSoundId: 44

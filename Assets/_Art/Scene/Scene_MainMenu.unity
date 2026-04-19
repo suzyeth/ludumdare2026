@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 115756235}
   - component: {fileID: 115756234}
   - component: {fileID: 115756233}
+  - component: {fileID: 115756237}
   m_Layer: 0
   m_Name: Btn_Start
   m_TagString: Untagged
@@ -435,6 +436,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 260, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &115756237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115756232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c430bf49ec280146a0bf361db0045c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.UI.UIClickSfx
+  soundId: 34
 --- !u!1 &121265918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,6 +2136,7 @@ GameObject:
   - component: {fileID: 1168880261}
   - component: {fileID: 1168880260}
   - component: {fileID: 1168880259}
+  - component: {fileID: 1168880262}
   m_Layer: 0
   m_Name: CloseButton
   m_TagString: Untagged
@@ -2231,6 +2246,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168880257}
   m_CullTransparentMesh: 1
+--- !u!114 &1168880262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168880257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c430bf49ec280146a0bf361db0045c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.UI.UIClickSfx
+  soundId: 34
 --- !u!1 &1186723462
 GameObject:
   m_ObjectHideFlags: 0
@@ -3179,6 +3207,7 @@ GameObject:
   - component: {fileID: 1590690922}
   - component: {fileID: 1590690921}
   - component: {fileID: 1590690920}
+  - component: {fileID: 1590690923}
   m_Layer: 0
   m_Name: ResetButton
   m_TagString: Untagged
@@ -3288,6 +3317,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590690918}
   m_CullTransparentMesh: 1
+--- !u!114 &1590690923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590690918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c430bf49ec280146a0bf361db0045c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.UI.UIClickSfx
+  soundId: 34
 --- !u!1 &1631920134
 GameObject:
   m_ObjectHideFlags: 0
@@ -3512,6 +3554,7 @@ GameObject:
   - component: {fileID: 1693237357}
   - component: {fileID: 1693237356}
   - component: {fileID: 1693237355}
+  - component: {fileID: 1693237359}
   m_Layer: 0
   m_Name: Btn_Settings
   m_TagString: Untagged
@@ -3621,6 +3664,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -36}
   m_SizeDelta: {x: 260, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1693237359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693237354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c430bf49ec280146a0bf361db0045c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.UI.UIClickSfx
+  soundId: 34
 --- !u!1 &1720354970
 GameObject:
   m_ObjectHideFlags: 0
@@ -3881,6 +3937,7 @@ GameObject:
   - component: {fileID: 1800335975}
   - component: {fileID: 1800335974}
   - component: {fileID: 1800335973}
+  - component: {fileID: 1800335977}
   m_Layer: 0
   m_Name: Btn_Quit
   m_TagString: Untagged
@@ -3990,6 +4047,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -112}
   m_SizeDelta: {x: 260, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1800335977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800335972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c430bf49ec280146a0bf361db0045c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.UI.UIClickSfx
+  soundId: 34
 --- !u!1 &1870050672
 GameObject:
   m_ObjectHideFlags: 0
@@ -4220,6 +4290,7 @@ GameObject:
   - component: {fileID: 2044897561}
   - component: {fileID: 2044897560}
   - component: {fileID: 2044897559}
+  - component: {fileID: 2044897562}
   m_Layer: 0
   m_Name: LangButton
   m_TagString: Untagged
@@ -4329,6 +4400,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044897557}
   m_CullTransparentMesh: 1
+--- !u!114 &2044897562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044897557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c430bf49ec280146a0bf361db0045c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.UI.UIClickSfx
+  soundId: 34
 --- !u!1 &2067228000
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4357174529356752048}
   - component: {fileID: 3476529553893198491}
   - component: {fileID: 1867760151754505445}
+  - component: {fileID: 7656997779476289694}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -158,6 +159,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.PersistentRoot
   persistId: 
+--- !u!114 &7656997779476289694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2777373479942806597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb1f8321f6593c64eb467479ae86926c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.FootstepTicker
+  soundId: 20
+  baseInterval: 0.38
+  walkReferenceSpeed: 3
+  moveThreshold: 0.05
+  body: {fileID: 0}
 --- !u!1 &3773815932517301831
 GameObject:
   m_ObjectHideFlags: 0

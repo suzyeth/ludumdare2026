@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using PrismZone.Core;
 using PrismZone.Player;
 using PrismZone.UI;
 
@@ -21,6 +22,10 @@ namespace PrismZone.Interact
         [SerializeField] private Sprite openSprite;
         [SerializeField] private string promptKeyLocked = "ui.door.locked";
         [SerializeField] private string promptKeyOpen = "ui.door.open";
+
+        [Header("Audio")]
+        [Tooltip("Which sound to play when this specific door opens. Default = DoorOpen (classroom wooden door). Set to GateOpen on stair / exit doors.")]
+        [SerializeField] private SoundId openSoundId = SoundId.DoorOpen;
 
         public bool IsOpen { get; private set; }
 
@@ -58,7 +63,8 @@ namespace PrismZone.Interact
             IsOpen = true;
             if (blockingCollider != null) blockingCollider.enabled = false;
             if (doorRenderer != null && openSprite != null) doorRenderer.sprite = openSprite;
-            PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.DoorUnlock);
+            AudioManager.Instance?.Play(SoundId.DoorUnlock);
+            AudioManager.Instance?.Play(openSoundId);
         }
     }
 }
