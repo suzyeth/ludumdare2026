@@ -16,8 +16,10 @@ namespace PrismZone.Core
         // Player
         Footstep = 20,
         Run = 21,
-        Hide = 22,
+        Hide = 22,            // 进柜子布料声 (soft_cloth_rustle)
         HideLeave = 23,
+        CabinetOpen = 24,     // 柜门打开吱呀
+        CabinetClose = 25,    // 柜门关上咔哒
 
         // Interact
         Pickup = 30,
@@ -27,13 +29,15 @@ namespace PrismZone.Core
         UIClick = 34,
         DoorUnlock = 40,
         DoorLocked = 41,
-        DoorOpen = 42,
+        DoorOpen = 42,        // 教室木门 (old_wooden_door_open)
         Stairs = 43,
+        GateOpen = 44,        // 楼梯过场门 (四楼入口 / 一楼出口)
 
         // Enemy
         GuardSpot = 50,
         GuardAttack = 51,
         GuardAlarm = 52,
+        GuardFootstep = 53,   // 保安沉重脚步 (heavy_boss_footsteps)
 
         // v1.2 broadcast / recorder / flashback
         BroadcastPrelude = 60,

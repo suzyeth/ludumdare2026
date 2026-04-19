@@ -41,6 +41,8 @@ namespace PrismZone.Interact
                 if (hideAnchor != null) ctl.transform.position = hideAnchor.position;
                 ctl.IsHidden = true;
                 SwapSprite(true);
+                // Three-stage entry: 柜门开 → 布料钻入 (layered; audio sources are one-shot so both play at once)
+                PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.CabinetOpen);
                 PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.Hide);
             }
             else if (_occupant == ctl)
@@ -49,7 +51,7 @@ namespace PrismZone.Interact
                 ctl.transform.position = _savedPosition;
                 _occupant = null;
                 SwapSprite(false);
-                PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.HideLeave);
+                PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.CabinetClose);
             }
         }
 
