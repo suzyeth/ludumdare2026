@@ -18,24 +18,16 @@ namespace PrismZone.Core
             public const string T_08 = "dialogue.T-08.triggered";
             public const string T_09 = "dialogue.T-09.triggered";
             public const string T_10 = "dialogue.T-10.triggered";
-            public const string T_11a = "dialogue.T-11a.triggered";
-            public const string T_11b = "dialogue.T-11b.triggered";
-            public const string T_11c = "dialogue.T-11c.triggered";
-            public const string T_11d = "dialogue.T-11d.triggered";
+            public const string T_11 = "dialogue.T-11.triggered";
             public const string T_12 = "dialogue.T-12.triggered";
             public const string T_13 = "dialogue.T-13.triggered";
-            public const string T_13b = "dialogue.T-13b.triggered";
             public const string T_14 = "dialogue.T-14.triggered";
             public const string T_15 = "dialogue.T-15.triggered";
-            public const string T_16 = "dialogue.T-16.triggered";
             public const string T_17 = "dialogue.T-17.triggered";
             public const string T_18 = "dialogue.T-18.triggered";
             public const string T_19 = "dialogue.T-19.triggered";
             public const string T_20 = "dialogue.T-20.triggered";
             public const string T_21 = "dialogue.T-21.triggered";
-            public const string T_22 = "dialogue.T-22.triggered";
-            public const string T_23 = "dialogue.T-23.triggered";
-            public const string T_24 = "dialogue.T-24.triggered";
         }
 
         public static class Inventory
@@ -48,7 +40,6 @@ namespace PrismZone.Core
             public const string Has_Mock_note_01 = "inventory.has.mock_note_01";
             public const string Has_Mock_note_02 = "inventory.has.mock_note_02";
             public const string Has_Mock_note_03 = "inventory.has.mock_note_03";
-            public const string Has_Mock_note_04 = "inventory.has.mock_note_04";
             public const string Has_Old_note = "inventory.has.old_note";
             public const string Has_Recorder = "inventory.has.recorder";
         }

@@ -16,20 +16,21 @@ MonoBehaviour:
   - id: T-01
     category: 0
     avgType: 1
-    zh: 1111111111
-    en: Today it's my turn. Storage room.
+    zh: "\u53C8\u53EB\u6211\u6253\u626B\u536B\u751F\u2026\u2026\u6BCF\u6B21\u90FD\u662F\u6211\u2026\u2026\u51ED\u4EC0\u4E48\u554A\u2026\u2026\\n\u7B97\u4E86,\u65E9\u70B9\u5F04\u5B8C\u56DE\u5BB6\u5427,\u592A\u665A\u5988\u5988\u8BE5\u62C5\u5FC3\u4E86"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
+    filterReq: 0
     repeatable: 0
-    cantSkip: 0
+    cantSkip: 1
     autoHideSec: 0
     followUpId: 
     triggerMode: 1
-    sfx: AvgOpen
-    notes: "\u5F00\u573A \xB7 \u8FDB\u5165 3F \u50A8\u85CF\u5BA4"
+    sfx: 
+    notes: "\u5F00\u5C40\u8FDB\u5165\u6E38\u620F\u5F39\u51FA \xB7 \u5F00\u573A\u72EC\u767D
+      \xB7 \u4E0D\u53EF\u8DF3\u8FC7"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -38,21 +39,22 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: T-02
     category: 0
-    avgType: 2
-    zh: 2222222222
-    en: Mar 4 - They called me to the hall again.|Apr X - All my fault.
+    avgType: 1
+    zh: "\u8FD9\u662F\u4EC0\u4E48?\u5C0F\u7EB8\u6761\u7834\u7834\u70C2\u70C2\u7684,\u597D\u50CF\u6709\u5B57?"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
+    filterReq: 0
+    repeatable: 0
+    cantSkip: 1
     autoHideSec: 0
-    followUpId: 
+    followUpId: item.old_note.desc
     triggerMode: 2
-    sfx: AvgOpen
-    notes: "\u65E5\u8BB0\u672C \xB7 2 \u9875\u7528 | \u5206\u9694"
+    sfx: 
+    notes: "\u6361\u8D77\u7834\u65E7\u7EB8\u6761(Pickup_Note) \xB7 \u94FE\u5230 old_note
+      READ"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -61,21 +63,21 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: T-03
     category: 0
-    avgType: 3
-    zh: 3333333333
-    en: '[Hear that sound - find cover!]'
+    avgType: 1
+    zh: "\u626B\u626B\u626B\u2026\u2026\\n\u6B38,\u8FD9\u662F\u4EC0\u4E48?\\n\u4E00\u672C\u2026\u2026\u65E5\u8BB0?\\n\u597D\u5947\u602A,\u8FD9\u91CC\u600E\u4E48\u4F1A\u6709\u4E00\u672C\u65E5\u8BB0?\u6253\u5F00\u770B\u770B\u2026\u2026"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
+    filterReq: 0
     repeatable: 0
-    cantSkip: 0
-    autoHideSec: 3
-    followUpId: 
-    triggerMode: 4
-    sfx: BroadcastPrelude
-    notes: "3 \u79D2\u81EA\u52A8\u5173"
+    cantSkip: 1
+    autoHideSec: 0
+    followUpId: item.diary.desc
+    triggerMode: 2
+    sfx: 
+    notes: "\u6361\u8D77\u65E5\u8BB0(Pickup_Diary) \xB7 \u94FE\u5230 diary READ"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -84,45 +86,46 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: T-04
     category: 0
-    avgType: 5
-    zh: 4444444444
-    en: '"Before the broadcast, a sound plays. Hide in the cabinet when you hear
-      it. Don''t let it see you move."'
+    avgType: 1
+    zh: "\u597D\u53EF\u6015\u2026\u2026\u6B38\u94A5\u5319?\u597D\u50CF\u662F\u4ECE\u65E5\u8BB0\u672C\u91CC\u6389\u51FA\u6765\u7684\u2026\u2026\\n\u662F\u2026\u20262\u697C\u50A8\u7269\u67DC\u7684\u94A5\u5319\u3002\\n\u6CA1\u529E\u6CD5\u4E86\u2026\u2026\u53BB2\u697C\u770B\u770B\u5427\u3002"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
+    filterReq: 0
+    repeatable: 0
+    cantSkip: 1
     autoHideSec: 0
     followUpId: 
-    triggerMode: 3
-    sfx: AvgOpen
-    notes: "\u65E7\u684C\u4FBF\u6761,\u53EF\u91CD\u8BFB"
-    requireFlagsRaw: 
+    triggerMode: 4
+    sfx: 
+    notes: "\u9605\u8BFB\u65E5\u8BB0READ\u540E\u5F39\u51FA"
+    requireFlagsRaw: dialogue.item.diary.desc.triggered
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
-    requireFlags: []
+    requireFlags:
+    - dialogue.item.diary.desc.triggered
     forbidFlags: []
     setFlagsOnFire: []
   - id: T-05
     category: 0
     avgType: 1
-    zh: 5555555555
-    en: 'A locker key. The tag says: 2F locker row.'
+    zh: "\u54B3\u54B3\u2026\u2026 \u597D\u591A\u7070\u3002\u8FD9\u662F\u4EC0\u4E48\u4E1C\u897F?\u4E00\u4E2A3D\u773C\u955C?\\n\u4E0D\u5BF9,\u8FD9\u662F\u7EA2\u8272\u548C\u7EFF\u8272\u7684\u955C\u7247?\u597D\u5947\u602A\\n\u5E26\u4E0A\u770B\u770B\u5427\u3002"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
+    filterReq: 0
     repeatable: 0
-    cantSkip: 0
+    cantSkip: 1
     autoHideSec: 0
-    followUpId: 
-    triggerMode: 2
-    sfx: PickupKey
-    notes: 
+    followUpId: item.glasses.desc
+    triggerMode: 0
+    sfx: 
+    notes: "Cabinet_Locked \u5F00\u9501 UnityEvent \u2192 Fire() \xB7 \u94FE\u5230
+      glasses READ"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -132,45 +135,44 @@ MonoBehaviour:
   - id: T-06
     category: 0
     avgType: 1
-    zh: 6666666666
-    en: An old school uniform folded neatly. A pair of glasses in the pocket. And
-      an opened letter.
+    zh: "\u4E0D\u4E00\u6837\u7684\u4E1C\u897F\u2026\u2026\\n\u4E0D\u4F1A\u662F\u2026\u2026\u90A3\u4E2A\u6821\u56ED\u602A\u8C08\u5427\u2026\u2026\u8DF3\u697C\u7684\u5973\u751F\u2026\u2026\\n\u6234\u4E0A\u773C\u955C\u5230\u5904\u8D70\u8D70\u597D\u4E86,\u603B\u8981\u60F3\u529E\u6CD5\u51FA\u53BB\u3002"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
     filterReq: 3
     repeatable: 0
-    cantSkip: 0
+    cantSkip: 1
     autoHideSec: 0
     followUpId: 
     triggerMode: 4
     sfx: 
-    notes: "\u5F00\u67DC\u6210\u529F\u89E6\u53D1"
-    requireFlagsRaw: 
+    notes: "\u9605\u8BFB\u773C\u955CREAD\u540E\u5F39\u51FA"
+    requireFlagsRaw: dialogue.item.glasses.desc.triggered
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
-    requireFlags: []
+    requireFlags:
+    - dialogue.item.glasses.desc.triggered
     forbidFlags: []
     setFlagsOnFire: []
   - id: T-07
     category: 0
-    avgType: 3
-    zh: 7777777777
-    en: '[Red / Green lens - press Q to cycle] Wearing removes that color''s veil.
-      Watch: same-color warnings vanish too.'
+    avgType: 1
+    zh: "\u539F\u6765\u662F\u60C5\u4E66\u554A,\u641E\u8FD9\u4E48\u795E\u79D8\u3002\u6613\u68EE\u4E0D\u662F\u524D\u51E0\u5C4A\u90A3\u4E2A\u98CE\u4E91\u6821\u8349\u4E48,\u5C45\u7136\u4F1A\u7ED9\u522B\u4EBA\u5199\u60C5\u4E66\u2026\u2026\u53EF\u662F\u548C\u8BC5\u5492\u6709\u4EC0\u4E48\u5173\u7CFB?\\n\u53BB4\u697C\u770B\u770B\u5427?\u597D\u50CF\u56DB\u697C\u5C01\u8D77\u6765\u86EE\u4E45\u4E86,\u4E5F\u8BB8\u4F1A\u6709\u4EC0\u4E48\u7EBF\u7D22\u3002"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
+    filterReq: 2
     repeatable: 0
-    cantSkip: 0
-    autoHideSec: 5
+    cantSkip: 1
+    autoHideSec: 0
     followUpId: 
-    triggerMode: 4
+    triggerMode: 2
     sfx: 
-    notes: "5 \u79D2\u81EA\u52A8\u5173,\u9996\u6B21\u88C5\u5907\u773C\u955C"
+    notes: "\u6361\u8D77\u60C5\u4E66(Pickup_LoveLetter) \xB7 \u6234\u7EFF\u955C\u65F6\u624D\u89E6\u53D1"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -179,24 +181,22 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: T-08
     category: 0
-    avgType: 2
-    zh: 8888888888
-    en: "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\\n\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\\n\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588"
+    avgType: 1
+    zh: "\u5C45\u7136\u4E0A\u9501\u4E86\u3002\\n\u600E\u4E48\u770B\u4E5F\u4E0D\u50CF\u662F\u539F\u6765\u7684\u95E8\u9501,\u4E00\u70B9\u90FD\u4E0D\u5339\u914D,\u770B\u6837\u5B50\u5FEB\u8981\u751F\u9508\u4E86\u3002\\n\u94A5\u5319\u5E94\u8BE5\u8FD8\u85CF\u5728\u8FD9\u5C42\u697C\u7684\u67D0\u5904\u3002"
+    en: 
     zh_red: 
     en_red: 
-    zh_green: "\u6211\u4E00\u76F4\u6CE8\u610F\u5230\u4F60\u4E86,\u4F60\u90A3\u4E48\u52AA\u529B\u5374\u6CA1\u6709\u4EBA\u770B\u89C1\u4F60\u3002\u6211\u60F3\u89C1\u4F60\u4E00\u6B21\u2014\u2014\u653E\u5B66\u540E\u6765402,\u6211\u4F1A\u7B49\u4F60\u3002\u6211\u559C\u6B22\u4F60,\u4E5F\u5FC3\u75BC\u4F60\u3002                                        
-      \u2014\u2014[\u6821\u8349\u59D3\u540D]"
-    en_green: "I've always noticed you, how hard you try when no one sees it. Come
-      to 402 after school - I'll wait for you. I love you, and I ache for you.  
-      \u2014 [Popular boy]"
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
+    zh_green: 
+    en_green: 
+    filterReq: 1
+    repeatable: 0
+    cantSkip: 1
     autoHideSec: 0
     followUpId: 
     triggerMode: 3
-    sfx: AvgOpen
-    notes: "\u60C5\u4E66 \xB7 \u7EFF\u955C\u663E\u5B8C\u6574\u7248"
+    sfx: 
+    notes: "4F \u697C\u68AF\u95E8\u6309E\u65F6\u89E6\u53D1 \xB7 \u6234\u7EA2\u955C
+      \xB7 \u672A\u6301 stairs_4f \u94A5\u5319"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -206,21 +206,20 @@ MonoBehaviour:
   - id: T-09
     category: 0
     avgType: 1
-    zh: 9999999999
-    en: The door is here - locked. Padlock. Someone locked it on purpose. The key
-      must still be in the building.
+    zh: "\u85CF\u5728\u8FD9\u4E48\u5947\u602A\u7684\u5730\u65B9\u2026\u2026\u4EE5\u524D\u597D\u50CF\u6CA1\u89C1\u8FC7\u5440\u2026\u2026"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 2
+    filterReq: 1
     repeatable: 0
-    cantSkip: 0
+    cantSkip: 1
     autoHideSec: 0
     followUpId: 
-    triggerMode: 1
+    triggerMode: 2
     sfx: 
-    notes: "\u7EFF\u955C\u624D\u89E6\u53D1"
+    notes: "\u6361\u5230\u56DB\u697C\u94A5\u5319(Pickup_KeyB)"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -229,116 +228,44 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: T-10
     category: 0
-    avgType: 3
-    zh: 10-10-10-10-10
-    en: '[Something hides under the red veil - look carefully.]'
+    avgType: 1
+    zh: "\u4FDD\u5B89\u5927\u53D4\u662F\u5979\u7238\u7238?"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
     filterReq: 1
     repeatable: 0
-    cantSkip: 0
-    autoHideSec: 4
+    cantSkip: 1
+    autoHideSec: 0
     followUpId: 
-    triggerMode: 4
+    triggerMode: 2
     sfx: 
-    notes: "\u9996\u6B21\u7EA2\u955C\u5728 3F \u6559\u5BA4"
+    notes: "\u6361\u5230\u5C0F\u7EB8\u67611(Pickup_Note_01)"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: T-11a
+  - id: T-11
     category: 0
-    avgType: 2
-    zh: 11a-11a-11a-11a-11a
-    en: '"She actually thinks the popular boy likes her lol - let''s all go to 402
-      after school and watch!"'
+    avgType: 1
+    zh: "\u4ED6\u4EEC\u8BF4\u7684\u662F\u2026\u2026\u65E5\u8BB0\u7684\u4E3B\u4EBA?\\n\u7EA2\u7EFF\u8272\u76F2\u5417\u2026\u2026\u88AB\u8FD9\u6837\u6B3A\u8D1F\u597D\u53EF\u601C\u2026\u2026"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
     filterReq: 1
-    repeatable: 1
-    cantSkip: 0
+    repeatable: 0
+    cantSkip: 1
     autoHideSec: 0
     followUpId: 
-    triggerMode: 3
-    sfx: AvgOpen
-    notes: "\u7EB8\u6761\u2460"
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: T-11b
-    category: 0
-    avgType: 2
-    zh: 11b-11b-11b-11b-11b
-    en: '"He said it''s just a prank - how is she so gullible, she deserves it."'
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 1
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 3
-    sfx: AvgOpen
-    notes: "\u7EB8\u6761\u2461"
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: T-11c
-    category: 0
-    avgType: 2
-    zh: 11c-11c-11c-11c-11c
-    en: '"Someone likes her? Yeah right. Lure her up, lock the door, watch her squirm
-      lol"'
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 1
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 3
-    sfx: AvgOpen
-    notes: "\u7EB8\u6761\u2462"
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: T-11d
-    category: 0
-    avgType: 2
-    zh: 11d-11d-11d-11d-11d
-    en: '"Spare key in 301 - there''s a hidden slot in the podium drawer. Teachers
-      don''t know. Put it back after use, leave no trace."'
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 1
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 3
-    sfx: AvgOpen
-    notes: "\u7EB8\u6761\u2463 \xB7 \u542B 301 \u7EBF\u7D22"
+    triggerMode: 2
+    sfx: 
+    notes: "\u6361\u5230\u5C0F\u7EB8\u67612(Pickup_Note_02)"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -347,21 +274,21 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: T-12
     category: 0
-    avgType: 5
-    zh: 12-12-12-12-12
-    en: A hidden compartment behind the drawer side - there's a key inside.
+    avgType: 1
+    zh: "\u8FD9\u91CC\u771F\u7684\u6709\u5907\u7528\u94A5\u5319!\u53EF\u662F\u4E3A\u4EC0\u4E48\u2026\u2026\u4E0D\u6234\u773C\u955C\u7684\u65F6\u5019\u770B\u4E0D\u5230\u5462?\\n\u611F\u89C9\u597D\u50CF\u8FDB\u5165\u4E86\u53E6\u4E00\u4E2A\u4E16\u754C\u2026\u2026"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
     filterReq: 1
     repeatable: 0
-    cantSkip: 0
+    cantSkip: 1
     autoHideSec: 0
     followUpId: 
-    triggerMode: 3
-    sfx: AvgOpen
-    notes: "301 \u6697\u683C"
+    triggerMode: 2
+    sfx: 
+    notes: "\u6361\u5230\u5C0F\u7EB8\u67613(Pickup_Note_03)"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -371,43 +298,20 @@ MonoBehaviour:
   - id: T-13
     category: 0
     avgType: 1
-    zh: 13-13-13-13-13
-    en: This is the 4F key. If it's here, someone knew it was here.
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 0
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 2
-    sfx: PickupKey
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: T-13b
-    category: 0
-    avgType: 3
-    zh: 13b-13b-13b-13b-13b
-    en: '[With red lens, the stairs door is visible. Key in hand - you can open it.]'
+    zh: "\u4E0A\u6765\u4E86!\u597D\u591A\u7070\u5C18\u2026\u2026\\n\u6709\u70B9\u5BB3\u6015,\u8FD9\u91CC\u9762\u6709\u4EC0\u4E48\u2026\u2026"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
     filterReq: 1
     repeatable: 0
-    cantSkip: 0
-    autoHideSec: 4
+    cantSkip: 1
+    autoHideSec: 0
     followUpId: 
     triggerMode: 1
     sfx: 
-    notes: "\u9700\u6301\u94A5\u5319 + \u7EA2\u955C + \u5230\u697C\u68AF\u53E3"
+    notes: "\u4F20\u9001\u5230\u56DB\u697C\u573A\u666F\u5165\u53E3\u89E6\u53D1"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -417,20 +321,20 @@ MonoBehaviour:
   - id: T-14
     category: 0
     avgType: 1
-    zh: 14-14-14-14-14
-    en: Here - 402. Unlocked.
+    zh: "404\u6559\u5BA4\u2026\u2026\\n\u662F\u524D\u51E0\u5E74\u90A3\u4E2A\u8DF3\u697C\u5973\u751F\u51FA\u4E8B\u7684\u5730\u65B9\u5440\u2026\u2026\\n\u96BE\u9053\u5979\u5C31\u662F\u77E5\u5F69?"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
     filterReq: 1
     repeatable: 0
-    cantSkip: 0
+    cantSkip: 1
     autoHideSec: 0
     followUpId: 
-    triggerMode: 1
+    triggerMode: 3
     sfx: 
-    notes: "\u7EA2\u955C\u4E0B 402 \u95E8\u53EF\u89C1"
+    notes: "\u6309E 404\u6559\u5BA4\u95E8\u540E\u5F39\u51FA"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -439,44 +343,21 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: T-15
     category: 0
-    avgType: 2
-    zh: 15-15-15-15-15
-    en: '[Bully 1] [Bully 2] [Bully 3] [Popular boy] was here.'
+    avgType: 1
+    zh: "\u9ED1\u677F\u4E0A\u597D\u591A\u8840\u2026\u2026\u4E0D\u5BF9\u2026\u2026\u662F\u6CB9\u6F06!\\n\u7C73\u8389,\u6613\u68EE,\u83F2\u83F2,\u5B87\u51EF\\n\u2014\u2014\u5230\u6B64\u4E00\u6E38\\n\u795E\u7ECF\u75C5\u554A\u5199\u8FD9\u79CD\u4E1C\u897F!!\u53EF\u662F\u770B\u8D77\u6765\u597D\u53EF\u6015\u2026\u2026"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
     filterReq: 1
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 3
-    sfx: AvgOpen,BlackboardHeartbeat
-    notes: "\u8840\u9ED1\u677F \xB7 \u7EA2\u955C\u5B8C\u6574"
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: T-16
-    category: 0
-    avgType: 4
-    zh: 16-16-16-16-16
-    en: So scared... Dad... where are you...
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
     repeatable: 0
     cantSkip: 1
     autoHideSec: 0
-    followUpId: T-17
-    triggerMode: 4
-    sfx: FlashEcho
-    notes: "\u95EA\u56DE\u524D \xB7 \u4E0D\u53EF\u8DF3\u8FC7"
+    followUpId: 
+    triggerMode: 3
+    sfx: 
+    notes: "\u6309E\u9ED1\u677F(Blackboard.prefab \u5DF2\u6302)"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -485,9 +366,9 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: T-17
     category: 0
-    avgType: 4
-    zh: 17-17-17-17-17
-    en: (Falling silhouette plays)
+    avgType: 1
+    zh: "\u4E0D\u8981\u8DF3!\u77E5\u5F69!!\u4E0D\u8981\u8DF3\u4E0B\u53BB\u2026\u2026\\n\u5979\u542C\u4E0D\u5230\u6211\u8BF4\u8BDD\u2026\u2026\u4E0D\u8981\u2026\u2026"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
@@ -498,32 +379,32 @@ MonoBehaviour:
     autoHideSec: 0
     followUpId: 
     triggerMode: 4
-    sfx: FlashEcho
-    notes: "\u95EA\u56DE \xB7 \u89C6\u89C9\u4E3B\u5BFC"
-    requireFlagsRaw: 
+    sfx: 
+    notes: "FlashbackController \u64AD\u5B8C\u95EA\u56DE\u52A8\u753B\u540E Fire()"
+    requireFlagsRaw: flashback.played
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
-    requireFlags: []
+    requireFlags:
+    - flashback.played
     forbidFlags: []
     setFlagsOnFire: []
   - id: T-18
     category: 0
-    avgType: 5
-    zh: 18-18-18-18-18
-    en: A voice recorder - red light on, looping. This is the broadcast source. (F
-      to stop)
+    avgType: 1
+    zh: "\u5F55\u97F3\u7B14\u2026\u2026\u539F\u6765\u5E7F\u64AD\u7684\u58F0\u97F3\u6765\u81EA\u8FD9\u91CC\u2026\u2026\\n\u662F\u90A3\u4E9B\u9738\u51CC\u77E5\u5F69\u7684\u4EBA\u5728\u7B11!\\n\u8FD8\u6709\u2026\u2026\u77E5\u5F69\u5728\u54ED\u2026\u2026"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
     filterReq: 3
     repeatable: 0
-    cantSkip: 0
+    cantSkip: 1
     autoHideSec: 0
     followUpId: 
-    triggerMode: 3
-    sfx: AvgOpen
-    notes: 
+    triggerMode: 2
+    sfx: 
+    notes: "Recorder.nodeInspect=T-18 \u5DF2\u6302"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -533,20 +414,20 @@ MonoBehaviour:
   - id: T-19
     category: 0
     avgType: 1
-    zh: 19-19-19-19-19
-    en: The broadcast stopped. Footsteps in the hall stopped too. ...Only wind outside.
+    zh: "\u2026\u2026\u8BE5\u7ED3\u675F\u8FD9\u4E00\u5207\u4E86\u3002\\n\u7B11\u58F0\u548C\u54ED\u6CE3\u58F0\u90FD\u505C\u6B62\u4E86\u3002\\n\u8D70\u5ECA\u91CC\u9759\u5F97\u53EF\u6015\u3002\\n\u7136\u540E\u6211\u8BE5\u505A\u4EC0\u4E48\u2026\u2026?"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
     filterReq: 3
     repeatable: 0
-    cantSkip: 0
+    cantSkip: 1
     autoHideSec: 0
     followUpId: 
     triggerMode: 4
-    sfx: RecorderClickOff
-    notes: "\u6309 F \u5173\u5F55\u97F3\u7B14\u540E"
+    sfx: 
+    notes: "Recorder.cs \u505C\u5E7F\u64AD\u540E \xB7 Recorder.nodeStop=T-19 \u5DF2\u6302"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -555,102 +436,35 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: T-20
     category: 0
-    avgType: 3
-    zh: 20-20-20-20-20
-    en: '[Put on green lens. Try F again.]'
+    avgType: 1
+    zh: "\u8FFD\u6740\u6211\u7684\u90A3\u4E2A\u602A\u4EBA!!!!\\n\u4ED6\u770B\u8D77\u6765\u2026\u2026\u5728\u54ED?\\n\u662F\u4FDD\u5B89\u53D4\u53D4!!\u4ED6\u662F\u77E5\u5F69\u7684\u7238\u7238!\\n\u4E3A\u4E86\u5BFB\u627E\u77E5\u5F69\u8DF3\u697C\u81EA\u6740\u7684\u771F\u76F8,\u624D\u4E00\u76F4\u6E38\u8361\u5728\u8FD9\u5E62\u6559\u5B66\u697C\u91CC\u2026\u2026\\n\u4ED6\u770B\u8D77\u6765\u2026\u2026\u4E5F\u8981\u6D88\u5931\u4E86\u2026\u2026"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 2
+    filterReq: 3
     repeatable: 0
-    cantSkip: 0
-    autoHideSec: 4
+    cantSkip: 1
+    autoHideSec: 0
     followUpId: 
     triggerMode: 4
     sfx: 
-    notes: "\u5F55\u97F3\u7B14\u505C\u6B62 + \u5207\u7EFF\u955C"
-    requireFlagsRaw: 
+    notes: "\u4FDD\u5B89\u8FDB\u5165 Stopped \u72B6\u6001\u540E\u89E6\u53D1"
+    requireFlagsRaw: enemy.guard.stopped
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
-    requireFlags: []
+    requireFlags:
+    - enemy.guard.stopped
     forbidFlags: []
     setFlagsOnFire: []
   - id: T-21
     category: 0
-    avgType: 2
-    zh: 21-21-21-21-21
-    en: '"Student [Girl name], please come to 4F Room 402," (Recording cuts to static.)'
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 2
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 3
-    sfx: RecorderClickOn,BroadcastVoice
-    notes: "\u7B2C\u4E8C\u6BB5\u5F55\u97F3"
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: T-22
-    category: 0
     avgType: 1
-    zh: 22-22-22-22-22
-    en: He is her father. Three years in this building, never knowing why she fell
-      from the 4th floor that day. Now he knows.
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 0
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 4
-    sfx: 
-    notes: "T-21 \u7ED3\u675F\u540E \xB7 \u4FDD\u5B89 \u2192 Stopped"
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: T-23
-    category: 0
-    avgType: 3
-    zh: 23-23-23-23-23
-    en: '[Green lens. The floor will tell you where to go.]'
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 0
-    cantSkip: 0
-    autoHideSec: 4
-    followUpId: 
-    triggerMode: 1
-    sfx: 
-    notes: "1F \u672A\u6234\u7EFF\u955C\u65F6"
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: T-24
-    category: 0
-    avgType: 1
-    zh: 24-24-24-24-24
-    en: (She pushes open the side door and walks out. The real world - cars flowing.)
+    zh: "\u5C45\u7136\u5DF2\u7ECF\u5929\u9ED1\u4E86\u554A\u3002\\n\u7ECF\u5386\u8FC7\u521A\u624D\u90A3\u4E9B,\u8D70\u591C\u8DEF\u90FD\u4E0D\u600E\u4E48\u53EF\u6015\u4E86\u3002
+      \\n(\u770B\u624B\u8868)\\n\u2026\u2026\u4E0D\u597D!\u8981\u88AB\u5988\u5988\u9A82\u4E86,
+      \u5FEB\u8D70\u5427!"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
@@ -661,8 +475,9 @@ MonoBehaviour:
     autoHideSec: 0
     followUpId: 
     triggerMode: 3
-    sfx: DoorPush,OutsideTraffic
-    notes: "\u7ED3\u5C40 \xB7 \u4E0D\u53EF\u8DF3\u8FC7"
+    sfx: 
+    notes: "\u6309E 1\u697C\u5927\u95E8 \xB7 onDialogueFinished \u2192 VictoryPanel.Show
+      escaped"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -672,8 +487,8 @@ MonoBehaviour:
   - id: item.glasses.name
     category: 1
     avgType: 0
-    zh: "\u4E09\u539F\u8272\u773C\u955C"
-    en: Prism Glasses
+    zh: "\u989C\u8272\u77EB\u6B63\u773C\u955C"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
@@ -685,7 +500,7 @@ MonoBehaviour:
     followUpId: 
     triggerMode: 0
     sfx: 
-    notes: "\u9053\u5177\u540D"
+    notes: 
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -694,11 +509,9 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: item.glasses.desc
     category: 1
-    avgType: 0
-    zh: "\u65E7\u6821\u670D\u53E3\u888B\u91CC\u7684\u773C\u955C\u3002\u955C\u7247\u53EF\u4EE5\u5728\u7EA2
-      / \u7EFF\u4E24\u79CD\u989C\u8272\u4E4B\u95F4\u5207\u6362\u3002\u6234\u4E0A\u67D0\u8272\u4F1A\u8BA9\u90A3\u79CD\u989C\u8272\u7684\u906E\u5C42\u6D88\u5931\u3002"
-    en: An old pair of glasses from a uniform pocket. Lens cycles between red and
-      green. Wearing removes that color's veil.
+    avgType: 2
+    zh: "\u4E00\u526F\u77EB\u6B63\u989C\u8272\u7684\u773C\u775B,\u6234\u4E0A\u773C\u955C\u4F3C\u4E4E\u53EF\u4EE5\u770B\u5230\u4E00\u4E9B\u4E0D\u4E00\u6837\u7684\u4E1C\u897F\u2026\u2026\\n\u6309Q\u952E\u5207\u6362\u955C\u7247\u989C\u8272"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
@@ -710,7 +523,7 @@ MonoBehaviour:
     followUpId: 
     triggerMode: 0
     sfx: 
-    notes: "\u9053\u5177\u8BE6\u60C5"
+    notes: 
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -720,8 +533,8 @@ MonoBehaviour:
   - id: item.key.storage.name
     category: 1
     avgType: 0
-    zh: "\u50A8\u7269\u67DC\u94A5\u5319"
-    en: Locker Key
+    zh: "\u50A8\u85CF\u67DC\u94A5\u5319"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
@@ -742,9 +555,9 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: item.key.storage.desc
     category: 1
-    avgType: 0
-    zh: "\u6263\u5B50\u4E0A\u5199\u7740\u4E8C\u697C\u50A8\u7269\u67DC\u7F16\u53F7\u3002"
-    en: 'The tag reads: 2F locker row.'
+    avgType: 2
+    zh: "\u53EF\u80FD\u662F\u5979\u7684\u94A5\u5319\u2026\u2026\u5979\u7684\u50A8\u85CF\u67DC\u4F1A\u5728\u54EA\u91CC\u5462?"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
@@ -767,12 +580,12 @@ MonoBehaviour:
     category: 1
     avgType: 0
     zh: "\u56DB\u697C\u94A5\u5319"
-    en: 4F Stairs Key
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
+    filterReq: 1
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
@@ -788,14 +601,14 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: item.key.stairs_4f.desc
     category: 1
-    avgType: 0
-    zh: "\u85CF\u5728 301 \u8BB2\u53F0\u6697\u683C\u91CC\u7684\u5907\u7528\u94A5\u5319\u3002"
-    en: A spare key hidden in the 301 podium drawer.
+    avgType: 2
+    zh: "\u9501\u4F4F\u4E86\u56DB\u697C\u7684\u697C\u68AF\u53E3,\u4E5F\u9501\u4F4F\u4E86\u79D8\u5BC6"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
+    filterReq: 1
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
@@ -812,8 +625,8 @@ MonoBehaviour:
   - id: item.diary.name
     category: 1
     avgType: 0
-    zh: "\u65E5\u8BB0\u672C"
-    en: Diary
+    zh: "\u4E00\u672C\u65E5\u8BB0"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
@@ -834,9 +647,19 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: item.diary.desc
     category: 1
-    avgType: 0
-    zh: "\u4E24\u9875\u65E5\u8BB0\u3002\u7B14\u8FF9\u8D8A\u5199\u8D8A\u6F66\u8349\u3002"
-    en: Two pages. The handwriting grows rougher each entry.
+    avgType: 2
+    zh: "\u77E5\u5F69\\n2\u67081\u65E5 \u6674 \u4ECA\u5929\u5929\u6C14\u597D\u68D2\u5440,\u52A0\u6CB9\u77E5\u5F69!\u4F60\u4E00\u5B9A\u53EF\u4EE5\u575A\u6301\u4E0B\u53BB\u7684!\\n2\u67085\u65E5
+      \u96E8 \u4ED6\u4EEC\u53C8\u53EB\u6211\u653E\u5B66\u53BB\u50A8\u85CF\u5BA4\u2026\u2026\u6211\u771F\u7684\u4E0D\u60F3\u53BB\u2026\u2026\u597D\u5BB3\u6015\u2026\u2026\\n2\u67085\u65E5
+      \u96E8 \u4ED6\u4EEC\u53C8\u62A2\u8D70\u4E86\u6211\u7684\u50A8\u7269\u67DC\u94A5\u5319\u2026\u2026\u4E0B\u6B21\u8981\u85CF\u597D\u4E00\u70B9\u2026\u2026\u6CA1\u6765\u5F97\u53CA\u6362\u8863\u670D\u88AB\u4F53\u80B2\u8001\u5E08\u7F5A\u8DD1\u4E86\u2026\u2026|2\u670812\u65E5
+      \u96E8 \u4E0D\u559C\u6B22\u4E0B\u96E8,\u6BCF\u6B21\u4E0B\u96E8\u4ED6\u4EEC\u4E0D\u51FA\u53BB\u73A9\u5C31\u4F1A\u6765\u627E\u6211\u7684\u9EBB\u70E6\u3002\u50A8\u7269\u67DC\u88AB\u6CFC\u4E86\u6CB9\u6F06\u2026\u2026\u597D\u8FC7\u5206\u2026\u2026\u4F24\u53E3\u597D\u75BC\u2026\u2026\\n3\u670813\u65E5
+      \u9634 \u4E3A\u4EC0\u4E48\u2026\u2026\u4E3A\u4EC0\u4E48\u662F\u6211?\u4E3A\u4EC0\u4E48\u6B3A\u8D1F\u6211\u2026\u2026\u6211\u505A\u9519\u4E86\u4EC0\u4E48?\\n3\u670823\u65E5
+      \u9634 \u518D\u575A\u6301\u4E00\u4E0B\u5427\u2026\u2026\u7238\u7238\u82B1\u4E86\u90A3\u4E48\u591A\u94B1\u5C31\u4E3A\u4E86\u8BA9\u6211\u5728\u8FD9\u91CC\u2026\u2026\u53EF\u662F\u597D\u75DB\u82E6\u2026\u2026|5\u67082\u65E5
+      \u597D\u96BE\u8FC7\u2026\u2026\u6211\u8981\u575A\u6301\u4E0D\u4E0B\u53BB\u4E86\u2026\u2026\u597D\u8FC7\u5206\u2026\u2026\u597D\u75DB\u82E6\u2026\u2026\\n5\u67088\u65E5
+      \u6674 \u597D\u50CF\u9003\u8D70\u2026\u2026\u53EF\u662F\u7238\u7238\u600E\u4E48\u529E\u2026\u2026\\n6\u67081\u65E5
+      \u96E8 \u597D\u60F3\u2026\u2026\u6740\u6389\u4ED6\u4EEC\u2026\u2026\u6211\u4E0D\u6562\u2026\u2026\u4E0D\u8981\u2026\u2026\u4E0D\u8981\u2026\u2026\u6211\u5FEB\u8981\u575A\u6301\u4E0D\u4E0B\u53BB\u4E86\u2026\u2026?|6\u67088\u65E5
+      \u96E8 \u597D\u60F3\u56DE\u5BB6\u2026\u2026\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B!!!\\n6\u67089\u65E5
+      \u6B7B\u6B7B\u6B7B\u6B7B\u6B7B!!!!\\n6\u670812\u65E5 \u90FD\u522B\u60F3\u9003\u51FA\u8FD9\u91CC!\u4F60\u4E5F\u662F!"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
@@ -859,12 +682,12 @@ MonoBehaviour:
     category: 1
     avgType: 0
     zh: "\u5F55\u97F3\u7B14"
-    en: Voice Recorder
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
+    filterReq: 1
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
@@ -880,14 +703,14 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: item.recorder.desc
     category: 1
-    avgType: 0
-    zh: "\u8BB2\u53F0\u4E0A\u7684\u5F55\u97F3\u7B14\u3002\u7EA2\u706F\u95EA\u70C1,\u4F3C\u4E4E\u5728\u5FAA\u73AF\u64AD\u653E\u4EC0\u4E48\u3002"
-    en: A voice recorder on the podium. Red light blinking. Seems to loop something.
+    avgType: 2
+    zh: "\u4E00\u6839\u4EAE\u7740\u706F\u7684\u5F55\u97F3\u7B14,\u597D\u50CF\u4E00\u76F4\u5728\u64AD\u653E\u2026\u2026"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
+    filterReq: 1
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
@@ -904,13 +727,13 @@ MonoBehaviour:
   - id: item.love_letter.name
     category: 1
     avgType: 0
-    zh: "\u60C5\u4E66"
-    en: Love Letter
+    zh: "\u62C6\u5C01\u7684\u60C5\u4E66"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
+    filterReq: 2
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
@@ -926,10 +749,32 @@ MonoBehaviour:
     setFlagsOnFire: []
   - id: item.love_letter.desc
     category: 1
+    avgType: 2
+    zh: "\"\u6211\u4E00\u76F4\u6709\u6CE8\u610F\u5230\u4F60\u54E6,\u77E5\u5F69\u3002\\n\u62B1\u6B49,\u6211\u6CA1\u529E\u6CD5\u6BCF\u6B21\u90FD\u53CA\u65F6\u4FDD\u62A4\u4F60,\u6240\u4EE5\u2026\u2026\\n\u6211\u60F3\u4E86\u4E00\u4E2A\u529E\u6CD5,\\n\u6211\u60F3\u548C\u4F60\u5728\u4E00\u8D77\u3002\\n\u8BF7\u4E00\u5B9A\u8981\u76F8\u4FE1\u6211,\u653E\u5B66\u540E\u6765402\u6559\u5BA4,\u6211\u4F1A\u5728\u90A3\u91CC\u7B49\u4F60\u3002\\n\u2014\u2014\u6613\u68EE"
+    en: 
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 2
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: T-07
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.old_note.name
+    category: 1
     avgType: 0
-    zh: "\u4E00\u5C01\u88AB\u4ED4\u7EC6\u6298\u53E0\u7684\u4FE1,\u4FE1\u5C01\u5DF2\u7ECF\u62C6\u8FC7\u3002\u5927\u90E8\u5206\u5B57\u8FF9\u88AB\u67D0\u79CD\u989C\u8272\u76D6\u4F4F,\u53EA\u6709\u6234\u5BF9\u6EE4\u955C\u624D\u80FD\u770B\u6E05\u3002"
-    en: A carefully folded letter in an already-opened envelope. Most of the text
-      is covered in color - only the right lens reveals it.
+    zh: "\u7834\u65E7\u7684\u7EB8\u6761"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
@@ -948,11 +793,11 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.old_note.name
+  - id: item.old_note.desc
     category: 1
-    avgType: 0
-    zh: "\u65E7\u684C\u4FBF\u6761"
-    en: Old Desk Note
+    avgType: 2
+    zh: "\"\u5E7F\u64AD\u88AB\u8BC5\u5492\u4E86!\u5E7F\u64AD\u54CD\u7684\u65F6\u5019\u5FC5\u987B\u8EB2\u8D77\u6765!!\u662F\u5979!\u5979\u56DE\u6765\u627E\u6211\u4EEC\u4E86!!\""
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
@@ -974,13 +819,36 @@ MonoBehaviour:
   - id: item.mock_note_01.name
     category: 1
     avgType: 0
-    zh: "\u7EB8\u6761 1"
-    en: Note 1
+    zh: "\u5C0F\u7EB8\u67611"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
+    filterReq: 1
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.mock_note_01.desc
+    category: 1
+    avgType: 2
+    zh: "\"\u4E0D\u4F1A\u5427\u5979\u771F\u4FE1\u4E86?\\n\u4ECA\u5929\u653E\u5B66\u6709\u597D\u620F\u770B\u54AF!\""
+    en: 
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 1
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
@@ -997,13 +865,37 @@ MonoBehaviour:
   - id: item.mock_note_02.name
     category: 1
     avgType: 0
-    zh: "\u7EB8\u6761 2"
-    en: Note 2
+    zh: "\u5C0F\u7EB8\u67612"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
+    filterReq: 1
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: item.mock_note_02.desc
+    category: 1
+    avgType: 2
+    zh: "\"\u5979\u90A3\u4E2A\u591A\u4E8B\u7684\u7238\u7238\u4E0D\u77E5\u9053\u94A5\u5319\u88AB\u62FF\u8D70\u4E86\u5427,\u53EF\u522B\u8BA9\u4ED6\u53D1\u73B0\u4E86\u3002\\n
+      \u8FD9\u6709\u4EC0\u4E48,\u4E00\u4E2A\u4FDD\u5B89\u5927\u53D4\u800C\u5DF2,\u4E00\u8D77\u6349\u5F04\u53C8\u600E\u4E48\u6837\u54C8\u54C8\u54C8!\u4E0D\u8FC7\u77E5\u5F69\u672A\u514D\u4E5F\u592A\u597D\u9A97\u4E86\u3002\""
+    en: 
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 1
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
@@ -1020,13 +912,13 @@ MonoBehaviour:
   - id: item.mock_note_03.name
     category: 1
     avgType: 0
-    zh: "\u7EB8\u6761 3"
-    en: Note 3
+    zh: "\u5C0F\u7EB8\u67613"
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
+    filterReq: 1
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
@@ -1040,16 +932,16 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: item.mock_note_04.name
+  - id: item.mock_note_03.desc
     category: 1
-    avgType: 0
-    zh: "\u7EB8\u6761 4"
-    en: Note 4
+    avgType: 2
+    zh: "\"\u6211\u529E\u4E8B\u4F60\u653E\u5FC3,\u8FD9\u79CD\u65E9\u8BE5\u53BB\u7279\u6B8A\u5B66\u6821\u7684\u4EBA\u5C31\u522B\u6765\u8FD9\u91CC\u8BFB\u4E66\u4E86\u3002\\n\u771F\u662F\u602A\u80CE,\u8FDE\u7EA2\u8272\u7EFF\u8272\u90FD\u5206\u4E0D\u6E05\u3002\""
+    en: 
     zh_red: 
     en_red: 
     zh_green: 
     en_green: 
-    filterReq: 3
+    filterReq: 1
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
@@ -1224,6 +1116,29 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
+  - id: ui.menu.title
+    category: 2
+    avgType: 0
+    zh: "\u68F1\u955C\u7981\u533A"
+    en: PRISM ZONE
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 'legacy: main menu title'
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
   - id: ui.gameover.title
     category: 2
     avgType: 0
@@ -1252,6 +1167,98 @@ MonoBehaviour:
     avgType: 0
     zh: "\u4F60\u88AB\u4FDD\u5B89\u6293\u5230\u4E86\u2026\u2026"
     en: The guard caught you...
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.gameover.restart
+    category: 2
+    avgType: 0
+    zh: "\u91CD\u65B0\u5F00\u59CB"
+    en: Restart
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.gameover.menu
+    category: 2
+    avgType: 0
+    zh: "\u4E3B\u83DC\u5355"
+    en: Main Menu
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.gameover.reason.caught
+    category: 2
+    avgType: 0
+    zh: "\u4F60\u88AB\u6293\u4F4F\u4E86\u3002"
+    en: You were caught.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.gameover.reason.caught by GREEN
+    category: 2
+    avgType: 0
+    zh: "\u51DD\u89C6\u8005\u6293\u4F4F\u4E86\u4F60\u3002"
+    en: The Watcher caught you.
     zh_red: 
     en_red: 
     zh_green: 
@@ -1316,11 +1323,149 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
+  - id: ui.victory.restart
+    category: 2
+    avgType: 0
+    zh: "\u518D\u73A9\u4E00\u6B21"
+    en: Play Again
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.victory.menu
+    category: 2
+    avgType: 0
+    zh: "\u4E3B\u83DC\u5355"
+    en: Main Menu
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.victory.reason.escaped
+    category: 2
+    avgType: 0
+    zh: "\u4F60\u51FA\u6765\u4E86\u3002\u4E09\u68F1\u955C\u770B\u89C1\u4E86\u4E00\u5207\u3002"
+    en: You made it out. The prism saw everything.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
   - id: ui.pause.title
     category: 2
     avgType: 0
     zh: "\u6E38\u620F\u6682\u505C"
     en: Paused
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.pause.music_on
+    category: 2
+    avgType: 0
+    zh: "\u97F3\u4E50: \u5F00"
+    en: 'Music: On'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.pause.music_off
+    category: 2
+    avgType: 0
+    zh: "\u97F3\u4E50: \u5173"
+    en: 'Music: Off'
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.pause.quit_to_menu
+    category: 2
+    avgType: 0
+    zh: "\u8FD4\u56DE\u4E3B\u83DC\u5355"
+    en: Return to Main Menu
     zh_red: 
     en_red: 
     zh_green: 
@@ -1546,351 +1691,6 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: ui.door.locked
-    category: 2
-    avgType: 0
-    zh: "\u95E8\u88AB\u9501\u4F4F\u4E86 \u2014 \u9700\u8981\u94A5\u5319"
-    en: The door is locked - you need a key.
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.door.need_passcode
-    category: 2
-    avgType: 0
-    zh: "\u95E8\u9501\u7740 \u2014 \u8F93\u5165\u5BC6\u7801"
-    en: Locked - enter passcode.
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.filter.equipped.red
-    category: 2
-    avgType: 0
-    zh: "\u7EA2\u955C\u5DF2\u88C5\u5907"
-    en: Red lens equipped.
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.filter.equipped.green
-    category: 2
-    avgType: 0
-    zh: "\u7EFF\u955C\u5DF2\u88C5\u5907"
-    en: Green lens equipped.
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.filter.removed
-    category: 2
-    avgType: 0
-    zh: "\u955C\u7247\u5DF2\u6458\u4E0B"
-    en: Lens removed.
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.hotkey.q
-    category: 2
-    avgType: 0
-    zh: "[Q] \u5207\u6362\u6EE4\u955C"
-    en: '[Q] Cycle Lens'
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.settings.sfx
-    category: 2
-    avgType: 0
-    zh: "\u97F3\u6548"
-    en: SFX
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.settings.music
-    category: 2
-    avgType: 0
-    zh: "\u97F3\u4E50"
-    en: Music
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.settings.language
-    category: 2
-    avgType: 0
-    zh: "\u8BED\u8A00"
-    en: Language
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.settings.reset
-    category: 2
-    avgType: 0
-    zh: "\u6062\u590D\u9ED8\u8BA4"
-    en: Reset
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: system.broadcast.prelude.hint
-    category: 4
-    avgType: 0
-    zh: "\u5E7F\u64AD\u5373\u5C06\u5F00\u59CB"
-    en: Broadcast starting
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: "(\u672A\u4F7F\u7528,\u4FDD\u7559)"
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.menu.title
-    category: 2
-    avgType: 0
-    zh: "\u68F1\u955C\u7981\u533A"
-    en: PRISM ZONE
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 'legacy: main menu title'
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.filter.none
-    category: 2
-    avgType: 0
-    zh: "\u65E0\u6EE4\u955C"
-    en: No Filter
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.filter.red
-    category: 2
-    avgType: 0
-    zh: "\u7EA2\u955C"
-    en: Red
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.filter.green
-    category: 2
-    avgType: 0
-    zh: "\u7EFF\u955C"
-    en: Green
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
   - id: ui.cabinet.prompt
     category: 2
     avgType: 0
@@ -2006,6 +1806,75 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
+  - id: ui.door.locked
+    category: 2
+    avgType: 0
+    zh: "\u95E8\u88AB\u9501\u4F4F\u4E86 \u2014 \u9700\u8981\u94A5\u5319"
+    en: The door is locked - you need a key.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.door.need_passcode
+    category: 2
+    avgType: 0
+    zh: "\u95E8\u9501\u7740 \u2014 \u8F93\u5165\u5BC6\u7801"
+    en: Locked - enter passcode.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.door.open
+    category: 2
+    avgType: 0
+    zh: "\u95E8\u5F00\u7740\u3002"
+    en: The door is open.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
   - id: ui.passcode.title
     category: 2
     avgType: 0
@@ -2075,11 +1944,149 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: ui.door.open
+  - id: ui.filter.none
     category: 2
     avgType: 0
-    zh: "\u95E8\u5F00\u7740\u3002"
-    en: The door is open.
+    zh: "\u65E0\u6EE4\u955C"
+    en: No Filter
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.filter.red
+    category: 2
+    avgType: 0
+    zh: "\u7EA2\u955C"
+    en: Red
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.filter.green
+    category: 2
+    avgType: 0
+    zh: "\u7EFF\u955C"
+    en: Green
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.filter.equipped.red
+    category: 2
+    avgType: 0
+    zh: "\u7EA2\u955C\u5DF2\u88C5\u5907"
+    en: Red lens equipped.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.filter.equipped.green
+    category: 2
+    avgType: 0
+    zh: "\u7EFF\u955C\u5DF2\u88C5\u5907"
+    en: Green lens equipped.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.filter.removed
+    category: 2
+    avgType: 0
+    zh: "\u955C\u7247\u5DF2\u6458\u4E0B"
+    en: Lens removed.
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.hotkey.q
+    category: 2
+    avgType: 0
+    zh: "[Q] \u5207\u6362\u6EE4\u955C"
+    en: '[Q] Cycle Lens'
     zh_red: 
     en_red: 
     zh_green: 
@@ -2144,75 +2151,6 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
-  - id: ui.pause.music_on
-    category: 2
-    avgType: 0
-    zh: "\u97F3\u4E50: \u5F00"
-    en: 'Music: On'
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.pause.music_off
-    category: 2
-    avgType: 0
-    zh: "\u97F3\u4E50: \u5173"
-    en: 'Music: Off'
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.pause.quit_to_menu
-    category: 2
-    avgType: 0
-    zh: "\u8FD4\u56DE\u4E3B\u83DC\u5355"
-    en: Return to Main Menu
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
   - id: ui.settings.title
     category: 2
     avgType: 0
@@ -2241,6 +2179,98 @@ MonoBehaviour:
     avgType: 0
     zh: "\u4E3B\u97F3\u91CF"
     en: Master Volume
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.sfx
+    category: 2
+    avgType: 0
+    zh: "\u97F3\u6548"
+    en: SFX
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.music
+    category: 2
+    avgType: 0
+    zh: "\u97F3\u4E50"
+    en: Music
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.language
+    category: 2
+    avgType: 0
+    zh: "\u8BED\u8A00"
+    en: Language
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.settings.reset
+    category: 2
+    avgType: 0
+    zh: "\u6062\u590D\u9ED8\u8BA4"
+    en: Reset
     zh_red: 
     en_red: 
     zh_green: 
@@ -2310,167 +2340,6 @@ MonoBehaviour:
     avgType: 0
     zh: "\u5173\u95ED"
     en: Close
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.victory.restart
-    category: 2
-    avgType: 0
-    zh: "\u518D\u73A9\u4E00\u6B21"
-    en: Play Again
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.victory.menu
-    category: 2
-    avgType: 0
-    zh: "\u4E3B\u83DC\u5355"
-    en: Main Menu
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.victory.reason.escaped
-    category: 2
-    avgType: 0
-    zh: "\u4F60\u51FA\u6765\u4E86\u3002\u4E09\u68F1\u955C\u770B\u89C1\u4E86\u4E00\u5207\u3002"
-    en: You made it out. The prism saw everything.
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.gameover.restart
-    category: 2
-    avgType: 0
-    zh: "\u91CD\u65B0\u5F00\u59CB"
-    en: Restart
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.gameover.menu
-    category: 2
-    avgType: 0
-    zh: "\u4E3B\u83DC\u5355"
-    en: Main Menu
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.gameover.reason.caught
-    category: 2
-    avgType: 0
-    zh: "\u4F60\u88AB\u6293\u4F4F\u4E86\u3002"
-    en: You were caught.
-    zh_red: 
-    en_red: 
-    zh_green: 
-    en_green: 
-    filterReq: 3
-    repeatable: 1
-    cantSkip: 0
-    autoHideSec: 0
-    followUpId: 
-    triggerMode: 0
-    sfx: 
-    notes: 
-    requireFlagsRaw: 
-    forbidFlagsRaw: 
-    setFlagsOnFireRaw: 
-    requireFlags: []
-    forbidFlags: []
-    setFlagsOnFire: []
-  - id: ui.gameover.reason.caught by GREEN
-    category: 2
-    avgType: 0
-    zh: "\u51DD\u89C6\u8005\u6293\u4F4F\u4E86\u4F60\u3002"
-    en: The Watcher caught you.
     zh_red: 
     en_red: 
     zh_green: 
@@ -2596,8 +2465,8 @@ MonoBehaviour:
     autoHideSec: 0
     followUpId: 
     triggerMode: 0
-    sfx: 
-    notes: brute clue for passcode 3071
+    sfx: brute clue for passcode 3071
+    notes: 
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 

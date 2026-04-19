@@ -1,49 +1,44 @@
 id	category	avg_type	zh	en	zh_red	en_red	zh_green	en_green	filter_req	repeatable	cant_skip	auto_hide_sec	follow_up_id	trigger_mode	sfx	notes	require_flags	forbid_flags	set_flags_on_fire
-T-01	dialogue	NAR	1111111111	Today it's my turn. Storage room.					Any	false	false	0		OnEnter	AvgOpen	开场 · 进入 3F 储藏室			
-T-02	dialogue	READ	2222222222	Mar 4 - They called me to the hall again.|Apr X - All my fault.					Any	true	false	0		OnPickup	AvgOpen	日记本 · 2 页用 | 分隔			
-T-03	dialogue	TIP	3333333333	[Hear that sound - find cover!]					Any	false	false	3.0		OnState	BroadcastPrelude	3 秒自动关			
-T-04	dialogue	ENV	4444444444	"Before the broadcast, a sound plays. Hide in the cabinet when you hear it. Don't let it see you move."					Any	true	false	0		OnInteract	AvgOpen	旧桌便条,可重读			
-T-05	dialogue	NAR	5555555555	A locker key. The tag says: 2F locker row.					Any	false	false	0		OnPickup	PickupKey				
-T-06	dialogue	NAR	6666666666	An old school uniform folded neatly. A pair of glasses in the pocket. And an opened letter.					Any	false	false	0		OnState		开柜成功触发			
-T-07	dialogue	TIP	7777777777	[Red / Green lens - press Q to cycle] Wearing removes that color's veil. Watch: same-color warnings vanish too.					Any	false	false	5.0		OnState		5 秒自动关,首次装备眼镜			
-T-08	dialogue	READ	8888888888	████████████████████████████\n██████████████████████████\n██████████████			我一直注意到你了,你那么努力却没有人看见你。我想见你一次——放学后来402,我会等你。我喜欢你,也心疼你。                                         ——[校草姓名]	I've always noticed you, how hard you try when no one sees it. Come to 402 after school - I'll wait for you. I love you, and I ache for you.   — [Popular boy]	Any	true	false	0		OnInteract	AvgOpen	情书 · 绿镜显完整版			
-T-09	dialogue	NAR	9999999999	The door is here - locked. Padlock. Someone locked it on purpose. The key must still be in the building.					Green	false	false	0		OnEnter		绿镜才触发			
-T-10	dialogue	TIP	10-10-10-10-10	[Something hides under the red veil - look carefully.]					Red	false	false	4.0		OnState		首次红镜在 3F 教室			
-T-11a	dialogue	READ	11a-11a-11a-11a-11a	"She actually thinks the popular boy likes her lol - let's all go to 402 after school and watch!"					Red	true	false	0		OnInteract	AvgOpen	纸条①			
-T-11b	dialogue	READ	11b-11b-11b-11b-11b	"He said it's just a prank - how is she so gullible, she deserves it."					Red	true	false	0		OnInteract	AvgOpen	纸条②			
-T-11c	dialogue	READ	11c-11c-11c-11c-11c	"Someone likes her? Yeah right. Lure her up, lock the door, watch her squirm lol"					Red	true	false	0		OnInteract	AvgOpen	纸条③			
-T-11d	dialogue	READ	11d-11d-11d-11d-11d	"Spare key in 301 - there's a hidden slot in the podium drawer. Teachers don't know. Put it back after use, leave no trace."					Red	true	false	0		OnInteract	AvgOpen	纸条④ · 含 301 线索			
-T-12	dialogue	ENV	12-12-12-12-12	A hidden compartment behind the drawer side - there's a key inside.					Red	false	false	0		OnInteract	AvgOpen	301 暗格			
-T-13	dialogue	NAR	13-13-13-13-13	This is the 4F key. If it's here, someone knew it was here.					Any	false	false	0		OnPickup	PickupKey				
-T-13b	dialogue	TIP	13b-13b-13b-13b-13b	[With red lens, the stairs door is visible. Key in hand - you can open it.]					Red	false	false	4.0		OnEnter		需持钥匙 + 红镜 + 到楼梯口			
-T-14	dialogue	NAR	14-14-14-14-14	Here - 402. Unlocked.					Red	false	false	0		OnEnter		红镜下 402 门可见			
-T-15	dialogue	READ	15-15-15-15-15	[Bully 1] [Bully 2] [Bully 3] [Popular boy] was here.					Red	true	false	0		OnInteract	AvgOpen,BlackboardHeartbeat	血黑板 · 红镜完整			
-T-16	dialogue	FLASH	16-16-16-16-16	So scared... Dad... where are you...					Any	false	true	0	T-17	OnState	FlashEcho	闪回前 · 不可跳过			
-T-17	dialogue	FLASH	17-17-17-17-17	(Falling silhouette plays)					Any	false	true	0		OnState	FlashEcho	闪回 · 视觉主导			
-T-18	dialogue	ENV	18-18-18-18-18	A voice recorder - red light on, looping. This is the broadcast source. (F to stop)					Any	false	false	0		OnInteract	AvgOpen				
-T-19	dialogue	NAR	19-19-19-19-19	The broadcast stopped. Footsteps in the hall stopped too. ...Only wind outside.					Any	false	false	0		OnState	RecorderClickOff	按 F 关录音笔后			
-T-20	dialogue	TIP	20-20-20-20-20	[Put on green lens. Try F again.]					Green	false	false	4.0		OnState		录音笔停止 + 切绿镜			
-T-21	dialogue	READ	21-21-21-21-21	"Student [Girl name], please come to 4F Room 402," (Recording cuts to static.)					Green	true	false	0		OnInteract	RecorderClickOn,BroadcastVoice	第二段录音			
-T-22	dialogue	NAR	22-22-22-22-22	He is her father. Three years in this building, never knowing why she fell from the 4th floor that day. Now he knows.					Any	false	false	0		OnState		T-21 结束后 · 保安 → Stopped			
-T-23	dialogue	TIP	23-23-23-23-23	[Green lens. The floor will tell you where to go.]					Any	false	false	4.0		OnEnter		1F 未戴绿镜时			
-T-24	dialogue	NAR	24-24-24-24-24	(She pushes open the side door and walks out. The real world - cars flowing.)					Any	false	true	0		OnInteract	DoorPush,OutsideTraffic	结局 · 不可跳过			
-item.glasses.name	item		三原色眼镜	Prism Glasses					Any	true	false	0		Manual		道具名			
-item.glasses.desc	item		旧校服口袋里的眼镜。镜片可以在红 / 绿两种颜色之间切换。戴上某色会让那种颜色的遮层消失。	An old pair of glasses from a uniform pocket. Lens cycles between red and green. Wearing removes that color's veil.					Any	true	false	0		Manual		道具详情			
-item.key.storage.name	item		储物柜钥匙	Locker Key					Any	true	false	0		Manual					
-item.key.storage.desc	item		扣子上写着二楼储物柜编号。	The tag reads: 2F locker row.					Any	true	false	0		Manual					
-item.key.stairs_4f.name	item		四楼钥匙	4F Stairs Key					Any	true	false	0		Manual					
-item.key.stairs_4f.desc	item		藏在 301 讲台暗格里的备用钥匙。	A spare key hidden in the 301 podium drawer.					Any	true	false	0		Manual					
-item.diary.name	item		日记本	Diary					Any	true	false	0		Manual					
-item.diary.desc	item		两页日记。笔迹越写越潦草。	Two pages. The handwriting grows rougher each entry.					Any	true	false	0		Manual					
-item.recorder.name	item		录音笔	Voice Recorder					Any	true	false	0		Manual					
-item.recorder.desc	item		讲台上的录音笔。红灯闪烁,似乎在循环播放什么。	A voice recorder on the podium. Red light blinking. Seems to loop something.					Any	true	false	0		Manual					
-item.love_letter.name	item		情书	Love Letter					Any	true	false	0		Manual					
-item.love_letter.desc	item		一封被仔细折叠的信,信封已经拆过。大部分字迹被某种颜色盖住,只有戴对滤镜才能看清。	A carefully folded letter in an already-opened envelope. Most of the text is covered in color - only the right lens reveals it.					Any	true	false	0		Manual					
-item.old_note.name	item		旧桌便条	Old Desk Note					Any	true	false	0		Manual					
-item.mock_note_01.name	item		纸条 1	Note 1					Any	true	false	0		Manual					
-item.mock_note_02.name	item		纸条 2	Note 2					Any	true	false	0		Manual					
-item.mock_note_03.name	item		纸条 3	Note 3					Any	true	false	0		Manual					
-item.mock_note_04.name	item		纸条 4	Note 4					Any	true	false	0		Manual					
+T-01	dialogue	NAR	又叫我打扫卫生……每次都是我……凭什么啊……\n算了,早点弄完回家吧,太晚妈妈该担心了						None	false	true	0		OnEnter		开局进入游戏弹出 · 开场独白 · 不可跳过			
+T-02	dialogue	NAR	这是什么?小纸条破破烂烂的,好像有字?						None	false	true	0	item.old_note.desc	OnPickup		捡起破旧纸条(Pickup_Note) · 链到 old_note READ			
+T-03	dialogue	NAR	扫扫扫……\n欸,这是什么?\n一本……日记?\n好奇怪,这里怎么会有一本日记?打开看看……						None	false	true	0	item.diary.desc	OnPickup		捡起日记(Pickup_Diary) · 链到 diary READ			
+T-04	dialogue	NAR	好可怕……欸钥匙?好像是从日记本里掉出来的……\n是……2楼储物柜的钥匙。\n没办法了……去2楼看看吧。						None	false	true	0		OnState		阅读日记READ后弹出	dialogue.item.diary.desc.triggered		
+T-05	dialogue	NAR	咳咳…… 好多灰。这是什么东西?一个3D眼镜?\n不对,这是红色和绿色的镜片?好奇怪\n带上看看吧。						None	false	true	0	item.glasses.desc	OnExternal		Cabinet_Locked 开锁 UnityEvent → Fire() · 链到 glasses READ			
+T-06	dialogue	NAR	不一样的东西……\n不会是……那个校园怪谈吧……跳楼的女生……\n戴上眼镜到处走走好了,总要想办法出去。						Any	false	true	0		OnState		阅读眼镜READ后弹出	dialogue.item.glasses.desc.triggered		
+T-07	dialogue	NAR	原来是情书啊,搞这么神秘。易森不是前几届那个风云校草么,居然会给别人写情书……可是和诅咒有什么关系?\n去4楼看看吧?好像四楼封起来蛮久了,也许会有什么线索。						Green	false	true	0		OnPickup		捡起情书(Pickup_LoveLetter) · 戴绿镜时才触发			
+T-08	dialogue	NAR	居然上锁了。\n怎么看也不像是原来的门锁,一点都不匹配,看样子快要生锈了。\n钥匙应该还藏在这层楼的某处。						Red	false	true	0		OnInteract		4F 楼梯门按E时触发 · 戴红镜 · 未持 stairs_4f 钥匙			
+T-09	dialogue	NAR	藏在这么奇怪的地方……以前好像没见过呀……						Red	false	true	0		OnPickup		捡到四楼钥匙(Pickup_KeyB)			
+T-10	dialogue	NAR	保安大叔是她爸爸?						Red	false	true	0		OnPickup		捡到小纸条1(Pickup_Note_01)			
+T-11	dialogue	NAR	他们说的是……日记的主人?\n红绿色盲吗……被这样欺负好可怜……						Red	false	true	0		OnPickup		捡到小纸条2(Pickup_Note_02)			
+T-12	dialogue	NAR	这里真的有备用钥匙!可是为什么……不戴眼镜的时候看不到呢?\n感觉好像进入了另一个世界……						Red	false	true	0		OnPickup		捡到小纸条3(Pickup_Note_03)			
+T-13	dialogue	NAR	上来了!好多灰尘……\n有点害怕,这里面有什么……						Red	false	true	0		OnEnter		传送到四楼场景入口触发			
+T-14	dialogue	NAR	404教室……\n是前几年那个跳楼女生出事的地方呀……\n难道她就是知彩?						Red	false	true	0		OnInteract		按E 404教室门后弹出			
+T-15	dialogue	NAR	黑板上好多血……不对……是油漆!\n米莉,易森,菲菲,宇凯\n——到此一游\n神经病啊写这种东西!!可是看起来好可怕……						Red	false	true	0		OnInteract		按E黑板(Blackboard.prefab 已挂)			
+T-17	dialogue	NAR	不要跳!知彩!!不要跳下去……\n她听不到我说话……不要……						Any	false	true	0		OnState		FlashbackController 播完闪回动画后 Fire()	flashback.played		
+T-18	dialogue	NAR	录音笔……原来广播的声音来自这里……\n是那些霸凌知彩的人在笑!\n还有……知彩在哭……						Any	false	true	0		OnPickup		Recorder.nodeInspect=T-18 已挂			
+T-19	dialogue	NAR	……该结束这一切了。\n笑声和哭泣声都停止了。\n走廊里静得可怕。\n然后我该做什么……?						Any	false	true	0		OnState		Recorder.cs 停广播后 · Recorder.nodeStop=T-19 已挂			
+T-20	dialogue	NAR	追杀我的那个怪人!!!!\n他看起来……在哭?\n是保安叔叔!!他是知彩的爸爸!\n为了寻找知彩跳楼自杀的真相,才一直游荡在这幢教学楼里……\n他看起来……也要消失了……						Any	false	true	0		OnState		保安进入 Stopped 状态后触发	enemy.guard.stopped		
+T-21	dialogue	NAR	居然已经天黑了啊。\n经历过刚才那些,走夜路都不怎么可怕了。 \n(看手表)\n……不好!要被妈妈骂了, 快走吧!						Any	false	true	0		OnInteract		按E 1楼大门 · onDialogueFinished → VictoryPanel.Show escaped			
+item.glasses.name	item		颜色矫正眼镜						Any	true	false	0		Manual					
+item.glasses.desc	item	READ	一副矫正颜色的眼睛,戴上眼镜似乎可以看到一些不一样的东西……\n按Q键切换镜片颜色						Any	true	false	0		Manual					
+item.key.storage.name	item		储藏柜钥匙						Any	true	false	0		Manual					
+item.key.storage.desc	item	READ	可能是她的钥匙……她的储藏柜会在哪里呢?						Any	true	false	0		Manual					
+item.key.stairs_4f.name	item		四楼钥匙						Red	true	false	0		Manual					
+item.key.stairs_4f.desc	item	READ	锁住了四楼的楼梯口,也锁住了秘密						Red	true	false	0		Manual					
+item.diary.name	item		一本日记						Any	true	false	0		Manual					
+item.diary.desc	item	READ	知彩\n2月1日 晴 今天天气好棒呀,加油知彩!你一定可以坚持下去的!\n2月5日 雨 他们又叫我放学去储藏室……我真的不想去……好害怕……\n2月5日 雨 他们又抢走了我的储物柜钥匙……下次要藏好一点……没来得及换衣服被体育老师罚跑了……|2月12日 雨 不喜欢下雨,每次下雨他们不出去玩就会来找我的麻烦。储物柜被泼了油漆……好过分……伤口好疼……\n3月13日 阴 为什么……为什么是我?为什么欺负我……我做错了什么?\n3月23日 阴 再坚持一下吧……爸爸花了那么多钱就为了让我在这里……可是好痛苦……|5月2日 好难过……我要坚持不下去了……好过分……好痛苦……\n5月8日 晴 好像逃走……可是爸爸怎么办……\n6月1日 雨 好想……杀掉他们……我不敢……不要……不要……我快要坚持不下去了……?|6月8日 雨 好想回家……都去死都去死都去死都去死!!!\n6月9日 死死死死死!!!!\n6月12日 都别想逃出这里!你也是!						Any	true	false	0		Manual					
+item.recorder.name	item		录音笔						Red	true	false	0		Manual					
+item.recorder.desc	item	READ	一根亮着灯的录音笔,好像一直在播放……						Red	true	false	0		Manual					
+item.love_letter.name	item		拆封的情书						Green	true	false	0		Manual					
+item.love_letter.desc	item	READ	"我一直有注意到你哦,知彩。\n抱歉,我没办法每次都及时保护你,所以……\n我想了一个办法,\n我想和你在一起。\n请一定要相信我,放学后来402教室,我会在那里等你。\n——易森						Green	true	false	0	T-07	Manual	
+item.old_note.name	item		破旧的纸条						Any	true	false	0		Manual					
+item.old_note.desc	item	READ	"广播被诅咒了!广播响的时候必须躲起来!!是她!她回来找我们了!!"						Any	true	false	0		Manual					
+item.mock_note_01.name	item		小纸条1						Red	true	false	0		Manual					
+item.mock_note_01.desc	item	READ	"不会吧她真信了?\n今天放学有好戏看咯!"						Red	true	false	0		Manual					
+item.mock_note_02.name	item		小纸条2						Red	true	false	0		Manual					
+item.mock_note_02.desc	item	READ	"她那个多事的爸爸不知道钥匙被拿走了吧,可别让他发现了。\n 这有什么,一个保安大叔而已,一起捉弄又怎么样哈哈哈!不过知彩未免也太好骗了。"						Red	true	false	0		Manual					
+item.mock_note_03.name	item		小纸条3						Red	true	false	0		Manual					
+item.mock_note_03.desc	item	READ	"我办事你放心,这种早该去特殊学校的人就别来这里读书了。\n真是怪胎,连红色绿色都分不清。"						Red	true	false	0		Manual					
 ui.menu.start	ui		开始游戏	Start Game					Any	true	false	0		Manual					
 ui.menu.continue	ui		继续游戏	Continue					Any	true	false	0		Manual					
 ui.menu.settings	ui		设置	Settings					Any	true	false	0		Manual					
@@ -51,11 +46,22 @@ ui.menu.exit	ui		退出	Exit					Any	true	false	0		Manual
 ui.menu.restart	ui		重新开始	Restart					Any	true	false	0		Manual					
 ui.menu.back	ui		返回	Back					Any	true	false	0		Manual					
 ui.menu.main_menu	ui		返回主菜单	Main Menu					Any	true	false	0		Manual					
+ui.menu.title	ui		棱镜禁区	PRISM ZONE					Any	true	false	0		Manual	legacy: main menu title			
 ui.gameover.title	ui		GAME OVER	GAME OVER					Any	true	false	0		Manual					
 ui.gameover.sub	ui		你被保安抓到了……	The guard caught you...					Any	true	false	0		Manual					
+ui.gameover.restart	ui		重新开始	Restart					Any	true	false	0		Manual					
+ui.gameover.menu	ui		主菜单	Main Menu					Any	true	false	0		Manual					
+ui.gameover.reason.caught	ui		你被抓住了。	You were caught.					Any	true	false	0		Manual					
+ui.gameover.reason.caught by GREEN	ui		凝视者抓住了你。	The Watcher caught you.					Any	true	false	0		Manual					
 ui.victory.title	ui		逃脱成功!	Escaped!					Any	true	false	0		Manual					
 ui.victory.sub	ui		你看穿了棱镜禁区的秘密。	You saw through the Prism Zone.					Any	true	false	0		Manual					
+ui.victory.restart	ui		再玩一次	Play Again					Any	true	false	0		Manual					
+ui.victory.menu	ui		主菜单	Main Menu					Any	true	false	0		Manual					
+ui.victory.reason.escaped	ui		你出来了。三棱镜看见了一切。	You made it out. The prism saw everything.					Any	true	false	0		Manual					
 ui.pause.title	ui		游戏暂停	Paused					Any	true	false	0		Manual					
+ui.pause.music_on	ui		音乐: 开	Music: On					Any	true	false	0		Manual					
+ui.pause.music_off	ui		音乐: 关	Music: Off					Any	true	false	0		Manual					
+ui.pause.quit_to_menu	ui		返回主菜单	Return to Main Menu					Any	true	false	0		Manual					
 ui.avg.skip	ui		[ESC] 跳过	[ESC] Skip					Any	true	false	0		Manual					
 ui.avg.continue	ui		[E] 继续	[E] Continue					Any	true	false	0		Manual					
 ui.avg.page	ui		{0} / {1}	{0} / {1}					Any	true	false	0		Manual					
@@ -65,50 +71,37 @@ ui.prompt.exit_cabinet	ui		按 E 离开	Press E to come out					Any	true	false	0
 ui.prompt.open_door	ui		按 E 开门	Press E to open					Any	true	false	0		Manual					
 ui.prompt.push_door	ui		按 E 推门	Press E to push					Any	true	false	0		Manual					
 ui.prompt.recorder.play	ui		按 F 播放	Press F to play					Any	true	false	0		Manual					
-ui.door.locked	ui		门被锁住了 — 需要钥匙	The door is locked - you need a key.					Any	true	false	0		Manual					
-ui.door.need_passcode	ui		门锁着 — 输入密码	Locked - enter passcode.					Any	true	false	0		Manual					
-ui.filter.equipped.red	ui		红镜已装备	Red lens equipped.					Any	true	false	0		Manual					
-ui.filter.equipped.green	ui		绿镜已装备	Green lens equipped.					Any	true	false	0		Manual					
-ui.filter.removed	ui		镜片已摘下	Lens removed.					Any	true	false	0		Manual					
-ui.hotkey.q	ui		[Q] 切换滤镜	[Q] Cycle Lens					Any	true	false	0		Manual					
-ui.settings.sfx	ui		音效	SFX					Any	true	false	0		Manual					
-ui.settings.music	ui		音乐	Music					Any	true	false	0		Manual					
-ui.settings.language	ui		语言	Language					Any	true	false	0		Manual					
-ui.settings.reset	ui		恢复默认	Reset					Any	true	false	0		Manual					
-system.broadcast.prelude.hint	system		广播即将开始	Broadcast starting					Any	true	false	0		Manual		(未使用,保留)
-# === APPENDED 2026-04-19: legacy code-referenced keys ===
-ui.menu.title	ui		棱镜禁区	PRISM ZONE					Any	true	false	0		Manual		legacy: main menu title			
-ui.filter.none	ui		无滤镜	No Filter					Any	true	false	0		Manual					
-ui.filter.red	ui		红镜	Red					Any	true	false	0		Manual					
-ui.filter.green	ui		绿镜	Green					Any	true	false	0		Manual					
 ui.cabinet.prompt	ui		E 进入橱柜	E to hide					Any	true	false	0		Manual					
 ui.cabinet.exit	ui		E 离开	E to leave					Any	true	false	0		Manual					
 ui.pickup.prompt	ui		E 拾取	E to pick up					Any	true	false	0		Manual					
 ui.interact.prompt	ui		E 交互	E to interact					Any	true	false	0		Manual					
 ui.clue.dismiss	ui		E 关闭	E to close					Any	true	false	0		Manual					
+ui.door.locked	ui		门被锁住了 — 需要钥匙	The door is locked - you need a key.					Any	true	false	0		Manual					
+ui.door.need_passcode	ui		门锁着 — 输入密码	Locked - enter passcode.					Any	true	false	0		Manual					
+ui.door.open	ui		门开着。	The door is open.					Any	true	false	0		Manual					
 ui.passcode.title	ui		输入 4 位密码	Enter 4-digit code					Any	true	false	0		Manual					
 ui.passcode.wrong	ui		密码错误	Wrong code					Any	true	false	0		Manual					
 ui.passcode.ok	ui		解锁	Unlock					Any	true	false	0		Manual					
-ui.door.open	ui		门开着。	The door is open.					Any	true	false	0		Manual					
+ui.filter.none	ui		无滤镜	No Filter					Any	true	false	0		Manual					
+ui.filter.red	ui		红镜	Red					Any	true	false	0		Manual					
+ui.filter.green	ui		绿镜	Green					Any	true	false	0		Manual					
+ui.filter.equipped.red	ui		红镜已装备	Red lens equipped.					Any	true	false	0		Manual					
+ui.filter.equipped.green	ui		绿镜已装备	Green lens equipped.					Any	true	false	0		Manual					
+ui.filter.removed	ui		镜片已摘下	Lens removed.					Any	true	false	0		Manual					
+ui.hotkey.q	ui		[Q] 切换滤镜	[Q] Cycle Lens					Any	true	false	0		Manual					
 ui.recorder.stop	ui		F 停止录音笔	F to stop recorder					Any	true	false	0		Manual					
 ui.recorder.play	ui		F 播放第二段	F to play second segment					Any	true	false	0		Manual					
-ui.pause.music_on	ui		音乐: 开	Music: On					Any	true	false	0		Manual					
-ui.pause.music_off	ui		音乐: 关	Music: Off					Any	true	false	0		Manual					
-ui.pause.quit_to_menu	ui		返回主菜单	Return to Main Menu					Any	true	false	0		Manual					
 ui.settings.title	ui		设置	Settings					Any	true	false	0		Manual					
 ui.settings.master	ui		主音量	Master Volume					Any	true	false	0		Manual					
+ui.settings.sfx	ui		音效	SFX					Any	true	false	0		Manual					
+ui.settings.music	ui		音乐	Music					Any	true	false	0		Manual					
+ui.settings.language	ui		语言	Language					Any	true	false	0		Manual					
+ui.settings.reset	ui		恢复默认	Reset					Any	true	false	0		Manual					
 ui.settings.lang.en	ui		English	English					Any	true	false	0		Manual					
 ui.settings.lang.zh	ui		中文	中文					Any	true	false	0		Manual					
 ui.settings.close	ui		关闭	Close					Any	true	false	0		Manual					
-ui.victory.restart	ui		再玩一次	Play Again					Any	true	false	0		Manual					
-ui.victory.menu	ui		主菜单	Main Menu					Any	true	false	0		Manual					
-ui.victory.reason.escaped	ui		你出来了。三棱镜看见了一切。	You made it out. The prism saw everything.					Any	true	false	0		Manual					
-ui.gameover.restart	ui		重新开始	Restart					Any	true	false	0		Manual					
-ui.gameover.menu	ui		主菜单	Main Menu					Any	true	false	0		Manual					
-ui.gameover.reason.caught	ui		你被抓住了。	You were caught.					Any	true	false	0		Manual					
-ui.gameover.reason.caught by GREEN	ui		凝视者抓住了你。	The Watcher caught you.					Any	true	false	0		Manual					
 ui.popup.close_hint	ui		[F / Esc] 关闭	[F / Esc] Close					Any	true	false	0		Manual					
 ui.popup.next_hint	ui		[Space] 继续	[Space] Continue					Any	true	false	0		Manual					
 ui.popup.page_hint	ui		[← →] 翻页	[← →] Page					Any	true	false	0		Manual					
 ui.inventory.empty	ui		空	Empty					Any	true	false	0		Manual					
-clue.room1.code	prompt		墙上写着:3·?·7·1	Scrawled on the wall: 3.?.7.1					Any	true	false	0		Manual		brute clue for passcode 3071			
+clue.room1.code	prompt		墙上写着:3·?·7·1	Scrawled on the wall: 3.?.7.1					Any	true	false	0		Manual	brute clue for passcode 3071
