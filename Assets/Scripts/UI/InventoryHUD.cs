@@ -29,6 +29,8 @@ namespace PrismZone.UI
         [SerializeField] private Button nextPageButton;
         [Tooltip("Shows e.g. '1/2'. Leave null to hide.")]
         [SerializeField] private TMP_Text pageIndicator;
+        [Tooltip("Compact overflow badge, e.g. '+3' — shown when the bag has more items than fit in one page and pagination buttons aren't present.")]
+        [SerializeField] private TMP_Text overflowBadge;
 
         private readonly List<string> _visible = new List<string>(Inventory.MaxSlots);
         private int _currentPage;
@@ -159,22 +161,33 @@ namespace PrismZone.UI
                 if (v.label != null) v.label.text = string.Empty;
             }
 
-            // Page chrome — hidden when the bag fits in one page.
+            // Page chrome — hidden when the bag fits in one page, and each arrow is
+            // hidden (not just disabled) when there's nothing in that direction.
             bool multiPage = _visible.Count > pageSize;
             if (prevPageButton != null)
-            {
-                prevPageButton.gameObject.SetActive(multiPage);
-                prevPageButton.interactable = _currentPage > 0;
-            }
+                prevPageButton.gameObject.SetActive(multiPage && _currentPage > 0);
             if (nextPageButton != null)
-            {
-                nextPageButton.gameObject.SetActive(multiPage);
-                nextPageButton.interactable = _currentPage < maxPage;
-            }
+                nextPageButton.gameObject.SetActive(multiPage && _currentPage < maxPage);
             if (pageIndicator != null)
             {
                 pageIndicator.gameObject.SetActive(multiPage);
                 pageIndicator.text = multiPage ? $"{_currentPage + 1}/{maxPage + 1}" : string.Empty;
+            }
+
+            // Overflow badge: small "+N" counter for when pagination UI isn't present.
+            if (overflowBadge != null)
+            {
+                int extras = _visible.Count - pageSize;
+                bool show = extras > 0 && _currentPage == maxPage; // last page: show remainder if we showed the whole bag from page 0
+                // Simpler model: always show total extras beyond page 0 when bag overflows.
+                show = multiPage;
+                overflowBadge.gameObject.SetActive(show);
+                if (show)
+                {
+                    int hidden = _visible.Count - (_currentPage * pageSize + pageSize);
+                    if (hidden < 0) hidden = 0;
+                    overflowBadge.text = hidden > 0 ? $"+{hidden}" : string.Empty;
+                }
             }
         }
     }
