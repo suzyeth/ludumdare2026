@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9147191262676240845}
   - component: {fileID: 4852399387127318063}
   - component: {fileID: 7405777210951935894}
+  - component: {fileID: 7666369233578616549}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -179,3 +180,16 @@ MonoBehaviour:
   pixelUnit: 0.03125
   offset: {x: 0, y: 0}
   deadZoneSize: {x: 3, y: 1.5}
+--- !u!114 &7666369233578616549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3581413583130953274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8e4958ef0357c49b08dee5e1e59b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Core.PersistentRoot
+  persistId: MainCamera
