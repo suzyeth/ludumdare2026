@@ -737,12 +737,14 @@ MonoBehaviour:
   echoSfx: 64
   montageFrames: []
   imageAStaticSeconds: 2.5
-  jitterBurstCount: 5
-  jitterInterval: 0.12
-  frameJitter: 4
+  jitterBurstCount: 8
+  jitterInterval: 0.07
+  frameJitter: 12
   playEchoOnJitter: 1
+  strobeAlphaFlicker: 1
   blackScreenHoldSeconds: 0.5
   impactSfx: 65
+  impactSfxLeadSeconds: 0.7
   imageBStaticSeconds: 3.5
 --- !u!1 &489081747708747265
 GameObject:

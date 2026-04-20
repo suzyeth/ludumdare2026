@@ -41,19 +41,23 @@ namespace PrismZone.UI
 
         [Header("阶段 2: 图 A 抖动爆发")]
         [Tooltip("连续抖动次数")]
-        [SerializeField] private int jitterBurstCount = 3;
-        [Tooltip("每次抖动间隔(秒)。0.10 ≈ 紧张节奏")]
-        [SerializeField] private float jitterInterval = 0.10f;
+        [SerializeField] private int jitterBurstCount = 8;
+        [Tooltip("每次抖动间隔(秒)。0.06–0.08 ≈ strobe 闪烁感")]
+        [SerializeField] private float jitterInterval = 0.07f;
         [Tooltip("抖动半径(UI 像素)。±X,±Y 随机")]
-        [SerializeField] private float frameJitter = 4f;
+        [SerializeField] private float frameJitter = 12f;
         [Tooltip("抖动时每次播 FlashEcho 音效")]
         [SerializeField] private bool playEchoOnJitter = true;
+        [Tooltip("抖动时在 '图 A 可见' 与 '全黑' 之间 strobe 切换,模拟老录像带撕裂。关=仅位移抖动。")]
+        [SerializeField] private bool strobeAlphaFlicker = true;
 
-        [Header("阶段 3: 黑屏 + 落地撞击")]
-        [Tooltip("黑屏停顿秒数")]
-        [SerializeField] private float blackScreenHoldSeconds = 0.25f;
-        [Tooltip("黑屏时播放的撞击音效(重物落地)。SoundCatalog 里挂好对应 id")]
+        [Header("阶段 3: 静默黑屏 → 落地撞击 → 图 B")]
+        [Tooltip("黑屏静默停顿秒数 (无音效)")]
+        [SerializeField] private float blackScreenHoldSeconds = 0.5f;
+        [Tooltip("落地撞击音效。SoundCatalog 里挂好对应 id")]
         [SerializeField] private SoundId impactSfx = SoundId.HumanBodyFall;
+        [Tooltip("撞击音效播放后到图 B 出现之间的延迟 (大致 = 音效时长)。0.5–1.0s 常用。")]
+        [SerializeField] private float impactSfxLeadSeconds = 0.7f;
 
         [Header("阶段 4: 图 B 余韵")]
         [Tooltip("图 B 显示并静止多久(秒),最后的情感余韵")]
@@ -111,7 +115,10 @@ namespace PrismZone.UI
             SetMontageAlpha(1f);
             yield return new WaitForSecondsRealtime(imageAStaticSeconds);
 
-            // ── t=1.10s · 图 A 抖动爆发 × N · 每次 FlashEcho ──────
+            // ── 阶段 2 · 图 A 抖动爆发 (strobe 闪烁) ─────────────
+            // Position jitter + alpha strobe give the VHS-tear / flashbulb
+            // vibe. Alternate ticks kill the image to full black so the A→void
+            // contrast reads as flicker rather than just shake.
             for (int i = 0; i < jitterBurstCount; i++)
             {
                 if (frameJitter > 0f)
@@ -120,6 +127,10 @@ namespace PrismZone.UI
                         UnityEngine.Random.Range(-frameJitter, frameJitter),
                         UnityEngine.Random.Range(-frameJitter, frameJitter));
                 }
+                if (strobeAlphaFlicker)
+                {
+                    SetMontageAlpha((i & 1) == 0 ? UnityEngine.Random.Range(0.7f, 1f) : 0f);
+                }
                 if (playEchoOnJitter)
                     AudioManager.Instance?.Play(echoSfx);
 
@@ -127,12 +138,15 @@ namespace PrismZone.UI
             }
             rt.anchoredPosition = origin;
 
-            // ── t≈1.40s · 黑屏 + 落地撞击声 ───────────────────────
+            // ── 阶段 3a · 静默黑屏 (no sfx) ────────────────────────
             SetMontageAlpha(0f);
-            AudioManager.Instance?.Play(impactSfx);
             yield return new WaitForSecondsRealtime(blackScreenHoldSeconds);
 
-            // ── t≈1.65s · 图 B 静止 1.2s ──────────────────────────
+            // ── 阶段 3b · 落地撞击声,等音效放完 ────────────────────
+            AudioManager.Instance?.Play(impactSfx);
+            yield return new WaitForSecondsRealtime(impactSfxLeadSeconds);
+
+            // ── 阶段 4 · 图 B 静止 ────────────────────────────────
             montageImage.sprite = montageFrames[1];
             SetMontageAlpha(1f);
             yield return new WaitForSecondsRealtime(imageBStaticSeconds);
