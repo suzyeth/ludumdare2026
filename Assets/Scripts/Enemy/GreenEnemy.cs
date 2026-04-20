@@ -22,6 +22,8 @@ namespace PrismZone.Enemy
         [SerializeField] private float visionAngleDeg = 120f;
         [Tooltip("Close-range omnidirectional aggro. Player within this radius is spotted regardless of vision cone (still blocked by walls). Simulates hearing / proximity awareness.")]
         [SerializeField] private float proximityAggroRadius = 2.5f;
+        [Tooltip("Player within this radius during an active-hunt state is caught → GameOver. Bypasses trigger colliders (which the guard's own solid body can prevent from overlapping).")]
+        [SerializeField] private float catchRadius = 0.55f;
         [Tooltip("Chase speed during broadcast (Locating state). Player is stunned — this should feel threatening.")]
         [SerializeField] private float locatingSpeed = 4.5f;
         [SerializeField] private float aggroLossTime = 20f;
@@ -46,6 +48,8 @@ namespace PrismZone.Enemy
         private Vector2 _facing = Vector2.right;
         private bool _alarmSubscribed;
         private Rigidbody2D _rb;
+        private bool _caught;           // one-shot latch so GameOver only fires once per guard
+        private float _locatingEnteredAt = -1f; // watchdog — broadcast coroutine death must not strand us in Locating
 
         protected override void Awake()
         {
@@ -89,8 +93,23 @@ namespace PrismZone.Enemy
             RecomputePath(a.Position);
         }
 
+        protected override void OnStateChanged(State prev, State next)
+        {
+            // Reset the Locating watchdog when we leave Locating so next entry
+            // starts a fresh 20s window.
+            if (prev == State.Locating && next != State.Locating)
+                _locatingEnteredAt = -1f;
+        }
+
         protected override void Tick()
         {
+            // Distance-based catch check — runs every frame regardless of
+            // colliders. The guard's solid collider shell can prevent the
+            // player's own solid collider from overlapping the guard's trigger
+            // zone, making OnTriggerEnter unreliable. A raw distance check
+            // guarantees catch during active-hunt states.
+            TryCatchByDistance();
+
             // Locating is driven by BroadcastController — don't let LOS
             // re-transition out of it while the broadcast is running.
             if (Current != State.Locating && CanSeePlayer())
@@ -182,6 +201,19 @@ namespace PrismZone.Enemy
             // gets a "room-locate" sweep straight toward the player's known
             // position. No LOS check — the broadcast IS the tell.
             if (target == null) return;
+
+            // Watchdog: if we entered Locating and BroadcastController never
+            // flips us back (coroutine death / scene teardown), bail to Patrol
+            // after a safe upper bound. 20s generously covers any reasonable
+            // broadcast duration (spec default 10s + slack).
+            if (_locatingEnteredAt < 0f) _locatingEnteredAt = Time.time;
+            if (Time.time - _locatingEnteredAt > 20f)
+            {
+                _locatingEnteredAt = -1f;
+                SetState(State.Patrol);
+                return;
+            }
+
             if (Time.time >= _nextRepathTime)
             {
                 _nextRepathTime = Time.time + repathInterval;
@@ -274,19 +306,21 @@ namespace PrismZone.Enemy
             return false;
         }
 
-        private void OnTriggerEnter2D(Collider2D other)  { TryCatch(other); }
-        private void OnTriggerStay2D(Collider2D other)   { TryCatch(other); }
-
-        private void TryCatch(Collider2D other)
+        private void TryCatchByDistance()
         {
-            // Kill during any active-hunt state: Chase (saw player), Locating
-            // (broadcast sweep), Alert (heard noise). Skips Idle/Patrol/Return
-            // so brushing past a patrolling guard doesn't game-over on contact.
+            if (_caught) return;
+            if (target == null) return;
             var st = Current;
+            // Only active-hunt states can catch. Patrol / Idle / Return brush-past = safe.
             if (st != State.Chase && st != State.Locating && st != State.Alert) return;
-            if (!other.CompareTag("Player")) return;
-            var pc = other.GetComponent<PrismZone.Player.PlayerController>();
-            if (pc != null && pc.IsHidden) return;
+
+            var pc = target.GetComponent<PrismZone.Player.PlayerController>();
+            if (pc != null && pc.IsHidden) return; // hidden in cabinet
+
+            float sqr = ((Vector2)target.position - (Vector2)transform.position).sqrMagnitude;
+            if (sqr > catchRadius * catchRadius) return;
+
+            _caught = true;
             PrismZone.Core.GameOverController.TriggerGameOver("caught by GREEN");
         }
 
