@@ -10,7 +10,18 @@
       "mcp__UnityMCP__create_script",
       "mcp__UnityMCP__refresh_unity",
       "mcp__UnityMCP__execute_menu_item",
-      "mcp__UnityMCP__delete_script"
+      "mcp__UnityMCP__delete_script",
+      "Bash(git reset *)",
+      "Bash(git push *)",
+      "Bash(git config *)",
+      "Bash(echo \"---exit=$?---\")",
+      "Bash(grep -c \"扫扫扫……\\\\\\\\\\\\\\\\n欸,这是什么?\\\\\\\\\\\\\\\\n一本……日记?|\" Assets/Config/text_table.tsv)",
+      "Bash(awk -F'\\\\t' '$1==\"T-03\"{print $4}' Assets/Config/text_table.tsv)",
+      "Bash(awk -F'\\\\t' '$1==\"item.diary.page.1\" || $1==\"item.diary.page.2\" || $1==\"item.diary.page.3\"{print $1\": follow_up=\"$14}' Assets/Config/text_table.tsv)",
+      "Bash(claude mcp *)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" --max-time 3 http://127.0.0.1:8080/mcp)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} \\(6500\\)\\\\n\" --max-time 3 http://127.0.0.1:6500/mcp)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} \\(6400\\)\\\\n\" --max-time 3 http://127.0.0.1:6400/mcp)"
     ]
   }
 }

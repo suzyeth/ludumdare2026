@@ -21,6 +21,8 @@ namespace PrismZone.Interact
         [SerializeField] private Sprite closedSprite;
         [SerializeField] private Sprite openSprite;
         [SerializeField] private string promptKeyLocked = "ui.door.locked";
+        [Tooltip("Shown when the player holds at least one key (item.key.*) but not the required one — disambiguates 'empty pocket' from 'wrong key in hand'.")]
+        [SerializeField] private string promptKeyWrongKey = "ui.door.wrong_key";
         [SerializeField] private string promptKeyOpen = "ui.door.open";
 
         [Header("Audio")]
@@ -49,13 +51,28 @@ namespace PrismZone.Interact
                 {
                     PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.DoorLocked);
                     if (CluePopup.Instance != null)
-                        CluePopup.Instance.Show(promptKeyLocked);
+                    {
+                        // If the player is carrying any key (item.key.*) just not the
+                        // matching one, surface a different hint so they know to try a
+                        // different key rather than hunt for one they already own.
+                        string hint = (inv != null && HasAnyKey(inv))
+                            ? promptKeyWrongKey
+                            : promptKeyLocked;
+                        CluePopup.Instance.Show(hint);
+                    }
                     return;
                 }
                 if (consumeKey) inv.Remove(requiredKeyId);
             }
 
             Open();
+        }
+
+        private static bool HasAnyKey(Inventory inv)
+        {
+            foreach (var id in inv.Slots)
+                if (!string.IsNullOrEmpty(id) && id.StartsWith("item.key.")) return true;
+            return false;
         }
 
         public void Open()
