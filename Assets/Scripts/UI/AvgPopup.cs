@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using PrismZone.Core;
 
 namespace PrismZone.UI
 {
@@ -40,6 +41,21 @@ namespace PrismZone.UI
         [Tooltip("Optional close button (x-icon). Clicking it closes the popup immediately, bypassing the typewriter and pagination.")]
         [SerializeField] private UnityEngine.UI.Button closeButton;
 
+        [Header("I18n Hint Labels (auto-localized)")]
+        [Tooltip("TSV id for the NAR/READ 'press to continue' hint. Auto-applied to a child GameObject named 'ContinueHint' with a TMP_Text.")]
+        [SerializeField] private string continueHintKey = "ui.popup.next_hint";
+        [Tooltip("TSV id for the READ close hint. Auto-applied to a child GameObject named 'CloseHint'.")]
+        [SerializeField] private string closeHintKey = "ui.popup.close_hint";
+        [Tooltip("TSV id for the READ prev-page button label. Auto-applied to the TMP_Text child of prevPageButton.")]
+        [SerializeField] private string prevPageKey = "ui.popup.prev_page";
+        [Tooltip("TSV id for the READ next-page button label. Auto-applied to the TMP_Text child of nextPageButton.")]
+        [SerializeField] private string nextPageKey = "ui.popup.next_page";
+
+        private TMP_Text _continueHintLabel;
+        private TMP_Text _closeHintLabel;
+        private TMP_Text _prevPageLabel;
+        private TMP_Text _nextPageLabel;
+
         private CanvasGroup _group;
         private string[] _pages;
         private int _pageIdx;
@@ -60,6 +76,49 @@ namespace PrismZone.UI
             if (nextPageButton != null) nextPageButton.onClick.AddListener(NextPage);
             if (prevPageButton != null) prevPageButton.onClick.AddListener(PrevPage);
             if (closeButton != null) closeButton.onClick.AddListener(Close);
+
+            _continueHintLabel = FindDescendantTmp("ContinueHint");
+            _closeHintLabel    = FindDescendantTmp("CloseHint");
+            _prevPageLabel     = prevPageButton != null ? prevPageButton.GetComponentInChildren<TMP_Text>(true) : null;
+            _nextPageLabel     = nextPageButton != null ? nextPageButton.GetComponentInChildren<TMP_Text>(true) : null;
+        }
+
+        private void OnEnable()
+        {
+            I18nManager.OnLanguageChanged -= ApplyHintLocalization;
+            I18nManager.OnLanguageChanged += ApplyHintLocalization;
+            ApplyHintLocalization();
+        }
+
+        private void OnDisable()
+        {
+            I18nManager.OnLanguageChanged -= ApplyHintLocalization;
+        }
+
+        private void ApplyHintLocalization()
+        {
+            ApplyKey(_continueHintLabel, continueHintKey);
+            ApplyKey(_closeHintLabel,    closeHintKey);
+            ApplyKey(_prevPageLabel,     prevPageKey);
+            ApplyKey(_nextPageLabel,     nextPageKey);
+        }
+
+        private static void ApplyKey(TMP_Text label, string key)
+        {
+            if (label == null || string.IsNullOrEmpty(key)) return;
+            label.text = I18nManager.Get(key);
+        }
+
+        private TMP_Text FindDescendantTmp(string goName)
+        {
+            foreach (var t in GetComponentsInChildren<Transform>(true))
+            {
+                if (t.name != goName) continue;
+                var tmp = t.GetComponent<TMP_Text>();
+                if (tmp != null) return tmp;
+                return t.GetComponentInChildren<TMP_Text>(true);
+            }
+            return null;
         }
 
         /// <summary>Button-driven advance. Skips the typewriter on the current page if still rolling; otherwise moves forward one page (or closes on the last page).</summary>

@@ -17,7 +17,7 @@ MonoBehaviour:
     category: 0
     avgType: 1
     zh: "\u53C8\u53EB\u6211\u6253\u626B\u536B\u751F\u2026\u2026\u6BCF\u6B21\u90FD\u662F\u6211\u2026\u2026\\n\u51ED\u4EC0\u4E48\u554A\u2026\u2026|\u7B97\u4E86\uFF0C\u65E9\u70B9\u5F04\u5B8C\u56DE\u5BB6\u5427\uFF0C\\n\u592A\u665A\u5988\u5988\u8BE5\u62C5\u5FC3\u4E86"
-    en: "Cleaning duty \u2026again. Why is it always me\u2026\\nWhatever,let's just
+    en: "Cleaning duty \u2026again. Why is it always me\u2026|Whatever,let's just
       get it done. Mom's going to worry if I'm late."
     zh_red: 
     en_red: 
@@ -67,7 +67,7 @@ MonoBehaviour:
     category: 0
     avgType: 1
     zh: "\u626B\u626B\u626B\u2026\u2026\\n\u6B38,\u8FD9\u662F\u4EC0\u4E48?\\n\u4E00\u672C\u2026\u2026\u65E5\u8BB0?|\u597D\u5947\u602A,\u8FD9\u91CC\u600E\u4E48\u4F1A\u6709\u4E00\u672C\u65E5\u8BB0?\\n\u6253\u5F00\u770B\u770B\u2026\u2026"
-    en: "Sweep, sweep, sweep\u2026\\nHm? What's this?\\nA\u2026 diary?\\nThat's strange,
+    en: "Sweep, sweep, sweep\u2026\\nHm? What's this?\\nA\u2026 diary?|That's strange,
       what's a diary doing here? Let me take a look\u2026"
     zh_red: 
     en_red: 
@@ -91,7 +91,7 @@ MonoBehaviour:
     category: 0
     avgType: 1
     zh: "\u597D\u53EF\u6015\u2026\u2026\u6B38\u94A5\u5319\uFF1F\\n\u597D\u50CF\u662F\u4ECE\u65E5\u8BB0\u672C\u91CC\u6389\u51FA\u6765\u7684\u2026\u2026|\u662F\u2026\u20262\u697C\u50A8\u7269\u67DC\u7684\u94A5\u5319\u3002\\n\u6CA1\u529E\u6CD5\u4E86\u2026\u2026\u53BB2\u697C\u770B\u770B\u5427\u3002"
-    en: "So creepy\u2026 wait, a key?\\nMust've fallen out of the diary\u2026\\nIt's\u2026
+    en: "So creepy\u2026 wait, a key?\\nMust've fallen out of the diary\u2026|It's\u2026
       a key to the storage room on the 2nd floor.\\nWell\u2026 guess I have no choice.
       Let's head upstairs."
     zh_red: 
@@ -117,7 +117,7 @@ MonoBehaviour:
     category: 0
     avgType: 1
     zh: "\u54B3\u54B3\u2026\u2026\u597D\u591A\u7070\u3002\\n\u8FD9\u662F\u4EC0\u4E48\u4E1C\u897F\uFF1F\u4E00\u4E2A3D\u773C\u955C\uFF1F|\u4E0D\u5BF9\uFF0C\u8FD9\u662F\u7EA2\u8272\u548C\u7EFF\u8272\u7684\u955C\u7247\uFF1F\\n\u597D\u5947\u602A\uFF0C\u5E26\u4E0A\u770B\u770B\u5427\u3002"
-    en: "cough cough\u2026 So much dust. What's this? A pair of 3D glasses?\\nWait\u2014
+    en: "cough cough\u2026 So much dust. What's this? A pair of 3D glasses?|Wait\u2014
       red and green lenses? That's weird.\\nMight as well try them on."
     zh_red: 
     en_red: 
@@ -143,7 +143,7 @@ MonoBehaviour:
     avgType: 1
     zh: "\u4E0D\u4E00\u6837\u7684\u4E1C\u897F\u2026\u2026\\n\u4E0D\u4F1A\u662F\u2026\u2026\u90A3\u4E2A\u6821\u56ED\u602A\u8C08\u5427\u2026\u2026\\n\u8DF3\u697C\u7684\u5973\u751F\u2026\u2026|\u6234\u4E0A\u773C\u955C\u5230\u5904\u8D70\u8D70\u597D\u4E86\uFF0C\\n\u603B\u8981\u60F3\u529E\u6CD5\u51FA\u53BB\u3002"
     en: "Something's\u2026 different\u2026\\nDon't tell me\u2026 this is one of those
-      school urban legends\u2026 the girl who jumped\u2026\\nI'll just walk around
+      school urban legends\u2026 the girl who jumped\u2026|I'll just walk around
       with the glasses on.\\n Gotta find a way out of here somehow."
     zh_red: 
     en_red: 
@@ -167,11 +167,11 @@ MonoBehaviour:
     category: 0
     avgType: 1
     zh: "\u539F\u6765\u662F\u60C5\u4E66\u554A\uFF0C\u641E\u8FD9\u4E48\u795E\u79D8\u3002\\n\u6613\u68EE\u4E0D\u662F\u524D\u51E0\u5C4A\u90A3\u4E2A\u98CE\u4E91\u6821\u8349\u4E48\uFF0C\\n\u5C45\u7136\u4F1A\u7ED9\u522B\u4EBA\u5199\u60C5\u4E66\u2026\u2026|\u53EF\u662F\u548C\u8BC5\u5492\u6709\u4EC0\u4E48\u5173\u7CFB\uFF1F\\n\u53BB4\u697C\u770B\u770B\u5427\uFF1F|\u597D\u50CF\u56DB\u697C\u5C01\u8D77\u6765\u86EE\u4E45\u4E86\uFF0C\\n\u4E5F\u8BB8\u4F1A\u6709\u4EC0\u4E48\u7EBF\u7D22\u3002"
-    en: "So it was a love letter all along, all that mystery for nothing. \\nEthan,the
+    en: "So it was a love letter all along, all that mystery for nothing. |Ethan,the
       most popular guy a few years back?\\n Can't believe someone like him would
-      write a love letter\u2026 \\nbut what does any of this have to do with the
-      curse?\\nMight as well check out the 4th floor. \\nIt's been sealed off for
-      a while now\u2026 \\nmaybe there's something up there."
+      write a love letter\u2026 |but what does any of this have to do with the curse?\\nMight
+      as well check out the 4th floor. |It's been sealed off for a while now\u2026
+      \\nmaybe there's something up there."
     zh_red: 
     en_red: 
     zh_green: 
@@ -196,7 +196,7 @@ MonoBehaviour:
     avgType: 1
     zh: "\u5C45\u7136\u4E0A\u9501\u4E86\u3002\\n\u600E\u4E48\u770B\u4E5F\u4E0D\u50CF\u662F\u539F\u6765\u7684\u95E8\u9501\uFF0C|\u4E00\u70B9\u90FD\u4E0D\u5339\u914D\uFF0C\u770B\u6837\u5B50\u5FEB\u8981\u751F\u9508\u4E86\u3002\\n\u94A5\u5319\u5E94\u8BE5\u8FD8\u85CF\u5728\u8FD9\u5C42\u697C\u7684\u67D0\u5904\u3002"
     en: "Locked.\\nDoesn't look like the original lock either\u2014 doesn't match
-      at all. \\nAnd it's practically rusting through.\\nThe key must be hidden somewhere
+      at all. |And it's practically rusting through.\\nThe key must be hidden somewhere
       else on this floor."
     zh_red: 
     en_red: 
@@ -267,7 +267,7 @@ MonoBehaviour:
     category: 0
     avgType: 1
     zh: "\u4ED6\u4EEC\u8BF4\u7684\u662F\u2026\u2026\u65E5\u8BB0\u7684\u4E3B\u4EBA\uFF1F\\n\u7EA2\u7EFF\u8272\u76F2\u5417\u2026\u2026\\n\u88AB\u8FD9\u6837\u6B3A\u8D1F\u597D\u53EF\u601C\u2026\u2026"
-    en: "Are they talking about\u2026 the one who wrote the diary? \\nRed-green colorblind\u2026
+    en: "Are they talking about\u2026 the one who wrote the diary? |Red-green colorblind\u2026
       and they bullied her for it\u2026 \\nthat's awful\u2026"
     zh_red: 
     en_red: 
@@ -291,7 +291,7 @@ MonoBehaviour:
     category: 0
     avgType: 1
     zh: "\u8FD9\u91CC\u771F\u7684\u6709\u5907\u7528\u94A5\u5319\uFF01\\n\u53EF\u662F\u4E3A\u4EC0\u4E48\u2026\u2026|\u4E0D\u6234\u773C\u955C\u7684\u65F6\u5019\u770B\u4E0D\u5230\u5462\uFF1F\\n\u611F\u89C9\u597D\u50CF\u8FDB\u5165\u4E86\u53E6\u4E00\u4E2A\u4E16\u754C\u2026\u2026"
-    en: "There really is a spare key here! \\nBut why\u2026 couldn't I see it without
+    en: "There really is a spare key here! |But why\u2026 couldn't I see it without
       the glasses?\\nIt feels like I've stepped into another world\u2026"
     zh_red: 
     en_red: 
@@ -339,7 +339,7 @@ MonoBehaviour:
     avgType: 1
     zh: "404\u6559\u5BA4\u2026\u2026\\n\u662F\u524D\u51E0\u5E74\u90A3\u4E2A\u8DF3\u697C\u5973\u751F\u51FA\u4E8B\u7684\u5730\u65B9\u5440\u2026\u2026\\n\u96BE\u9053\u5979\u5C31\u662F\u77E5\u5F69?"
     en: "Classroom 404\u2026\\nThis is where it happened\u2026 the girl who jumped,
-      a few years back\u2026\\nDon't tell me\u2026 she's Chisai?"
+      a few years back\u2026|Don't tell me\u2026 she's Chisai?"
     zh_red: 
     en_red: 
     zh_green: 
@@ -363,8 +363,8 @@ MonoBehaviour:
     avgType: 1
     zh: "\u9ED1\u677F\u4E0A\u597D\u591A\u8840\u2026\u2026\u4E0D\u5BF9\u2026\u2026\u662F\u6CB9\u6F06\uFF01\\n\u7C73\u8389\uFF0C\u6613\u68EE\uFF0C\u83F2\u83F2\uFF0C\u5B87\u51EF\\n\u2014\u2014\u5230\u6B64\u4E00\u6E38|\u795E\u7ECF\u75C5\u554A\u5199\u8FD9\u79CD\u4E1C\u897F\uFF01\uFF01\\n\u53EF\u662F\u770B\u8D77\u6765\u597D\u53EF\u6015\u2026\u2026"
     en: "So much\u2014 is that blood on the blackboard\u2026?\\nNo\u2026 wait. It's
-      paint.\\n\"Milly, Ethan, Tiff, Rex\\n\u2014\u2014was here\"\\nWhat is WRONG
-      with them, writing something like that!! \\nBut god, it looks so creepy\u2026"
+      paint.|\"Milly, Ethan, Tiff, Rex\\n\u2014\u2014was here\"|What is WRONG with
+      them, writing something like that!! \\nBut god, it looks so creepy\u2026"
     zh_red: 
     en_red: 
     zh_green: 
@@ -412,8 +412,8 @@ MonoBehaviour:
     category: 0
     avgType: 1
     zh: "\u5F55\u97F3\u7B14\u2026\u2026\u539F\u6765\u5E7F\u64AD\u7684\u58F0\u97F3\u6765\u81EA\u8FD9\u91CC\u2026\u2026\\n\u662F\u90A3\u4E9B\u9738\u51CC\u77E5\u5F69\u7684\u4EBA\u5728\u7B11!\\n\u8FD8\u6709\u2026\u2026\u77E5\u5F69\u5728\u54ED\u2026\u2026"
-    en: "A voice recorder\u2026 \\nso that's where the broadcast was coming from\u2026\\nTHEM\u2014
-      the ones who bullied Chisai.\\n Laughing like it's nothing.\\nAnd\u2026 that's
+    en: "A voice recorder\u2026 \\nso that's where the broadcast was coming from\u2026|THEM\u2014
+      the ones who bullied Chisai.\\n Laughing like it's nothing.|And\u2026 that's
       Chisai\u2026 \\ncrying\u2026"
     zh_red: 
     en_red: 
@@ -437,7 +437,7 @@ MonoBehaviour:
     category: 0
     avgType: 1
     zh: "\u2026\u2026\u8BE5\u7ED3\u675F\u8FD9\u4E00\u5207\u4E86\u3002\\n\u7B11\u58F0\u548C\u54ED\u6CE3\u58F0\u90FD\u505C\u6B62\u4E86\u3002|\u8D70\u5ECA\u91CC\u9759\u5F97\u53EF\u6015\u3002\\n\u7136\u540E\u6211\u8BE5\u505A\u4EC0\u4E48\u2026\u2026?"
-    en: "\u2026It's time to end this.\\nThe laughter. The crying. All of it stopped.\\nThe
+    en: "\u2026It's time to end this.\\nThe laughter. The crying. All of it stopped.|The
       hallway fell into a terrible silence.\\nSo now what\u2026?"
     zh_red: 
     en_red: 
@@ -462,9 +462,9 @@ MonoBehaviour:
     avgType: 1
     zh: "\u8FFD\u6740\u6211\u7684\u90A3\u4E2A\u602A\u4EBA\uFF01\uFF01\uFF01\uFF01\\n\u4ED6\u770B\u8D77\u6765\u2026\u2026\u5728\u54ED\uFF1F\\n\u662F\u4FDD\u5B89\u53D4\u53D4\uFF01\uFF01\\n\u4ED6\u662F\u77E5\u5F69\u7684\u7238\u7238\uFF01|\u4E3A\u4E86\u5BFB\u627E\u77E5\u5F69\u8DF3\u697C\u81EA\u6740\u7684\u771F\u76F8\uFF0C\\n\u624D\u4E00\u76F4\u6E38\u8361\u5728\u8FD9\u5E62\u6559\u5B66\u697C\u91CC\u2026\u2026\\n\u4ED6\u770B\u8D77\u6765\u2026\u2026\u4E5F\u8981\u6D88\u5931\u4E86\u2026\u2026"
     en: "That thing that was chasing me\uFF01\uFF01\uFF01\uFF01\\nIt looks like\u2026
-      it's crying\uFF1F\\nWait\u2014 it's the security guard!! Chisai's dad\uFF01\\nAll
+      it's crying\uFF1F|Wait\u2014 it's the security guard!! Chisai's dad\uFF01|All
       this time\u2026 wandering these halls\u2026 \\nsearching for the truth behind
-      Chisai's death\u2026\\nAnd now he looks like\u2026 \\nhe's fading away too\u2026"
+      Chisai's death\u2026|And now he looks like\u2026 \\nhe's fading away too\u2026"
     zh_red: 
     en_red: 
     zh_green: 
@@ -490,8 +490,8 @@ MonoBehaviour:
     zh: "\u5C45\u7136\u5DF2\u7ECF\u5929\u9ED1\u4E86\u554A\u3002\\n\u7ECF\u5386\u8FC7\u521A\u624D\u90A3\u4E9B,\u8D70\u591C\u8DEF\u90FD\u4E0D\u600E\u4E48\u53EF\u6015\u4E86\u3002
       |(\u770B\u624B\u8868)\\n\u2026\u2026\u4E0D\u597D!\u8981\u88AB\u5988\u5988\u9A82\u4E86,
       \u5FEB\u8D70\u5427!"
-    en: "It's already dark out.\\nAfter everything that just happened\u2026 \\nsomehow
-      walking home alone at night doesn't seem so scary anymore.\\n\u2026Oh no. Mom
+    en: "It's already dark out.\\nAfter everything that just happened\u2026 |somehow
+      walking home alone at night doesn't seem so scary anymore.|\u2026Oh no. Mom
       is going to kill me. I need to go\u2014 now!"
     zh_red: 
     en_red: 
@@ -682,8 +682,8 @@ MonoBehaviour:
       \u96E8 \u4ED6\u4EEC\u53C8\u53EB\u6211\u653E\u5B66\u53BB\u50A8\u85CF\u5BA4\u2026\u2026\u6211\u771F\u7684\u4E0D\u60F3\u53BB\u2026\u2026\u597D\u5BB3\u6015\u2026\u2026\\n2\u67085\u65E5
       \u96E8 \u4ED6\u4EEC\u53C8\u62A2\u8D70\u4E86\u6211\u7684\u50A8\u7269\u67DC\u94A5\u5319\u2026\u2026\u4E0B\u6B21\u8981\u85CF\u597D\u4E00\u70B9\u2026\u2026\u6CA1\u6765\u5F97\u53CA\u6362\u8863\u670D\u88AB\u4F53\u80B2\u8001\u5E08\u7F5A\u8DD1\u4E86\u2026\u2026"
     en: "Chisai\\nFeb 1, Sunny Today's weather is so nice. Come on, Chisai! You can
-      get through this!\\nFeb 5, Rainy They're telling me to go to the storage room
-      after school again\u2026 I really don't want to go\u2026 I'm so scared\u2026\\nFeb
+      get through this!|Feb 5, Rainy They're telling me to go to the storage room
+      after school again\u2026 I really don't want to go\u2026 I'm so scared\u2026|Feb
       5, Rainy They took my locker key again\u2026 I need to hide it better next
       time\u2026"
     zh_red: 
@@ -712,8 +712,8 @@ MonoBehaviour:
       \u9634 \u518D\u575A\u6301\u4E00\u4E0B\u5427\u2026\u2026\u7238\u7238\u82B1\u4E86\u90A3\u4E48\u591A\u94B1\u5C31\u4E3A\u4E86\u8BA9\u6211\u5728\u8FD9\u91CC\u2026\u2026\u53EF\u662F\u597D\u75DB\u82E6\u2026\u2026"
     en: "Feb 12, Rainy I hate rainy days. When it rains they don't go out to play
       and they come after me instead. They poured paint all over my locker\u2026
-      so cruel\u2026 the cuts hurt so much\u2026\\nMar 13, Cloudy Why\u2026 why me?
-      Why are they doing this to me\u2026 what did I do wrong?\\nMar 23, Cloudy Just
+      so cruel\u2026 the cuts hurt so much\u2026|Mar 13, Cloudy Why\u2026 why me?
+      Why are they doing this to me\u2026 what did I do wrong?|Mar 23, Cloudy Just
       hold on a little longer\u2026 Dad spent so much money to get me into this school\u2026
       but it hurts so much\u2026"
     zh_red: 
@@ -741,8 +741,8 @@ MonoBehaviour:
       \u6674 \u597D\u50CF\u9003\u8D70\u2026\u2026\u53EF\u662F\u7238\u7238\u600E\u4E48\u529E\u2026\u2026\\n6\u67081\u65E5
       \u96E8 \u597D\u60F3\u2026\u2026\u6740\u6389\u4ED6\u4EEC\u2026\u2026\u6211\u4E0D\u6562\u2026\u2026\u4E0D\u8981\u2026\u2026\u4E0D\u8981\u2026\u2026\u6211\u5FEB\u8981\u575A\u6301\u4E0D\u4E0B\u53BB\u4E86\u2026\u2026?"
     en: "May 2 I'm so sad\u2026 I don't think I can hold on anymore\u2026 it's so
-      cruel\u2026 it hurts so much\u2026 May 8, Sunny I want to run away\u2026 but
-      what about Dad\u2026\\nJun 1, Rainy I want to\u2026 kill them\u2026 I can't\u2026
+      cruel\u2026 it hurts so much\u2026|May 8, Sunny I want to run away\u2026 but
+      what about Dad\u2026|Jun 1, Rainy I want to\u2026 kill them\u2026 I can't\u2026
       no\u2026 no\u2026 I don't know how much longer I can take this\u2026?"
     zh_red: 
     en_red: 
@@ -767,9 +767,8 @@ MonoBehaviour:
     avgType: 2
     zh: "6\u67088\u65E5 \u96E8 \u597D\u60F3\u56DE\u5BB6\u2026\u2026\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B!!!\\n6\u67089\u65E5
       \u6B7B\u6B7B\u6B7B\u6B7B\u6B7B!!!!\\n6\u670812\u65E5 \u90FD\u522B\u60F3\u9003\u51FA\u8FD9\u91CC!\u4F60\u4E5F\u662F!"
-    en: "Jun 8, Rainy I want to go home\u2026 All of you, die die die die die!!\\nJun
-      9 Die die die die die!!!!\\nJun 12 None of you are getting out of here. You
-      either."
+    en: "Jun 8, Rainy I want to go home\u2026 All of you, die die die die die!!|Jun
+      9 Die die die die die!!!!|Jun 12 None of you are getting out of here. You either."
     zh_red: 
     en_red: 
     zh_green: 
@@ -862,7 +861,7 @@ MonoBehaviour:
     avgType: 2
     zh: "\"\u6211\u4E00\u76F4\u6709\u6CE8\u610F\u5230\u4F60\u54E6\uFF0C\u77E5\u5F69\u3002\\n\u62B1\u6B49\uFF0C\u6211\u6CA1\u529E\u6CD5\u6BCF\u6B21\u90FD\u53CA\u65F6\u4FDD\u62A4\u4F60\uFF0C\u6240\u4EE5\u2026\u2026\\n\u6211\u60F3\u4E86\u4E00\u4E2A\u529E\u6CD5\uFF0C\\n\u6211\u60F3\u548C\u4F60\u5728\u4E00\u8D77\u3002\\n\u8BF7\u4E00\u5B9A\u8981\u76F8\u4FE1\u6211\uFF0C\u653E\u5B66\u540E\u6765402\u6559\u5BA4\uFF0C\\n\u6211\u4F1A\u5728\u90A3\u91CC\u7B49\u4F60\u3002\\n\u2014\u2014\u6613\u68EE\""
     en: "\"I've always noticed you, Chisai.\\nI'm sorry\u2026 I wasn't always there
-      in time to protect you.\\nSo I thought of something.\\nI want to be with you.\\nPlease
+      in time to protect you.\\nSo I thought of something.|I want to be with you.\\nPlease
       trust me\u2014 come to classroom 404 after school. I'll be waiting.\\n\u2014
       Ethan\""
     zh_red: 
@@ -1004,7 +1003,7 @@ MonoBehaviour:
     avgType: 2
     zh: "\"\u5979\u90A3\u4E2A\u591A\u4E8B\u7684\u7238\u7238\u4E0D\u77E5\u9053\u94A5\u5319\u88AB\u62FF\u8D70\u4E86\u5427\uFF0C\\n\u53EF\u522B\u8BA9\u4ED6\u53D1\u73B0\u4E86\u3002|\u8FD9\u6709\u4EC0\u4E48\uFF0C\u4E00\u4E2A\u4FDD\u5B89\u5927\u53D4\u800C\u5DF2\uFF0C\\n\u4E00\u8D77\u6349\u5F04\u53C8\u600E\u4E48\u6837\u54C8\u54C8\u54C8\uFF01\\n\u4E0D\u8FC7\u77E5\u5F69\u672A\u514D\u4E5F\u592A\u597D\u9A97\u4E86\u3002\""
     en: '"That nosy dad of hers has no idea the key''s been taken, right? \nBetter
-      hope he doesn''t find out.\nRelax, he''s just a security guard. \nIt''s just
+      hope he doesn''t find out.|Relax, he''s just a security guard. \nIt''s just
       a prank, what''s the big deal haha!\nBesides, Chisai is way too easy to fool."'
     zh_red: 
     en_red: 
@@ -1052,8 +1051,8 @@ MonoBehaviour:
     avgType: 2
     zh: "\"\u6211\u529E\u4E8B\u4F60\u653E\u5FC3\uFF0C\\n\u8FD9\u79CD\u65E9\u8BE5\u53BB\u7279\u6B8A\u5B66\u6821\u7684\u4EBA\u5C31\u522B\u6765\u8FD9\u91CC\u8BFB\u4E66\u4E86\u3002\\n\u771F\u662F\u602A\u80CE\uFF0C\u8FDE\u7EA2\u8272\u7EFF\u8272\u90FD\u5206\u4E0D\u6E05\u3002\""
     en: "\"Trust me on this. \\nSomeone like her should've been sent to a special
-      school a long time ago\u2014 \\nshe's got no business being here.\\nSuch a
-      freak. Can't even tell red from green.\""
+      school a long time ago\u2014 \\nshe's got no business being here.|Such a freak.
+      Can't even tell red from green.\""
     zh_red: 
     en_red: 
     zh_green: 
