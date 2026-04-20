@@ -37,6 +37,8 @@ namespace PrismZone.UI
         [SerializeField] private UnityEngine.UI.Button nextPageButton;
         [Tooltip("Button hidden on first page and single-page popups; goes back one page when clicked.")]
         [SerializeField] private UnityEngine.UI.Button prevPageButton;
+        [Tooltip("Optional close button (x-icon). Clicking it closes the popup immediately, bypassing the typewriter and pagination.")]
+        [SerializeField] private UnityEngine.UI.Button closeButton;
 
         private CanvasGroup _group;
         private string[] _pages;
@@ -57,6 +59,7 @@ namespace PrismZone.UI
             if (typewriter == null) typewriter = GetComponentInChildren<TypewriterText>();
             if (nextPageButton != null) nextPageButton.onClick.AddListener(NextPage);
             if (prevPageButton != null) prevPageButton.onClick.AddListener(PrevPage);
+            if (closeButton != null) closeButton.onClick.AddListener(Close);
         }
 
         /// <summary>Button-driven advance. Skips the typewriter on the current page if still rolling; otherwise moves forward one page (or closes on the last page).</summary>
