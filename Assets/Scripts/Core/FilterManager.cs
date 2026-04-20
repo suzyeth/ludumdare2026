@@ -31,6 +31,7 @@ namespace PrismZone.Core
             }
             Instance = this;
             PushToShader();
+            SyncFlagsToCurrent();
         }
 
         private void OnDestroy()
@@ -44,7 +45,19 @@ namespace PrismZone.Core
             var prev = Current;
             Current = next;
             PushToShader();
+            SyncFlagsToCurrent();
             OnFilterChanged?.Invoke(prev, next);
+        }
+
+        // Mirror Current into GameFlags so DialogueTrigger.condition gates (e.g.
+        // "requireAll: filter.current.red" on the Blackboard) can key off filter
+        // state. Without this, FlagKeys.Filter.Current_* is never written and any
+        // dialogue requiring a lens colour silently blocks forever.
+        private void SyncFlagsToCurrent()
+        {
+            GameFlags.Set(FlagKeys.Filter.Current_None,  Current == FilterColor.None);
+            GameFlags.Set(FlagKeys.Filter.Current_Red,   Current == FilterColor.Red);
+            GameFlags.Set(FlagKeys.Filter.Current_Green, Current == FilterColor.Green);
         }
 
         /// <summary>

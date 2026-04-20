@@ -100,10 +100,16 @@ namespace PrismZone.UI
             int global = _currentPage * Mathf.Max(1, slots.Length) + slotIndex;
             if (global < 0 || global >= _visible.Count) return;
             var data = ItemDatabase.Get(_visible[global]);
-            if (data == null || !data.HasDetailPopup) return; // keys / no-detail items: no-op
-            var panel = ItemDetailPanel.Instance;
-            if (panel == null) return;
-            panel.Show(data); // Show() replaces current item if already open
+            if (data == null || !data.HasDetailPopup) return; // no-detail items: no-op
+            var keys = data.PageKeys;
+            if (keys == null || keys.Length == 0) return;
+            if (DialogueManager.Instance == null) return;
+            // Route HUD clicks through the same READ popup used during pickup so the
+            // two flows look identical. Using ShowKeys (not ShowById) deliberately
+            // skips the follow_up chain — we don't want re-reading the diary to
+            // re-fire the T-04 NAR beat, for example.
+            DialogueManager.Instance.ShowKeys(DialogueType.READ, keys, null, null,
+                data.Id, data.NameKey, data.BigIcon);
         }
 
         private void Refresh()

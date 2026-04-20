@@ -98,7 +98,8 @@ MonoBehaviour:
   kind: 1
   oneShot: 0
   condition:
-    requireAll: []
+    requireAll:
+    - filter.current.red
     forbidAll: []
     requireAny: []
   titleKey: 
