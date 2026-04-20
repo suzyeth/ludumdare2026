@@ -34,6 +34,7 @@ namespace PrismZone.Player
         private float _nextNoiseTime;
 
         private bool _isHidden;
+        private bool _isInCabinet;
         private SpriteRenderer[] _hiddenVisuals;
 
         public bool IsHidden
@@ -48,17 +49,30 @@ namespace PrismZone.Player
         }
 
         /// <summary>
-        /// Toggles every child SpriteRenderer (body + shadow + glasses overlay etc.)
-        /// so "hidden" actually hides the whole Player visual group. Also called from
-        /// Awake to catch the edge case where IsHidden was set before the renderers
-        /// were cached.
+        /// True while the player is inside a Cabinet — regardless of whether the door
+        /// is open (Hide state) or closed (Close state). Locks movement and hides the
+        /// player sprite (cabinet art takes over), but does NOT protect from NPC sight
+        /// — only <see cref="IsHidden"/> does that. Cabinet.cs sets this on entry and
+        /// flips IsHidden on the separate "close door" step.
         /// </summary>
+        public bool IsInCabinet
+        {
+            get => _isInCabinet;
+            set
+            {
+                if (_isInCabinet == value) return;
+                _isInCabinet = value;
+                ApplyHiddenVisual();
+            }
+        }
+
         private void ApplyHiddenVisual()
         {
             if (_hiddenVisuals == null) return;
+            bool hide = _isHidden || _isInCabinet;
             foreach (var sr in _hiddenVisuals)
             {
-                if (sr != null) sr.enabled = !_isHidden;
+                if (sr != null) sr.enabled = !hide;
             }
         }
         public bool IsRunning => _runHeld && _moveInput.sqrMagnitude > 0.01f;
@@ -110,7 +124,7 @@ namespace PrismZone.Player
         {
             // v1.2 spec §4.3: during a broadcast the player is stunned (cannot move).
             // BroadcastController flips this static while a broadcast is mid-cycle.
-            if (IsHidden || BroadcastController.IsBroadcasting) { _rb.linearVelocity = Vector2.zero; return; }
+            if (IsHidden || IsInCabinet || BroadcastController.IsBroadcasting) { _rb.linearVelocity = Vector2.zero; return; }
 
             // Free 2D movement by default. Ladder zones can still cap vertical speed
             // to climbSpeed, but otherwise W/S move full-speed so the MVP single-floor
@@ -158,7 +172,7 @@ namespace PrismZone.Player
 
         private void HandleRunningNoise()
         {
-            if (!IsRunning || IsHidden) return;
+            if (!IsRunning || IsHidden || IsInCabinet) return;
             if (Time.time < _nextNoiseTime) return;
             _nextNoiseTime = Time.time + runNoiseInterval;
             PlayerNoise.Emit(transform.position, runNoiseRadius);

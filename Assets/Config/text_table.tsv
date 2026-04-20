@@ -75,7 +75,8 @@ ui.prompt.open_door	ui		按 E 开门	Press E to open					Any	true	false	0		Manua
 ui.prompt.push_door	ui		按 E 推门	Press E to push					Any	true	false	0		Manual					
 ui.prompt.recorder.play	ui		按 F 播放	Press F to play					Any	true	false	0		Manual					
 ui.cabinet.prompt	ui		E 进入橱柜	E to hide					Any	true	false	0		Manual					
-ui.cabinet.exit	ui		E 离开	E to leave					Any	true	false	0		Manual					
+ui.cabinet.exit	ui		E 离开	E to leave					Any	true	false	0		Manual
+ui.cabinet.close_door	ui		E 关门	E to close door					Any	true	false	0		Manual
 ui.pickup.prompt	ui		E 拾取	E to pick up					Any	true	false	0		Manual					
 ui.interact.prompt	ui		E 交互	E to interact					Any	true	false	0		Manual					
 ui.clue.dismiss	ui		E 关闭	E to close					Any	true	false	0		Manual					

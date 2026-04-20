@@ -95,9 +95,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Interact.Cabinet
   hideAnchor: {fileID: 1819711064057213687}
   doorRenderer: {fileID: 253695426509976888}
-  closedSprite: {fileID: 21300000, guid: d82f5f632f799d74b84cf96aa7413e99, type: 3}
-  openSprite: {fileID: 21300000, guid: 70c4f84beab7c4d4f9786fc4c0f4ace0, type: 3}
-  hiddenSprite: {fileID: 21300000, guid: 9f13baa11c9a57b45bc7bde0bfa528f9, type: 3}
+  spriteOpen: {fileID: 21300000, guid: 70c4f84beab7c4d4f9786fc4c0f4ace0, type: 3}
+  spriteHide: {fileID: 21300000, guid: 9f13baa11c9a57b45bc7bde0bfa528f9, type: 3}
+  spriteClose: {fileID: 21300000, guid: d82f5f632f799d74b84cf96aa7413e99, type: 3}
 --- !u!1 &1980028646008388518
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: d82f5f632f799d74b84cf96aa7413e99, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70c4f84beab7c4d4f9786fc4c0f4ace0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

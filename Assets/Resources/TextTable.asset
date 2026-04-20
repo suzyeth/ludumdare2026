@@ -1853,6 +1853,29 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
+  - id: ui.cabinet.close_door
+    category: 2
+    avgType: 0
+    zh: "E \u5173\u95E8"
+    en: E to close door
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
   - id: ui.pickup.prompt
     category: 2
     avgType: 0
@@ -2548,6 +2571,52 @@ MonoBehaviour:
     avgType: 0
     zh: "[\u2190 \u2192] \u7FFB\u9875"
     en: "[\u2190 \u2192] Page"
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.popup.prev_page
+    category: 2
+    avgType: 0
+    zh: "\u25C0 \u4E0A\u4E00\u9875"
+    en: "\u25C0 Prev"
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
+  - id: ui.popup.next_page
+    category: 2
+    avgType: 0
+    zh: "\u4E0B\u4E00\u9875 \u25B6"
+    en: "Next \u25B6"
     zh_red: 
     en_red: 
     zh_green: 
