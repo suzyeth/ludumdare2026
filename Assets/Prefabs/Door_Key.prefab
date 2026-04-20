@@ -239,3 +239,4 @@ MonoBehaviour:
   promptKeyLocked: ui.door.locked
   promptKeyOpen: ui.door.open
   openSoundId: 44
+  lockedDialogueNodeId: T-08

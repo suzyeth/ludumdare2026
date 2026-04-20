@@ -180,7 +180,7 @@ MonoBehaviour:
   promptKey: ui.pickup.prompt
   destroyOnPickup: 1
   oneShotClue: 1
-  dialogueNodeId: item.love_letter.desc
+  dialogueNodeId: T-07
 --- !u!61 &4451613454755228387
 BoxCollider2D:
   m_ObjectHideFlags: 0

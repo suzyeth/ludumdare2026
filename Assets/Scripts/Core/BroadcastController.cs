@@ -33,7 +33,8 @@ namespace PrismZone.Core
         [SerializeField] private float broadcastDuration = 10f;
 
         [Header("Tutorial Beat")]
-        [SerializeField] private string firstPreludeNodeId = "T-03";
+        [Tooltip("Optional TSV node to fire on the first broadcast prelude. Leave empty if no tutorial beat is wanted — picking a wrong node (e.g. T-03 which is now the diary pickup) makes the broadcast replay an unrelated story beat.")]
+        [SerializeField] private string firstPreludeNodeId = "";
 
         [Header("Audio (optional)")]
         [SerializeField] private AudioSource broadcastSource;
@@ -101,7 +102,8 @@ namespace PrismZone.Core
             if (!_firstPreludePlayed)
             {
                 _firstPreludePlayed = true;
-                DialogueManager.Instance?.ShowById(firstPreludeNodeId);
+                if (!string.IsNullOrEmpty(firstPreludeNodeId))
+                    DialogueManager.Instance?.ShowById(firstPreludeNodeId);
             }
             yield return WaitPausedByAvg(preludeDuration);
 

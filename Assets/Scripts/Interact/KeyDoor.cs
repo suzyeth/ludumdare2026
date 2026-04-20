@@ -34,6 +34,11 @@ namespace PrismZone.Interact
         [Tooltip("Fired the instant the door unlocks. Wire scene objects here to reveal hidden interactables (e.g. Cabinet_Locked → Pickup_Glasses.SetActive).")]
         [SerializeField] private UnityEvent onOpen;
 
+        [Header("Locked Dialogue")]
+        [Tooltip("Optional TSV node id to fire the first time the player tries E on this door without the key. Once fired, subsequent locked attempts fall back to the CluePopup hint. Leave empty to always use the hint.")]
+        [NodeIdDropdown]
+        [SerializeField] private string lockedDialogueNodeId;
+
         public bool IsOpen { get; private set; }
 
         // Plain doors (empty requiredKeyId) must NOT show the "locked" prompt — show
@@ -55,7 +60,18 @@ namespace PrismZone.Interact
                 if (inv == null || !inv.Has(requiredKeyId))
                 {
                     PrismZone.Core.AudioManager.Instance?.Play(PrismZone.Core.SoundId.DoorLocked);
-                    if (CluePopup.Instance != null)
+                    // First locked press on a door wired with a dialogue → play the NAR
+                    // beat (atmospheric intro for the door). Subsequent presses fall back
+                    // to the short CluePopup hint so the player isn't forced to re-read.
+                    bool usedDialogue = false;
+                    if (!string.IsNullOrEmpty(lockedDialogueNodeId)
+                        && DialogueManager.Instance != null
+                        && !GameFlags.Get($"dialogue.{lockedDialogueNodeId}.triggered"))
+                    {
+                        DialogueManager.Instance.ShowById(lockedDialogueNodeId);
+                        usedDialogue = true;
+                    }
+                    if (!usedDialogue && CluePopup.Instance != null)
                     {
                         // If the player is carrying any key (item.key.*) just not the
                         // matching one, surface a different hint so they know to try a

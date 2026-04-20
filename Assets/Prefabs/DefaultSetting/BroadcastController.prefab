@@ -146,7 +146,7 @@ MonoBehaviour:
   interval: 60
   preludeDuration: 3
   broadcastDuration: 10
-  firstPreludeNodeId: T-03
+  firstPreludeNodeId:
   broadcastSource: {fileID: 8547917093644464767}
   preludeSfx: 60
   loopSfx: 61
