@@ -10117,6 +10117,10 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 5.625
       objectReference: {fileID: 0}
+    - target: {fileID: 1829894182855088184, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d7624de92af6da4f953325d2b5662be, type: 3}
     - target: {fileID: 2393861258347681636, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: m_TextStyleHashCode
       value: -1183493901

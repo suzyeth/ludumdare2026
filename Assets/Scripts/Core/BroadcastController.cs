@@ -111,8 +111,13 @@ namespace PrismZone.Core
             IsBroadcasting = true;
             DialogueManager.Instance?.SetFrozen(true);
 
-            if (broadcastSource != null && !broadcastSource.isPlaying) broadcastSource.Play();
-            else AudioManager.Instance?.Play(loopSfx);
+            // Prefer the dedicated AudioSource so the broadcast loop survives
+            // SFX pool rotation. Fall through to AudioManager if the source
+            // isn't usable (null, or no clip wired — which plays silence).
+            if (broadcastSource != null && broadcastSource.clip != null && !broadcastSource.isPlaying)
+                broadcastSource.Play();
+            else
+                AudioManager.Instance?.Play(loopSfx);
 
             // Push every active enemy into Locating. Skip ones already Stopped.
             foreach (var e in EnemyBase.All)
