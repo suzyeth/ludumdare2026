@@ -89,8 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c89564029dcdab4da895472f28b1af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.UI.Inventory
-  startingItems:
-  - item.glasses
+  startingItems: []
 --- !u!114 &8921671569473738401
 MonoBehaviour:
   m_ObjectHideFlags: 0
