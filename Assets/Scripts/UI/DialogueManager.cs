@@ -153,10 +153,12 @@ namespace PrismZone.UI
                 GameFlags.Set($"dialogue.{nodeId}.triggered", true);
                 onFinished?.Invoke();
                 // Auto-chain to follow_up_id if the row points to one and it's not yet triggered.
+                // Propagate titleKey/headerSprite so chained READ pages (diary, letter, notes)
+                // keep the same header art — otherwise the NAR→READ chain drops the big icon.
                 if (!string.IsNullOrEmpty(entry.followUpId)
                     && !GameFlags.Get($"dialogue.{entry.followUpId}.triggered"))
                 {
-                    ShowById(entry.followUpId);
+                    ShowById(entry.followUpId, null, null, titleKey, headerSprite);
                 }
             }
             ShowKeys(type, pseudoKeys, Wrapped, worldPos, nodeId, titleKey, headerSprite);
