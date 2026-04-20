@@ -216,10 +216,11 @@ MonoBehaviour:
     repeatable: 0
     cantSkip: 1
     autoHideSec: 0
-    followUpId: 
+    followUpId: item.key.stairs_4f.page.1
     triggerMode: 2
     sfx: 
-    notes: "\u6361\u5230\u56DB\u697C\u94A5\u5319(Pickup_KeyB)"
+    notes: "\u6361\u5230\u56DB\u697C\u94A5\u5319(Pickup_KeyB) \xB7 \u94FE\u5230 stairs_4f
+      READ"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 

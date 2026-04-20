@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using PrismZone.Core;
 using PrismZone.Player;
 using PrismZone.UI;
@@ -28,6 +29,10 @@ namespace PrismZone.Interact
         [Header("Audio")]
         [Tooltip("Which sound to play when this specific door opens. Default = DoorOpen (classroom wooden door). Set to GateOpen on stair / exit doors.")]
         [SerializeField] private SoundId openSoundId = SoundId.DoorOpen;
+
+        [Header("On Open")]
+        [Tooltip("Fired the instant the door unlocks. Wire scene objects here to reveal hidden interactables (e.g. Cabinet_Locked → Pickup_Glasses.SetActive).")]
+        [SerializeField] private UnityEvent onOpen;
 
         public bool IsOpen { get; private set; }
 
@@ -82,6 +87,7 @@ namespace PrismZone.Interact
             if (doorRenderer != null && openSprite != null) doorRenderer.sprite = openSprite;
             AudioManager.Instance?.Play(SoundId.DoorUnlock);
             AudioManager.Instance?.Play(openSoundId);
+            onOpen?.Invoke();
         }
     }
 }

@@ -86,7 +86,11 @@ namespace PrismZone.Interact
                     var data = ItemDatabase.Get(itemId);
                     if (data != null) header = data.BigIcon;
                 }
-                DialogueManager.Instance.ShowById(dialogueNodeId, null, null, null, header);
+                // titleKey = itemId so the NAR→READ chain's READ popup shows the
+                // item's display name (e.g. "item.glasses" → "颜色矫正眼镜") in the
+                // title bar. DialogueManager propagates titleKey through follow-ups.
+                string title = !string.IsNullOrEmpty(itemId) ? itemId : null;
+                DialogueManager.Instance.ShowById(dialogueNodeId, null, null, title, header);
                 firedDialogue = true;
             }
             else if (!string.IsNullOrEmpty(clueTextKey) && CluePopup.Instance != null)

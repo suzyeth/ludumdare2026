@@ -27,7 +27,8 @@
       "Bash(curl -s -o /dev/null -w \"6400: HTTP %{http_code}\\\\n\" --max-time 3 http://127.0.0.1:6400/mcp)",
       "Bash(awk 'NR==15||NR==16||NR==40' Assets/Config/text_table.tsv)",
       "Bash(git log *)",
-      "Bash(grep -rn \"public static string Get\\\\|Replace.*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\" Assets/Scripts/Core/I18nManager.cs)"
+      "Bash(grep -rn \"public static string Get\\\\|Replace.*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\" Assets/Scripts/Core/I18nManager.cs)",
+      "Bash(awk *)"
     ]
   }
 }
