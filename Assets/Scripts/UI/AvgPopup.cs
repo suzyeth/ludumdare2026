@@ -183,10 +183,20 @@ namespace PrismZone.UI
         {
             if (bodyLabel == null) return;
             string text = _pages != null && _pageIdx < _pages.Length ? _pages[_pageIdx] : string.Empty;
+
+            bool multiPage = _pages != null && _pages.Length > 1;
+            bool hasNext = multiPage && _pageIdx < _pages.Length - 1;
+
+            // Visual hint for popups that have NO pageCounterLabel wired (NAR/ENV/FLASH).
+            // Without this, players can't tell a multi-page NAR has more content and just
+            // walk past it. Append a " ▼" tail only on non-terminal pages — the READ popup
+            // already has explicit arrow buttons so it doesn't need the inline hint.
+            if (hasNext && pageCounterLabel == null)
+                text = string.IsNullOrEmpty(text) ? " ▼" : text + "  ▼";
+
             if (typewriter != null) typewriter.Play(text);
             else bodyLabel.text = text;
 
-            bool multiPage = _pages != null && _pages.Length > 1;
             if (pageCounterLabel != null)
                 pageCounterLabel.text = multiPage ? $"{_pageIdx + 1}/{_pages.Length}" : string.Empty;
 

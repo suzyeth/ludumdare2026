@@ -216,11 +216,10 @@ MonoBehaviour:
     repeatable: 0
     cantSkip: 1
     autoHideSec: 0
-    followUpId: item.key.stairs_4f.page.1
+    followUpId: 
     triggerMode: 2
     sfx: 
-    notes: "\u6361\u5230\u56DB\u697C\u94A5\u5319(Pickup_KeyB) \xB7 \u94FE\u5230 stairs_4f
-      READ"
+    notes: "\u6361\u5230\u5C0F\u7EB8\u67611\u540E\u5F39\u51FA(Pickup_Note_01)"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -230,7 +229,7 @@ MonoBehaviour:
   - id: T-10
     category: 0
     avgType: 1
-    zh: "\u4FDD\u5B89\u5927\u53D4\u662F\u5979\u7238\u7238?"
+    zh: "\u4FDD\u5B89\u5927\u53D4\u662F\u5979\u7238\u7238\uFF1F"
     en: 
     zh_red: 
     en_red: 
@@ -243,7 +242,7 @@ MonoBehaviour:
     followUpId: 
     triggerMode: 2
     sfx: 
-    notes: "\u6361\u5230\u5C0F\u7EB8\u67611(Pickup_Note_01)"
+    notes: "\u6361\u5230\u5C0F\u7EB8\u67612\u540E\u5F39\u51FA(Pickup_Note_02)"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -253,7 +252,7 @@ MonoBehaviour:
   - id: T-11
     category: 0
     avgType: 1
-    zh: "\u4ED6\u4EEC\u8BF4\u7684\u662F\u2026\u2026\u65E5\u8BB0\u7684\u4E3B\u4EBA?\\n\u7EA2\u7EFF\u8272\u76F2\u5417\u2026\u2026\u88AB\u8FD9\u6837\u6B3A\u8D1F\u597D\u53EF\u601C\u2026\u2026"
+    zh: "\u4ED6\u4EEC\u8BF4\u7684\u662F\u2026\u2026\u65E5\u8BB0\u7684\u4E3B\u4EBA\uFF1F\\n\u7EA2\u7EFF\u8272\u76F2\u5417\u2026\u2026\u88AB\u8FD9\u6837\u6B3A\u8D1F\u597D\u53EF\u601C\u2026\u2026"
     en: 
     zh_red: 
     en_red: 
@@ -266,7 +265,7 @@ MonoBehaviour:
     followUpId: 
     triggerMode: 2
     sfx: 
-    notes: "\u6361\u5230\u5C0F\u7EB8\u67612(Pickup_Note_02)"
+    notes: "\u6361\u5230\u5C0F\u7EB8\u67613\u540E\u5F39\u51FA(Pickup_Note_03)"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -276,7 +275,7 @@ MonoBehaviour:
   - id: T-12
     category: 0
     avgType: 1
-    zh: "\u8FD9\u91CC\u771F\u7684\u6709\u5907\u7528\u94A5\u5319!\u53EF\u662F\u4E3A\u4EC0\u4E48\u2026\u2026\u4E0D\u6234\u773C\u955C\u7684\u65F6\u5019\u770B\u4E0D\u5230\u5462?\\n\u611F\u89C9\u597D\u50CF\u8FDB\u5165\u4E86\u53E6\u4E00\u4E2A\u4E16\u754C\u2026\u2026"
+    zh: "\u8FD9\u91CC\u771F\u7684\u6709\u5907\u7528\u94A5\u5319\uFF01\u53EF\u662F\u4E3A\u4EC0\u4E48\u2026\u2026\u4E0D\u6234\u773C\u955C\u7684\u65F6\u5019\u770B\u4E0D\u5230\u5462\uFF1F\\n\u611F\u89C9\u597D\u50CF\u8FDB\u5165\u4E86\u53E6\u4E00\u4E2A\u4E16\u754C\u2026\u2026"
     en: 
     zh_red: 
     en_red: 
@@ -286,10 +285,11 @@ MonoBehaviour:
     repeatable: 0
     cantSkip: 1
     autoHideSec: 0
-    followUpId: 
+    followUpId: item.key.stairs_4f.page.1
     triggerMode: 2
     sfx: 
-    notes: "\u6361\u5230\u5C0F\u7EB8\u67613(Pickup_Note_03)"
+    notes: "\u6361\u5230\u56DB\u697C\u95E8\u94A5\u5319\u540E\u5F39\u51FA(Pickup_KeyB)
+      \xB7 \u94FE\u5230 stairs_4f READ"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
