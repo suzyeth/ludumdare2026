@@ -24306,53 +24306,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e8da9ae540a8804c80e9b79dd74c2f8, type: 3}
---- !u!1 &632813572
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 632813574}
-  - component: {fileID: 632813573}
-  m_Layer: 0
-  m_Name: _FlashbackTester
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &632813573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632813572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ca1e64fe606f8444bf0c6dcfcff0eee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.DebugTools.FlashbackTester
-  autoPlayOnStart: 1
-  startDelay: 0.5
-  replayKey: 34
---- !u!4 &632813574
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632813572}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &644930656
 GameObject:
   m_ObjectHideFlags: 0
@@ -27100,7 +27053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 838197771689729646, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 838197771689729646, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: m_AnchorMin.x
@@ -27108,23 +27061,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 838197771689729646, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 838197771689729646, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 17.1
       objectReference: {fileID: 0}
     - target: {fileID: 838197771689729646, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 15.65
       objectReference: {fileID: 0}
     - target: {fileID: 838197771689729646, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 22.55
       objectReference: {fileID: 0}
     - target: {fileID: 838197771689729646, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -13.825
       objectReference: {fileID: 0}
     - target: {fileID: 993644646000827285, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -27188,11 +27141,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3604511799731605975, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 45.1
       objectReference: {fileID: 0}
     - target: {fileID: 3604511799731605975, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 27.65
       objectReference: {fileID: 0}
     - target: {fileID: 4275822574453270593, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: m_TextStyleHashCode
@@ -27289,8 +27242,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8484969149766251579, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1420650722}
   m_SourcePrefab: {fileID: 100100000, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
+--- !u!1 &1420650720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8484969149766251579, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
+  m_PrefabInstance: {fileID: 1420650719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1420650721 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4275822574453270756, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
@@ -27302,6 +27263,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &1420650722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420650720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca1e64fe606f8444bf0c6dcfcff0eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.DebugTools.FlashbackTester
+  autoPlayOnStart: 1
+  startDelay: 0.5
+  replayKey: 34
 --- !u!1001 &1590793166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28076,4 +28052,3 @@ SceneRoots:
   - {fileID: 712371136}
   - {fileID: 7788002}
   - {fileID: 1295320862}
-  - {fileID: 632813574}
