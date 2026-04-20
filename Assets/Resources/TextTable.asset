@@ -97,15 +97,15 @@ MonoBehaviour:
     repeatable: 0
     cantSkip: 1
     autoHideSec: 0
-    followUpId: item.key.storage.page.1
+    followUpId: 
     triggerMode: 4
     sfx: 
     notes: "\u9605\u8BFB\u65E5\u8BB0READ\u540E\u5F39\u51FA"
-    requireFlagsRaw: dialogue.item.diary.desc.triggered
+    requireFlagsRaw: dialogue.item.diary.page.1.triggered
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
     requireFlags:
-    - dialogue.item.diary.desc.triggered
+    - dialogue.item.diary.page.1.triggered
     forbidFlags: []
     setFlagsOnFire: []
   - id: T-05

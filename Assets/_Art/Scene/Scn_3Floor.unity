@@ -18176,6 +18176,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1295320860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1295320862}
+  - component: {fileID: 1295320861}
+  m_Layer: 0
+  m_Name: _T04_Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1295320861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295320860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979b99f6f8a52094db580b6415d70407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Interact.DialogueTrigger
+  nodeId: T-04
+  kind: 3
+  oneShot: 1
+  condition:
+    requireAll:
+    - dialogue.item.diary.page.1.triggered
+    forbidAll: []
+    requireAny: []
+  titleKey: 
+  headerSprite: {fileID: 0}
+  promptKey: ui.interact.prompt
+  onDialogueFinished:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1295320862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295320860}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.03, y: 9.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1326043577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18438,7 +18496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1647145973988094090, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: orthographic size
-      value: 7.71875
+      value: 9.4375
       objectReference: {fileID: 0}
     - target: {fileID: 2393861258347681636, guid: 713c9dfd1ca8df146b2754f4489b11d5, type: 3}
       propertyPath: m_TextStyleHashCode
@@ -19376,3 +19434,4 @@ SceneRoots:
   - {fileID: 1603504195}
   - {fileID: 712371136}
   - {fileID: 7788002}
+  - {fileID: 1295320862}

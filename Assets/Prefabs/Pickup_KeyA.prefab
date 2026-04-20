@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 7817741047755048024}
   - component: {fileID: 543762300859079005}
   - component: {fileID: 1558975006317020830}
+  - component: {fileID: 100000000000000002}
   m_Layer: 0
   m_Name: Pickup_KeyA
   m_TagString: Interactable
@@ -179,7 +180,7 @@ MonoBehaviour:
   promptKey: ui.pickup.prompt
   destroyOnPickup: 1
   oneShotClue: 1
-  dialogueNodeId: T-04
+  dialogueNodeId: item.key.storage.page.1
 --- !u!61 &1558975006317020830
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -226,3 +227,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &100000000000000002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3344340957366181521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8dbf5cca6042d2b4388d70ced2b1e9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Interact.FlagVisibility
+  requireFlags:
+  - dialogue.item.diary.page.1.triggered
+  forbidFlags: []
+  mode: 2
+  sprites: []
+  colliders: []

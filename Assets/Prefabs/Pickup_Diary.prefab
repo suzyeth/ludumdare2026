@@ -175,11 +175,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Interact.Pickup
   itemId: item.diary
-  clueTextKey: 
+  clueTextKey:
   promptKey: ui.pickup.prompt
   destroyOnPickup: 1
   oneShotClue: 1
-  dialogueNodeId: T-02
+  dialogueNodeId: T-03
 --- !u!61 &8408058879558113505
 BoxCollider2D:
   m_ObjectHideFlags: 0

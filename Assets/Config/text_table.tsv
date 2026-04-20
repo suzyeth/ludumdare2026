@@ -2,7 +2,7 @@ id	category	avg_type	zh	en	zh_red	en_red	zh_green	en_green	filter_req	repeatable
 T-01	dialogue	NAR	又叫我打扫卫生……每次都是我……凭什么啊……\n算了,早点弄完回家吧,太晚妈妈该担心了						None	false	true	0		OnEnter		开局进入游戏弹出 · 开场独白 · 不可跳过			
 T-02	dialogue	NAR	这是什么?小纸条破破烂烂的,好像有字?						None	false	true	0	item.old_note.page.1	OnPickup		捡起破旧纸条(Pickup_OldNote) · 链到 old_note READ			
 T-03	dialogue	NAR	扫扫扫……\n欸,这是什么?\n一本……日记?\n好奇怪,这里怎么会有一本日记?打开看看……						None	false	true	0	item.diary.page.1	OnPickup		捡起日记(Pickup_Diary) · 链到 diary READ			
-T-04	dialogue	NAR	好可怕……欸钥匙?好像是从日记本里掉出来的……\n是……2楼储物柜的钥匙。\n没办法了……去2楼看看吧。						None	false	true	0	item.key.storage.page.1	OnState		阅读日记READ后弹出	dialogue.item.diary.desc.triggered		
+T-04	dialogue	NAR	好可怕……欸钥匙?好像是从日记本里掉出来的……\n是……2楼储物柜的钥匙。\n没办法了……去2楼看看吧。						None	false	true	0		OnState		阅读日记READ后弹出	dialogue.item.diary.page.1.triggered		
 T-05	dialogue	NAR	咳咳…… 好多灰。这是什么东西?一个3D眼镜?\n不对,这是红色和绿色的镜片?好奇怪\n带上看看吧。						None	false	true	0	item.glasses.page.1	OnExternal		Cabinet_Locked 开锁 UnityEvent → Fire() · 链到 glasses READ			
 T-06	dialogue	NAR	不一样的东西……\n不会是……那个校园怪谈吧……跳楼的女生……\n戴上眼镜到处走走好了,总要想办法出去。						Any	false	true	0		OnState		阅读眼镜READ后弹出	dialogue.item.glasses.desc.triggered		
 T-07	dialogue	NAR	原来是情书啊,搞这么神秘。易森不是前几届那个风云校草么,居然会给别人写情书……可是和诅咒有什么关系?\n去4楼看看吧?好像四楼封起来蛮久了,也许会有什么线索。						Green	false	true	0		OnPickup		捡起情书(Pickup_LoveLetter) · 戴绿镜时才触发			
