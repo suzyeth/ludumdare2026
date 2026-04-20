@@ -170,9 +170,10 @@ MonoBehaviour:
     cantSkip: 1
     autoHideSec: 0
     followUpId: 
-    triggerMode: 2
+    triggerMode: 4
     sfx: 
-    notes: "\u6361\u8D77\u60C5\u4E66(Pickup_LoveLetter) \xB7 \u6234\u7EFF\u955C\u65F6\u624D\u89E6\u53D1"
+    notes: "LoveLetter READ \u540E\u94FE\u8FC7\u6765 \xB7 dialogue.item.love_letter.page.1.triggered
+      \xB7 \u6234\u7EFF\u955C\u65F6 READ \u624D\u53EF\u8BFB"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -216,11 +217,10 @@ MonoBehaviour:
     repeatable: 0
     cantSkip: 1
     autoHideSec: 0
-    followUpId: item.mock_note_01.page.1
-    triggerMode: 2
+    followUpId: 
+    triggerMode: 4
     sfx: 
-    notes: "\u6361\u5230\u5C0F\u7EB8\u67611\u540E\u5F39\u51FA(Pickup_Note_01) \xB7
-      \u94FE\u5230 note_01 READ"
+    notes: "note_01 READ \u540E\u94FE\u8FC7\u6765 \xB7 dialogue.item.mock_note_01.page.1.triggered"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -240,11 +240,10 @@ MonoBehaviour:
     repeatable: 0
     cantSkip: 1
     autoHideSec: 0
-    followUpId: item.mock_note_02.page.1
-    triggerMode: 2
+    followUpId: 
+    triggerMode: 4
     sfx: 
-    notes: "\u6361\u5230\u5C0F\u7EB8\u67612\u540E\u5F39\u51FA(Pickup_Note_02) \xB7
-      \u94FE\u5230 note_02 READ"
+    notes: "note_02 READ \u540E\u94FE\u8FC7\u6765 \xB7 dialogue.item.mock_note_02.page.1.triggered"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -264,11 +263,10 @@ MonoBehaviour:
     repeatable: 0
     cantSkip: 1
     autoHideSec: 0
-    followUpId: item.mock_note_03.page.1
-    triggerMode: 2
+    followUpId: 
+    triggerMode: 4
     sfx: 
-    notes: "\u6361\u5230\u5C0F\u7EB8\u67613\u540E\u5F39\u51FA(Pickup_Note_03) \xB7
-      \u94FE\u5230 note_03 READ"
+    notes: "note_03 READ \u540E\u94FE\u8FC7\u6765 \xB7 dialogue.item.mock_note_03.page.1.triggered"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -819,7 +817,7 @@ MonoBehaviour:
   - id: item.love_letter.page.1
     category: 1
     avgType: 2
-    zh: "\"\u6211\u4E00\u76F4\u6709\u6CE8\u610F\u5230\u4F60\u54E6,\u77E5\u5F69\u3002\\n\u62B1\u6B49,\u6211\u6CA1\u529E\u6CD5\u6BCF\u6B21\u90FD\u53CA\u65F6\u4FDD\u62A4\u4F60,\u6240\u4EE5\u2026\u2026\\n\u6211\u60F3\u4E86\u4E00\u4E2A\u529E\u6CD5,\\n\u6211\u60F3\u548C\u4F60\u5728\u4E00\u8D77\u3002\\n\u8BF7\u4E00\u5B9A\u8981\u76F8\u4FE1\u6211,\u653E\u5B66\u540E\u6765402\u6559\u5BA4,\u6211\u4F1A\u5728\u90A3\u91CC\u7B49\u4F60\u3002\\n\u2014\u2014\u6613\u68EE"
+    zh: "\"\u6211\u4E00\u76F4\u6709\u6CE8\u610F\u5230\u4F60\u54E6\uFF0C\u77E5\u5F69\u3002\\n\u62B1\u6B49\uFF0C\u6211\u6CA1\u529E\u6CD5\u6BCF\u6B21\u90FD\u53CA\u65F6\u4FDD\u62A4\u4F60\uFF0C\u6240\u4EE5\u2026\u2026\\n\u6211\u60F3\u4E86\u4E00\u4E2A\u529E\u6CD5\uFF0C\\n\u6211\u60F3\u548C\u4F60\u5728\u4E00\u8D77\u3002\\n\u8BF7\u4E00\u5B9A\u8981\u76F8\u4FE1\u6211\uFF0C\u653E\u5B66\u540E\u6765402\u6559\u5BA4\uFF0C\\n\u6211\u4F1A\u5728\u90A3\u91CC\u7B49\u4F60\u3002\\n\u2014\u2014\u6613\u68EE\""
     en: 
     zh_red: 
     en_red: 
@@ -829,7 +827,7 @@ MonoBehaviour:
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
-    followUpId: 
+    followUpId: T-07
     triggerMode: 0
     sfx: 
     notes: 
@@ -911,7 +909,7 @@ MonoBehaviour:
   - id: item.mock_note_01.page.1
     category: 1
     avgType: 2
-    zh: "\"\u4E0D\u4F1A\u5427\u5979\u771F\u4FE1\u4E86?\\n\u4ECA\u5929\u653E\u5B66\u6709\u597D\u620F\u770B\u54AF!\""
+    zh: "\"\u4E0D\u4F1A\u5427\u5979\u771F\u4FE1\u4E86\uFF1F\\n\u4ECA\u5929\u653E\u5B66\u6709\u597D\u620F\u770B\u54AF\uFF01\""
     en: 
     zh_red: 
     en_red: 
@@ -921,7 +919,7 @@ MonoBehaviour:
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
-    followUpId: 
+    followUpId: T-09
     triggerMode: 0
     sfx: 
     notes: 
@@ -957,8 +955,7 @@ MonoBehaviour:
   - id: item.mock_note_02.page.1
     category: 1
     avgType: 2
-    zh: "\"\u5979\u90A3\u4E2A\u591A\u4E8B\u7684\u7238\u7238\u4E0D\u77E5\u9053\u94A5\u5319\u88AB\u62FF\u8D70\u4E86\u5427,\u53EF\u522B\u8BA9\u4ED6\u53D1\u73B0\u4E86\u3002\\n
-      \u8FD9\u6709\u4EC0\u4E48,\u4E00\u4E2A\u4FDD\u5B89\u5927\u53D4\u800C\u5DF2,\u4E00\u8D77\u6349\u5F04\u53C8\u600E\u4E48\u6837\u54C8\u54C8\u54C8!\u4E0D\u8FC7\u77E5\u5F69\u672A\u514D\u4E5F\u592A\u597D\u9A97\u4E86\u3002\""
+    zh: "\"\u5979\u90A3\u4E2A\u591A\u4E8B\u7684\u7238\u7238\u4E0D\u77E5\u9053\u94A5\u5319\u88AB\u62FF\u8D70\u4E86\u5427\uFF0C\\n\u53EF\u522B\u8BA9\u4ED6\u53D1\u73B0\u4E86\u3002|\u8FD9\u6709\u4EC0\u4E48\uFF0C\u4E00\u4E2A\u4FDD\u5B89\u5927\u53D4\u800C\u5DF2\uFF0C\\n\u4E00\u8D77\u6349\u5F04\u53C8\u600E\u4E48\u6837\u54C8\u54C8\u54C8\uFF01\\n\u4E0D\u8FC7\u77E5\u5F69\u672A\u514D\u4E5F\u592A\u597D\u9A97\u4E86\u3002\""
     en: 
     zh_red: 
     en_red: 
@@ -968,7 +965,7 @@ MonoBehaviour:
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
-    followUpId: 
+    followUpId: T-10
     triggerMode: 0
     sfx: 
     notes: 
@@ -1004,7 +1001,7 @@ MonoBehaviour:
   - id: item.mock_note_03.page.1
     category: 1
     avgType: 2
-    zh: "\"\u6211\u529E\u4E8B\u4F60\u653E\u5FC3,\u8FD9\u79CD\u65E9\u8BE5\u53BB\u7279\u6B8A\u5B66\u6821\u7684\u4EBA\u5C31\u522B\u6765\u8FD9\u91CC\u8BFB\u4E66\u4E86\u3002\\n\u771F\u662F\u602A\u80CE,\u8FDE\u7EA2\u8272\u7EFF\u8272\u90FD\u5206\u4E0D\u6E05\u3002\""
+    zh: "\"\u6211\u529E\u4E8B\u4F60\u653E\u5FC3\uFF0C\\n\u8FD9\u79CD\u65E9\u8BE5\u53BB\u7279\u6B8A\u5B66\u6821\u7684\u4EBA\u5C31\u522B\u6765\u8FD9\u91CC\u8BFB\u4E66\u4E86\u3002\\n\u771F\u662F\u602A\u80CE\uFF0C\u8FDE\u7EA2\u8272\u7EFF\u8272\u90FD\u5206\u4E0D\u6E05\u3002\""
     en: 
     zh_red: 
     en_red: 
@@ -1014,7 +1011,7 @@ MonoBehaviour:
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
-    followUpId: 
+    followUpId: T-11
     triggerMode: 0
     sfx: 
     notes: 

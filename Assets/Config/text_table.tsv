@@ -5,11 +5,11 @@ T-03	dialogue	NAR	扫扫扫……\n欸,这是什么?\n一本……日记?|好奇
 T-04	dialogue	NAR	好可怕……欸钥匙？\n好像是从日记本里掉出来的……\n是……2楼储物柜的钥匙。\n没办法了……去2楼看看吧。						None	false	true	0		OnState		阅读日记READ后弹出	dialogue.item.diary.page.1.triggered		
 T-05	dialogue	NAR	咳咳……好多灰。\n这是什么东西？一个3D眼镜？\n不对，这是红色和绿色的镜片？\n好奇怪，带上看看吧。						None	false	true	0	item.glasses.page.1	OnExternal		Cabinet_Locked 开锁 UnityEvent → Fire() · 链到 glasses READ			
 T-06	dialogue	NAR	不一样的东西……\n不会是……那个校园怪谈吧……\n跳楼的女生……\n戴上眼镜到处走走好了，\n总要想办法出去。						Any	false	true	0		OnState		阅读眼镜READ后弹出	dialogue.item.glasses.desc.triggered		
-T-07	dialogue	NAR	原来是情书啊，搞这么神秘。\n易森不是前几届那个风云校草么，\n居然会给别人写情书……\n可是和诅咒有什么关系？\n去4楼看看吧？\n好像四楼封起来蛮久了，\n也许会有什么线索。						Green	false	true	0		OnPickup		捡起情书(Pickup_LoveLetter) · 戴绿镜时才触发			
+T-07	dialogue	NAR	原来是情书啊，搞这么神秘。\n易森不是前几届那个风云校草么，\n居然会给别人写情书……\n可是和诅咒有什么关系？\n去4楼看看吧？\n好像四楼封起来蛮久了，\n也许会有什么线索。						Green	false	true	0		OnState		LoveLetter READ 后链过来 · dialogue.item.love_letter.page.1.triggered · 戴绿镜时 READ 才可读
 T-08	dialogue	NAR	居然上锁了。\n怎么看也不像是原来的门锁，\n一点都不匹配，看样子快要生锈了。\n钥匙应该还藏在这层楼的某处。						Red	false	true	0		OnInteract		4F 楼梯门按E时触发 · 戴红镜 · 未持 stairs_4f 钥匙			
-T-09	dialogue	NAR	藏在这么奇怪的地方……\n以前好像没见过呀……						Red	false	true	0	item.mock_note_01.page.1	OnPickup		捡到小纸条1后弹出(Pickup_Note_01) · 链到 note_01 READ
-T-10	dialogue	NAR	保安大叔是她爸爸？						Red	false	true	0	item.mock_note_02.page.1	OnPickup		捡到小纸条2后弹出(Pickup_Note_02) · 链到 note_02 READ
-T-11	dialogue	NAR	他们说的是……日记的主人？\n红绿色盲吗……\n被这样欺负好可怜……						Red	false	true	0	item.mock_note_03.page.1	OnPickup		捡到小纸条3后弹出(Pickup_Note_03) · 链到 note_03 READ
+T-09	dialogue	NAR	藏在这么奇怪的地方……\n以前好像没见过呀……						Red	false	true	0		OnState		note_01 READ 后链过来 · dialogue.item.mock_note_01.page.1.triggered
+T-10	dialogue	NAR	保安大叔是她爸爸？						Red	false	true	0		OnState		note_02 READ 后链过来 · dialogue.item.mock_note_02.page.1.triggered
+T-11	dialogue	NAR	他们说的是……日记的主人？\n红绿色盲吗……\n被这样欺负好可怜……						Red	false	true	0		OnState		note_03 READ 后链过来 · dialogue.item.mock_note_03.page.1.triggered
 T-12	dialogue	NAR	这里真的有备用钥匙！\n可是为什么……\n不戴眼镜的时候看不到呢？\n感觉好像进入了另一个世界……						Red	false	true	0		OnState		KeyB READ 之后链过来 · dialogue.item.key.stairs_4f.page.1.triggered
 T-13	dialogue	NAR	上来了!好多灰尘……\n有点害怕,这里面有什么……						Red	false	true	0		OnEnter		传送到四楼场景入口触发			
 T-14	dialogue	NAR	404教室……\n是前几年那个跳楼女生出事的地方呀……\n难道她就是知彩?						Red	false	true	0		OnInteract		按E 404教室门后弹出			
@@ -33,15 +33,15 @@ item.diary.page.4	item	READ	6月8日 雨 好想回家……都去死都去死都
 item.recorder	item		录音笔						Red	true	false	0		Manual					
 item.recorder.page.1	item	READ	一根亮着灯的录音笔,好像一直在播放……						Red	true	false	0		Manual					
 item.love_letter	item		拆封的情书						Green	true	false	0		Manual					
-item.love_letter.page.1	item	READ	"我一直有注意到你哦,知彩。\n抱歉,我没办法每次都及时保护你,所以……\n我想了一个办法,\n我想和你在一起。\n请一定要相信我,放学后来402教室,我会在那里等你。\n——易森						Green	true	false	0		Manual					
+item.love_letter.page.1	item	READ	"我一直有注意到你哦，知彩。\n抱歉，我没办法每次都及时保护你，所以……\n我想了一个办法，\n我想和你在一起。\n请一定要相信我，放学后来402教室，\n我会在那里等你。\n——易森"						Green	true	false	0	T-07	Manual					
 item.old_note	item		破旧的纸条						Any	true	false	0		Manual					
 item.old_note.page.1	item	READ	"广播被诅咒了!广播响的时候必须躲起来!!是她!她回来找我们了!!"						Any	true	false	0		Manual					
 item.mock_note_01	item		小纸条1						Red	true	false	0		Manual					
-item.mock_note_01.page.1	item	READ	"不会吧她真信了?\n今天放学有好戏看咯!"						Red	true	false	0		Manual					
+item.mock_note_01.page.1	item	READ	"不会吧她真信了？\n今天放学有好戏看咯！"						Red	true	false	0	T-09	Manual
 item.mock_note_02	item		小纸条2						Red	true	false	0		Manual					
-item.mock_note_02.page.1	item	READ	"她那个多事的爸爸不知道钥匙被拿走了吧,可别让他发现了。\n 这有什么,一个保安大叔而已,一起捉弄又怎么样哈哈哈!不过知彩未免也太好骗了。"						Red	true	false	0		Manual					
+item.mock_note_02.page.1	item	READ	"她那个多事的爸爸不知道钥匙被拿走了吧，\n可别让他发现了。|这有什么，一个保安大叔而已，\n一起捉弄又怎么样哈哈哈！\n不过知彩未免也太好骗了。"						Red	true	false	0	T-10	Manual
 item.mock_note_03	item		小纸条3						Red	true	false	0		Manual					
-item.mock_note_03.page.1	item	READ	"我办事你放心,这种早该去特殊学校的人就别来这里读书了。\n真是怪胎,连红色绿色都分不清。"						Red	true	false	0		Manual					
+item.mock_note_03.page.1	item	READ	"我办事你放心，\n这种早该去特殊学校的人就别来这里读书了。\n真是怪胎，连红色绿色都分不清。"						Red	true	false	0	T-11	Manual
 ui.menu.start	ui		开始游戏	Start Game					Any	true	false	0		Manual					
 ui.menu.continue	ui		继续游戏	Continue					Any	true	false	0		Manual					
 ui.menu.settings	ui		设置	Settings					Any	true	false	0		Manual					

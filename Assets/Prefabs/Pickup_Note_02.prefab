@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 543762300859079005, guid: 73708179d0976aca6eda8f5d0f68aaa5, type: 3}
       propertyPath: dialogueNodeId
-      value: T-10
+      value: item.mock_note_02.page.1
       objectReference: {fileID: 0}
     - target: {fileID: 543762300859079005, guid: 73708179d0976aca6eda8f5d0f68aaa5, type: 3}
       propertyPath: destroyOnPickup

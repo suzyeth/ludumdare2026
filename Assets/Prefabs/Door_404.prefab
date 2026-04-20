@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2127693407159230157
+--- !u!1 &3614273383638183786
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2728927464440173125}
-  - component: {fileID: 2508125940286621987}
+  - component: {fileID: 1345085209416983435}
+  - component: {fileID: 7125838113783541579}
+  - component: {fileID: 6661531658365194625}
+  - component: {fileID: 9098997617624998187}
+  - component: {fileID: 2490183530019866931}
   m_Layer: 0
-  m_Name: Sprite
-  m_TagString: Untagged
+  m_Name: Door_404
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2728927464440173125
+--- !u!4 &1345085209416983435
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127693407159230157}
+  m_GameObject: {fileID: 3614273383638183786}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7025318250071313719}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2508125940286621987
+--- !u!212 &7125838113783541579
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127693407159230157}
+  m_GameObject: {fileID: 3614273383638183786}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -79,61 +82,25 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 742716177
   m_SortingLayer: 2
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 55a91bb256de5ef43b72c86e697cc3fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 080f29871b0f8b247aa5e101ebf51b73, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &3344340957366181521
-GameObject:
+--- !u!61 &6661531658365194625
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7025318250071313719}
-  - component: {fileID: 7817741047755048024}
-  - component: {fileID: 543762300859079005}
-  - component: {fileID: 4451613454755228387}
-  - component: {fileID: 100000000000000001}
-  m_Layer: 0
-  m_Name: Pickup_LoveLetter
-  m_TagString: Interactable
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7025318250071313719
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3344340957366181521}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2728927464440173125}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7817741047755048024
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3344340957366181521}
+  m_GameObject: {fileID: 3614273383638183786}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -161,33 +128,25 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.4
---- !u!114 &543762300859079005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3344340957366181521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 163af8e54187845428af22a2aa749c9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Interact.Pickup
-  itemId: item.love_letter
-  clueTextKey:
-  promptKey: ui.pickup.prompt
-  destroyOnPickup: 1
-  oneShotClue: 1
-  dialogueNodeId: item.love_letter.page.1
---- !u!61 &4451613454755228387
+  m_Offset: {x: 0, y: 0.018318206}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1.9473147}
+  m_EdgeRadius: 0
+--- !u!61 &9098997617624998187
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3344340957366181521}
+  m_GameObject: {fileID: 3614273383638183786}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -215,31 +174,42 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.015701413}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 0.4}
+  m_Size: {x: 1, y: 1.8792756}
   m_EdgeRadius: 0
---- !u!114 &100000000000000001
+--- !u!114 &2490183530019866931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3344340957366181521}
+  m_GameObject: {fileID: 3614273383638183786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0859d59ca1140d241bf181acde37f2a2, type: 3}
-  m_Name:
-  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Interact.GlassesVisibility
-  visibleWhen: 02000000
-  mode: 2
-  sprites: []
-  colliders: []
+  m_Script: {fileID: 11500000, guid: 01a9bb039e4e93341a0ca54f1033e407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Interact.KeyDoor
+  requiredKeyId: 
+  consumeKey: 0
+  blockingCollider: {fileID: 9098997617624998187}
+  doorRenderer: {fileID: 7125838113783541579}
+  closedSprite: {fileID: 21300000, guid: 080f29871b0f8b247aa5e101ebf51b73, type: 3}
+  openSprite: {fileID: 21300000, guid: 33dcd130e0cd9ad439b7eca2f268f9cf, type: 3}
+  promptKeyLocked: ui.interact.prompt
+  promptKeyWrongKey: ui.door.wrong_key
+  promptKeyOpen: ui.door.open
+  openSoundId: 42
+  onOpen:
+    m_PersistentCalls:
+      m_Calls: []
+  lockedDialogueNodeId: 
+  openDialogueNodeId: T-14

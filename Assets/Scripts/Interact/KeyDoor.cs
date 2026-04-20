@@ -39,6 +39,11 @@ namespace PrismZone.Interact
         [NodeIdDropdown]
         [SerializeField] private string lockedDialogueNodeId;
 
+        [Header("Open Dialogue")]
+        [Tooltip("Optional TSV node id to fire the instant the door successfully opens (e.g. 404 classroom door → T-14). Runs after onOpen, once per run since the door stays open.")]
+        [NodeIdDropdown]
+        [SerializeField] private string openDialogueNodeId;
+
         public bool IsOpen { get; private set; }
 
         // Plain doors (empty requiredKeyId) must NOT show the "locked" prompt — show
@@ -104,6 +109,8 @@ namespace PrismZone.Interact
             AudioManager.Instance?.Play(SoundId.DoorUnlock);
             AudioManager.Instance?.Play(openSoundId);
             onOpen?.Invoke();
+            if (!string.IsNullOrEmpty(openDialogueNodeId) && DialogueManager.Instance != null)
+                DialogueManager.Instance.ShowById(openDialogueNodeId);
         }
     }
 }
