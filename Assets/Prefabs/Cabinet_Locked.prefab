@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a9bb039e4e93341a0ca54f1033e407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Interact.KeyDoor
-  requiredKeyId: item.key.stairs_4f
+  requiredKeyId: item.key.storage
   consumeKey: 1
   blockingCollider: {fileID: 8700891427551235332}
   doorRenderer: {fileID: 3533271692595122658}
