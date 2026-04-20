@@ -1,47 +1,47 @@
 id	category	avg_type	zh	en	zh_red	en_red	zh_green	en_green	filter_req	repeatable	cant_skip	auto_hide_sec	follow_up_id	trigger_mode	sfx	notes	require_flags	forbid_flags	set_flags_on_fire
-T-01	dialogue	NAR	又叫我打扫卫生……每次都是我……\n凭什么啊……|算了，早点弄完回家吧，\n太晚妈妈该担心了						None	false	true	0		OnEnter		开局进入游戏弹出 · 开场独白 · 不可跳过			
-T-02	dialogue	NAR	这是什么?小纸条破破烂烂的,好像有字?						None	false	true	0	item.old_note.page.1	OnPickup		捡起破旧纸条(Pickup_OldNote) · 链到 old_note READ			
-T-03	dialogue	NAR	扫扫扫……\n欸,这是什么?\n一本……日记?|好奇怪,这里怎么会有一本日记?\n打开看看……						None	false	true	0	item.diary.page.1	OnPickup		捡起日记(Pickup_Diary) · 链到 diary READ			
-T-04	dialogue	NAR	好可怕……欸钥匙？\n好像是从日记本里掉出来的……|是……2楼储物柜的钥匙。\n没办法了……去2楼看看吧。						None	false	true	0		OnState		阅读日记READ后弹出	dialogue.item.diary.page.1.triggered		
-T-05	dialogue	NAR	咳咳……好多灰。\n这是什么东西？一个3D眼镜？|不对，这是红色和绿色的镜片？\n好奇怪，带上看看吧。						None	false	true	0		OnExternal		Cabinet_Locked 开锁瞬间 KeyDoor.openDialogueNodeId=T-05 触发			
-T-06	dialogue	NAR	不一样的东西……\n不会是……那个校园怪谈吧……\n跳楼的女生……|戴上眼镜到处走走好了，\n总要想办法出去。						Any	false	true	0		OnState		眼镜 READ 后链过来 · dialogue.item.glasses.page.1.triggered
-T-07	dialogue	NAR	原来是情书啊，搞这么神秘。\n易森不是前几届那个风云校草么，\n居然会给别人写情书……|可是和诅咒有什么关系？\n去4楼看看吧？|好像四楼封起来蛮久了，\n也许会有什么线索。						Green	false	true	0		OnState		LoveLetter READ 后链过来 · dialogue.item.love_letter.page.1.triggered · 戴绿镜时 READ 才可读
-T-08	dialogue	NAR	居然上锁了。\n怎么看也不像是原来的门锁，|一点都不匹配，看样子快要生锈了。\n钥匙应该还藏在这层楼的某处。						Red	false	true	0		OnInteract		4F 楼梯门按E时触发 · 戴红镜 · 未持 stairs_4f 钥匙			
-T-09	dialogue	NAR	藏在这么奇怪的地方……\n以前好像没见过呀……						Red	false	true	0		OnState		note_01 READ 后链过来 · dialogue.item.mock_note_01.page.1.triggered
-T-10	dialogue	NAR	保安大叔是她爸爸？						Red	false	true	0		OnState		note_02 READ 后链过来 · dialogue.item.mock_note_02.page.1.triggered
-T-11	dialogue	NAR	他们说的是……日记的主人？\n红绿色盲吗……\n被这样欺负好可怜……						Red	false	true	0		OnState		note_03 READ 后链过来 · dialogue.item.mock_note_03.page.1.triggered
-T-12	dialogue	NAR	这里真的有备用钥匙！\n可是为什么……|不戴眼镜的时候看不到呢？\n感觉好像进入了另一个世界……						Red	false	true	0		OnState		KeyB READ 之后链过来 · dialogue.item.key.stairs_4f.page.1.triggered
-T-13	dialogue	NAR	上来了!好多灰尘……\n有点害怕,这里面有什么……						Red	false	true	0		OnEnter		传送到四楼场景入口触发			
-T-14	dialogue	NAR	404教室……\n是前几年那个跳楼女生出事的地方呀……\n难道她就是知彩?						Red	false	true	0		OnInteract		按E 404教室门后弹出			
-T-15	dialogue	NAR	黑板上好多血……不对……是油漆！\n米莉，易森，菲菲，宇凯\n——到此一游|神经病啊写这种东西！！\n可是看起来好可怕……						Red	false	true	0		OnInteract		按E黑板(Blackboard.prefab 已挂)			
-T-17	dialogue	NAR	不要跳!知彩!!不要跳下去……\n她听不到我说话……不要……						Any	false	true	0		OnState		FlashbackController 播完闪回动画后 Fire()	flashback.played		
-T-18	dialogue	NAR	录音笔……原来广播的声音来自这里……\n是那些霸凌知彩的人在笑!\n还有……知彩在哭……						Any	false	true	0		OnPickup		Recorder.nodeInspect=T-18 已挂			
-T-19	dialogue	NAR	……该结束这一切了。\n笑声和哭泣声都停止了。|走廊里静得可怕。\n然后我该做什么……?						Any	false	true	0		OnState		Recorder.cs 停广播后 · Recorder.nodeStop=T-19 已挂			
-T-20	dialogue	NAR	追杀我的那个怪人！！！！\n他看起来……在哭？\n是保安叔叔！！\n他是知彩的爸爸！|为了寻找知彩跳楼自杀的真相，\n才一直游荡在这幢教学楼里……\n他看起来……也要消失了……						Any	false	true	0		OnState		保安进入 Stopped 状态后触发	enemy.guard.stopped		
-T-21	dialogue	NAR	居然已经天黑了啊。\n经历过刚才那些,走夜路都不怎么可怕了。 |(看手表)\n……不好!要被妈妈骂了, 快走吧!						Any	false	true	0		OnInteract		按E 1楼大门 · onDialogueFinished → VictoryPanel.Show escaped			
-item.glasses	item		颜色矫正眼镜						Any	true	false	0		Manual					
-item.glasses.page.1	item	READ	一副矫正颜色的眼睛，\n戴上眼镜似乎可以看到一些不一样的东西……\n按Q键切换镜片颜色						Any	true	false	0	T-06	Manual
-item.key.storage	item		储藏柜钥匙						Any	true	false	0		Manual					
-item.key.storage.page.1	item	READ	可能是她的钥匙……她的储藏柜会在哪里呢?						Any	true	false	0		Manual					
-item.key.stairs_4f	item		四楼钥匙						Red	true	false	0		Manual					
-item.key.stairs_4f.page.1	item	READ	锁住了四楼的楼梯口，\n也锁住了秘密						Red	true	false	0	T-12	Manual
-item.diary	item		一本日记						Any	true	false	0		Manual					
-item.diary.page.1	item	READ	知彩\n2月1日 晴 今天天气好棒呀,加油知彩!你一定可以坚持下去的!\n2月5日 雨 他们又叫我放学去储藏室……我真的不想去……好害怕……\n2月5日 雨 他们又抢走了我的储物柜钥匙……下次要藏好一点……没来得及换衣服被体育老师罚跑了……						Any	true	false	0	item.diary.page.2	Manual					
-item.diary.page.2	item	READ	2月12日 雨 不喜欢下雨,每次下雨他们不出去玩就会来找我的麻烦。储物柜被泼了油漆……好过分……伤口好疼……\n3月13日 阴 为什么……为什么是我?为什么欺负我……我做错了什么?\n3月23日 阴 再坚持一下吧……爸爸花了那么多钱就为了让我在这里……可是好痛苦……						Any	true	false	0	item.diary.page.3	Manual					
-item.diary.page.3	item	READ	5月2日 好难过……我要坚持不下去了……好过分……好痛苦……\n5月8日 晴 好像逃走……可是爸爸怎么办……\n6月1日 雨 好想……杀掉他们……我不敢……不要……不要……我快要坚持不下去了……?						Any	true	false	0	item.diary.page.4	Manual					
-item.diary.page.4	item	READ	6月8日 雨 好想回家……都去死都去死都去死都去死!!!\n6月9日 死死死死死!!!!\n6月12日 都别想逃出这里!你也是!						Any	true	false	0		Manual					
-item.recorder	item		录音笔						Red	true	false	0		Manual					
-item.recorder.page.1	item	READ	一根亮着灯的录音笔,好像一直在播放……						Red	true	false	0		Manual					
-item.love_letter	item		拆封的情书						Green	true	false	0		Manual					
-item.love_letter.page.1	item	READ	"我一直有注意到你哦，知彩。\n抱歉，我没办法每次都及时保护你，所以……\n我想了一个办法，\n我想和你在一起。\n请一定要相信我，放学后来402教室，\n我会在那里等你。\n——易森"						Green	true	false	0	T-07	Manual					
-item.old_note	item		破旧的纸条						Any	true	false	0		Manual					
-item.old_note.page.1	item	READ	"广播被诅咒了!广播响的时候必须躲起来!!是她!她回来找我们了!!"						Any	true	false	0		Manual					
-item.mock_note_01	item		小纸条1						Red	true	false	0		Manual					
-item.mock_note_01.page.1	item	READ	"不会吧她真信了？\n今天放学有好戏看咯！"						Red	true	false	0	T-09	Manual
-item.mock_note_02	item		小纸条2						Red	true	false	0		Manual					
-item.mock_note_02.page.1	item	READ	"她那个多事的爸爸不知道钥匙被拿走了吧，\n可别让他发现了。|这有什么，一个保安大叔而已，\n一起捉弄又怎么样哈哈哈！\n不过知彩未免也太好骗了。"						Red	true	false	0	T-10	Manual
-item.mock_note_03	item		小纸条3						Red	true	false	0		Manual					
-item.mock_note_03.page.1	item	READ	"我办事你放心，\n这种早该去特殊学校的人就别来这里读书了。\n真是怪胎，连红色绿色都分不清。"						Red	true	false	0	T-11	Manual
+T-01	dialogue	NAR	又叫我打扫卫生……每次都是我……\n凭什么啊……|算了，早点弄完回家吧，\n太晚妈妈该担心了	Cleaning duty …again. Why is it always me…\nWhatever,let's just get it done. Mom's going to worry if I'm late.					None	false	true	0		OnEnter		开局进入游戏弹出 · 开场独白 · 不可跳过			
+T-02	dialogue	NAR	这是什么?小纸条破破烂烂的,好像有字?	What is this…? \nA tattered little note… \nWait, is that writing on it?					None	false	true	0	item.old_note.page.1	OnPickup		捡起破旧纸条(Pickup_OldNote) · 链到 old_note READ			
+T-03	dialogue	NAR	扫扫扫……\n欸,这是什么?\n一本……日记?|好奇怪,这里怎么会有一本日记?\n打开看看……	Sweep, sweep, sweep…\nHm? What's this?\nA… diary?\nThat's strange, what's a diary doing here? Let me take a look…					None	false	true	0	item.diary.page.1	OnPickup		捡起日记(Pickup_Diary) · 链到 diary READ			
+T-04	dialogue	NAR	好可怕……欸钥匙？\n好像是从日记本里掉出来的……|是……2楼储物柜的钥匙。\n没办法了……去2楼看看吧。	So creepy… wait, a key?\nMust've fallen out of the diary…\nIt's… a key to the storage room on the 2nd floor.\nWell… guess I have no choice. Let's head upstairs.					None	false	true	0		OnState		阅读日记READ后弹出	dialogue.item.diary.page.1.triggered		
+T-05	dialogue	NAR	咳咳……好多灰。\n这是什么东西？一个3D眼镜？|不对，这是红色和绿色的镜片？\n好奇怪，带上看看吧。	cough cough… So much dust. What's this? A pair of 3D glasses?\nWait— red and green lenses? That's weird.\nMight as well try them on.					None	false	true	0		OnExternal		Cabinet_Locked 开锁瞬间 KeyDoor.openDialogueNodeId=T-05 触发			
+T-06	dialogue	NAR	不一样的东西……\n不会是……那个校园怪谈吧……\n跳楼的女生……|戴上眼镜到处走走好了，\n总要想办法出去。	Something's… different…\nDon't tell me… this is one of those school urban legends… the girl who jumped…\nI'll just walk around with the glasses on.\n Gotta find a way out of here somehow.					Any	false	true	0		OnState		眼镜 READ 后链过来 · dialogue.item.glasses.page.1.triggered
+T-07	dialogue	NAR	原来是情书啊，搞这么神秘。\n易森不是前几届那个风云校草么，\n居然会给别人写情书……|可是和诅咒有什么关系？\n去4楼看看吧？|好像四楼封起来蛮久了，\n也许会有什么线索。	So it was a love letter all along, all that mystery for nothing. \nEthan,the most popular guy a few years back?\n Can't believe someone like him would write a love letter… \nbut what does any of this have to do with the curse?\nMight as well check out the 4th floor. \nIt's been sealed off for a while now… \nmaybe there's something up there.					Green	false	true	0		OnState		LoveLetter READ 后链过来 · dialogue.item.love_letter.page.1.triggered · 戴绿镜时 READ 才可读
+T-08	dialogue	NAR	居然上锁了。\n怎么看也不像是原来的门锁，|一点都不匹配，看样子快要生锈了。\n钥匙应该还藏在这层楼的某处。	Locked.\nDoesn't look like the original lock either— doesn't match at all. \nAnd it's practically rusting through.\nThe key must be hidden somewhere else on this floor.					Red	false	true	0		OnInteract		4F 楼梯门按E时触发 · 戴红镜 · 未持 stairs_4f 钥匙			
+T-09	dialogue	NAR	藏在这么奇怪的地方……\n以前好像没见过呀……	Hidden in such a weird spot… \nI don't remember seeing this here before…					Red	false	true	0		OnState		note_01 READ 后链过来 · dialogue.item.mock_note_01.page.1.triggered
+T-10	dialogue	NAR	保安大叔是她爸爸？	The security guard… is her dad?					Red	false	true	0		OnState		note_02 READ 后链过来 · dialogue.item.mock_note_02.page.1.triggered
+T-11	dialogue	NAR	他们说的是……日记的主人？\n红绿色盲吗……\n被这样欺负好可怜……	Are they talking about… the one who wrote the diary? \nRed-green colorblind… and they bullied her for it… \nthat's awful…					Red	false	true	0		OnState		note_03 READ 后链过来 · dialogue.item.mock_note_03.page.1.triggered
+T-12	dialogue	NAR	这里真的有备用钥匙！\n可是为什么……|不戴眼镜的时候看不到呢？\n感觉好像进入了另一个世界……	There really is a spare key here! \nBut why… couldn't I see it without the glasses?\nIt feels like I've stepped into another world…					Red	false	true	0		OnState		KeyB READ 之后链过来 · dialogue.item.key.stairs_4f.page.1.triggered
+T-13	dialogue	NAR	上来了!好多灰尘……\n有点害怕,这里面有什么……	Made it up! So much dust…\nI'm a little scared… what's in here…					Red	false	true	0		OnEnter		传送到四楼场景入口触发			
+T-14	dialogue	NAR	404教室……\n是前几年那个跳楼女生出事的地方呀……\n难道她就是知彩?	Classroom 404…\nThis is where it happened… the girl who jumped, a few years back…\nDon't tell me… she's Chisai?					Red	false	true	0		OnInteract		按E 404教室门后弹出			
+T-15	dialogue	NAR	黑板上好多血……不对……是油漆！\n米莉，易森，菲菲，宇凯\n——到此一游|神经病啊写这种东西！！\n可是看起来好可怕……	So much— is that blood on the blackboard…?\nNo… wait. It's paint.\n"Milly, Ethan, Tiff, Rex\n——was here"\nWhat is WRONG with them, writing something like that!! \nBut god, it looks so creepy…					Red	false	true	0		OnInteract		按E黑板(Blackboard.prefab 已挂)			
+T-17	dialogue	NAR	不要跳!知彩!!不要跳下去……\n她听不到我说话……不要……	Stop— don't jump! Chisai!! Don't jump…\nShe can't hear me… no… please…					Any	false	true	0		OnState		FlashbackController 播完闪回动画后 Fire()	flashback.played		
+T-18	dialogue	NAR	录音笔……原来广播的声音来自这里……\n是那些霸凌知彩的人在笑!\n还有……知彩在哭……	A voice recorder… \nso that's where the broadcast was coming from…\nTHEM— the ones who bullied Chisai.\n Laughing like it's nothing.\nAnd… that's Chisai… \ncrying…					Any	false	true	0		OnPickup		Recorder.nodeInspect=T-18 已挂			
+T-19	dialogue	NAR	……该结束这一切了。\n笑声和哭泣声都停止了。|走廊里静得可怕。\n然后我该做什么……?	…It's time to end this.\nThe laughter. The crying. All of it stopped.\nThe hallway fell into a terrible silence.\nSo now what…?					Any	false	true	0		OnState		Recorder.cs 停广播后 · Recorder.nodeStop=T-19 已挂			
+T-20	dialogue	NAR	追杀我的那个怪人！！！！\n他看起来……在哭？\n是保安叔叔！！\n他是知彩的爸爸！|为了寻找知彩跳楼自杀的真相，\n才一直游荡在这幢教学楼里……\n他看起来……也要消失了……	That thing that was chasing me！！！！\nIt looks like… it's crying？\nWait— it's the security guard!! Chisai's dad！\nAll this time… wandering these halls… \nsearching for the truth behind Chisai's death…\nAnd now he looks like… \nhe's fading away too…					Any	false	true	0		OnState		保安进入 Stopped 状态后触发	enemy.guard.stopped		
+T-21	dialogue	NAR	居然已经天黑了啊。\n经历过刚才那些,走夜路都不怎么可怕了。 |(看手表)\n……不好!要被妈妈骂了, 快走吧!	It's already dark out.\nAfter everything that just happened… \nsomehow walking home alone at night doesn't seem so scary anymore.\n…Oh no. Mom is going to kill me. I need to go— now!					Any	false	true	0		OnInteract		按E 1楼大门 · onDialogueFinished → VictoryPanel.Show escaped			
+item.glasses	item		颜色矫正眼镜	Color correction glasses					Any	true	false	0		Manual					
+item.glasses.page.1	item	READ	一副矫正颜色的眼睛，\n戴上眼镜似乎可以看到一些不一样的东西……\n按Q键切换镜片颜色	A pair of color correction glasses. \nPutting them on seems to reveal things that weren't there before…\nPress Q to switch lens color.					Any	true	false	0	T-06	Manual
+item.key.storage	item		储藏柜钥匙	Storage locker key					Any	true	false	0		Manual					
+item.key.storage.page.1	item	READ	可能是她的钥匙……她的储藏柜会在哪里呢?	Could be her key… but where would her locker be?					Any	true	false	0		Manual					
+item.key.stairs_4f	item		四楼钥匙	4th Floor Key					Red	true	false	0		Manual					
+item.key.stairs_4f.page.1	item	READ	锁住了四楼的楼梯口，\n也锁住了秘密	It seals off the stairway to the 4th floor… and whatever secrets lie beyond.					Red	true	false	0	T-12	Manual
+item.diary	item		一本日记	A diary					Any	true	false	0		Manual					
+item.diary.page.1	item	READ	知彩\n2月1日 晴 今天天气好棒呀,加油知彩!你一定可以坚持下去的!\n2月5日 雨 他们又叫我放学去储藏室……我真的不想去……好害怕……\n2月5日 雨 他们又抢走了我的储物柜钥匙……下次要藏好一点……没来得及换衣服被体育老师罚跑了……	Chisai\nFeb 1, Sunny Today's weather is so nice. Come on, Chisai! You can get through this!\nFeb 5, Rainy They're telling me to go to the storage room after school again… I really don't want to go… I'm so scared…\nFeb 5, Rainy They took my locker key again… I need to hide it better next time…					Any	true	false	0	item.diary.page.2	Manual					
+item.diary.page.2	item	READ	2月12日 雨 不喜欢下雨,每次下雨他们不出去玩就会来找我的麻烦。储物柜被泼了油漆……好过分……伤口好疼……\n3月13日 阴 为什么……为什么是我?为什么欺负我……我做错了什么?\n3月23日 阴 再坚持一下吧……爸爸花了那么多钱就为了让我在这里……可是好痛苦……	Feb 12, Rainy I hate rainy days. When it rains they don't go out to play and they come after me instead. They poured paint all over my locker… so cruel… the cuts hurt so much…\nMar 13, Cloudy Why… why me? Why are they doing this to me… what did I do wrong?\nMar 23, Cloudy Just hold on a little longer… Dad spent so much money to get me into this school… but it hurts so much…					Any	true	false	0	item.diary.page.3	Manual					
+item.diary.page.3	item	READ	5月2日 好难过……我要坚持不下去了……好过分……好痛苦……\n5月8日 晴 好像逃走……可是爸爸怎么办……\n6月1日 雨 好想……杀掉他们……我不敢……不要……不要……我快要坚持不下去了……?	May 2 I'm so sad… I don't think I can hold on anymore… it's so cruel… it hurts so much… May 8, Sunny I want to run away… but what about Dad…\nJun 1, Rainy I want to… kill them… I can't… no… no… I don't know how much longer I can take this…?					Any	true	false	0	item.diary.page.4	Manual					
+item.diary.page.4	item	READ	6月8日 雨 好想回家……都去死都去死都去死都去死!!!\n6月9日 死死死死死!!!!\n6月12日 都别想逃出这里!你也是!	Jun 8, Rainy I want to go home… All of you, die die die die die!!\nJun 9 Die die die die die!!!!\nJun 12 None of you are getting out of here. You either.					Any	true	false	0		Manual					
+item.recorder	item		录音笔	Voice recorder					Red	true	false	0		Manual					
+item.recorder.page.1	item	READ	一根亮着灯的录音笔,好像一直在播放……	A voice recorder with its light still on, playing something on loop…					Red	true	false	0		Manual					
+item.love_letter	item		拆封的情书	An unsealed love letter					Green	true	false	0		Manual					
+item.love_letter.page.1	item	READ	"我一直有注意到你哦，知彩。\n抱歉，我没办法每次都及时保护你，所以……\n我想了一个办法，\n我想和你在一起。\n请一定要相信我，放学后来402教室，\n我会在那里等你。\n——易森"	"I've always noticed you, Chisai.\nI'm sorry… I wasn't always there in time to protect you.\nSo I thought of something.\nI want to be with you.\nPlease trust me— come to classroom 404 after school. I'll be waiting.\n— Ethan"					Green	true	false	0	T-07	Manual					
+item.old_note	item		破旧的纸条	A worn scrap of paper					Any	true	false	0		Manual					
+item.old_note.page.1	item	READ	"广播被诅咒了!广播响的时候必须躲起来!!是她!她回来找我们了!!"	"The PA system is cursed! When the broadcast plays, you have to hide!! It's her— she's come back for us!!"					Any	true	false	0		Manual					
+item.mock_note_01	item		小纸条1	Note #1					Red	true	false	0		Manual					
+item.mock_note_01.page.1	item	READ	"不会吧她真信了？\n今天放学有好戏看咯！"	"No way she actually believed it?\nThis is gonna be good after school today!"					Red	true	false	0	T-09	Manual
+item.mock_note_02	item		小纸条2	Note #2					Red	true	false	0		Manual					
+item.mock_note_02.page.1	item	READ	"她那个多事的爸爸不知道钥匙被拿走了吧，\n可别让他发现了。|这有什么，一个保安大叔而已，\n一起捉弄又怎么样哈哈哈！\n不过知彩未免也太好骗了。"	"That nosy dad of hers has no idea the key's been taken, right? \nBetter hope he doesn't find out.\nRelax, he's just a security guard. \nIt's just a prank, what's the big deal haha!\nBesides, Chisai is way too easy to fool."					Red	true	false	0	T-10	Manual
+item.mock_note_03	item		小纸条3	Note #3					Red	true	false	0		Manual					
+item.mock_note_03.page.1	item	READ	"我办事你放心，\n这种早该去特殊学校的人就别来这里读书了。\n真是怪胎，连红色绿色都分不清。"	"Trust me on this. \nSomeone like her should've been sent to a special school a long time ago— \nshe's got no business being here.\nSuch a freak. Can't even tell red from green."					Red	true	false	0	T-11	Manual
 ui.menu.start	ui		开始游戏	Start Game					Any	true	false	0		Manual					
 ui.menu.continue	ui		继续游戏	Continue					Any	true	false	0		Manual					
 ui.menu.settings	ui		设置	Settings					Any	true	false	0		Manual					
