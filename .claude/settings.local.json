@@ -21,7 +21,10 @@
       "Bash(claude mcp *)",
       "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" --max-time 3 http://127.0.0.1:8080/mcp)",
       "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} \\(6500\\)\\\\n\" --max-time 3 http://127.0.0.1:6500/mcp)",
-      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} \\(6400\\)\\\\n\" --max-time 3 http://127.0.0.1:6400/mcp)"
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} \\(6400\\)\\\\n\" --max-time 3 http://127.0.0.1:6400/mcp)",
+      "Bash(curl -s -o /dev/null -w \"8080: HTTP %{http_code}\\\\n\" --max-time 3 http://127.0.0.1:8080/mcp)",
+      "Bash(curl -s -o /dev/null -w \"6500: HTTP %{http_code}\\\\n\" --max-time 3 http://127.0.0.1:6500/mcp)",
+      "Bash(curl -s -o /dev/null -w \"6400: HTTP %{http_code}\\\\n\" --max-time 3 http://127.0.0.1:6400/mcp)"
     ]
   }
 }

@@ -39,6 +39,25 @@ namespace PrismZone.Interact
         {
             var col = GetComponent<Collider2D>();
             col.isTrigger = true;
+
+            // Cross-scene persistence guard: if this pickup's dialogue already fired
+            // in a previous visit, or the item it grants is already in Inventory,
+            // the scene prefab instance must NOT re-offer it. Instance fields like
+            // `_consumed` reset on reload — only GameFlags / Inventory survive.
+            // Without this, re-entering Scn_3Floor respawns Pickup_Diary and lets
+            // T-03 → T-04 replay every time.
+            if (destroyOnPickup)
+            {
+                bool dialogueAlready = !string.IsNullOrEmpty(dialogueNodeId)
+                    && GameFlags.Get($"dialogue.{dialogueNodeId}.triggered");
+                bool itemAlready = !string.IsNullOrEmpty(itemId)
+                    && Inventory.Instance != null && Inventory.Instance.Has(itemId);
+                if (dialogueAlready || itemAlready)
+                {
+                    _consumed = true;
+                    Destroy(gameObject);
+                }
+            }
         }
 
         public bool CanInteract(GameObject who) => !_consumed;

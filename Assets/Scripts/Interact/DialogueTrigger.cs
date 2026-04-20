@@ -66,6 +66,20 @@ namespace PrismZone.Interact
 
         // --- Unity lifecycle --------------------------------------------------
 
+        private void Awake()
+        {
+            // Cross-scene persistence guard: if this one-shot node already fired
+            // in a previous visit (GameFlags records it permanently), a scene
+            // reload spawning a fresh trigger instance must NOT re-fire. Without
+            // this, OnState watchers like _T04_Trigger replay every time the
+            // player re-enters Scn_3Floor because `_fired` resets with the instance.
+            if (oneShot && !string.IsNullOrEmpty(nodeId)
+                && GameFlags.Get($"dialogue.{nodeId}.triggered"))
+            {
+                _fired = true;
+            }
+        }
+
         private void OnEnable()
         {
             if (kind == TriggerKind.OnFilterChange)
