@@ -62,6 +62,7 @@ namespace PrismZone.UI
 
         private TMP_Text[] _allLabels;
         private TMP_FontAsset[] _originalFonts;
+        private string _pageCounterOverride;
 
         private CanvasGroup _group;
         private string[] _pages;
@@ -213,9 +214,26 @@ namespace PrismZone.UI
             _onFinished = onFinished;
             _shownAt = Time.unscaledTime;
             _autoAdvancePrimed = false;
+            // Fresh show = fresh counter context. Caller re-applies via
+            // SetPageCounterOverride immediately after if they want a custom label.
+            _pageCounterOverride = null;
             SetVisible(true);
             RenderCurrentPage();
             if (autoDismissSeconds > 0f) _autoDismissAt = Time.unscaledTime + autoDismissSeconds;
+        }
+
+        /// <summary>
+        /// Replace the page-counter label with an arbitrary string (e.g. "第 2 页")
+        /// until the next Show() call. DialogueManager injects this when the
+        /// caller's nodeId matches ".page.N" so the counter matches the diary
+        /// page number, not the within-popup sub-page index. Pass null/empty to
+        /// restore the default "idx+1 / total" format.
+        /// </summary>
+        public void SetPageCounterOverride(string text)
+        {
+            _pageCounterOverride = text;
+            // Re-render immediately if currently open so the label swaps visibly.
+            if (IsOpen) RenderCurrentPage();
         }
 
         /// <summary>READ helper: designer hands per-node title + sprite to the popup.</summary>
@@ -308,7 +326,12 @@ namespace PrismZone.UI
             else bodyLabel.text = text;
 
             if (pageCounterLabel != null)
-                pageCounterLabel.text = multiPage ? $"{_pageIdx + 1}/{_pages.Length}" : string.Empty;
+            {
+                // Counter only renders when DialogueManager injected a real page
+                // label via SetPageCounterOverride (tag has .page.N). No sub-page
+                // fallback — players shouldn't see "1/3" confusion.
+                pageCounterLabel.text = _pageCounterOverride ?? string.Empty;
+            }
 
             // Hide buttons on single-page popups entirely; on multi-page, hide the
             // nav arrow that has nothing to go to (no "previous" on page 0, no

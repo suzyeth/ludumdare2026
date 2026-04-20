@@ -2635,6 +2635,29 @@ MonoBehaviour:
     requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
+  - id: ui.popup.page_number
+    category: 2
+    avgType: 0
+    zh: "\u7B2C {0} \u9875"
+    en: Page {0}
+    zh_red: 
+    en_red: 
+    zh_green: 
+    en_green: 
+    filterReq: 3
+    repeatable: 1
+    cantSkip: 0
+    autoHideSec: 0
+    followUpId: 
+    triggerMode: 0
+    sfx: 
+    notes: 
+    requireFlagsRaw: 
+    forbidFlagsRaw: 
+    setFlagsOnFireRaw: 
+    requireFlags: []
+    forbidFlags: []
+    setFlagsOnFire: []
   - id: ui.popup.prev_page
     category: 2
     avgType: 0

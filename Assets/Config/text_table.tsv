@@ -110,6 +110,7 @@ ui.settings.close	ui		关闭	Close					Any	true	false	0		Manual
 ui.popup.close_hint	ui		[F / Esc] 关闭	[F / Esc] Close					Any	true	false	0		Manual					
 ui.popup.next_hint	ui		[Space] 继续	[Space] Continue					Any	true	false	0		Manual					
 ui.popup.page_hint	ui		[← →] 翻页	[← →] Page					Any	true	false	0		Manual
+ui.popup.page_number	ui		第 {0} 页	Page {0}					Any	true	false	0		Manual
 ui.popup.prev_page	ui		◀ 上一页	◀ Prev					Any	true	false	0		Manual
 ui.popup.next_page	ui		下一页 ▶	Next ▶					Any	true	false	0		Manual
 ui.inventory.empty	ui		空	Empty					Any	true	false	0		Manual					

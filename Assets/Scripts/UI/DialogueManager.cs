@@ -266,6 +266,24 @@ namespace PrismZone.UI
             }
 
             popup.Show(lines, OnPopupFinished);
+
+            // If the tag looks like "foo.page.N" (e.g. item.diary.page.2), show
+            // "第 N 页" in the page counter instead of the internal sub-page
+            // index. Matches the diary's chained READ pages rather than
+            // sub-pages within one popup cell.
+            int pageNum = ExtractPageNumber(r.tag);
+            if (pageNum > 0)
+                popup.SetPageCounterOverride(I18nManager.Format("ui.popup.page_number", pageNum));
+        }
+
+        private static int ExtractPageNumber(string tag)
+        {
+            if (string.IsNullOrEmpty(tag)) return -1;
+            const string marker = ".page.";
+            int idx = tag.LastIndexOf(marker, System.StringComparison.Ordinal);
+            if (idx < 0) return -1;
+            string tail = tag.Substring(idx + marker.Length);
+            return int.TryParse(tail, out int n) ? n : -1;
         }
 
         private void OnPopupFinished()
