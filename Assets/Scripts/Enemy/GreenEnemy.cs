@@ -20,6 +20,10 @@ namespace PrismZone.Enemy
         [SerializeField] private float chaseSpeed = 3.5f;
         [SerializeField] private float visionRange = 6f;
         [SerializeField] private float visionAngleDeg = 120f;
+        [Tooltip("Close-range omnidirectional aggro. Player within this radius is spotted regardless of vision cone (still blocked by walls). Simulates hearing / proximity awareness.")]
+        [SerializeField] private float proximityAggroRadius = 2.5f;
+        [Tooltip("Chase speed during broadcast (Locating state). Player is stunned — this should feel threatening.")]
+        [SerializeField] private float locatingSpeed = 4.5f;
         [SerializeField] private float aggroLossTime = 20f;
         [SerializeField] private float arriveThreshold = 0.1f;
         [SerializeField] private float repathInterval = 0.4f;
@@ -87,7 +91,9 @@ namespace PrismZone.Enemy
 
         protected override void Tick()
         {
-            if (CanSeePlayer())
+            // Locating is driven by BroadcastController — don't let LOS
+            // re-transition out of it while the broadcast is running.
+            if (Current != State.Locating && CanSeePlayer())
             {
                 _lostSightAt = -1f;
                 SetState(State.Chase);
@@ -96,9 +102,10 @@ namespace PrismZone.Enemy
             switch (Current)
             {
                 case State.Idle:
-                case State.Patrol: TickPatrol(); break;
-                case State.Chase:  TickChase();  break;
-                case State.Return: TickReturn(); break;
+                case State.Patrol:   TickPatrol();   break;
+                case State.Chase:    TickChase();    break;
+                case State.Locating: TickLocating(); break;
+                case State.Return:   TickReturn();   break;
             }
         }
 
@@ -116,6 +123,17 @@ namespace PrismZone.Enemy
             if (dist > visionRange) return false;
 
             Vector2 dir = dist > 0.0001f ? to / dist : _facing;
+
+            // Close-range omnidirectional detection — player standing right
+            // next to the guard is spotted even if behind. Still respects walls
+            // so adjacent rooms don't leak aggro through solid geometry.
+            if (dist <= proximityAggroRadius)
+            {
+                var closeHit = Physics2D.Raycast(transform.position, dir, dist, sightBlockers);
+                return closeHit.collider == null;
+            }
+
+            // Far-range: require player inside the vision cone AND no wall between.
             float dot = Vector2.Dot(_facing.normalized, dir);
             float cosHalf = Mathf.Cos(visionAngleDeg * 0.5f * Mathf.Deg2Rad);
             if (dot < cosHalf) return false;
@@ -156,6 +174,20 @@ namespace PrismZone.Enemy
             }
 
             FollowPath(chaseSpeed);
+        }
+
+        private void TickLocating()
+        {
+            // Broadcast mode (spec §4.3): AVG frozen, player stunned, guard
+            // gets a "room-locate" sweep straight toward the player's known
+            // position. No LOS check — the broadcast IS the tell.
+            if (target == null) return;
+            if (Time.time >= _nextRepathTime)
+            {
+                _nextRepathTime = Time.time + repathInterval;
+                RecomputePath(target.position);
+            }
+            FollowPath(locatingSpeed);
         }
 
         private void TickReturn()
