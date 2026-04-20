@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using PrismZone.Core;
 
@@ -43,11 +44,30 @@ namespace PrismZone.UI
 
         private void HandleReset() => SetVisible(false);
 
+        private float _shownAt;
+
         private void Show(string reason)
         {
             if (titleLabel != null) titleLabel.text = I18nManager.Get("ui.gameover.title");
             if (reasonLabel != null) reasonLabel.text = I18nManager.Get("ui.gameover.reason." + reason);
             SetVisible(true);
+            _shownAt = Time.unscaledTime;
+        }
+
+        private void Update()
+        {
+            // Keyboard / mouse / gamepad fallback — some click-event paths die at
+            // timeScale=0 or when a stale blocker canvas is in the scene. Any
+            // input short-circuits straight to Restart. 0.4s input lock lets the
+            // "caught" animation settle so the player doesn't reflexively skip.
+            if (_group == null || _group.alpha < 0.5f) return;
+            if (Time.unscaledTime - _shownAt < 0.4f) return;
+            var kb = Keyboard.current;
+            var mouse = Mouse.current;
+            bool pressed =
+                (kb != null && kb.anyKey.wasPressedThisFrame) ||
+                (mouse != null && mouse.leftButton.wasPressedThisFrame);
+            if (pressed) GameOverController.Restart();
         }
 
         private void SetVisible(bool on)
