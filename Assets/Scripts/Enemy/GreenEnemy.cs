@@ -274,9 +274,16 @@ namespace PrismZone.Enemy
             return false;
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)  { TryCatch(other); }
+        private void OnTriggerStay2D(Collider2D other)   { TryCatch(other); }
+
+        private void TryCatch(Collider2D other)
         {
-            if (Current != State.Chase) return; // only kill during active pursuit
+            // Kill during any active-hunt state: Chase (saw player), Locating
+            // (broadcast sweep), Alert (heard noise). Skips Idle/Patrol/Return
+            // so brushing past a patrolling guard doesn't game-over on contact.
+            var st = Current;
+            if (st != State.Chase && st != State.Locating && st != State.Alert) return;
             if (!other.CompareTag("Player")) return;
             var pc = other.GetComponent<PrismZone.Player.PlayerController>();
             if (pc != null && pc.IsHidden) return;
