@@ -109,8 +109,42 @@ namespace PrismZone.UI
         {
             var kb = Keyboard.current;
             if (kb == null) return;
-            if (!kb.escapeKey.wasPressedThisFrame) return;
-            HandleEscape();
+            // Esc toggles pause as before.
+            if (kb.escapeKey.wasPressedThisFrame) { HandleEscape(); return; }
+            // Keyboard fallbacks — Unity's new Input System sometimes drops
+            // Button click dispatch at Time.timeScale = 0. Map each pause
+            // action to a dedicated key so players can always control the menu.
+            if (IsOpen)
+            {
+                if (kb.spaceKey.wasPressedThisFrame
+                    || kb.enterKey.wasPressedThisFrame
+                    || kb.numpadEnterKey.wasPressedThisFrame
+                    || kb.rKey.wasPressedThisFrame)                // R = Resume
+                {
+                    Resume();
+                    return;
+                }
+                if (kb.mKey.wasPressedThisFrame)                    // M = Music toggle
+                {
+                    ToggleMusic();
+                    return;
+                }
+                if (kb.sKey.wasPressedThisFrame)                    // S = Settings
+                {
+                    OpenSettings();
+                    return;
+                }
+                if (kb.hKey.wasPressedThisFrame)                    // H = Home (main menu)
+                {
+                    GotoMainMenu();
+                    return;
+                }
+                // Debug: confirm pointer clicks reach the buttons. Any click
+                // fires the standard onClick; if we ALSO see nothing here, the
+                // issue is further upstream (canvas raycaster / blocker).
+                if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+                    Debug.Log("[PauseMenu] mouse click detected at timeScale=" + Time.timeScale);
+            }
         }
 
         private void HandleEscape()
