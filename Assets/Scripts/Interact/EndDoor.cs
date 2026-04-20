@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using PrismZone.Core;
 using PrismZone.Player;
 using PrismZone.UI;
 
@@ -92,8 +93,18 @@ namespace PrismZone.Interact
             _interacted = true;
             if (!string.IsNullOrEmpty(interactNodeId) && DialogueManager.Instance != null)
             {
-                DialogueManager.Instance.ShowById(interactNodeId);
+                DialogueManager.Instance.ShowById(interactNodeId, OnInteractDialogueFinished);
             }
+            else
+            {
+                OnInteractDialogueFinished();
+            }
+        }
+
+        private void OnInteractDialogueFinished()
+        {
+            // T-21 closed → player has escaped. Fire victory flow.
+            VictoryController.TriggerVictory("escaped");
         }
 
         private void ApplySprite()
