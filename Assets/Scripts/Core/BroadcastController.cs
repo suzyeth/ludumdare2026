@@ -104,8 +104,13 @@ namespace PrismZone.Core
         /// <summary>Recorder calls this on T-19 stop. Once disarmed: never broadcasts again.</summary>
         public void DisarmPermanent()
         {
+            if (_disarmed) return;
             _disarmed = true;
-            if (_cycle != null) { StopCoroutine(_cycle); _cycle = null; }
+            // Kill everything: CycleLoop + any TriggerNow-started RunOne + any
+            // nested coroutines. Without StopAllCoroutines, a RunOne mid-yield
+            // between prelude and broadcast audio will still play the loop.
+            StopAllCoroutines();
+            _cycle = null;
             EndBroadcastImmediate();
         }
 
@@ -129,6 +134,8 @@ namespace PrismZone.Core
 
         private IEnumerator RunOne()
         {
+            if (_disarmed) yield break;
+
             // --- Prelude ---
             AudioManager.Instance?.Play(preludeSfx);
             if (!_firstPreludePlayed)
@@ -138,6 +145,7 @@ namespace PrismZone.Core
                     DialogueManager.Instance?.ShowById(firstPreludeNodeId);
             }
             yield return WaitPausedByAvg(preludeDuration);
+            if (_disarmed) { EndBroadcastImmediate(); yield break; }
 
             // --- Broadcast ---
             IsBroadcasting = true;
