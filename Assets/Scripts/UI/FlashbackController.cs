@@ -56,8 +56,8 @@ namespace PrismZone.UI
         [SerializeField] private float blackScreenHoldSeconds = 0.5f;
         [Tooltip("落地撞击音效。SoundCatalog 里挂好对应 id")]
         [SerializeField] private SoundId impactSfx = SoundId.HumanBodyFall;
-        [Tooltip("撞击音效播放后到图 B 出现之间的延迟 (大致 = 音效时长)。0.5–1.0s 常用。")]
-        [SerializeField] private float impactSfxLeadSeconds = 0.7f;
+        [Tooltip("撞击音效播放后的附加停顿 (秒)。默认等音效自然播完再多停 0s。如果想让 B 在音效尾音里出来,调负数(用 Mathf.Max 夹到 0)。")]
+        [SerializeField] private float impactSfxTailSeconds = 0f;
 
         [Header("阶段 4: 图 B 余韵")]
         [Tooltip("图 B 显示并静止多久(秒),最后的情感余韵")]
@@ -142,9 +142,10 @@ namespace PrismZone.UI
             SetMontageAlpha(0f);
             yield return new WaitForSecondsRealtime(blackScreenHoldSeconds);
 
-            // ── 阶段 3b · 落地撞击声,等音效放完 ────────────────────
+            // ── 阶段 3b · 落地撞击声,等音效自然放完再放图 B ─────────
             AudioManager.Instance?.Play(impactSfx);
-            yield return new WaitForSecondsRealtime(impactSfxLeadSeconds);
+            float impactLen = AudioManager.Instance != null ? AudioManager.Instance.GetClipLength(impactSfx) : 0f;
+            yield return new WaitForSecondsRealtime(Mathf.Max(0f, impactLen + impactSfxTailSeconds));
 
             // ── 阶段 4 · 图 B 静止 ────────────────────────────────
             montageImage.sprite = montageFrames[1];

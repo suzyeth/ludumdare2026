@@ -90,6 +90,14 @@ namespace PrismZone.Core
 
         public void StopBgm() => StartCoroutine(CrossFade(null));
 
+        /// <summary>Clip length (seconds) for a sound, or 0 if the id is unmapped / clip missing. Handy for coroutines that want to wait for a one-shot to finish.</summary>
+        public float GetClipLength(SoundId id)
+        {
+            if (catalog == null) return 0f;
+            var e = catalog.Get(id);
+            return (e != null && e.clip != null) ? e.clip.length / Mathf.Max(0.01f, e.pitch) : 0f;
+        }
+
         // --- BGM crossfade ---------------------------------------------------
         private void PlayBgm(SoundCatalog.Entry e)
         {
