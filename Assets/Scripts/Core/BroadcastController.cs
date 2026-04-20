@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using PrismZone.Enemy;
 using PrismZone.UI;
+using System.Collections.Generic;
 
 namespace PrismZone.Core
 {
@@ -36,6 +37,10 @@ namespace PrismZone.Core
         [Tooltip("Optional TSV node to fire on the first broadcast prelude. Leave empty if no tutorial beat is wanted — picking a wrong node (e.g. T-03 which is now the diary pickup) makes the broadcast replay an unrelated story beat.")]
         [SerializeField] private string firstPreludeNodeId = "";
 
+        [Header("Auto-Disarm")]
+        [Tooltip("Any of these dialogue tags finishing permanently disarms the broadcast cycle. Default: T-19 (recorder stop beat). Add more ids to disarm on alternate paths.")]
+        [SerializeField] private List<string> disarmOnDialogueIds = new() { "T-19" };
+
         [Header("Audio (optional)")]
         [SerializeField] private AudioSource broadcastSource;
         [SerializeField] private SoundId preludeSfx = SoundId.BroadcastPrelude;
@@ -44,6 +49,7 @@ namespace PrismZone.Core
         private bool _firstPreludePlayed;
         private bool _disarmed;
         private Coroutine _cycle;
+        private bool _dlgSubscribed;
 
         private void Awake()
         {
@@ -61,12 +67,38 @@ namespace PrismZone.Core
         private void OnEnable()
         {
             if (_cycle == null) _cycle = StartCoroutine(CycleLoop());
+            StartCoroutine(SubscribeDialogueWhenReady());
         }
 
         private void OnDisable()
         {
             if (_cycle != null) { StopCoroutine(_cycle); _cycle = null; }
             IsBroadcasting = false;
+            if (_dlgSubscribed && DialogueManager.Instance != null)
+                DialogueManager.Instance.OnDialogueFinished -= HandleDialogueFinished;
+            _dlgSubscribed = false;
+        }
+
+        private IEnumerator SubscribeDialogueWhenReady()
+        {
+            while (DialogueManager.Instance == null) yield return null;
+            DialogueManager.Instance.OnDialogueFinished -= HandleDialogueFinished;
+            DialogueManager.Instance.OnDialogueFinished += HandleDialogueFinished;
+            _dlgSubscribed = true;
+        }
+
+        private void HandleDialogueFinished(DialogueType type, string tag)
+        {
+            if (_disarmed) return;
+            if (disarmOnDialogueIds == null) return;
+            for (int i = 0; i < disarmOnDialogueIds.Count; i++)
+            {
+                if (tag == disarmOnDialogueIds[i])
+                {
+                    DisarmPermanent();
+                    return;
+                }
+            }
         }
 
         /// <summary>Recorder calls this on T-19 stop. Once disarmed: never broadcasts again.</summary>
