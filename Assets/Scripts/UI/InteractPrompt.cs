@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using PrismZone.Core;
 using PrismZone.Player;
@@ -37,17 +38,37 @@ namespace PrismZone.UI
             _canvas = GetComponentInParent<Canvas>();
             _rt = (RectTransform)transform;
 
+            BindPlayer();
+        }
+
+        private void OnEnable()
+        {
+            // Persistent HUD survives scene loads — rebind to the newly-spawned
+            // Player in each scene instead of polling FindGameObjectWithTag every frame.
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode) => BindPlayer();
+
+        private void BindPlayer()
+        {
             var p = GameObject.FindGameObjectWithTag("Player");
-            if (p != null) _source = p.GetComponent<PlayerInteraction>();
+            _source = p != null ? p.GetComponent<PlayerInteraction>() : null;
         }
 
         private void LateUpdate()
         {
+            // No per-frame Find here — scene-load rebinding handles respawns.
+            // If still null (pre-first-scene or Player missing), hide and bail.
             if (_source == null)
             {
-                var p = GameObject.FindGameObjectWithTag("Player");
-                if (p != null) _source = p.GetComponent<PlayerInteraction>();
-                if (_source == null) return;
+                if (_group != null) _group.alpha = 0f;
+                return;
             }
 
             var target = _source.CurrentTarget;

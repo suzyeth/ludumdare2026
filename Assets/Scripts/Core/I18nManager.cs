@@ -12,21 +12,18 @@ namespace PrismZone.Core
     /// Language switching:
     ///   - <see cref="SetLanguage"/> updates <see cref="CurrentLang"/> + fires the
     ///     <see cref="OnLanguageChanged"/> event so HUDs can re-read.
-    ///   - Default is locked to "en" until a CJK-capable TMP font is wired
-    ///     (LiberationSans SDF lacks Chinese glyphs and will balloon FontEngine memory).
+    ///   - Default is "en"; players switch via the SettingsPanel language button.
     /// </summary>
     public static class I18nManager
     {
         private const string PrefKey = "lang";
-        private const string DefaultLang = "zh";
+        private const string DefaultLang = "en";
 
         public static string CurrentLang { get; private set; } = DefaultLang;
         public static event Action OnLanguageChanged;
 
         public static void Init()
         {
-            // v0.5: default to zh (tsv now contains full Chinese copy).
-            // TMP font must include CJK glyphs — see Assets/Fonts/README for font asset.
             CurrentLang = PlayerPrefs.GetString(PrefKey, DefaultLang);
         }
 

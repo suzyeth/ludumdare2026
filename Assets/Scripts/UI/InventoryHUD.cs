@@ -174,20 +174,15 @@ namespace PrismZone.UI
                 pageIndicator.text = multiPage ? $"{_currentPage + 1}/{maxPage + 1}" : string.Empty;
             }
 
-            // Overflow badge: small "+N" counter for when pagination UI isn't present.
+            // Overflow badge: small "+N" counter for items hidden beyond the current page.
+            // Hidden only when nothing overflows *past* the current page, so the badge
+            // disappears on the last page instead of rendering an empty "+0".
             if (overflowBadge != null)
             {
-                int extras = _visible.Count - pageSize;
-                bool show = extras > 0 && _currentPage == maxPage; // last page: show remainder if we showed the whole bag from page 0
-                // Simpler model: always show total extras beyond page 0 when bag overflows.
-                show = multiPage;
+                int hidden = Mathf.Max(0, _visible.Count - (_currentPage + 1) * pageSize);
+                bool show = multiPage && hidden > 0;
                 overflowBadge.gameObject.SetActive(show);
-                if (show)
-                {
-                    int hidden = _visible.Count - (_currentPage * pageSize + pageSize);
-                    if (hidden < 0) hidden = 0;
-                    overflowBadge.text = hidden > 0 ? $"+{hidden}" : string.Empty;
-                }
+                if (show) overflowBadge.text = $"+{hidden}";
             }
         }
     }

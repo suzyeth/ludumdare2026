@@ -120,9 +120,8 @@ namespace PrismZone.UI
             idx = (idx + 1) % languages.Length;
             var next = languages[idx];
             GameSettings.Language = next;
-            // Apply immediately so any UI open behind the settings panel refreshes
-            // next time it shows text. (i18n is still locked to "en" at runtime
-            // — see I18nManager — but the preference persists for later builds.)
+            // Apply immediately so every LocalizedText on screen re-resolves via
+            // I18nManager.OnLanguageChanged.
             I18nManager.SetLanguage(next);
             ApplyLabels();
         }

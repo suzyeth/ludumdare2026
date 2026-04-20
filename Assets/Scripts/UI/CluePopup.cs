@@ -39,7 +39,12 @@ namespace PrismZone.UI
         {
             if (!IsOpen) return;
             var kb = Keyboard.current;
-            if (kb != null && kb.eKey.wasPressedThisFrame) Close();
+            if (kb == null) return;
+            // Esc + E both dismiss — matches ItemDetailPanel/PasscodePanel/SettingsPanel.
+            // PauseMenu has DefaultExecutionOrder(-10) so its Esc priority chain runs
+            // first and closes us via Close(); our own IsOpen early-return above then
+            // prevents PauseMenu falling through to toggle Pause when we run later.
+            if (kb.eKey.wasPressedThisFrame || kb.escapeKey.wasPressedThisFrame) Close();
         }
 
         public void Show(string i18nKey)

@@ -71,18 +71,14 @@ namespace PrismZone.UI
             yield return Fade(SetOverlayAlpha, 0f, 1f, fadeInSeconds);
 
             // T-16: scared call for father.
-            bool finished = false;
-            DialogueManager.Instance?.ShowById(nodeT16, () => finished = true);
-            while (!finished) yield return null;
+            yield return ShowDialogueAndWait(nodeT16);
 
             // Silhouette descent (placeholder — real art slides a sprite top→bottom).
             AudioManager.Instance?.Play(echoSfx);
             yield return PlaySilhouette();
 
             // T-17: aftermath line.
-            finished = false;
-            DialogueManager.Instance?.ShowById(nodeT17, () => finished = true);
-            while (!finished) yield return null;
+            yield return ShowDialogueAndWait(nodeT17);
 
             // Fade everything back.
             yield return Fade(SetOverlayAlpha, 1f, 0f, fadeOutSeconds);
@@ -91,6 +87,22 @@ namespace PrismZone.UI
             var cb = _onCompleted;
             _onCompleted = null;
             cb?.Invoke();
+        }
+
+        // Wraps DialogueManager.ShowById with a hard guard: if the manager is missing
+        // (e.g. boot order quirk, test scene), we MUST NOT hang in an infinite
+        // `while (!finished)` — that locks the flashback on a black screen forever.
+        private IEnumerator ShowDialogueAndWait(string nodeId)
+        {
+            var mgr = DialogueManager.Instance;
+            if (mgr == null || string.IsNullOrEmpty(nodeId))
+            {
+                Debug.LogWarning($"[Flashback] Skipping node '{nodeId}' — DialogueManager missing.");
+                yield break;
+            }
+            bool finished = false;
+            mgr.ShowById(nodeId, () => finished = true);
+            while (!finished) yield return null;
         }
 
         private IEnumerator PlaySilhouette()

@@ -14,7 +14,13 @@ namespace PrismZone.UI
     ///   2. If ItemDetailPanel open → close it first
     ///   3. If PasscodePanel open → close it first
     ///   4. Otherwise toggle PauseMenu
+    ///
+    /// Runs before default-order modals (CluePopup, ItemDetailPanel, PasscodePanel,
+    /// SettingsPanel) so the priority chain consumes Esc first; otherwise those
+    /// modals' own Esc handlers could close themselves and leave PauseMenu to
+    /// fall through to toggle Pause on the same frame.
     /// </summary>
+    [DefaultExecutionOrder(-10)]
     public class PauseMenu : MonoBehaviour
     {
         public static PauseMenu Instance { get; private set; }

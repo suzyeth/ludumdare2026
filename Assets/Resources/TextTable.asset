@@ -660,7 +660,7 @@ MonoBehaviour:
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
-    followUpId: 
+    followUpId: item.diary.page.2
     triggerMode: 0
     sfx: 
     notes: 
@@ -685,7 +685,7 @@ MonoBehaviour:
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
-    followUpId: 
+    followUpId: item.diary.page.3
     triggerMode: 0
     sfx: 
     notes: 
@@ -710,7 +710,7 @@ MonoBehaviour:
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
-    followUpId: 
+    followUpId: item.diary.page.4
     triggerMode: 0
     sfx: 
     notes: 

@@ -22,3 +22,4 @@ MonoBehaviour:
   - item.diary.page.3
   - item.diary.page.4
   hasDetailPopup: 1
+  showInInventory: 1

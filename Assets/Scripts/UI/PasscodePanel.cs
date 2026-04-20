@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 using PrismZone.Core;
 using PrismZone.Interact;
@@ -49,9 +51,51 @@ namespace PrismZone.UI
         private void Update()
         {
             if (!IsOpen) return;
-            // Esc also closes
-            var kb = UnityEngine.InputSystem.Keyboard.current;
-            if (kb != null && kb.escapeKey.wasPressedThisFrame) Close();
+            var kb = Keyboard.current;
+            if (kb == null) return;
+
+            // Esc closes. Enter submits. Backspace deletes last digit. 0-9 (top row
+            // or numpad) appends. Keyboard-only players can drive the lock without
+            // aiming the mouse at every tile — much better UX than click-only.
+            if (kb.escapeKey.wasPressedThisFrame) { Close(); return; }
+            if (kb.enterKey.wasPressedThisFrame || kb.numpadEnterKey.wasPressedThisFrame)
+            { Submit(); return; }
+            if (kb.backspaceKey.wasPressedThisFrame) { Backspace(); return; }
+
+            for (int d = 0; d < 10; d++)
+            {
+                if (DigitKeyPressed(kb, d)) { PressDigit(d); return; }
+            }
+        }
+
+        // Resolve both the top-row digit and numpad key for a given digit.
+        // Returns true if either was pressed this frame.
+        private static bool DigitKeyPressed(Keyboard kb, int digit)
+        {
+            KeyControl top = digit switch
+            {
+                0 => kb.digit0Key, 1 => kb.digit1Key, 2 => kb.digit2Key, 3 => kb.digit3Key,
+                4 => kb.digit4Key, 5 => kb.digit5Key, 6 => kb.digit6Key, 7 => kb.digit7Key,
+                8 => kb.digit8Key, 9 => kb.digit9Key,
+                _ => null
+            };
+            KeyControl pad = digit switch
+            {
+                0 => kb.numpad0Key, 1 => kb.numpad1Key, 2 => kb.numpad2Key, 3 => kb.numpad3Key,
+                4 => kb.numpad4Key, 5 => kb.numpad5Key, 6 => kb.numpad6Key, 7 => kb.numpad7Key,
+                8 => kb.numpad8Key, 9 => kb.numpad9Key,
+                _ => null
+            };
+            return (top != null && top.wasPressedThisFrame)
+                || (pad != null && pad.wasPressedThisFrame);
+        }
+
+        private void Backspace()
+        {
+            if (_entered.Length == 0) return;
+            _entered = _entered.Substring(0, _entered.Length - 1);
+            if (errorLabel != null) errorLabel.text = string.Empty;
+            RefreshDisplay();
         }
 
         private void OnEnable() { PasscodeDoor.OnRequestPasscode += Open; }

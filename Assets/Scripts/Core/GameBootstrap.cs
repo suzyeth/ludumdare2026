@@ -31,10 +31,11 @@ namespace PrismZone.Core
             _instance = this;
             DontDestroyOnLoad(gameObject);
 
-            // Wipe stale 'lang' pref so we never accidentally pick up Chinese before
-            // a CJK-capable TMP font is in place (FontEngine will OOM the editor).
-            I18nManager.ResetPrefs();
             I18nManager.Init();
+            // Sync runtime language with the persistent GameSettings value — the
+            // SettingsPanel writes to both, but the two PlayerPrefs keys are distinct,
+            // so a cold-start after a language switch still needs this alignment.
+            I18nManager.SetLanguage(GameSettings.Language);
 
             if (enableInputAsset && InputSystem.actions != null)
             {

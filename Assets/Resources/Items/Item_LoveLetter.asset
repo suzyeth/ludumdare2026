@@ -19,3 +19,4 @@ MonoBehaviour:
   pageKeys:
   - item.love_letter.page.1
   hasDetailPopup: 1
+  showInInventory: 1
