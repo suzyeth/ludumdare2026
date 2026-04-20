@@ -179,7 +179,7 @@ MonoBehaviour:
   promptKey: ui.pickup.prompt
   destroyOnPickup: 1
   oneShotClue: 1
-  dialogueNodeId: T-12
+  dialogueNodeId: item.key.stairs_4f.page.1
 --- !u!61 &610566112145239542
 BoxCollider2D:
   m_ObjectHideFlags: 0

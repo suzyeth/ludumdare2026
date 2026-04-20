@@ -28,7 +28,9 @@
       "Bash(awk 'NR==15||NR==16||NR==40' Assets/Config/text_table.tsv)",
       "Bash(git log *)",
       "Bash(grep -rn \"public static string Get\\\\|Replace.*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\" Assets/Scripts/Core/I18nManager.cs)",
-      "Bash(awk *)"
+      "Bash(awk *)",
+      "Bash(python -c ' *)",
+      "Bash(python *)"
     ]
   }
 }

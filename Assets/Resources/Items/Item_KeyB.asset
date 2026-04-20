@@ -16,6 +16,7 @@ MonoBehaviour:
   nameKey: item.key.stairs_4f
   worldIcon: {fileID: 21300000, guid: 1bc639989a86b3a4faa351c555e72217, type: 3}
   bigIcon: {fileID: 21300000, guid: 1bc639989a86b3a4faa351c555e72217, type: 3}
-  pageKeys: []
-  hasDetailPopup: 0
+  pageKeys:
+  - item.key.stairs_4f.page.1
+  hasDetailPopup: 1
   showInInventory: 1

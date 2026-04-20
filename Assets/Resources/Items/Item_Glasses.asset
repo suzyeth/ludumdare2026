@@ -16,6 +16,7 @@ MonoBehaviour:
   nameKey: item.glasses
   worldIcon: {fileID: 21300000, guid: b947168b079334e48854252356e3e14c, type: 3}
   bigIcon: {fileID: 21300000, guid: b947168b079334e48854252356e3e14c, type: 3}
-  pageKeys: []
-  hasDetailPopup: 0
+  pageKeys:
+  - item.glasses.page.1
+  hasDetailPopup: 1
   showInInventory: 1
