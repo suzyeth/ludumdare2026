@@ -30,7 +30,8 @@
       "Bash(grep -rn \"public static string Get\\\\|Replace.*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\" Assets/Scripts/Core/I18nManager.cs)",
       "Bash(awk *)",
       "Bash(python -c ' *)",
-      "Bash(python *)"
+      "Bash(python *)",
+      "Bash(grep -v \"^[^:]*:[[:space:]]*$\")"
     ]
   }
 }

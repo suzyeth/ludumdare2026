@@ -179,7 +179,7 @@ MonoBehaviour:
   promptKey: ui.pickup.prompt
   destroyOnPickup: 1
   oneShotClue: 1
-  dialogueNodeId: T-05
+  dialogueNodeId: item.glasses.page.1
 --- !u!61 &8834698605455397237
 BoxCollider2D:
   m_ObjectHideFlags: 0

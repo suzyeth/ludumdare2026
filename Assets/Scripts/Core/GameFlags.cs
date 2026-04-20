@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace PrismZone.Core
 {
@@ -86,17 +85,16 @@ namespace PrismZone.Core
         /// <summary>
         /// Resets all flags. Called on New Game / death restart so the next run
         /// doesn't see prior progress. Does NOT clear OnChanged subscriptions.
+        /// Intentionally SILENT — firing OnChanged for every cleared key during a
+        /// bulk reset would re-invoke OnState DialogueTrigger subscribers (e.g.
+        /// any re-readable node with no condition) in the middle of the reset,
+        /// which could queue a popup on the main menu frame. Subscribers that
+        /// need to react to "fresh run" should watch the scene-load instead.
         /// </summary>
         public static void Clear()
         {
-            // Iterate keys snapshot so the OnChanged hook can call back into Set/Clear
-            // mid-loop without InvalidOperationException.
-            var boolKeys = _bools.Keys.ToArray();
-            var intKeys = _ints.Keys.ToArray();
             _bools.Clear();
             _ints.Clear();
-            foreach (var k in boolKeys) OnChanged?.Invoke(k);
-            foreach (var k in intKeys) OnChanged?.Invoke(k);
         }
 
         /// <summary>Read-only snapshot for save/debug. Returns a copy.</summary>

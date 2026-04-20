@@ -55,6 +55,11 @@ namespace PrismZone.Interact
                 if (dialogueAlready || itemAlready)
                 {
                     _consumed = true;
+                    // Disable the trigger collider before Destroy so any same-frame
+                    // OnTrigger callbacks (player already overlapping at spawn) can't
+                    // fire against the dying pickup. Destroy is end-of-frame; the
+                    // component disable is immediate.
+                    col.enabled = false;
                     Destroy(gameObject);
                 }
             }

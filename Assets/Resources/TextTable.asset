@@ -121,11 +121,11 @@ MonoBehaviour:
     repeatable: 0
     cantSkip: 1
     autoHideSec: 0
-    followUpId: item.glasses.page.1
+    followUpId: 
     triggerMode: 0
     sfx: 
-    notes: "Cabinet_Locked \u5F00\u9501 UnityEvent \u2192 Fire() \xB7 \u94FE\u5230
-      glasses READ"
+    notes: "Cabinet_Locked \u5F00\u9501\u77AC\u95F4 KeyDoor.openDialogueNodeId=T-05
+      \u89E6\u53D1"
     requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
@@ -148,12 +148,11 @@ MonoBehaviour:
     followUpId: 
     triggerMode: 4
     sfx: 
-    notes: "\u9605\u8BFB\u773C\u955CREAD\u540E\u5F39\u51FA"
-    requireFlagsRaw: dialogue.item.glasses.desc.triggered
+    notes: "\u773C\u955C READ \u540E\u94FE\u8FC7\u6765 \xB7 dialogue.item.glasses.page.1.triggered"
+    requireFlagsRaw: 
     forbidFlagsRaw: 
     setFlagsOnFireRaw: 
-    requireFlags:
-    - dialogue.item.glasses.desc.triggered
+    requireFlags: []
     forbidFlags: []
     setFlagsOnFire: []
   - id: T-07
@@ -511,7 +510,7 @@ MonoBehaviour:
   - id: item.glasses.page.1
     category: 1
     avgType: 2
-    zh: "\u4E00\u526F\u77EB\u6B63\u989C\u8272\u7684\u773C\u775B,\u6234\u4E0A\u773C\u955C\u4F3C\u4E4E\u53EF\u4EE5\u770B\u5230\u4E00\u4E9B\u4E0D\u4E00\u6837\u7684\u4E1C\u897F\u2026\u2026\\n\u6309Q\u952E\u5207\u6362\u955C\u7247\u989C\u8272"
+    zh: "\u4E00\u526F\u77EB\u6B63\u989C\u8272\u7684\u773C\u775B\uFF0C\\n\u6234\u4E0A\u773C\u955C\u4F3C\u4E4E\u53EF\u4EE5\u770B\u5230\u4E00\u4E9B\u4E0D\u4E00\u6837\u7684\u4E1C\u897F\u2026\u2026\\n\u6309Q\u952E\u5207\u6362\u955C\u7247\u989C\u8272"
     en: 
     zh_red: 
     en_red: 
@@ -521,7 +520,7 @@ MonoBehaviour:
     repeatable: 1
     cantSkip: 0
     autoHideSec: 0
-    followUpId: 
+    followUpId: T-06
     triggerMode: 0
     sfx: 
     notes: 

@@ -3,8 +3,8 @@ T-01	dialogue	NAR	又叫我打扫卫生……每次都是我……\n凭什么啊
 T-02	dialogue	NAR	这是什么?小纸条破破烂烂的,好像有字?						None	false	true	0	item.old_note.page.1	OnPickup		捡起破旧纸条(Pickup_OldNote) · 链到 old_note READ			
 T-03	dialogue	NAR	扫扫扫……\n欸,这是什么?\n一本……日记?|好奇怪,这里怎么会有一本日记?\n打开看看……						None	false	true	0	item.diary.page.1	OnPickup		捡起日记(Pickup_Diary) · 链到 diary READ			
 T-04	dialogue	NAR	好可怕……欸钥匙？\n好像是从日记本里掉出来的……|是……2楼储物柜的钥匙。\n没办法了……去2楼看看吧。						None	false	true	0		OnState		阅读日记READ后弹出	dialogue.item.diary.page.1.triggered		
-T-05	dialogue	NAR	咳咳……好多灰。\n这是什么东西？一个3D眼镜？|不对，这是红色和绿色的镜片？\n好奇怪，带上看看吧。						None	false	true	0	item.glasses.page.1	OnExternal		Cabinet_Locked 开锁 UnityEvent → Fire() · 链到 glasses READ			
-T-06	dialogue	NAR	不一样的东西……\n不会是……那个校园怪谈吧……\n跳楼的女生……|戴上眼镜到处走走好了，\n总要想办法出去。						Any	false	true	0		OnState		阅读眼镜READ后弹出	dialogue.item.glasses.desc.triggered		
+T-05	dialogue	NAR	咳咳……好多灰。\n这是什么东西？一个3D眼镜？|不对，这是红色和绿色的镜片？\n好奇怪，带上看看吧。						None	false	true	0		OnExternal		Cabinet_Locked 开锁瞬间 KeyDoor.openDialogueNodeId=T-05 触发			
+T-06	dialogue	NAR	不一样的东西……\n不会是……那个校园怪谈吧……\n跳楼的女生……|戴上眼镜到处走走好了，\n总要想办法出去。						Any	false	true	0		OnState		眼镜 READ 后链过来 · dialogue.item.glasses.page.1.triggered
 T-07	dialogue	NAR	原来是情书啊，搞这么神秘。\n易森不是前几届那个风云校草么，\n居然会给别人写情书……|可是和诅咒有什么关系？\n去4楼看看吧？|好像四楼封起来蛮久了，\n也许会有什么线索。						Green	false	true	0		OnState		LoveLetter READ 后链过来 · dialogue.item.love_letter.page.1.triggered · 戴绿镜时 READ 才可读
 T-08	dialogue	NAR	居然上锁了。\n怎么看也不像是原来的门锁，|一点都不匹配，看样子快要生锈了。\n钥匙应该还藏在这层楼的某处。						Red	false	true	0		OnInteract		4F 楼梯门按E时触发 · 戴红镜 · 未持 stairs_4f 钥匙			
 T-09	dialogue	NAR	藏在这么奇怪的地方……\n以前好像没见过呀……						Red	false	true	0		OnState		note_01 READ 后链过来 · dialogue.item.mock_note_01.page.1.triggered
@@ -20,7 +20,7 @@ T-19	dialogue	NAR	……该结束这一切了。\n笑声和哭泣声都停止了
 T-20	dialogue	NAR	追杀我的那个怪人！！！！\n他看起来……在哭？\n是保安叔叔！！\n他是知彩的爸爸！|为了寻找知彩跳楼自杀的真相，\n才一直游荡在这幢教学楼里……\n他看起来……也要消失了……						Any	false	true	0		OnState		保安进入 Stopped 状态后触发	enemy.guard.stopped		
 T-21	dialogue	NAR	居然已经天黑了啊。\n经历过刚才那些,走夜路都不怎么可怕了。 |(看手表)\n……不好!要被妈妈骂了, 快走吧!						Any	false	true	0		OnInteract		按E 1楼大门 · onDialogueFinished → VictoryPanel.Show escaped			
 item.glasses	item		颜色矫正眼镜						Any	true	false	0		Manual					
-item.glasses.page.1	item	READ	一副矫正颜色的眼睛,戴上眼镜似乎可以看到一些不一样的东西……\n按Q键切换镜片颜色						Any	true	false	0		Manual					
+item.glasses.page.1	item	READ	一副矫正颜色的眼睛，\n戴上眼镜似乎可以看到一些不一样的东西……\n按Q键切换镜片颜色						Any	true	false	0	T-06	Manual
 item.key.storage	item		储藏柜钥匙						Any	true	false	0		Manual					
 item.key.storage.page.1	item	READ	可能是她的钥匙……她的储藏柜会在哪里呢?						Any	true	false	0		Manual					
 item.key.stairs_4f	item		四楼钥匙						Red	true	false	0		Manual					
