@@ -246,6 +246,7 @@ MonoBehaviour:
   dadRevealAnchor: {fileID: 592699641}
   dadNpc: {fileID: 1440396146}
   hideNpcAfterT20: 1
+  hideAllEnemiesAfterT20: 1
 --- !u!4 &328840523
 Transform:
   m_ObjectHideFlags: 0
@@ -320,7 +321,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e459055462516324dab98b92e87de4ca, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
