@@ -23,6 +23,16 @@ namespace PrismZone.Core
         private static int _claimedFrameForScene = -1;
         private static int _claimedScene = -1;
 
+        /// <summary>
+        /// RunState.ResetForNewRun hook: clears the static claim so the next scene's
+        /// default spawn point isn't skipped because a prior run already "claimed" it.
+        /// </summary>
+        public static void ResetStaticState()
+        {
+            _claimedFrameForScene = -1;
+            _claimedScene = -1;
+        }
+
         private void OnEnable()
         {
             // Reset on fresh scene load so the next scene starts clean.

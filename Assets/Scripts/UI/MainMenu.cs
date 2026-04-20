@@ -62,6 +62,11 @@ namespace PrismZone.UI
 
         private void StartGame()
         {
+            // Scrub persistent singletons before the first gameplay scene loads so
+            // a fresh run doesn't inherit flags/inventory from a prior play-through.
+            // Without this, Pickup.Awake / DialogueTrigger.Awake self-lock would
+            // instantly delete every pickup and pre-fire every one-shot trigger.
+            RunState.ResetForNewRun();
             SceneManager.LoadSceneAsync(firstScene);
         }
 

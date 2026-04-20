@@ -74,6 +74,20 @@ namespace PrismZone.UI
             return removed;
         }
 
+        /// <summary>
+        /// Wipe every slot. Used by RunState.ResetForNewRun so a fresh run doesn't
+        /// inherit the previous run's bag. Also clears the matching inventory.has.*
+        /// flags so Pickup.Awake's self-lock doesn't treat old items as still held.
+        /// </summary>
+        public void Clear()
+        {
+            if (Slots.Count == 0) return;
+            var snapshot = Slots.ToArray();
+            Slots.Clear();
+            foreach (var id in snapshot) WriteFlag(id, false);
+            OnChanged?.Invoke();
+        }
+
         // Strip "item." prefix so flag matches FlagKeys.Inventory.Has_X (which the
         // FlagKeysGenerator builds from baseId only). Items not following the
         // "item.X" convention are written as-is so legacy callers still flag.
