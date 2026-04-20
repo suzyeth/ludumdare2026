@@ -46,6 +46,17 @@ namespace PrismZone.Interact
 
         private void Start() { ApplySprite(); }
 
+        private void OnDestroy()
+        {
+            // Release the occupant so a cabinet destroyed mid-hide (scene
+            // teardown, object pool, enemy catch triggers a reload) doesn't
+            // leave the player permanently frozen with IsInCabinet/IsHidden on.
+            if (_occupant == null) return;
+            _occupant.IsHidden = false;
+            _occupant.IsInCabinet = false;
+            _occupant = null;
+        }
+
         public bool CanInteract(GameObject who)
         {
             var ctl = who.GetComponent<PlayerController>();

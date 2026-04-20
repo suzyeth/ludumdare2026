@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using PrismZone.Core;
 
@@ -12,7 +13,7 @@ namespace PrismZone.UI
     ///
     /// Visual stack:
     ///   - <see cref="blackOverlay"/>  fades 0 → 1 to cover gameplay
-    ///   - <see cref="silhouette"/>    anchored stretch-both, renders the montage sprites
+    ///   - <see cref="montageImage"/>  anchored stretch-both, renders the montage sprites
     ///
     /// All timing uses unscaled time so a paused game doesn't freeze the anim.
     /// </summary>
@@ -23,7 +24,8 @@ namespace PrismZone.UI
         [Header("Visuals")]
         [SerializeField] private Image blackOverlay;
         [Tooltip("Full-screen image that renders the montage sprites. Its RectTransform should be stretch-both with all insets at 0.")]
-        [SerializeField] private Image silhouette;
+        [FormerlySerializedAs("silhouette")]
+        [SerializeField] private Image montageImage;
         [SerializeField] private float fadeInSeconds = 0.5f;
         [SerializeField] private float fadeOutSeconds = 0.6f;
 
@@ -64,8 +66,11 @@ namespace PrismZone.UI
         {
             if (Instance != null && Instance != this) { Destroy(gameObject); return; }
             Instance = this;
+            // Montage image uses white tint so the sprite's own colors render
+            // untouched — RGB-black would multiply the sprite to all-black even
+            // at alpha=1. Only alpha is tweened at runtime.
+            if (montageImage != null) montageImage.color = new Color(1f, 1f, 1f, 0f);
             SetOverlayAlpha(0f);
-            SetSilhouetteAlpha(0f);
         }
 
         private void OnDestroy() { if (Instance == this) Instance = null; }
@@ -85,25 +90,25 @@ namespace PrismZone.UI
         {
             _running = true;
 
-            if (montageFrames == null || montageFrames.Length < 2 || silhouette == null)
+            if (montageFrames == null || montageFrames.Length < 2 || montageImage == null)
             {
-                Debug.LogWarning("[Flashback] PlayFrames called but montageFrames needs 2 sprites + silhouette wired.");
+                Debug.LogWarning("[Flashback] PlayFrames called but montageFrames needs 2 sprites + montageImage wired.");
                 _running = false;
                 _onCompleted?.Invoke();
                 _onCompleted = null;
                 yield break;
             }
 
-            var rt = (RectTransform)silhouette.transform;
+            var rt = (RectTransform)montageImage.transform;
             Vector2 origin = rt.anchoredPosition;
 
             // ── t=0.00s · 黑屏淡入 ────────────────────────────────
             yield return Fade(SetOverlayAlpha, 0f, 1f, fadeInSeconds);
 
             // ── t=0.50s · 图 A 静止 0.6s ──────────────────────────
-            silhouette.sprite = montageFrames[0];
+            montageImage.sprite = montageFrames[0];
             rt.anchoredPosition = origin;
-            SetSilhouetteAlpha(1f);
+            SetMontageAlpha(1f);
             yield return new WaitForSecondsRealtime(imageAStaticSeconds);
 
             // ── t=1.10s · 图 A 抖动爆发 × N · 每次 FlashEcho ──────
@@ -123,17 +128,17 @@ namespace PrismZone.UI
             rt.anchoredPosition = origin;
 
             // ── t≈1.40s · 黑屏 + 落地撞击声 ───────────────────────
-            SetSilhouetteAlpha(0f);
+            SetMontageAlpha(0f);
             AudioManager.Instance?.Play(impactSfx);
             yield return new WaitForSecondsRealtime(blackScreenHoldSeconds);
 
             // ── t≈1.65s · 图 B 静止 1.2s ──────────────────────────
-            silhouette.sprite = montageFrames[1];
-            SetSilhouetteAlpha(1f);
+            montageImage.sprite = montageFrames[1];
+            SetMontageAlpha(1f);
             yield return new WaitForSecondsRealtime(imageBStaticSeconds);
 
             // ── t≈2.85s · 淡出 ────────────────────────────────────
-            SetSilhouetteAlpha(0f);
+            SetMontageAlpha(0f);
             yield return Fade(SetOverlayAlpha, 1f, 0f, fadeOutSeconds);
 
             _running = false;
@@ -162,10 +167,12 @@ namespace PrismZone.UI
             blackOverlay.raycastTarget = a > 0.01f;
         }
 
-        private void SetSilhouetteAlpha(float a)
+        private void SetMontageAlpha(float a)
         {
-            if (silhouette == null) return;
-            var c = silhouette.color; c.a = a; silhouette.color = c;
+            if (montageImage == null) return;
+            // Force white tint so the sprite's own colors come through even if
+            // someone authored a black tint in the prefab.
+            montageImage.color = new Color(1f, 1f, 1f, a);
         }
     }
 }

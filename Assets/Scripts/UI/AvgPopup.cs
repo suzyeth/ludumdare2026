@@ -91,10 +91,19 @@ namespace PrismZone.UI
 
             // Cache every TMP_Text + its authored font so we can swap fonts per
             // language and restore cleanly without losing each label's original.
+            // NOTE: cached once in Awake — if a designer adds a TMP_Text child
+            // at runtime (dynamic header/VFX label), call RecacheLabels() from
+            // the spawner so the font swap picks it up.
+            RecacheLabels();
+        }
+
+        public void RecacheLabels()
+        {
             _allLabels = GetComponentsInChildren<TMP_Text>(true);
             _originalFonts = new TMP_FontAsset[_allLabels.Length];
             for (int i = 0; i < _allLabels.Length; i++)
                 _originalFonts[i] = _allLabels[i] != null ? _allLabels[i].font : null;
+            ApplyLanguageFont();
         }
 
         private void OnEnable()

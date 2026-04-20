@@ -706,7 +706,7 @@ RectTransform:
   m_GameObject: {fileID: 396700867229215229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5564356067157866091}
@@ -731,19 +731,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.UI.FlashbackController
   blackOverlay: {fileID: 9180282369470579460}
-  silhouette: {fileID: 3871650482792268174}
-  fadeInSeconds: 0.5
-  fadeOutSeconds: 0.6
+  montageImage: {fileID: 3871650482792268174}
+  fadeInSeconds: 0.8
+  fadeOutSeconds: 1
   echoSfx: 64
   montageFrames: []
-  imageAStaticSeconds: 0.6
-  jitterBurstCount: 3
-  jitterInterval: 0.1
+  imageAStaticSeconds: 2.5
+  jitterBurstCount: 5
+  jitterInterval: 0.12
   frameJitter: 4
   playEchoOnJitter: 1
-  blackScreenHoldSeconds: 0.25
+  blackScreenHoldSeconds: 0.5
   impactSfx: 65
-  imageBStaticSeconds: 1.2
+  imageBStaticSeconds: 3.5
 --- !u!1 &489081747708747265
 GameObject:
   m_ObjectHideFlags: 0
@@ -9963,7 +9963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
