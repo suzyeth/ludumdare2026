@@ -32,6 +32,12 @@ namespace PrismZone.UI
         [Tooltip("FLASH only: minimum seconds the popup must be on-screen before primary input can advance it. Auto-advances after this when typewriter is finished.")]
         [SerializeField] private float minDisplaySeconds = 0f;
 
+        [Header("Page Nav (optional, READ)")]
+        [Tooltip("Button hidden on first page and single-page popups; advances to the next page when clicked.")]
+        [SerializeField] private UnityEngine.UI.Button nextPageButton;
+        [Tooltip("Button hidden on first page and single-page popups; goes back one page when clicked.")]
+        [SerializeField] private UnityEngine.UI.Button prevPageButton;
+
         private CanvasGroup _group;
         private string[] _pages;
         private int _pageIdx;
@@ -49,6 +55,37 @@ namespace PrismZone.UI
             if (_group == null) _group = gameObject.AddComponent<CanvasGroup>();
             SetVisible(false);
             if (typewriter == null) typewriter = GetComponentInChildren<TypewriterText>();
+            if (nextPageButton != null) nextPageButton.onClick.AddListener(NextPage);
+            if (prevPageButton != null) prevPageButton.onClick.AddListener(PrevPage);
+        }
+
+        /// <summary>Button-driven advance. Skips the typewriter on the current page if still rolling; otherwise moves forward one page (or closes on the last page).</summary>
+        public void NextPage()
+        {
+            if (!IsOpen) return;
+            if (typewriter != null && typewriter.IsRolling)
+            {
+                if (skippable) typewriter.CompleteImmediately();
+                return;
+            }
+            if (_pages != null && _pageIdx < _pages.Length - 1)
+            {
+                _pageIdx++;
+                RenderCurrentPage();
+            }
+            else
+            {
+                Close();
+            }
+        }
+
+        /// <summary>Button-driven retreat. No-op on the first page. Does not re-open closed popups.</summary>
+        public void PrevPage()
+        {
+            if (!IsOpen) return;
+            if (_pages == null || _pageIdx <= 0) return;
+            _pageIdx--;
+            RenderCurrentPage();
         }
 
         /// <summary>Single-page show. Text is the resolved (not i18n) string.</summary>
@@ -119,8 +156,9 @@ namespace PrismZone.UI
 
                 if (cancelPressed && !skippable) return false;
 
-                // Advance: next page for READ, otherwise close.
-                if (type == DialogueType.READ && _pageIdx < _pages.Length - 1)
+                // Advance to next page if any remain; otherwise close. Works for
+                // any popup type whose TSV cell has '|' page breaks (NAR/READ/TIP).
+                if (_pages != null && _pageIdx < _pages.Length - 1)
                 {
                     _pageIdx++;
                     RenderCurrentPage();
@@ -148,9 +186,18 @@ namespace PrismZone.UI
             if (typewriter != null) typewriter.Play(text);
             else bodyLabel.text = text;
 
+            bool multiPage = _pages != null && _pages.Length > 1;
             if (pageCounterLabel != null)
-                pageCounterLabel.text = (_pages != null && _pages.Length > 1)
-                    ? $"{_pageIdx + 1}/{_pages.Length}" : string.Empty;
+                pageCounterLabel.text = multiPage ? $"{_pageIdx + 1}/{_pages.Length}" : string.Empty;
+
+            // Hide buttons on single-page popups entirely; on multi-page, hide the
+            // nav arrow that has nothing to go to (no "previous" on page 0, no
+            // "next" past the last page) — the primary input and close button
+            // still work, so this is purely a visual hint.
+            if (prevPageButton != null)
+                prevPageButton.gameObject.SetActive(multiPage && _pageIdx > 0);
+            if (nextPageButton != null)
+                nextPageButton.gameObject.SetActive(multiPage && _pageIdx < _pages.Length - 1);
         }
 
         private void SetVisible(bool on)

@@ -1,7 +1,7 @@
 id	category	avg_type	zh	en	zh_red	en_red	zh_green	en_green	filter_req	repeatable	cant_skip	auto_hide_sec	follow_up_id	trigger_mode	sfx	notes	require_flags	forbid_flags	set_flags_on_fire
 T-01	dialogue	NAR	又叫我打扫卫生……每次都是我……凭什么啊……\n算了,早点弄完回家吧,太晚妈妈该担心了						None	false	true	0		OnEnter		开局进入游戏弹出 · 开场独白 · 不可跳过			
 T-02	dialogue	NAR	这是什么?小纸条破破烂烂的,好像有字?						None	false	true	0	item.old_note.page.1	OnPickup		捡起破旧纸条(Pickup_OldNote) · 链到 old_note READ			
-T-03	dialogue	NAR	扫扫扫……\n欸,这是什么?\n一本……日记?\n好奇怪,这里怎么会有一本日记?打开看看……						None	false	true	0	item.diary.page.1	OnPickup		捡起日记(Pickup_Diary) · 链到 diary READ			
+T-03	dialogue	NAR	扫扫扫……\n欸,这是什么?\n一本……日记?|好奇怪,这里怎么会有一本日记?\n打开看看……						None	false	true	0	item.diary.page.1	OnPickup		捡起日记(Pickup_Diary) · 链到 diary READ			
 T-04	dialogue	NAR	好可怕……欸钥匙?好像是从日记本里掉出来的……\n是……2楼储物柜的钥匙。\n没办法了……去2楼看看吧。						None	false	true	0		OnState		阅读日记READ后弹出	dialogue.item.diary.page.1.triggered		
 T-05	dialogue	NAR	咳咳…… 好多灰。这是什么东西?一个3D眼镜?\n不对,这是红色和绿色的镜片?好奇怪\n带上看看吧。						None	false	true	0	item.glasses.page.1	OnExternal		Cabinet_Locked 开锁 UnityEvent → Fire() · 链到 glasses READ			
 T-06	dialogue	NAR	不一样的东西……\n不会是……那个校园怪谈吧……跳楼的女生……\n戴上眼镜到处走走好了,总要想办法出去。						Any	false	true	0		OnState		阅读眼镜READ后弹出	dialogue.item.glasses.desc.triggered		
@@ -79,7 +79,8 @@ ui.cabinet.exit	ui		E 离开	E to leave					Any	true	false	0		Manual
 ui.pickup.prompt	ui		E 拾取	E to pick up					Any	true	false	0		Manual					
 ui.interact.prompt	ui		E 交互	E to interact					Any	true	false	0		Manual					
 ui.clue.dismiss	ui		E 关闭	E to close					Any	true	false	0		Manual					
-ui.door.locked	ui		门被锁住了 — 需要钥匙	The door is locked - you need a key.					Any	true	false	0		Manual					
+ui.door.locked	ui		门被锁住了 — 需要钥匙	The door is locked - you need a key.					Any	true	false	0		Manual
+ui.door.wrong_key	ui		这把钥匙打不开这个锁	This key doesn't fit this lock.					Any	true	false	0		Manual
 ui.door.need_passcode	ui		门锁着 — 输入密码	Locked - enter passcode.					Any	true	false	0		Manual					
 ui.door.open	ui		门开着。	The door is open.					Any	true	false	0		Manual					
 ui.passcode.title	ui		输入 4 位密码	Enter 4-digit code					Any	true	false	0		Manual					
