@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Interact.FlagVisibility
   requireFlags:
-  - dialogue.item.diary.page.1.triggered
+  - dialogue.item.diary.page.4.triggered
   forbidFlags: []
   mode: 2
   sprites: []

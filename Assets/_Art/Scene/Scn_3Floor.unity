@@ -18725,7 +18725,7 @@ MonoBehaviour:
   oneShot: 1
   condition:
     requireAll:
-    - dialogue.item.diary.page.1.triggered
+    - dialogue.item.diary.page.4.triggered
     forbidAll: []
     requireAny: []
   titleKey: 
