@@ -150,7 +150,7 @@ MonoBehaviour:
   nextPageButton: {fileID: 0}
   prevPageButton: {fileID: 0}
   closeButton: {fileID: 0}
-  englishFontAsset: {fileID: 11400000, guid: 3682f27b44c80bb4eb12fe4ca07d0e58, type: 2}
+  englishFontAsset: {fileID: 0}
   continueHintKey: ui.popup.next_hint
   closeHintKey: ui.popup.close_hint
   prevPageKey: ui.popup.prev_page
