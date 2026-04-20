@@ -49,6 +49,7 @@ namespace PrismZone.Core
         private bool _firstPreludePlayed;
         private bool _disarmed;
         private Coroutine _cycle;
+        private Coroutine _runOne;
         private bool _dlgSubscribed;
 
         private void Awake()
@@ -106,11 +107,12 @@ namespace PrismZone.Core
         {
             if (_disarmed) return;
             _disarmed = true;
-            // Kill everything: CycleLoop + any TriggerNow-started RunOne + any
-            // nested coroutines. Without StopAllCoroutines, a RunOne mid-yield
-            // between prelude and broadcast audio will still play the loop.
-            StopAllCoroutines();
-            _cycle = null;
+            // Stop only the broadcast coroutines — NOT SubscribeDialogueWhenReady,
+            // which may still be waiting on DialogueManager.Instance. Killing it
+            // would drop the auto-disarm subscription entirely if a future reset
+            // ever re-enabled this controller.
+            if (_cycle  != null) { StopCoroutine(_cycle);  _cycle  = null; }
+            if (_runOne != null) { StopCoroutine(_runOne); _runOne = null; }
             EndBroadcastImmediate();
         }
 
@@ -118,7 +120,15 @@ namespace PrismZone.Core
         public void TriggerNow()
         {
             if (_disarmed || IsBroadcasting) return;
-            StartCoroutine(RunOne());
+            // Track the handle so DisarmPermanent can stop it cleanly instead
+            // of nuking every coroutine on the component.
+            _runOne = StartCoroutine(RunOneTracked());
+        }
+
+        private IEnumerator RunOneTracked()
+        {
+            yield return RunOne();
+            _runOne = null;
         }
 
         private IEnumerator CycleLoop()

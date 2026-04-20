@@ -64,9 +64,17 @@ namespace PrismZone.UI
             if (Time.unscaledTime - _shownAt < 0.4f) return;
             var kb = Keyboard.current;
             var mouse = Mouse.current;
-            bool pressed =
-                (kb != null && kb.anyKey.wasPressedThisFrame) ||
-                (mouse != null && mouse.leftButton.wasPressedThisFrame);
+            // Accept only deliberate confirm-style inputs so a player still
+            // holding WASD through the catch animation doesn't reflex-skip.
+            bool pressed = mouse != null && mouse.leftButton.wasPressedThisFrame;
+            if (!pressed && kb != null)
+            {
+                pressed = kb.spaceKey.wasPressedThisFrame
+                       || kb.enterKey.wasPressedThisFrame
+                       || kb.numpadEnterKey.wasPressedThisFrame
+                       || kb.rKey.wasPressedThisFrame
+                       || kb.escapeKey.wasPressedThisFrame;
+            }
             if (pressed) GameOverController.Restart();
         }
 

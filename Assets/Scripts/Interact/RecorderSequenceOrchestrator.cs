@@ -50,6 +50,18 @@ namespace PrismZone.Interact
             while (DialogueManager.Instance == null) yield return null;
             DialogueManager.Instance.OnDialogueFinished += HandleFinished;
             _subscribed = true;
+
+            // Cross-scene / late-bind recovery: if the pickup READ already
+            // fired before this orchestrator was alive (scene load after
+            // pickup, hot-reload during testing), the event is gone. Peek at
+            // the persistent GameFlag and kick the chain manually.
+            if (!_fired
+                && !string.IsNullOrEmpty(pickupReadNodeId)
+                && GameFlags.Get($"dialogue.{pickupReadNodeId}.triggered"))
+            {
+                _fired = true;
+                StartCoroutine(RunSequence());
+            }
         }
 
         private void OnDestroy()
