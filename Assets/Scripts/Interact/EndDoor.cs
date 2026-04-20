@@ -56,6 +56,16 @@ namespace PrismZone.Interact
             while (DialogueManager.Instance == null) yield return null;
             DialogueManager.Instance.OnDialogueFinished += HandleDialogueFinished;
             _subscribed = true;
+
+            // Catch up with reality: if T-20 already fired before this door's
+            // scene loaded (e.g. EndDoor is on 1F but T-20 plays on 4F), the
+            // OnDialogueFinished event is long gone. DialogueManager.ShowById
+            // persists a GameFlag on completion, so peek at it and self-unlock.
+            if (!string.IsNullOrEmpty(unlockNodeId)
+                && GameFlags.Get($"dialogue.{unlockNodeId}.triggered"))
+            {
+                Unlock();
+            }
         }
 
         private void OnDestroy()
