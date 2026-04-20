@@ -437,6 +437,18 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7042522439006329747, guid: c00218e558e62f843895d68fdb0c497b, type: 3}
+      propertyPath: montageFrames.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042522439006329747, guid: c00218e558e62f843895d68fdb0c497b, type: 3}
+      propertyPath: 'montageFrames.Array.data[0]'
+      value: 
+      objectReference: {fileID: -1990798653720611160, guid: 12bc2b13b53b4bd4ba4a271b66df0714, type: 3}
+    - target: {fileID: 7042522439006329747, guid: c00218e558e62f843895d68fdb0c497b, type: 3}
+      propertyPath: 'montageFrames.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6723427780511406533, guid: e5a2f0ea85c325f46990196e13053144, type: 3}
     - target: {fileID: 8926160044247565224, guid: c00218e558e62f843895d68fdb0c497b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

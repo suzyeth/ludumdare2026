@@ -733,13 +733,17 @@ MonoBehaviour:
   blackOverlay: {fileID: 9180282369470579460}
   silhouette: {fileID: 3871650482792268174}
   fadeInSeconds: 0.5
-  silhouetteHoldSeconds: 2
   fadeOutSeconds: 0.6
-  topY: 220
-  bottomY: -180
-  nodeT16: T-16
-  nodeT17: T-17
   echoSfx: 64
+  montageFrames: []
+  imageAStaticSeconds: 0.6
+  jitterBurstCount: 3
+  jitterInterval: 0.1
+  frameJitter: 4
+  playEchoOnJitter: 1
+  blackScreenHoldSeconds: 0.25
+  impactSfx: 65
+  imageBStaticSeconds: 1.2
 --- !u!1 &489081747708747265
 GameObject:
   m_ObjectHideFlags: 0
@@ -9933,10 +9937,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 603691403009625000}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 220}
-  m_SizeDelta: {x: 64, y: 96}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &26534256051595331
 CanvasRenderer:

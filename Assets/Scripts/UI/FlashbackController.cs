@@ -7,19 +7,14 @@ using PrismZone.Core;
 namespace PrismZone.UI
 {
     /// <summary>
-    /// 4F 402 jump flashback (v1.2 T-16 → silhouette → T-17).
+    /// 抽帧闪回 — full-screen montage of 2+ illustrations with a jitter burst
+    /// and impact SFX. Single entry point: <see cref="PlayFrames"/>.
     ///
-    /// Wiring:
-    ///   - The T-15 trigger (blood blackboard READ) fires its onDialogueFinished →
-    ///     FlashbackController.Instance.Play(...).
-    ///   - This component owns a fullscreen black overlay (Image, alpha 0 → 1)
-    ///     plus a child silhouette Image.
-    ///   - Text rendering is delegated to DialogueManager FLASH popup (configured
-    ///     skippable=false in inspector). We sandwich the silhouette anim between
-    ///     the two FLASH calls so the player sees:
-    ///         T-16 line → silhouette falling 2s → T-17 line → fade back to game.
+    /// Visual stack:
+    ///   - <see cref="blackOverlay"/>  fades 0 → 1 to cover gameplay
+    ///   - <see cref="silhouette"/>    anchored stretch-both, renders the montage sprites
     ///
-    /// Time scale: we use unscaled time so a paused timeScale doesn't break the anim.
+    /// All timing uses unscaled time so a paused game doesn't freeze the anim.
     /// </summary>
     public class FlashbackController : MonoBehaviour
     {
@@ -27,23 +22,15 @@ namespace PrismZone.UI
 
         [Header("Visuals")]
         [SerializeField] private Image blackOverlay;
+        [Tooltip("Full-screen image that renders the montage sprites. Its RectTransform should be stretch-both with all insets at 0.")]
         [SerializeField] private Image silhouette;
         [SerializeField] private float fadeInSeconds = 0.5f;
-        [SerializeField] private float silhouetteHoldSeconds = 2f;
         [SerializeField] private float fadeOutSeconds = 0.6f;
 
-        [Header("Silhouette Motion")]
-        [Tooltip("Local Y offset (world units in canvas) where silhouette starts. Will animate to bottomY.")]
-        [SerializeField] private float topY = 220f;
-        [SerializeField] private float bottomY = -180f;
-
-        [Header("Dialogue Node IDs (TSV)")]
-        [SerializeField] private string nodeT16 = "T-16";
-        [SerializeField] private string nodeT17 = "T-17";
         [SerializeField] private SoundId echoSfx = SoundId.FlashEcho;
 
-        [Header("Frame Montage (抽帧闪回 — PlayFrames API)")]
-        [Tooltip("至少 2 张插图: [0]=A (静止+抖动), [1]=B (落地余韵)")]
+        [Header("Frame Montage")]
+        [Tooltip("至少 2 张全屏插图: [0]=A (静止+抖动), [1]=B (落地余韵)")]
         [SerializeField] private Sprite[] montageFrames;
 
         [Header("阶段 1: 图 A 静止")]
@@ -83,17 +70,9 @@ namespace PrismZone.UI
 
         private void OnDestroy() { if (Instance == this) Instance = null; }
 
-        public void Play(Action onCompleted = null)
-        {
-            if (_running) return;
-            _onCompleted = onCompleted;
-            StartCoroutine(Run());
-        }
-
         /// <summary>
-        /// 抽帧闪回 — 2+ 张插图交替闪烁,带抖动 + 加速。独立于 T-16/17 剧情流,
-        /// 适合 Victory / Game Over 前的"回忆瞬间"。
-        /// 调用者:在 T-21 onDialogueFinished,或 VictoryController 内 Pre-show hook。
+        /// 抽帧闪回 — 2+ 张全屏插图交替闪烁,带抖动 + 落地撞击。
+        /// 调用者: 在 T-21 onDialogueFinished,或 VictoryController 内 Pre-show hook。
         /// </summary>
         public void PlayFrames(Action onCompleted = null)
         {
@@ -161,72 +140,6 @@ namespace PrismZone.UI
             var cb = _onCompleted;
             _onCompleted = null;
             cb?.Invoke();
-        }
-
-        private IEnumerator Run()
-        {
-            _running = true;
-
-            // Fade overlay in so the FLASH popup arrives on top of black, not on
-            // top of gameplay.
-            yield return Fade(SetOverlayAlpha, 0f, 1f, fadeInSeconds);
-
-            // T-16: scared call for father.
-            yield return ShowDialogueAndWait(nodeT16);
-
-            // Silhouette descent (placeholder — real art slides a sprite top→bottom).
-            AudioManager.Instance?.Play(echoSfx);
-            yield return PlaySilhouette();
-
-            // T-17: aftermath line.
-            yield return ShowDialogueAndWait(nodeT17);
-
-            // Fade everything back.
-            yield return Fade(SetOverlayAlpha, 1f, 0f, fadeOutSeconds);
-
-            _running = false;
-            var cb = _onCompleted;
-            _onCompleted = null;
-            cb?.Invoke();
-        }
-
-        // Wraps DialogueManager.ShowById with a hard guard: if the manager is missing
-        // (e.g. boot order quirk, test scene), we MUST NOT hang in an infinite
-        // `while (!finished)` — that locks the flashback on a black screen forever.
-        private IEnumerator ShowDialogueAndWait(string nodeId)
-        {
-            var mgr = DialogueManager.Instance;
-            if (mgr == null || string.IsNullOrEmpty(nodeId))
-            {
-                Debug.LogWarning($"[Flashback] Skipping node '{nodeId}' — DialogueManager missing.");
-                yield break;
-            }
-            bool finished = false;
-            mgr.ShowById(nodeId, () => finished = true);
-            while (!finished) yield return null;
-        }
-
-        private IEnumerator PlaySilhouette()
-        {
-            if (silhouette == null) { yield return new WaitForSecondsRealtime(silhouetteHoldSeconds); yield break; }
-            var rt = (RectTransform)silhouette.transform;
-            rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, topY);
-
-            float t = 0f;
-            float fadeIn = 0.25f;
-            // Fade in the silhouette quickly while it begins to fall.
-            while (t < silhouetteHoldSeconds)
-            {
-                t += Time.unscaledDeltaTime;
-                float u = Mathf.Clamp01(t / silhouetteHoldSeconds);
-                float y = Mathf.Lerp(topY, bottomY, u * u); // ease-in
-                rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, y);
-                float alpha = t < fadeIn ? Mathf.InverseLerp(0f, fadeIn, t) : 1f;
-                SetSilhouetteAlpha(alpha);
-                yield return null;
-            }
-            // Snap to bottom + fade out fast on impact.
-            yield return Fade(SetSilhouetteAlpha, 1f, 0f, 0.2f);
         }
 
         private static IEnumerator Fade(Action<float> apply, float from, float to, float duration)
