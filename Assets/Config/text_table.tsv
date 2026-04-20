@@ -81,6 +81,8 @@ ui.pickup.prompt	ui		E 拾取	E to pick up					Any	true	false	0		Manual
 ui.interact.prompt	ui		E 交互	E to interact					Any	true	false	0		Manual					
 ui.clue.dismiss	ui		E 关闭	E to close					Any	true	false	0		Manual					
 ui.door.locked	ui		门被锁住了 — 需要钥匙	The door is locked - you need a key.					Any	true	false	0		Manual
+ui.door.end_locked	ui		门暂时被锁住了	The door is sealed for now.					Any	true	false	0		Manual
+ui.door.end_prompt	ui		E 推开大门	E to push the door					Any	true	false	0		Manual
 ui.door.wrong_key	ui		这把钥匙打不开这个锁	This key doesn't fit this lock.					Any	true	false	0		Manual
 ui.door.need_passcode	ui		门锁着 — 输入密码	Locked - enter passcode.					Any	true	false	0		Manual					
 ui.door.open	ui		门开着。	The door is open.					Any	true	false	0		Manual					

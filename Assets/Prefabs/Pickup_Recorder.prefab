@@ -179,7 +179,7 @@ MonoBehaviour:
   promptKey: ui.pickup.prompt
   destroyOnPickup: 1
   oneShotClue: 1
-  dialogueNodeId: 
+  dialogueNodeId: item.recorder.page.1
 --- !u!61 &6582444687568874476
 BoxCollider2D:
   m_ObjectHideFlags: 0
