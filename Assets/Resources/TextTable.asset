@@ -680,12 +680,15 @@ MonoBehaviour:
     avgType: 2
     zh: "\u77E5\u5F69\\n2\u67081\u65E5 \u6674 \u4ECA\u5929\u5929\u6C14\u597D\u68D2\u5440,\u52A0\u6CB9\u77E5\u5F69!\u4F60\u4E00\u5B9A\u53EF\u4EE5\u575A\u6301\u4E0B\u53BB\u7684!\\n2\u67085\u65E5
       \u96E8 \u4ED6\u4EEC\u53C8\u53EB\u6211\u653E\u5B66\u53BB\u50A8\u85CF\u5BA4\u2026\u2026\u6211\u771F\u7684\u4E0D\u60F3\u53BB\u2026\u2026\u597D\u5BB3\u6015\u2026\u2026\\n2\u67085\u65E5
-      \u96E8 \u4ED6\u4EEC\u53C8\u62A2\u8D70\u4E86\u6211\u7684\u50A8\u7269\u67DC\u94A5\u5319\u2026\u2026\u4E0B\u6B21\u8981\u85CF\u597D\u4E00\u70B9\u2026\u2026\u6CA1\u6765\u5F97\u53CA\u6362\u8863\u670D\u88AB\u4F53\u80B2\u8001\u5E08\u7F5A\u8DD1\u4E86\u2026\u2026"
+      \u96E8 \u4ED6\u4EEC\u53C8\u62A2\u8D70\u4E86\u6211\u7684\u50A8\u7269\u67DC\u94A5\u5319\u2026\u2026\u4E0B\u6B21\u8981\u85CF\u597D\u4E00\u70B9\u2026\u2026\u6CA1\u6765\u5F97\u53CA\u6362\u8863\u670D\u88AB\u4F53\u80B2\u8001\u5E08\u7F5A\u8DD1\u4E86\u2026\u2026|2\u670812\u65E5
+      \u96E8 \u4E0D\u559C\u6B22\u4E0B\u96E8,\u6BCF\u6B21\u4E0B\u96E8\u4ED6\u4EEC\u4E0D\u51FA\u53BB\u73A9\u5C31\u4F1A\u6765\u627E\u6211\u7684\u9EBB\u70E6\u3002\u50A8\u7269\u67DC\u88AB\u6CFC\u4E86\u6CB9\u6F06\u2026\u2026\u597D\u8FC7\u5206\u2026\u2026\u4F24\u53E3\u597D\u75BC\u2026\u2026"
     en: "Chisai\\nFeb 1, Sunny Today's weather is so nice. Come on, Chisai! You can
-      get through this!|Feb 5, Rainy They're telling me to go to the storage room
-      after school again\u2026 I really don't want to go\u2026 I'm so scared\u2026|Feb
+      get through this!\\nFeb 5, Rainy They're telling me to go to the storage room
+      after school again\u2026 I really don't want to go\u2026 I'm so scared\u2026\\nFeb
       5, Rainy They took my locker key again\u2026 I need to hide it better next
-      time\u2026"
+      time\u2026|Feb 12, Rainy I hate rainy days. When it rains they don't go out
+      to play and they come after me instead. They poured paint all over my locker\u2026
+      so cruel\u2026 the cuts hurt so much\u2026"
     zh_red: 
     en_red: 
     zh_green: 
@@ -707,15 +710,11 @@ MonoBehaviour:
   - id: item.diary.page.2
     category: 1
     avgType: 2
-    zh: "2\u670812\u65E5 \u96E8 \u4E0D\u559C\u6B22\u4E0B\u96E8,\u6BCF\u6B21\u4E0B\u96E8\u4ED6\u4EEC\u4E0D\u51FA\u53BB\u73A9\u5C31\u4F1A\u6765\u627E\u6211\u7684\u9EBB\u70E6\u3002\u50A8\u7269\u67DC\u88AB\u6CFC\u4E86\u6CB9\u6F06\u2026\u2026\u597D\u8FC7\u5206\u2026\u2026\u4F24\u53E3\u597D\u75BC\u2026\u2026\\n3\u670813\u65E5
-      \u9634 \u4E3A\u4EC0\u4E48\u2026\u2026\u4E3A\u4EC0\u4E48\u662F\u6211?\u4E3A\u4EC0\u4E48\u6B3A\u8D1F\u6211\u2026\u2026\u6211\u505A\u9519\u4E86\u4EC0\u4E48?\\n3\u670823\u65E5
+    zh: "3\u670813\u65E5 \u9634 \u4E3A\u4EC0\u4E48\u2026\u2026\u4E3A\u4EC0\u4E48\u662F\u6211?\u4E3A\u4EC0\u4E48\u6B3A\u8D1F\u6211\u2026\u2026\u6211\u505A\u9519\u4E86\u4EC0\u4E48?\\n3\u670823\u65E5
       \u9634 \u518D\u575A\u6301\u4E00\u4E0B\u5427\u2026\u2026\u7238\u7238\u82B1\u4E86\u90A3\u4E48\u591A\u94B1\u5C31\u4E3A\u4E86\u8BA9\u6211\u5728\u8FD9\u91CC\u2026\u2026\u53EF\u662F\u597D\u75DB\u82E6\u2026\u2026"
-    en: "Feb 12, Rainy I hate rainy days. When it rains they don't go out to play
-      and they come after me instead. They poured paint all over my locker\u2026
-      so cruel\u2026 the cuts hurt so much\u2026|Mar 13, Cloudy Why\u2026 why me?
-      Why are they doing this to me\u2026 what did I do wrong?|Mar 23, Cloudy Just
-      hold on a little longer\u2026 Dad spent so much money to get me into this school\u2026
-      but it hurts so much\u2026"
+    en: "Mar 13, Cloudy Why\u2026 why me? Why are they doing this to me\u2026 what
+      did I do wrong?\\nMar 23, Cloudy Just hold on a little longer\u2026 Dad spent
+      so much money to get me into this school\u2026 but it hurts so much\u2026"
     zh_red: 
     en_red: 
     zh_green: 
@@ -738,12 +737,10 @@ MonoBehaviour:
     category: 1
     avgType: 2
     zh: "5\u67082\u65E5 \u597D\u96BE\u8FC7\u2026\u2026\u6211\u8981\u575A\u6301\u4E0D\u4E0B\u53BB\u4E86\u2026\u2026\u597D\u8FC7\u5206\u2026\u2026\u597D\u75DB\u82E6\u2026\u2026\\n5\u67088\u65E5
-      \u6674 \u597D\u50CF\u9003\u8D70\u2026\u2026\u53EF\u662F\u7238\u7238\u600E\u4E48\u529E\u2026\u2026\\n6\u67081\u65E5
-      \u96E8 \u597D\u60F3\u2026\u2026\u6740\u6389\u4ED6\u4EEC\u2026\u2026\u6211\u4E0D\u6562\u2026\u2026\u4E0D\u8981\u2026\u2026\u4E0D\u8981\u2026\u2026\u6211\u5FEB\u8981\u575A\u6301\u4E0D\u4E0B\u53BB\u4E86\u2026\u2026?"
+      \u6674 \u597D\u50CF\u9003\u8D70\u2026\u2026\u53EF\u662F\u7238\u7238\u600E\u4E48\u529E\u2026\u2026"
     en: "May 2 I'm so sad\u2026 I don't think I can hold on anymore\u2026 it's so
-      cruel\u2026 it hurts so much\u2026|May 8, Sunny I want to run away\u2026 but
-      what about Dad\u2026|Jun 1, Rainy I want to\u2026 kill them\u2026 I can't\u2026
-      no\u2026 no\u2026 I don't know how much longer I can take this\u2026?"
+      cruel\u2026 it hurts so much\u2026\\nMay 8, Sunny I want to run away\u2026
+      but what about Dad\u2026"
     zh_red: 
     en_red: 
     zh_green: 
@@ -765,10 +762,13 @@ MonoBehaviour:
   - id: item.diary.page.4
     category: 1
     avgType: 2
-    zh: "6\u67088\u65E5 \u96E8 \u597D\u60F3\u56DE\u5BB6\u2026\u2026\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B!!!\\n6\u67089\u65E5
+    zh: "6\u67081\u65E5 \u96E8 \u597D\u60F3\u2026\u2026\u6740\u6389\u4ED6\u4EEC\u2026\u2026\u6211\u4E0D\u6562\u2026\u2026\u4E0D\u8981\u2026\u2026\u4E0D\u8981\u2026\u2026\u6211\u5FEB\u8981\u575A\u6301\u4E0D\u4E0B\u53BB\u4E86\u2026\u2026?\\n6\u67088\u65E5
+      \u96E8 \u597D\u60F3\u56DE\u5BB6\u2026\u2026\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B\u90FD\u53BB\u6B7B!!!\\n6\u67089\u65E5
       \u6B7B\u6B7B\u6B7B\u6B7B\u6B7B!!!!\\n6\u670812\u65E5 \u90FD\u522B\u60F3\u9003\u51FA\u8FD9\u91CC!\u4F60\u4E5F\u662F!"
-    en: "Jun 8, Rainy I want to go home\u2026 All of you, die die die die die!!|Jun
-      9 Die die die die die!!!!|Jun 12 None of you are getting out of here. You either."
+    en: "Jun 1, Rainy I want to\u2026 kill them\u2026 I can't\u2026 no\u2026 no\u2026
+      I don't know how much longer I can take this\u2026?\\nJun 8, Rainy I want to
+      go home\u2026 All of you, die die die die die!!\\nJun 9 Die die die die die!!!!\\nJun
+      12 None of you are getting out of here. You either."
     zh_red: 
     en_red: 
     zh_green: 

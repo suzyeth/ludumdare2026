@@ -157,6 +157,12 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     isMusic: 0
+  - id: 65
+    clip: {fileID: 8300000, guid: 54d1b5584c187bd4186e0567b5edc185, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    isMusic: 0
   - id: 90
     clip: {fileID: 0}
     volume: 1

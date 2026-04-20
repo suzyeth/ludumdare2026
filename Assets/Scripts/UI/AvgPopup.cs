@@ -41,6 +41,10 @@ namespace PrismZone.UI
         [Tooltip("Optional close button (x-icon). Clicking it closes the popup immediately, bypassing the typewriter and pagination.")]
         [SerializeField] private UnityEngine.UI.Button closeButton;
 
+        [Header("I18n Fonts (optional)")]
+        [Tooltip("When CurrentLang == 'en', every TMP_Text under this popup swaps to this font. Null = keep authored fonts.")]
+        [SerializeField] private TMP_FontAsset englishFontAsset;
+
         [Header("I18n Hint Labels (auto-localized)")]
         [Tooltip("TSV id for the NAR/READ 'press to continue' hint. Auto-applied to a child GameObject named 'ContinueHint' with a TMP_Text.")]
         [SerializeField] private string continueHintKey = "ui.popup.next_hint";
@@ -55,6 +59,9 @@ namespace PrismZone.UI
         private TMP_Text _closeHintLabel;
         private TMP_Text _prevPageLabel;
         private TMP_Text _nextPageLabel;
+
+        private TMP_Text[] _allLabels;
+        private TMP_FontAsset[] _originalFonts;
 
         private CanvasGroup _group;
         private string[] _pages;
@@ -73,26 +80,40 @@ namespace PrismZone.UI
             if (_group == null) _group = gameObject.AddComponent<CanvasGroup>();
             SetVisible(false);
             if (typewriter == null) typewriter = GetComponentInChildren<TypewriterText>();
-            if (nextPageButton != null) nextPageButton.onClick.AddListener(NextPage);
-            if (prevPageButton != null) prevPageButton.onClick.AddListener(PrevPage);
+            if (nextPageButton != null) { nextPageButton.onClick.AddListener(NextPage); nextPageButton.gameObject.SetActive(false); }
+            if (prevPageButton != null) { prevPageButton.onClick.AddListener(PrevPage); prevPageButton.gameObject.SetActive(false); }
             if (closeButton != null) closeButton.onClick.AddListener(Close);
 
             _continueHintLabel = FindDescendantTmp("ContinueHint");
             _closeHintLabel    = FindDescendantTmp("CloseHint");
             _prevPageLabel     = prevPageButton != null ? prevPageButton.GetComponentInChildren<TMP_Text>(true) : null;
             _nextPageLabel     = nextPageButton != null ? nextPageButton.GetComponentInChildren<TMP_Text>(true) : null;
+
+            // Cache every TMP_Text + its authored font so we can swap fonts per
+            // language and restore cleanly without losing each label's original.
+            _allLabels = GetComponentsInChildren<TMP_Text>(true);
+            _originalFonts = new TMP_FontAsset[_allLabels.Length];
+            for (int i = 0; i < _allLabels.Length; i++)
+                _originalFonts[i] = _allLabels[i] != null ? _allLabels[i].font : null;
         }
 
         private void OnEnable()
         {
-            I18nManager.OnLanguageChanged -= ApplyHintLocalization;
-            I18nManager.OnLanguageChanged += ApplyHintLocalization;
+            I18nManager.OnLanguageChanged -= OnLanguageChanged;
+            I18nManager.OnLanguageChanged += OnLanguageChanged;
             ApplyHintLocalization();
+            ApplyLanguageFont();
         }
 
         private void OnDisable()
         {
-            I18nManager.OnLanguageChanged -= ApplyHintLocalization;
+            I18nManager.OnLanguageChanged -= OnLanguageChanged;
+        }
+
+        private void OnLanguageChanged()
+        {
+            ApplyHintLocalization();
+            ApplyLanguageFont();
         }
 
         private void ApplyHintLocalization()
@@ -101,6 +122,24 @@ namespace PrismZone.UI
             ApplyKey(_closeHintLabel,    closeHintKey);
             ApplyKey(_prevPageLabel,     prevPageKey);
             ApplyKey(_nextPageLabel,     nextPageKey);
+        }
+
+        /// <summary>
+        /// Swap every TMP_Text's font to <see cref="englishFontAsset"/> when
+        /// CurrentLang is "en"; restore each label's authored font otherwise.
+        /// No-op if <see cref="englishFontAsset"/> is unassigned.
+        /// </summary>
+        private void ApplyLanguageFont()
+        {
+            if (_allLabels == null) return;
+            bool useEn = englishFontAsset != null && I18nManager.CurrentLang == "en";
+            for (int i = 0; i < _allLabels.Length; i++)
+            {
+                var lbl = _allLabels[i];
+                if (lbl == null) continue;
+                var target = useEn ? englishFontAsset : _originalFonts[i];
+                if (target != null && lbl.font != target) lbl.font = target;
+            }
         }
 
         private static void ApplyKey(TMP_Text label, string key)

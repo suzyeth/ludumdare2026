@@ -147,6 +147,14 @@ MonoBehaviour:
   skippable: 0
   autoDismissSeconds: 0
   minDisplaySeconds: 3
+  nextPageButton: {fileID: 0}
+  prevPageButton: {fileID: 0}
+  closeButton: {fileID: 0}
+  englishFontAsset: {fileID: 11400000, guid: 3682f27b44c80bb4eb12fe4ca07d0e58, type: 2}
+  continueHintKey: ui.popup.next_hint
+  closeHintKey: ui.popup.close_hint
+  prevPageKey: ui.popup.prev_page
+  nextPageKey: ui.popup.next_page
 --- !u!1 &6146311031721897255
 GameObject:
   m_ObjectHideFlags: 0

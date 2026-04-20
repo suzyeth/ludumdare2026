@@ -126,6 +126,17 @@ MonoBehaviour:
   nodeT16: T-16
   nodeT17: T-17
   echoSfx: 64
+  montageFrames:
+  - {fileID: -1990798653720611160, guid: 12bc2b13b53b4bd4ba4a271b66df0714, type: 3}
+  - {fileID: 6723427780511406533, guid: e5a2f0ea85c325f46990196e13053144, type: 3}
+  imageAStaticSeconds: 0.6
+  jitterBurstCount: 3
+  jitterInterval: 0.1
+  frameJitter: 4
+  playEchoOnJitter: 1
+  blackScreenHoldSeconds: 0.25
+  impactSfx: 51
+  imageBStaticSeconds: 1.2
 --- !u!1 &1496942631697195646
 GameObject:
   m_ObjectHideFlags: 0
