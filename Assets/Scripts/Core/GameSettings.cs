@@ -25,7 +25,7 @@ namespace PrismZone.Core
         private static float _master = DefaultMaster;
         private static float _sfx    = DefaultSfx;
         private static float _music  = DefaultMusic;
-        private static string _lang  = "en";
+        private static string _lang  = "zh";  // v0.5: tsv now Chinese-first
         private static bool _loaded;
 
         /// <summary>Fires whenever any value changes. Audio mix and UI re-read on signal.</summary>
@@ -96,7 +96,7 @@ namespace PrismZone.Core
             _master = Mathf.Clamp01(PlayerPrefs.GetFloat(PK_Master, DefaultMaster));
             _sfx    = Mathf.Clamp01(PlayerPrefs.GetFloat(PK_Sfx,    DefaultSfx));
             _music  = Mathf.Clamp01(PlayerPrefs.GetFloat(PK_Music,  DefaultMusic));
-            _lang   = PlayerPrefs.GetString(PK_Lang, "en");
+            _lang   = PlayerPrefs.GetString(PK_Lang, "zh");
         }
     }
 }
