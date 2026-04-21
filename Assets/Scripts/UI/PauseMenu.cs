@@ -188,11 +188,6 @@ namespace PrismZone.UI
                 _mClickHandler = ExecuteEvents.GetEventHandler<IPointerClickHandler>(hit);
                 _mDragHandler = ExecuteEvents.GetEventHandler<IDragHandler>(hit);
                 _mDragActive = false;
-                Debug.Log($"[PauseMenu] DOWN hit={(hit ? hit.name : "null")} " +
-                          $"press={(_mPressHandler ? _mPressHandler.name : "null")} " +
-                          $"click={(_mClickHandler ? _mClickHandler.name : "null")} " +
-                          $"drag={(_mDragHandler ? _mDragHandler.name : "null")} " +
-                          $"raycasts={s_raycastResults.Count}");
 
                 // Only prime the drag target; BeginDrag waits until movement crosses threshold.
                 if (_mDragHandler != null)
@@ -242,16 +237,8 @@ namespace PrismZone.UI
                 GameObject releaseHit = s_raycastResults.Count > 0 ? s_raycastResults[0].gameObject : null;
                 GameObject releaseClick = releaseHit != null
                     ? ExecuteEvents.GetEventHandler<IPointerClickHandler>(releaseHit) : null;
-                bool clickFired = false;
                 if (!_mDragActive && _mClickHandler != null && releaseClick == _mClickHandler)
-                {
                     ExecuteEvents.Execute(_mClickHandler, _mPointer, ExecuteEvents.pointerClickHandler);
-                    clickFired = true;
-                }
-                Debug.Log($"[PauseMenu] UP releaseHit={(releaseHit ? releaseHit.name : "null")} " +
-                          $"releaseClick={(releaseClick ? releaseClick.name : "null")} " +
-                          $"pressClick={(_mClickHandler ? _mClickHandler.name : "null")} " +
-                          $"dragActive={_mDragActive} clickFired={clickFired}");
 
                 _mPointer = null;
                 _mPressHandler = null;
