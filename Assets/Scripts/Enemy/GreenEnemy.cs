@@ -22,8 +22,8 @@ namespace PrismZone.Enemy
         [SerializeField] private float visionAngleDeg = 120f;
         [Tooltip("Close-range omnidirectional aggro. Player within this radius is spotted regardless of vision cone (still blocked by walls). Simulates hearing / proximity awareness.")]
         [SerializeField] private float proximityAggroRadius = 2.5f;
-        [Tooltip("Player within this radius during an active-hunt state is caught → GameOver. Bypasses trigger colliders (which the guard's own solid body can prevent from overlapping).")]
-        [SerializeField] private float catchRadius = 0.55f;
+        [Tooltip("Player within this radius during an active-hunt state is caught → GameOver. Bypasses trigger colliders (which the guard's own solid body can prevent from overlapping). Must be > 1.0 because each sprite collider has ~0.5 half-width so they can't physically overlap any closer.")]
+        [SerializeField] private float catchRadius = 1.2f;
         [Tooltip("Chase speed during broadcast (Locating state). Player is stunned — this should feel threatening.")]
         [SerializeField] private float locatingSpeed = 4.5f;
         [SerializeField] private float aggroLossTime = 20f;

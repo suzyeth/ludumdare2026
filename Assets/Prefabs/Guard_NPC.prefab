@@ -168,7 +168,7 @@ MonoBehaviour:
   visionRange: 5
   visionAngleDeg: 120
   proximityAggroRadius: 2.5
-  locatingSpeed: 4.5
+  locatingSpeed: 4
   aggroLossTime: 20
   arriveThreshold: 0.1
   repathInterval: 0.4

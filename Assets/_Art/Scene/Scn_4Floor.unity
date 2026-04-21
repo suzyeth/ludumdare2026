@@ -241,8 +241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Interact.RecorderSequenceOrchestrator
   pickupReadNodeId: item.recorder.page.1
-  afterBroadcastNodeId: T-18
-  afterT18NodeId: T-19
+  afterBroadcastNodeId:
+  afterT18NodeId:
   afterT19NodeId: T-20
   dadRevealAnchor: {fileID: 592699641}
   dadNpc: {fileID: 1440396146}

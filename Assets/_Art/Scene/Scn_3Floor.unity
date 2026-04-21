@@ -27508,11 +27508,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6313429463125671990, guid: ae6b6eb4c0489a14095a073d82be03df, type: 3}
       propertyPath: chaseSpeed
-      value: 30
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6313429463125671990, guid: ae6b6eb4c0489a14095a073d82be03df, type: 3}
       propertyPath: patrolSpeed
-      value: 10
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7890642223275269289, guid: ae6b6eb4c0489a14095a073d82be03df, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28314,8 +28314,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrismZone.Interact.RecorderSequenceOrchestrator
   pickupReadNodeId: item.recorder.page.1
-  afterBroadcastNodeId: T-18
-  afterT18NodeId: T-19
+  afterBroadcastNodeId:
+  afterT18NodeId:
   afterT19NodeId: T-20
   dadRevealAnchor: {fileID: 0}
   dadNpc: {fileID: 0}
