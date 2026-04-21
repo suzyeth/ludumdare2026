@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -139,11 +141,110 @@ namespace PrismZone.UI
                     GotoMainMenu();
                     return;
                 }
-                // Debug: confirm pointer clicks reach the buttons. Any click
-                // fires the standard onClick; if we ALSO see nothing here, the
-                // issue is further upstream (canvas raycaster / blocker).
-                if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
-                    Debug.Log("[PauseMenu] mouse click detected at timeScale=" + Time.timeScale);
+            }
+
+            // InputSystemUIInputModule drops pointer dispatch while
+            // Time.timeScale == 0, so run a minimal pointer pipeline
+            // (down/drag/up/click) manually. Covers buttons, sliders,
+            // toggles, scrollbars — anything implementing the standard
+            // UGUI event interfaces. Scoped to timeScale==0 so normal
+            // gameplay UI is unaffected.
+            if (Time.timeScale == 0f && EventSystem.current != null && Mouse.current != null)
+                DispatchManualPointer();
+        }
+
+        private static readonly List<RaycastResult> s_raycastResults = new List<RaycastResult>();
+        // Pointer state across frames (drag requires continuity).
+        private PointerEventData _mPointer;
+        private GameObject _mPressHandler;
+        private GameObject _mClickHandler;
+        private GameObject _mDragHandler;
+        private bool _mDragActive;            // Becomes true only after movement > pixelDragThreshold.
+
+        private void DispatchManualPointer()
+        {
+            var es = EventSystem.current;
+            var mouse = Mouse.current;
+            Vector2 pos = mouse.position.ReadValue();
+
+            if (mouse.leftButton.wasPressedThisFrame)
+            {
+                _mPointer = new PointerEventData(es)
+                {
+                    position = pos,
+                    pressPosition = pos,
+                    button = PointerEventData.InputButton.Left,
+                };
+                s_raycastResults.Clear();
+                es.RaycastAll(_mPointer, s_raycastResults);
+                var rc = s_raycastResults.Count > 0 ? s_raycastResults[0] : default;
+                _mPointer.pointerCurrentRaycast = rc;
+                _mPointer.pointerPressRaycast = rc;
+
+                GameObject hit = rc.gameObject;
+                _mPressHandler = ExecuteEvents.ExecuteHierarchy(hit, _mPointer, ExecuteEvents.pointerDownHandler)
+                                 ?? ExecuteEvents.GetEventHandler<IPointerClickHandler>(hit);
+                _mPointer.pointerPress = _mPressHandler;
+                _mClickHandler = ExecuteEvents.GetEventHandler<IPointerClickHandler>(hit);
+                _mDragHandler = ExecuteEvents.GetEventHandler<IDragHandler>(hit);
+                _mDragActive = false;
+
+                // Only prime the drag target; BeginDrag waits until movement crosses threshold.
+                if (_mDragHandler != null)
+                    ExecuteEvents.Execute(_mDragHandler, _mPointer, ExecuteEvents.initializePotentialDrag);
+            }
+            else if (mouse.leftButton.isPressed && _mPointer != null)
+            {
+                _mPointer.delta = pos - _mPointer.position;
+                _mPointer.position = pos;
+                s_raycastResults.Clear();
+                es.RaycastAll(_mPointer, s_raycastResults);
+                _mPointer.pointerCurrentRaycast = s_raycastResults.Count > 0 ? s_raycastResults[0] : default;
+
+                // Promote to active drag only after crossing pixelDragThreshold,
+                // so short presses on buttons still count as clicks.
+                if (!_mDragActive && _mDragHandler != null)
+                {
+                    float threshold = es.pixelDragThreshold;
+                    Vector2 accum = pos - _mPointer.pressPosition;
+                    if (accum.sqrMagnitude >= threshold * threshold)
+                    {
+                        _mDragActive = true;
+                        _mPointer.pointerDrag = _mDragHandler;
+                        _mPointer.dragging = true;
+                        ExecuteEvents.Execute(_mDragHandler, _mPointer, ExecuteEvents.beginDragHandler);
+                    }
+                }
+                if (_mDragActive && _mDragHandler != null)
+                    ExecuteEvents.Execute(_mDragHandler, _mPointer, ExecuteEvents.dragHandler);
+            }
+            else if (mouse.leftButton.wasReleasedThisFrame && _mPointer != null)
+            {
+                _mPointer.position = pos;
+
+                if (_mPressHandler != null)
+                    ExecuteEvents.Execute(_mPressHandler, _mPointer, ExecuteEvents.pointerUpHandler);
+
+                if (_mDragActive && _mDragHandler != null)
+                {
+                    ExecuteEvents.Execute(_mDragHandler, _mPointer, ExecuteEvents.endDragHandler);
+                    _mPointer.dragging = false;
+                }
+
+                // Click fires when release is over the same click target AND pointer did not drag.
+                s_raycastResults.Clear();
+                es.RaycastAll(_mPointer, s_raycastResults);
+                GameObject releaseHit = s_raycastResults.Count > 0 ? s_raycastResults[0].gameObject : null;
+                GameObject releaseClick = releaseHit != null
+                    ? ExecuteEvents.GetEventHandler<IPointerClickHandler>(releaseHit) : null;
+                if (!_mDragActive && _mClickHandler != null && releaseClick == _mClickHandler)
+                    ExecuteEvents.Execute(_mClickHandler, _mPointer, ExecuteEvents.pointerClickHandler);
+
+                _mPointer = null;
+                _mPressHandler = null;
+                _mClickHandler = null;
+                _mDragHandler = null;
+                _mDragActive = false;
             }
         }
 
