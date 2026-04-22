@@ -1,3 +1,4 @@
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -54,3 +55,4 @@ namespace PrismZone.DebugTools
         }
     }
 }
+#endif

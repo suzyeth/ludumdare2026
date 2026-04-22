@@ -172,6 +172,9 @@ namespace PrismZone.Player
 
         private void HandleRunningNoise()
         {
+            // v1.2 spec §4.3: player is stunned during a broadcast — suppress noise
+            // emission so the RED enemy doesn't react during the freeze window (Fix 3).
+            if (BroadcastController.IsBroadcasting) return;
             if (!IsRunning || IsHidden || IsInCabinet) return;
             if (Time.time < _nextNoiseTime) return;
             _nextNoiseTime = Time.time + runNoiseInterval;

@@ -35,6 +35,8 @@ namespace PrismZone.Core
         private bool _bgmOnA = true;
         private AudioClip _currentBgm;
 
+        private static readonly SoundId[] _allSoundIds = (SoundId[])System.Enum.GetValues(typeof(SoundId));
+
         private void Awake()
         {
             if (Instance != null && Instance != this) { Destroy(gameObject); return; }
@@ -176,12 +178,17 @@ namespace PrismZone.Core
         // read MasterSfx at Play() time so they're automatically correct.
         private void HandleSettingsChanged()
         {
-            var active = _bgmOnA ? _bgmA : _bgmB;
-            if (active != null && active.isPlaying && _currentBgm != null)
+            // Apply to both sources so mid-fade volumes scale correctly regardless
+            // of which source _bgmOnA currently points at (it flips before fade runs).
+            if (_currentBgm != null && catalog != null)
             {
-                var e = catalog != null ? catalog.Get(FindIdForClip(_currentBgm)) : null;
+                var e = catalog.Get(FindIdForClip(_currentBgm));
                 float baseVol = e != null ? e.volume : 1f;
-                active.volume = baseVol * MasterMusic;
+                float scaled = baseVol * MasterMusic;
+                // Only retune sources that are actually playing; fading-out source
+                // has its volume managed by the CrossFade coroutine, so leave it.
+                if (_bgmA != null && _bgmA.isPlaying) _bgmA.volume = scaled;
+                if (_bgmB != null && _bgmB.isPlaying) _bgmB.volume = scaled;
             }
         }
 
@@ -190,7 +197,7 @@ namespace PrismZone.Core
             // Rare path — only on settings change. Reverse lookup avoids tracking
             // the current SoundId separately.
             if (catalog == null || clip == null) return SoundId.None;
-            foreach (SoundId id in System.Enum.GetValues(typeof(SoundId)))
+            foreach (SoundId id in _allSoundIds)
             {
                 var e = catalog.Get(id);
                 if (e != null && e.clip == clip) return id;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using PrismZone.Core;
 
 namespace PrismZone.Enemy
@@ -26,6 +27,15 @@ namespace PrismZone.Enemy
         /// anyone enters Chase (spec §4.3). Cleared automatically on scene unload.
         /// </summary>
         public static event System.Action<EnemyBase, State, State> OnAnyStateChanged;
+
+        // Fix 4: static event never cleared across scene loads — leaked subscribers
+        // cause ghost callbacks from destroyed enemies. Register the cleanup once at
+        // domain startup so it fires on every subsequent scene unload.
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void RegisterSceneCleanup()
+        {
+            SceneManager.sceneUnloaded += _ => OnAnyStateChanged = null;
+        }
 
         /// <summary>
         /// Live registry so orchestration code (BroadcastController, Recorder) can

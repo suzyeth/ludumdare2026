@@ -43,6 +43,7 @@ namespace PrismZone.Interact
         private bool _inspected;
         private bool _stopped;
         private bool _secondTipShown;
+        private bool _secondPlayed;
         private bool _playerInRange;
 
         private void Awake()
@@ -70,6 +71,7 @@ namespace PrismZone.Interact
         private void Update()
         {
             if (!_playerInRange) return;
+            if (DialogueManager.Instance != null && DialogueManager.Instance.IsShowing) return;
             var kb = Keyboard.current;
             if (kb == null) return;
 
@@ -136,7 +138,9 @@ namespace PrismZone.Interact
 
         private void PlaySecondSegment()
         {
+            if (_secondPlayed) return;
             if (DialogueManager.Instance == null) return;
+            _secondPlayed = true;
             DialogueManager.Instance.ShowById(nodeSecondPlay);
         }
 

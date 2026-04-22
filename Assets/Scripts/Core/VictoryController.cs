@@ -50,6 +50,7 @@ namespace PrismZone.Core
         {
             Time.timeScale = 1f;
             IsVictory = false;
+            SceneTransition.SetPendingSpawn(null);
             OnReset?.Invoke();
         }
     }

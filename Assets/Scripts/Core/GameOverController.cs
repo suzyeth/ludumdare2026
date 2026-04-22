@@ -58,6 +58,7 @@ namespace PrismZone.Core
         {
             Time.timeScale = 1f;
             IsGameOver = false;
+            SceneTransition.SetPendingSpawn(null);
             OnReset?.Invoke();
         }
     }

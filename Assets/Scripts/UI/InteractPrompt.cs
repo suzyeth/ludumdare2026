@@ -28,6 +28,7 @@ namespace PrismZone.UI
         private CanvasGroup _group;
         private Canvas _canvas;
         private RectTransform _rt;
+        private Camera _cam;
 
         private void Awake()
         {
@@ -37,6 +38,7 @@ namespace PrismZone.UI
             _group.interactable = false;
             _canvas = GetComponentInParent<Canvas>();
             _rt = (RectTransform)transform;
+            _cam = Camera.main;
 
             BindPlayer();
         }
@@ -53,7 +55,12 @@ namespace PrismZone.UI
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
-        private void OnSceneLoaded(Scene scene, LoadSceneMode mode) => BindPlayer();
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            BindPlayer();
+            // Camera may have changed between scenes — re-cache on scene load.
+            _cam = Camera.main;
+        }
 
         private void BindPlayer()
         {
@@ -84,16 +91,17 @@ namespace PrismZone.UI
             }
 
             // World → screen → canvas space. Works for both ScreenSpaceOverlay and Camera canvases.
-            var cam = Camera.main;
+            // Use the cached camera — only re-find if it was destroyed (e.g. cut-scene swap).
+            if (_cam == null) _cam = Camera.main;
             var targetMb = target as MonoBehaviour;
-            if (cam == null || targetMb == null || _canvas == null) return;
+            if (_cam == null || targetMb == null || _canvas == null) return;
 
             // Anchor to the collider's top, not the transform origin — cabinets / tall
             // props have their pivot at the base, so transform.position sits inside them.
             var col = targetMb.GetComponent<Collider2D>();
             float topY = col != null ? col.bounds.max.y : targetMb.transform.position.y;
             Vector3 worldPos = new Vector3(targetMb.transform.position.x, topY, 0f) + (Vector3)worldOffset;
-            Vector2 screen = cam.WorldToScreenPoint(worldPos);
+            Vector2 screen = _cam.WorldToScreenPoint(worldPos);
 
             if (_canvas.renderMode == RenderMode.ScreenSpaceOverlay)
             {

@@ -16,7 +16,8 @@ namespace PrismZone.Core
     /// </summary>
     public static class I18nManager
     {
-        private const string PrefKey = "lang";
+        private const string PrefKey = "pz.lang";
+        private const string LegacyPrefKey = "lang";
         private const string DefaultLang = "en";
 
         public static string CurrentLang { get; private set; } = DefaultLang;
@@ -24,12 +25,29 @@ namespace PrismZone.Core
 
         public static void Init()
         {
-            CurrentLang = PlayerPrefs.GetString(PrefKey, DefaultLang);
+            if (PlayerPrefs.HasKey(PrefKey))
+            {
+                CurrentLang = PlayerPrefs.GetString(PrefKey, DefaultLang);
+            }
+            else if (PlayerPrefs.HasKey(LegacyPrefKey))
+            {
+                // Migrate returning-player preference from old key to new namespaced key.
+                string migrated = PlayerPrefs.GetString(LegacyPrefKey, DefaultLang);
+                PlayerPrefs.SetString(PrefKey, migrated);
+                PlayerPrefs.DeleteKey(LegacyPrefKey);
+                PlayerPrefs.Save();
+                CurrentLang = migrated;
+            }
+            else
+            {
+                CurrentLang = DefaultLang;
+            }
         }
 
         public static void ResetPrefs()
         {
             PlayerPrefs.DeleteKey(PrefKey);
+            PlayerPrefs.DeleteKey(LegacyPrefKey);
             PlayerPrefs.Save();
         }
 

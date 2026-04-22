@@ -209,8 +209,10 @@ namespace PrismZone.UI
         /// <summary>Drop every queued + active popup (e.g. scene reload).</summary>
         public void ClearAll()
         {
-            _queue.Clear();
+            // Close active first — its onFinished callback may re-enqueue a follow-up.
+            // Clearing the queue afterward also removes any such follow-up.
             if (_active != null) _active.Close();
+            _queue.Clear();
             ClearActive();
         }
 

@@ -177,7 +177,8 @@ namespace PrismZone.UI
             if (pageIndicator != null)
             {
                 pageIndicator.gameObject.SetActive(multiPage);
-                pageIndicator.text = multiPage ? $"{_currentPage + 1}/{maxPage + 1}" : string.Empty;
+                if (multiPage) pageIndicator.SetText("{0}/{1}", _currentPage + 1, maxPage + 1);
+                else pageIndicator.text = string.Empty;
             }
 
             // Overflow badge: small "+N" counter for items hidden beyond the current page.
@@ -188,7 +189,7 @@ namespace PrismZone.UI
                 int hidden = Mathf.Max(0, _visible.Count - (_currentPage + 1) * pageSize);
                 bool show = multiPage && hidden > 0;
                 overflowBadge.gameObject.SetActive(show);
-                if (show) overflowBadge.text = $"+{hidden}";
+                if (show) overflowBadge.SetText("+{0}", hidden);
             }
         }
     }

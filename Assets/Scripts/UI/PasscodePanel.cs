@@ -158,7 +158,9 @@ namespace PrismZone.UI
             if (displayLabel == null) return;
             char[] buf = { '_', '_', '_', '_' };
             for (int i = 0; i < _entered.Length && i < 4; i++) buf[i] = _entered[i];
-            displayLabel.text = new string(buf);
+            // SetCharArray avoids the string allocation that new string(buf) would cause
+            // on every keypress.
+            displayLabel.SetCharArray(buf, 0, buf.Length);
         }
     }
 }

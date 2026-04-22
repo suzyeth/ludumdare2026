@@ -74,6 +74,10 @@ namespace PrismZone.UI
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_WEBGL
+            // WebGL has no meaningful Application.Quit — hide the button so the
+            // player can't reach a dead-end state. Mirrors PauseMenu.Quit pattern.
+            if (quitButton != null) quitButton.gameObject.SetActive(false);
 #else
             Application.Quit();
 #endif

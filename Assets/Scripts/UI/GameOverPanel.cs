@@ -72,8 +72,13 @@ namespace PrismZone.UI
                 pressed = kb.spaceKey.wasPressedThisFrame
                        || kb.enterKey.wasPressedThisFrame
                        || kb.numpadEnterKey.wasPressedThisFrame
-                       || kb.rKey.wasPressedThisFrame
-                       || kb.escapeKey.wasPressedThisFrame;
+                       || kb.rKey.wasPressedThisFrame;
+#if !UNITY_WEBGL
+                // On WebGL, Esc is consumed by the browser to release pointer-lock.
+                // Mapping it to Restart here causes an immediate restart the moment
+                // the player exits pointer-lock, which is never intentional.
+                if (!pressed) pressed = kb.escapeKey.wasPressedThisFrame;
+#endif
             }
             if (pressed) GameOverController.Restart();
         }

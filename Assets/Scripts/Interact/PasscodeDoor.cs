@@ -11,6 +11,7 @@ namespace PrismZone.Interact
     /// </summary>
     public class PasscodeDoor : MonoBehaviour, IInteractable
     {
+        // TODO: obfuscate for shipped build — passcode is visible in WebGL data files.
         [SerializeField] private string passcode = "3071";
         [SerializeField] private Collider2D blockingCollider;
         [SerializeField] private SpriteRenderer doorRenderer;

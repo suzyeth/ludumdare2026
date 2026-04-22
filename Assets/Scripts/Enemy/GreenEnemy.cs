@@ -63,10 +63,14 @@ namespace PrismZone.Enemy
             _rb = GetComponent<Rigidbody2D>();
             // Collect our own colliders so the OverlapBox check can ignore them.
             _ownColliders = GetComponentsInChildren<Collider2D>(true);
+            // Cache PlayerController to avoid per-frame GetComponent calls (Fix 6).
+            if (target != null) _playerController = target.GetComponent<PrismZone.Player.PlayerController>();
         }
 
         private Collider2D[] _ownColliders;
-        private static readonly Collider2D[] _overlapBuf = new Collider2D[4];
+        private readonly Collider2D[] _overlapBuf = new Collider2D[4];
+        private PrismZone.Player.PlayerController _playerController;
+        private int _returnWaypointIndex = -1; // cached nearest waypoint index for Return state
 
         protected override void OnEnable()
         {
@@ -99,6 +103,23 @@ namespace PrismZone.Enemy
             // starts a fresh 20s window.
             if (prev == State.Locating && next != State.Locating)
                 _locatingEnteredAt = -1f;
+
+            // Cache nearest waypoint index once on Return entry so TickReturn
+            // doesn't scan the full array every frame (Fix 7).
+            if (next == State.Return)
+            {
+                _returnWaypointIndex = 0;
+                if (waypoints != null)
+                {
+                    float best = float.PositiveInfinity;
+                    for (int i = 0; i < waypoints.Length; i++)
+                    {
+                        if (waypoints[i] == null) continue;
+                        float d = ((Vector2)waypoints[i].position - (Vector2)transform.position).sqrMagnitude;
+                        if (d < best) { best = d; _returnWaypointIndex = i; }
+                    }
+                }
+            }
         }
 
         protected override void Tick()
@@ -110,9 +131,12 @@ namespace PrismZone.Enemy
             // guarantees catch during active-hunt states.
             TryCatchByDistance();
 
+            // Cache once per frame — TickChase reuses this result (Fix 5).
+            bool canSee = CanSeePlayer();
+
             // Locating is driven by BroadcastController — don't let LOS
             // re-transition out of it while the broadcast is running.
-            if (Current != State.Locating && CanSeePlayer())
+            if (Current != State.Locating && canSee)
             {
                 _lostSightAt = -1f;
                 SetState(State.Chase);
@@ -121,10 +145,10 @@ namespace PrismZone.Enemy
             switch (Current)
             {
                 case State.Idle:
-                case State.Patrol:   TickPatrol();   break;
-                case State.Chase:    TickChase();    break;
-                case State.Locating: TickLocating(); break;
-                case State.Return:   TickReturn();   break;
+                case State.Patrol:   TickPatrol();        break;
+                case State.Chase:    TickChase(canSee);   break;
+                case State.Locating: TickLocating();      break;
+                case State.Return:   TickReturn();        break;
             }
         }
 
@@ -134,8 +158,8 @@ namespace PrismZone.Enemy
             // Hiding in a cabinet = invisible to sight-based enemies (guards, GREEN).
             // Sound-based RED still hears running noise via PlayerNoise pulse, which is
             // suppressed elsewhere while hiding (Rigidbody velocity = 0).
-            var pc = target.GetComponent<PrismZone.Player.PlayerController>();
-            if (pc != null && pc.IsHidden) return false;
+            // Use the cached reference set in Awake to avoid per-frame GetComponent (Fix 6).
+            if (_playerController != null && _playerController.IsHidden) return false;
 
             Vector2 to = (Vector2)target.position - (Vector2)transform.position;
             float dist = to.magnitude;
@@ -173,11 +197,12 @@ namespace PrismZone.Enemy
             }
         }
 
-        private void TickChase()
+        private void TickChase(bool canSeePlayer)
         {
             if (target == null) { SetState(State.Return); return; }
 
-            if (CanSeePlayer()) _lostSightAt = -1f;
+            // Reuse the frame-cached result from Tick() — no second CanSeePlayer() call (Fix 5).
+            if (canSeePlayer) _lostSightAt = -1f;
             else if (_lostSightAt < 0f) _lostSightAt = Time.time;
 
             if (_lostSightAt > 0f && Time.time - _lostSightAt >= aggroLossTime)
@@ -225,14 +250,11 @@ namespace PrismZone.Enemy
         private void TickReturn()
         {
             if (waypoints == null || waypoints.Length == 0) { SetState(State.Idle); return; }
-            Transform closest = waypoints[0];
-            float best = float.PositiveInfinity;
-            for (int i = 0; i < waypoints.Length; i++)
-            {
-                if (waypoints[i] == null) continue;
-                float d = ((Vector2)waypoints[i].position - (Vector2)transform.position).sqrMagnitude;
-                if (d < best) { best = d; closest = waypoints[i]; }
-            }
+            // Use index cached in OnStateChanged — no per-frame array scan (Fix 7).
+            int idx = (_returnWaypointIndex >= 0 && _returnWaypointIndex < waypoints.Length)
+                ? _returnWaypointIndex : 0;
+            Transform closest = waypoints[idx];
+            if (closest == null) { SetState(State.Idle); return; }
             StepTowards(closest.position, patrolSpeed);
             if (((Vector2)closest.position - (Vector2)transform.position).sqrMagnitude <= arriveThreshold * arriveThreshold)
             {
@@ -245,7 +267,9 @@ namespace PrismZone.Enemy
             if (_pathfinder == null || wallTilemap == null) { _path.Clear(); return; }
             var start = wallTilemap.WorldToCell(transform.position);
             var goal = wallTilemap.WorldToCell(worldGoal);
-            _path = _pathfinder.FindPath(start, goal);
+            // Copy the result — FindPath returns a shared internal list that is
+            // cleared on the next call, so each enemy must own its path (Fix 1).
+            _path = new List<Vector3Int>(_pathfinder.FindPath(start, goal));
             _pathIndex = 0;
         }
 
@@ -314,8 +338,7 @@ namespace PrismZone.Enemy
             // Only active-hunt states can catch. Patrol / Idle / Return brush-past = safe.
             if (st != State.Chase && st != State.Locating && st != State.Alert) return;
 
-            var pc = target.GetComponent<PrismZone.Player.PlayerController>();
-            if (pc != null && pc.IsHidden) return; // hidden in cabinet
+            if (_playerController != null && _playerController.IsHidden) return; // hidden in cabinet
 
             float sqr = ((Vector2)target.position - (Vector2)transform.position).sqrMagnitude;
             if (sqr > catchRadius * catchRadius) return;

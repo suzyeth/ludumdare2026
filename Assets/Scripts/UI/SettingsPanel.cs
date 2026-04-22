@@ -105,6 +105,9 @@ namespace PrismZone.UI
         {
             if (!IsOpen) return;
             SetVisible(false);
+            // On WebGL, IndexedDB is only flushed by an explicit Save() — tab-close
+            // without it silently discards all PlayerPrefs written this session.
+            PlayerPrefs.Save();
             OnClosed?.Invoke();
         }
 

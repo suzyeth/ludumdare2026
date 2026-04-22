@@ -54,10 +54,13 @@ namespace PrismZone.Interact
             // Cross-scene / late-bind recovery: if the pickup READ already
             // fired before this orchestrator was alive (scene load after
             // pickup, hot-reload during testing), the event is gone. Peek at
-            // the persistent GameFlag and kick the chain manually.
+            // the persistent GameFlags and kick the chain manually — but only
+            // if the terminal node (afterT19NodeId / T-20) has NOT yet finished.
+            // If the terminal flag is already set the full sequence is done; do nothing.
             if (!_fired
                 && !string.IsNullOrEmpty(pickupReadNodeId)
-                && GameFlags.Get($"dialogue.{pickupReadNodeId}.triggered"))
+                && GameFlags.Get($"dialogue.{pickupReadNodeId}.triggered")
+                && !GameFlags.Get($"dialogue.{afterT19NodeId}.triggered"))
             {
                 _fired = true;
                 StartCoroutine(RunSequence());

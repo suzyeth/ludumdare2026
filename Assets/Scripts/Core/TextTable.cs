@@ -62,6 +62,20 @@ namespace PrismZone.Core
             _index = null;
         }
 
+#if UNITY_EDITOR
+        /// <summary>
+        /// Clears the static cache whenever scripts are recompiled or the domain
+        /// is reloaded in the Editor (e.g. after a TSV re-import that triggers an
+        /// AssetPostprocessor). The next call to Get() / T() will re-read from disk.
+        /// </summary>
+        [UnityEngine.RuntimeInitializeOnLoadMethod(UnityEngine.RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void OnDomainReload()
+        {
+            _instance = null;
+            _index = null;
+        }
+#endif
+
         // --- Public API -------------------------------------------------------
 
         public static TextEntry Get(string id)

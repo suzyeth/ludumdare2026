@@ -47,13 +47,16 @@ namespace PrismZone.UI
         private IEnumerator Roll()
         {
             float spc = 1f / Mathf.Max(1f, charactersPerSecond);
+            // Cache a single instance for the duration of this roll — avoids
+            // allocating a new WaitForSecondsRealtime object per character.
+            var wait = new WaitForSecondsRealtime(spc);
             int total = _label.textInfo.characterCount;
             int i = 0;
             while (i < total)
             {
                 i++;
                 _label.maxVisibleCharacters = i;
-                yield return new WaitForSecondsRealtime(spc);
+                yield return wait;
             }
             IsRolling = false;
             _routine = null;

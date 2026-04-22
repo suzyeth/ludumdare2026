@@ -50,14 +50,24 @@ namespace PrismZone.UI
         public void Show(string i18nKey)
         {
             if (body != null) body.text = I18nManager.Get(i18nKey);
-            if (_group != null) { _group.alpha = 1f; }
+            if (_group != null)
+            {
+                _group.alpha = 1f;
+                _group.interactable = true;
+                _group.blocksRaycasts = true;
+            }
             AudioManager.Instance?.Play(SoundId.PopupOpen);
         }
 
         public void Close()
         {
             bool wasOpen = IsOpen;
-            if (_group != null) { _group.alpha = 0f; }
+            if (_group != null)
+            {
+                _group.alpha = 0f;
+                _group.interactable = false;
+                _group.blocksRaycasts = false;
+            }
             if (wasOpen) AudioManager.Instance?.Play(SoundId.PopupClose);
         }
     }

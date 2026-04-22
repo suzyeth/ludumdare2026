@@ -50,6 +50,7 @@ namespace PrismZone.Core
         private bool _disarmed;
         private Coroutine _cycle;
         private Coroutine _runOne;
+        private Coroutine _subRoutine;
         private bool _dlgSubscribed;
 
         private void Awake()
@@ -68,12 +69,14 @@ namespace PrismZone.Core
         private void OnEnable()
         {
             if (_cycle == null) _cycle = StartCoroutine(CycleLoop());
-            StartCoroutine(SubscribeDialogueWhenReady());
+            if (_subRoutine != null) StopCoroutine(_subRoutine);
+            _subRoutine = StartCoroutine(SubscribeDialogueWhenReady());
         }
 
         private void OnDisable()
         {
             if (_cycle != null) { StopCoroutine(_cycle); _cycle = null; }
+            if (_subRoutine != null) { StopCoroutine(_subRoutine); _subRoutine = null; }
             IsBroadcasting = false;
             if (_dlgSubscribed && DialogueManager.Instance != null)
                 DialogueManager.Instance.OnDialogueFinished -= HandleDialogueFinished;
@@ -82,10 +85,12 @@ namespace PrismZone.Core
 
         private IEnumerator SubscribeDialogueWhenReady()
         {
-            while (DialogueManager.Instance == null) yield return null;
+            for (int i = 0; i < 600 && DialogueManager.Instance == null; i++) yield return null;
+            if (DialogueManager.Instance == null) { _subRoutine = null; yield break; }
             DialogueManager.Instance.OnDialogueFinished -= HandleDialogueFinished;
             DialogueManager.Instance.OnDialogueFinished += HandleDialogueFinished;
             _dlgSubscribed = true;
+            _subRoutine = null;
         }
 
         private void HandleDialogueFinished(DialogueType type, string tag)
