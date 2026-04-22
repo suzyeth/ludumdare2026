@@ -65,12 +65,36 @@ namespace PrismZone.Enemy
             _ownColliders = GetComponentsInChildren<Collider2D>(true);
             // Cache PlayerController to avoid per-frame GetComponent calls (Fix 6).
             if (target != null) _playerController = target.GetComponent<PrismZone.Player.PlayerController>();
+            // Detach any waypoint that is parented under this guard. Patrol targets are
+            // read as world positions, so a waypoint under our own transform drifts with
+            // us every frame — the enemy chases a moving target that is always the same
+            // relative offset away, effectively walking a constant vector into a wall
+            // until stuck. Reparent to scene root with world position preserved.
+            if (waypoints != null)
+            {
+                for (int i = 0; i < waypoints.Length; i++)
+                {
+                    var wp = waypoints[i];
+                    if (wp == null) continue;
+                    if (wp.IsChildOf(transform))
+                    {
+                        Debug.LogWarning($"[GreenEnemy] Waypoint '{wp.name}' was parented under this guard ('{name}'). Detaching to scene root so patrol positions stop drifting. Fix the prefab hierarchy when possible.", this);
+                        wp.SetParent(null, worldPositionStays: true);
+                    }
+                }
+            }
         }
 
         private Collider2D[] _ownColliders;
         private readonly Collider2D[] _overlapBuf = new Collider2D[4];
         private PrismZone.Player.PlayerController _playerController;
         private int _returnWaypointIndex = -1; // cached nearest waypoint index for Return state
+
+        // Stuck detection — if chase/locating hasn't moved us for this long, force a repath.
+        private Vector2 _stuckProbePos;
+        private float _stuckProbeAt = -1f;
+        private const float StuckProbeWindow = 0.5f;
+        private const float StuckMoveThresholdSqr = 0.0025f; // 0.05 world unit squared
 
         protected override void OnEnable()
         {
@@ -271,6 +295,62 @@ namespace PrismZone.Enemy
             // cleared on the next call, so each enemy must own its path (Fix 1).
             _path = new List<Vector3Int>(_pathfinder.FindPath(start, goal));
             _pathIndex = 0;
+            SmoothPath();
+            // Reset the stuck probe so a fresh path gets a clean move-or-repath window.
+            _stuckProbePos = transform.position;
+            _stuckProbeAt = Time.time;
+        }
+
+        /// <summary>
+        /// String-pull smoothing: collapse cell-by-cell BFS path into sparse
+        /// anchor points at actual level corners. Walking straight lines between
+        /// anchors prevents per-tile turn stutter AND keeps <see cref="StepTowards"/>'s
+        /// wall-slide useful — BFS produces axis-only steps that fail both slide
+        /// branches, so without smoothing the enemy freezes whenever a tile-center
+        /// waypoint grazes a wall.
+        /// </summary>
+        private void SmoothPath()
+        {
+            if (_path == null || _path.Count < 2) return;
+            var smoothed = new List<Vector3Int>(_path.Count);
+            Vector3 anchor = transform.position;
+            int i = 0;
+            while (i < _path.Count)
+            {
+                int farthest = i;
+                for (int j = i + 1; j < _path.Count; j++)
+                {
+                    Vector3 candidate = wallTilemap.GetCellCenterWorld(_path[j]);
+                    if (HasClearLine(anchor, candidate))
+                        farthest = j;
+                    else
+                        break;
+                }
+                smoothed.Add(_path[farthest]);
+                anchor = wallTilemap.GetCellCenterWorld(_path[farthest]);
+                i = farthest + 1;
+            }
+            _path = smoothed;
+        }
+
+        /// <summary>
+        /// Box-sampled line-of-sight. Reuses <see cref="CanMoveTo"/> at intervals
+        /// along the segment so triggers and our own colliders are filtered the
+        /// same way as movement. Cheap enough for per-repath use on WebGL.
+        /// </summary>
+        private bool HasClearLine(Vector3 from, Vector3 to)
+        {
+            Vector2 diff = (Vector2)(to - from);
+            float dist = diff.magnitude;
+            if (dist < 0.01f) return true;
+            int steps = Mathf.Max(1, Mathf.CeilToInt(dist / 0.25f));
+            for (int s = 1; s <= steps; s++)
+            {
+                float t = (float)s / steps;
+                Vector2 sample = (Vector2)from + diff * t;
+                if (!CanMoveTo(sample)) return false;
+            }
+            return true;
         }
 
         private void FollowPath(float speed)
@@ -281,10 +361,35 @@ namespace PrismZone.Enemy
                 return;
             }
             if (_pathIndex >= _path.Count) return;
+
+            // Opportunistic skip: if the next anchor is already LOS-clear from
+            // the current position, drop the intermediate one. Lets the enemy
+            // cut corners across open rooms instead of faithfully visiting a
+            // waypoint that smoothing couldn't eliminate (enemy may have moved
+            // into open space since the last repath).
+            if (_pathIndex + 1 < _path.Count)
+            {
+                Vector3 next = wallTilemap.GetCellCenterWorld(_path[_pathIndex + 1]);
+                if (HasClearLine(transform.position, next))
+                    _pathIndex++;
+            }
+
             Vector3 waypoint = wallTilemap.GetCellCenterWorld(_path[_pathIndex]);
             StepTowards(waypoint, speed);
             if (((Vector2)waypoint - (Vector2)transform.position).sqrMagnitude <= arriveThreshold * arriveThreshold)
                 _pathIndex++;
+
+            // Stuck detection — wall-slide failed and path skip found nothing
+            // reachable. Force a repath next frame so a fresh BFS can route
+            // around whatever changed (e.g. player moved, door opened).
+            if (_stuckProbeAt > 0f && Time.time - _stuckProbeAt >= StuckProbeWindow)
+            {
+                Vector2 here = transform.position;
+                if ((here - _stuckProbePos).sqrMagnitude < StuckMoveThresholdSqr)
+                    _nextRepathTime = 0f;
+                _stuckProbePos = here;
+                _stuckProbeAt = Time.time;
+            }
         }
 
         private void StepTowards(Vector3 goal, float speed)
