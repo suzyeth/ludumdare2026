@@ -46,6 +46,22 @@ namespace PrismZone.Interact
 
         private void Start() { ApplySprite(); }
 
+        private void LateUpdate()
+        {
+            // Pin the occupant to the hide anchor every frame while hiding. During
+            // broadcast the guard's solid-collider shell physically pushes the
+            // dynamic player Rigidbody2D — even with velocity zeroed, collisions
+            // displace the transform directly. Once displaced beyond the
+            // interactRadius the player can no longer find the cabinet, and
+            // IsHidden/IsInCabinet lock movement → permanently stuck. Re-pinning
+            // in LateUpdate overrides any physics displacement from this frame.
+            if (_occupant == null) return;
+            if (_state == CabinetState.Open) return;
+            if (hideAnchor == null) return;
+            if ((Vector2)_occupant.transform.position != (Vector2)hideAnchor.position)
+                _occupant.transform.position = hideAnchor.position;
+        }
+
         private void OnDestroy()
         {
             // Release the occupant so a cabinet destroyed mid-hide (scene
