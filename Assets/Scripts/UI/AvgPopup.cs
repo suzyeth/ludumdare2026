@@ -327,20 +327,34 @@ namespace PrismZone.UI
 
             if (pageCounterLabel != null)
             {
-                // Counter only renders when DialogueManager injected a real page
-                // label via SetPageCounterOverride (tag has .page.N). No sub-page
-                // fallback — players shouldn't see "1/3" confusion.
-                pageCounterLabel.text = _pageCounterOverride ?? string.Empty;
+                // Override (set by DialogueManager when the tag carries .page.N)
+                // wins — that's the diary's real page number from the chain. With
+                // no override but a multi-page popup, fall back to "idx/total" so
+                // the inventory-HUD click flow (4 PageKeys, no override) actually
+                // shows progress instead of an empty counter.
+                if (!string.IsNullOrEmpty(_pageCounterOverride))
+                    pageCounterLabel.text = _pageCounterOverride;
+                else if (multiPage)
+                    pageCounterLabel.text = $"{_pageIdx + 1}/{_pages.Length}";
+                else
+                    pageCounterLabel.text = string.Empty;
             }
 
-            // Hide buttons on single-page popups entirely; on multi-page, hide the
-            // nav arrow that has nothing to go to (no "previous" on page 0, no
-            // "next" past the last page) — the primary input and close button
-            // still work, so this is purely a visual hint.
+            // On single-page popups, hide both nav buttons entirely.
+            // On multi-page, keep both visible for a stable layout — just toggle
+            // interactable so prev is greyed out on page 0 and next is greyed
+            // out on the last page. Hiding outright made the bottom bar jump
+            // every time the user reached a boundary page.
             if (prevPageButton != null)
-                prevPageButton.gameObject.SetActive(multiPage && _pageIdx > 0);
+            {
+                prevPageButton.gameObject.SetActive(multiPage);
+                prevPageButton.interactable = _pageIdx > 0;
+            }
             if (nextPageButton != null)
-                nextPageButton.gameObject.SetActive(multiPage && _pageIdx < _pages.Length - 1);
+            {
+                nextPageButton.gameObject.SetActive(multiPage);
+                nextPageButton.interactable = _pageIdx < _pages.Length - 1;
+            }
         }
 
         private void SetVisible(bool on)

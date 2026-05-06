@@ -2550,7 +2550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9187179098837048561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5834,7 +5834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4836998191051152238
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6167,7 +6167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2986533835856905368
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12066,7 +12066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7287683516957347281
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14005,6 +14005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NAR_Popup
       objectReference: {fileID: 0}
+    - target: {fileID: 7430480707389973213, guid: cba7eb6eae999014abe85692b1f447a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14026,6 +14030,10 @@ PrefabInstance:
     - target: {fileID: 1629991773336277725, guid: a615a1facfbf587478bec6ed493f14a4, type: 3}
       propertyPath: m_Name
       value: READ_Popup
+      objectReference: {fileID: 0}
+    - target: {fileID: 1629991773336277725, guid: a615a1facfbf587478bec6ed493f14a4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2131584690537962730, guid: a615a1facfbf587478bec6ed493f14a4, type: 3}
       propertyPath: m_Pivot.x
@@ -14209,6 +14217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ENV_Popup
       objectReference: {fileID: 0}
+    - target: {fileID: 1386072874758277041, guid: f87ff3b4c0f95c14eb2eb918f7d9d747, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3263467231505618372, guid: f87ff3b4c0f95c14eb2eb918f7d9d747, type: 3}
       propertyPath: m_TextStyleHashCode
       value: -1183493901
@@ -14314,6 +14326,10 @@ PrefabInstance:
     - target: {fileID: 4305048646236022707, guid: f7a72cfe644a32c4ab9678e8f636505d, type: 3}
       propertyPath: m_Name
       value: FLASH_Popup
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305048646236022707, guid: f7a72cfe644a32c4ab9678e8f636505d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

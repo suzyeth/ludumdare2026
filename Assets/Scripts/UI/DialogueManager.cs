@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using PrismZone.Core;
 using PrismZone.Enemy;
@@ -108,8 +109,29 @@ namespace PrismZone.UI
             bool primary = kb != null && (kb.spaceKey.wasPressedThisFrame
                                          || kb.enterKey.wasPressedThisFrame
                                          || kb.eKey.wasPressedThisFrame);
-            if (!primary && mouse != null) primary = mouse.leftButton.wasPressedThisFrame;
+            // Mouse left as primary, BUT only when the cursor isn't over a UI element.
+            // Otherwise the same click both fires here (advance/skip) AND the button's
+            // own onClick (NextPage/PrevPage/Close) → diary jumps two pages per click,
+            // and Prev on page 0 does nothing → next ends up advancing instead.
+            // EventSystem's IsPointerOverGameObject reads the previous frame's pointer
+            // raycast, which is fine for the standard hover-then-click flow.
+            if (!primary && mouse != null && mouse.leftButton.wasPressedThisFrame)
+            {
+                var es = EventSystem.current;
+                if (es == null || !es.IsPointerOverGameObject()) primary = true;
+            }
             bool cancel = kb != null && kb.escapeKey.wasPressedThisFrame;
+
+            // Arrow keys / A-D for page nav — the popup hint text already says "[← →]
+            // 翻页", but Tick only handles primary advance. Wire them to NextPage /
+            // PrevPage directly so left actually goes back instead of doing nothing.
+            if (kb != null)
+            {
+                if (kb.leftArrowKey.wasPressedThisFrame || kb.aKey.wasPressedThisFrame)
+                    _active.PrevPage();
+                else if (kb.rightArrowKey.wasPressedThisFrame || kb.dKey.wasPressedThisFrame)
+                    _active.NextPage();
+            }
 
             bool finished = _active.Tick(primary, cancel);
             if (finished) ClearActive();
@@ -229,12 +251,16 @@ namespace PrismZone.UI
             }
 
             // Resolve text per element. Two formats are accepted:
-            //   - "@nodeId#page" (pseudo-key from ShowById): pulls from TextTable directly
-            //     so filter-conditional cells (zh_red/zh_green/...) and multi-page (|) work.
-            //   - anything else (legacy): goes through I18nManager → TextTable for back-compat.
-            // If the row is missing entirely the key string passes through visibly so designers
-            // see the gap on screen instead of an empty bubble.
-            var lines = new string[r.textKeys.Length];
+            //   - "@nodeId#page" (pseudo-key from ShowById): pulls a single specific
+            //     sub-page from TextTable. ShowById already exploded sub-pages into
+            //     one pseudo-key per sub-page, so don't re-explode here.
+            //   - plain key (InventoryHUD click on a multi-page item like the diary):
+            //     each PageKey can itself have '|' sub-pages in its TSV cell. Expand
+            //     ALL sub-pages so the diary's second half (after '|') doesn't get
+            //     silently truncated to its first sub-page. If the row is missing,
+            //     the key passes through visibly so designers see the gap.
+            var fallbackFilter = FilterManager.Instance != null ? FilterManager.Instance.Current : FilterColor.None;
+            var resolved = new List<string>(r.textKeys.Length);
             for (int i = 0; i < r.textKeys.Length; i++)
             {
                 var key = r.textKeys[i];
@@ -244,14 +270,23 @@ namespace PrismZone.UI
                     string nodeId = hash > 0 ? key.Substring(1, hash - 1) : key.Substring(1);
                     int page = 0;
                     if (hash > 0) int.TryParse(key.Substring(hash + 1), out page);
-                    var filter = FilterManager.Instance != null ? FilterManager.Instance.Current : FilterColor.None;
-                    lines[i] = TextTable.T(nodeId, page, I18nManager.CurrentLang, filter);
+                    resolved.Add(TextTable.T(nodeId, page, I18nManager.CurrentLang, fallbackFilter));
                 }
                 else
                 {
-                    lines[i] = I18nManager.Get(key);
+                    int sub = TextTable.PageCount(key, I18nManager.CurrentLang, fallbackFilter);
+                    if (sub <= 1)
+                    {
+                        resolved.Add(I18nManager.Get(key));
+                    }
+                    else
+                    {
+                        for (int p = 0; p < sub; p++)
+                            resolved.Add(TextTable.T(key, p, I18nManager.CurrentLang, fallbackFilter));
+                    }
                 }
             }
+            var lines = resolved.ToArray();
 
             _active = popup;
             _activeRequest = r;

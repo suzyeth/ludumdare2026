@@ -59,6 +59,16 @@ namespace PrismZone.Enemy
         {
             if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             _homePosition = transform.position;
+
+            // Recorder T-20 closes "the haunting" — every enemy in every scene must
+            // stay gone for the rest of the run. RecorderSequenceOrchestrator already
+            // hides the recorder-scene's enemies; this self-disable handles future
+            // scene loads (GameFlags is static and survives scene transitions, only
+            // resets on New Game / death via GameFlags.Clear).
+            if (GameFlags.Get(FlagKeys.Dialogue.T_20))
+            {
+                gameObject.SetActive(false);
+            }
         }
 
         protected virtual void OnEnable()
