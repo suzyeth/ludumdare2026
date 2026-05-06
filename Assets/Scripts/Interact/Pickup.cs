@@ -85,17 +85,19 @@ namespace PrismZone.Interact
                 // Source the READ popup's left-slot sprite from ItemData.BigIcon when
                 // we picked up an item — keeps the "diary page / letter / note" art
                 // wired without re-introducing a per-prefab Sprite field.
-                Sprite header = null;
-                if (!string.IsNullOrEmpty(itemId))
-                {
-                    var data = ItemDatabase.Get(itemId);
-                    if (data != null) header = data.BigIcon;
-                }
+                ItemData data = !string.IsNullOrEmpty(itemId) ? ItemDatabase.Get(itemId) : null;
+                Sprite header = data != null ? data.BigIcon : null;
                 // titleKey = itemId so the NAR→READ chain's READ popup shows the
                 // item's display name (e.g. "item.glasses" → "颜色矫正眼镜") in the
                 // title bar. DialogueManager propagates titleKey through follow-ups.
                 string title = !string.IsNullOrEmpty(itemId) ? itemId : null;
-                DialogueManager.Instance.ShowById(dialogueNodeId, null, null, title, header);
+
+                // Multi-page items (currently just the diary) replace the per-page
+                // TSV chain with one unified READ popup so prev/next buttons can
+                // flip across all sub-pages — same UX as clicking the inventory
+                // slot. Single-page items keep the existing chain behavior.
+                System.Action onNarFinished = BuildUnifiedItemPopupCallback(data);
+                DialogueManager.Instance.ShowById(dialogueNodeId, onNarFinished, null, title, header);
                 firedDialogue = true;
             }
             else if (!string.IsNullOrEmpty(clueTextKey) && CluePopup.Instance != null)
@@ -113,6 +115,47 @@ namespace PrismZone.Interact
                 _consumed = true;
                 if (destroyOnPickup) Destroy(gameObject);
             }
+        }
+
+        /// <summary>
+        /// For multi-page items, returns a callback that — after the NAR pickup
+        /// beat closes — fires one unified READ popup containing every PageKey,
+        /// matching the inventory-slot click UX. Returns null for single-page
+        /// items so they keep the existing TSV auto-chain.
+        /// </summary>
+        private static System.Action BuildUnifiedItemPopupCallback(ItemData data)
+        {
+            if (data == null || !data.HasDetailPopup) return null;
+            var keys = data.PageKeys;
+            if (keys == null || keys.Length <= 1) return null;
+            var nameKey = data.NameKey;
+            var bigIcon = data.BigIcon;
+            var itemTag = data.Id;
+            return () =>
+            {
+                // Enqueue the unified popup BEFORE flipping the page.1 flag —
+                // any OnState trigger watching for "diary read" (T-04) gets
+                // queued AFTER this popup, so it surfaces in narrative order.
+                DialogueManager.Instance?.ShowKeys(DialogueType.READ, keys, () =>
+                {
+                    // Mark every page triggered after the unified popup closes
+                    // so future OnState gates see the same flag set the chain
+                    // would have produced. page.1 was already set below to
+                    // suppress the auto-chain; setting again is a no-op.
+                    for (int i = 0; i < keys.Length; i++)
+                    {
+                        if (!string.IsNullOrEmpty(keys[i]))
+                            GameFlags.Set($"dialogue.{keys[i]}.triggered", true);
+                    }
+                }, null, itemTag, nameKey, bigIcon);
+
+                // Pre-flag page.1 so the NAR's auto-chain check (uses
+                // !GameFlags.Get(followUp)) skips firing the per-page chain.
+                // Same flag also fires T-04's OnState trigger — which queues
+                // after the unified popup we just enqueued above.
+                if (!string.IsNullOrEmpty(keys[0]))
+                    GameFlags.Set($"dialogue.{keys[0]}.triggered", true);
+            };
         }
     }
 }
