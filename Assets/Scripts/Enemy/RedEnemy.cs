@@ -75,10 +75,25 @@ namespace PrismZone.Enemy
         {
             switch (Current)
             {
-                case State.Idle:    TickIdle();   break;
-                case State.Chase:   TickChase();  break;
-                case State.Return:  TickReturn(); break;
+                case State.Idle:     TickIdle();     break;
+                case State.Chase:    TickChase();    break;
+                case State.Locating: TickLocating(); break;
+                case State.Return:   TickReturn();   break;
             }
+        }
+
+        // BroadcastController pushes Locating→Patrol when the broadcast ends.
+        // RED has no patrol route, so redirect to Return so it walks home and disengages.
+        protected override void OnStateChanged(State prev, State next)
+        {
+            if (next == State.Patrol) SetState(State.Return);
+        }
+
+        private void TickLocating()
+        {
+            if (target == null) return;
+            _chaseTarget = target.position;
+            transform.position = Vector2.MoveTowards(transform.position, _chaseTarget, chaseSpeed * Time.deltaTime);
         }
 
         private void TickIdle()

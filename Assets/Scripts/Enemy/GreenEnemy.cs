@@ -50,6 +50,7 @@ namespace PrismZone.Enemy
         private Rigidbody2D _rb;
         private bool _caught;           // one-shot latch so GameOver only fires once per guard
         private float _locatingEnteredAt = -1f; // watchdog — broadcast coroutine death must not strand us in Locating
+        private bool _disengaging;      // post-broadcast walk to nearest WP — suppresses LOS aggro until arrival
 
         protected override void Awake()
         {
@@ -128,6 +129,20 @@ namespace PrismZone.Enemy
             if (prev == State.Locating && next != State.Locating)
                 _locatingEnteredAt = -1f;
 
+            // Broadcast end: BroadcastController pushes Locating→Patrol. Without this
+            // redirect the LOS check in Tick() instantly snaps us back into Chase
+            // (the player is right there — we were just locating them), and the
+            // patrol cursor is wherever it was before the broadcast. Reroute to
+            // Return so the existing nearest-waypoint cache picks the closest
+            // waypoint to our current position, and arm _disengaging so we walk
+            // there without re-aggroing on the player along the way.
+            if (prev == State.Locating && next == State.Patrol)
+            {
+                _disengaging = true;
+                SetState(State.Return);
+                return;
+            }
+
             // Cache nearest waypoint index once on Return entry so TickReturn
             // doesn't scan the full array every frame (Fix 7).
             if (next == State.Return)
@@ -144,6 +159,11 @@ namespace PrismZone.Enemy
                     }
                 }
             }
+
+            // Reaching nearest waypoint (Return→Patrol) ends the disengage window
+            // and re-enables normal LOS aggro for ongoing patrol.
+            if (next == State.Patrol)
+                _disengaging = false;
         }
 
         protected override void Tick()
@@ -159,8 +179,11 @@ namespace PrismZone.Enemy
             bool canSee = CanSeePlayer();
 
             // Locating is driven by BroadcastController — don't let LOS
-            // re-transition out of it while the broadcast is running.
-            if (Current != State.Locating && canSee)
+            // re-transition out of it while the broadcast is running. Same
+            // suppression while disengaging post-broadcast: we have to be able
+            // to walk to the nearest waypoint without immediately re-locking
+            // onto a still-visible player.
+            if (Current != State.Locating && !_disengaging && canSee)
             {
                 _lostSightAt = -1f;
                 SetState(State.Chase);
